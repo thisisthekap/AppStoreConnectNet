@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppStoreVersionExperiment** | [**AppStoreVersionExperimentTreatmentCreateRequestDataRelationshipsAppStoreVersionExperiment**](AppStoreVersionExperimentTreatmentCreateRequestDataRelationshipsAppStoreVersionExperiment.md) |  | 
+**AppStoreVersionExperiment** | [**AppStoreVersionExperimentTreatmentRelationshipsAppStoreVersionExperiment**](AppStoreVersionExperimentTreatmentRelationshipsAppStoreVersionExperiment.md) |  | [optional] 
+**AppStoreVersionExperimentV2** | [**AppStoreVersionExperimentTreatmentRelationshipsAppStoreVersionExperiment**](AppStoreVersionExperimentTreatmentRelationshipsAppStoreVersionExperiment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

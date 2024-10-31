@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaLicenseAgreementsGetInstance**](BetaLicenseAgreementsApi.md#betalicenseagreementsgetinstance) | **GET** /v1/betaLicenseAgreements/{id} |  |
 | [**BetaLicenseAgreementsUpdateInstance**](BetaLicenseAgreementsApi.md#betalicenseagreementsupdateinstance) | **PATCH** /v1/betaLicenseAgreements/{id} |  |
 
-<a name="betalicenseagreementsappgettoonerelated"></a>
+<a id="betalicenseagreementsappgettoonerelated"></a>
 # **BetaLicenseAgreementsAppGetToOneRelated**
-> AppResponse BetaLicenseAgreementsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse BetaLicenseAgreementsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.BetaLicenseAgreementsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.BetaLicenseAgreementsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.BetaLicenseAgreementsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.BetaLicenseAgreementsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -102,15 +102,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betalicenseagreementsgetcollection"></a>
+<a id="betalicenseagreementsgetcollection"></a>
 # **BetaLicenseAgreementsGetCollection**
-> BetaLicenseAgreementsResponse BetaLicenseAgreementsGetCollection (List<string>? filterApp = null, List<string>? fieldsBetaLicenseAgreements = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaLicenseAgreementsResponse BetaLicenseAgreementsGetCollection (List<string>? filterApp = null, List<string>? fieldsBetaLicenseAgreements = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -140,13 +141,13 @@ namespace Example
             var apiInstance = new BetaLicenseAgreementsApi(httpClient, config, httpClientHandler);
             var filterApp = new List<string>?(); // List<string>? | filter by id(s) of related 'app' (optional) 
             var fieldsBetaLicenseAgreements = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaLicenseAgreements (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
 
             try
             {
-                BetaLicenseAgreementsResponse result = apiInstance.BetaLicenseAgreementsGetCollection(filterApp, fieldsBetaLicenseAgreements, limit, include, fieldsApps);
+                BetaLicenseAgreementsResponse result = apiInstance.BetaLicenseAgreementsGetCollection(filterApp, fieldsBetaLicenseAgreements, fieldsApps, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -166,7 +167,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaLicenseAgreementsResponse> response = apiInstance.BetaLicenseAgreementsGetCollectionWithHttpInfo(filterApp, fieldsBetaLicenseAgreements, limit, include, fieldsApps);
+    ApiResponse<BetaLicenseAgreementsResponse> response = apiInstance.BetaLicenseAgreementsGetCollectionWithHttpInfo(filterApp, fieldsBetaLicenseAgreements, fieldsApps, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -185,9 +186,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filterApp** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;app&#39; | [optional]  |
 | **fieldsBetaLicenseAgreements** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaLicenseAgreements | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 
 ### Return type
 
@@ -207,14 +208,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaLicenseAgreements |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betalicenseagreementsgetinstance"></a>
+<a id="betalicenseagreementsgetinstance"></a>
 # **BetaLicenseAgreementsGetInstance**
-> BetaLicenseAgreementResponse BetaLicenseAgreementsGetInstance (string id, List<string>? fieldsBetaLicenseAgreements = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaLicenseAgreementResponse BetaLicenseAgreementsGetInstance (string id, List<string>? fieldsBetaLicenseAgreements = null, List<string>? fieldsApps = null, List<string>? include = null)
 
 
 
@@ -244,12 +246,12 @@ namespace Example
             var apiInstance = new BetaLicenseAgreementsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaLicenseAgreements = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaLicenseAgreements (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BetaLicenseAgreementResponse result = apiInstance.BetaLicenseAgreementsGetInstance(id, fieldsBetaLicenseAgreements, include, fieldsApps);
+                BetaLicenseAgreementResponse result = apiInstance.BetaLicenseAgreementsGetInstance(id, fieldsBetaLicenseAgreements, fieldsApps, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -269,7 +271,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaLicenseAgreementResponse> response = apiInstance.BetaLicenseAgreementsGetInstanceWithHttpInfo(id, fieldsBetaLicenseAgreements, include, fieldsApps);
+    ApiResponse<BetaLicenseAgreementResponse> response = apiInstance.BetaLicenseAgreementsGetInstanceWithHttpInfo(id, fieldsBetaLicenseAgreements, fieldsApps, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -288,8 +290,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaLicenseAgreements** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaLicenseAgreements | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -309,13 +311,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaLicenseAgreement |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betalicenseagreementsupdateinstance"></a>
+<a id="betalicenseagreementsupdateinstance"></a>
 # **BetaLicenseAgreementsUpdateInstance**
 > BetaLicenseAgreementResponse BetaLicenseAgreementsUpdateInstance (string id, BetaLicenseAgreementUpdateRequest betaLicenseAgreementUpdateRequest)
 
@@ -408,8 +411,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BetaLicenseAgreement |  -  |
 | **409** | Request entity error(s) |  -  |
 

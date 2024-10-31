@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityRelationshipsApp**](AppAvailabilityRelationshipsApp.md) |  | [optional] 
+**App** | [**AppEncryptionDeclarationRelationshipsApp**](AppEncryptionDeclarationRelationshipsApp.md) |  | [optional] 
 **Builds** | [**AppEncryptionDeclarationRelationshipsBuilds**](AppEncryptionDeclarationRelationshipsBuilds.md) |  | [optional] 
 **AppEncryptionDeclarationDocument** | [**AppEncryptionDeclarationRelationshipsAppEncryptionDeclarationDocument**](AppEncryptionDeclarationRelationshipsAppEncryptionDeclarationDocument.md) |  | [optional] 
 

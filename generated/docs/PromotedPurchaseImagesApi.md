@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**PromotedPurchaseImagesGetInstance**](PromotedPurchaseImagesApi.md#promotedpurchaseimagesgetinstance) | **GET** /v1/promotedPurchaseImages/{id} |  |
 | [**PromotedPurchaseImagesUpdateInstance**](PromotedPurchaseImagesApi.md#promotedpurchaseimagesupdateinstance) | **PATCH** /v1/promotedPurchaseImages/{id} |  |
 
-<a name="promotedpurchaseimagescreateinstance"></a>
+<a id="promotedpurchaseimagescreateinstance"></a>
 # **PromotedPurchaseImagesCreateInstance**
 > PromotedPurchaseImageResponse PromotedPurchaseImagesCreateInstance (PromotedPurchaseImageCreateRequest promotedPurchaseImageCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single PromotedPurchaseImage |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="promotedpurchaseimagesdeleteinstance"></a>
+<a id="promotedpurchaseimagesdeleteinstance"></a>
 # **PromotedPurchaseImagesDeleteInstance**
 > void PromotedPurchaseImagesDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="promotedpurchaseimagesgetinstance"></a>
+<a id="promotedpurchaseimagesgetinstance"></a>
 # **PromotedPurchaseImagesGetInstance**
 > PromotedPurchaseImageResponse PromotedPurchaseImagesGetInstance (string id, List<string>? fieldsPromotedPurchaseImages = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single PromotedPurchaseImage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="promotedpurchaseimagesupdateinstance"></a>
+<a id="promotedpurchaseimagesupdateinstance"></a>
 # **PromotedPurchaseImagesUpdateInstance**
 > PromotedPurchaseImageResponse PromotedPurchaseImagesUpdateInstance (string id, PromotedPurchaseImageUpdateRequest promotedPurchaseImageUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single PromotedPurchaseImage |  -  |
 | **409** | Request entity error(s) |  -  |
 

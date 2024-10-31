@@ -15,7 +15,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppInfosSecondarySubcategoryTwoGetToOneRelated**](AppInfosApi.md#appinfossecondarysubcategorytwogettoonerelated) | **GET** /v1/appInfos/{id}/secondarySubcategoryTwo |  |
 | [**AppInfosUpdateInstance**](AppInfosApi.md#appinfosupdateinstance) | **PATCH** /v1/appInfos/{id} |  |
 
-<a name="appinfosageratingdeclarationgettoonerelated"></a>
+<a id="appinfosageratingdeclarationgettoonerelated"></a>
 # **AppInfosAgeRatingDeclarationGetToOneRelated**
 > AgeRatingDeclarationResponse AppInfosAgeRatingDeclarationGetToOneRelated (string id, List<string>? fieldsAgeRatingDeclarations = null)
 
@@ -108,15 +108,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AgeRatingDeclaration |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosappinfolocalizationsgettomanyrelated"></a>
+<a id="appinfosappinfolocalizationsgettomanyrelated"></a>
 # **AppInfosAppInfoLocalizationsGetToManyRelated**
-> AppInfoLocalizationsResponse AppInfosAppInfoLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppInfos = null, List<string>? fieldsAppInfoLocalizations = null, int? limit = null, List<string>? include = null)
+> AppInfoLocalizationsResponse AppInfosAppInfoLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppInfoLocalizations = null, List<string>? fieldsAppInfos = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -146,14 +147,14 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
-            var fieldsAppInfos = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfos (optional) 
             var fieldsAppInfoLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfoLocalizations (optional) 
+            var fieldsAppInfos = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfos (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppInfoLocalizationsResponse result = apiInstance.AppInfosAppInfoLocalizationsGetToManyRelated(id, filterLocale, fieldsAppInfos, fieldsAppInfoLocalizations, limit, include);
+                AppInfoLocalizationsResponse result = apiInstance.AppInfosAppInfoLocalizationsGetToManyRelated(id, filterLocale, fieldsAppInfoLocalizations, fieldsAppInfos, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -173,7 +174,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppInfoLocalizationsResponse> response = apiInstance.AppInfosAppInfoLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppInfos, fieldsAppInfoLocalizations, limit, include);
+    ApiResponse<AppInfoLocalizationsResponse> response = apiInstance.AppInfosAppInfoLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppInfoLocalizations, fieldsAppInfos, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -192,8 +193,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
-| **fieldsAppInfos** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfos | [optional]  |
 | **fieldsAppInfoLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfoLocalizations | [optional]  |
+| **fieldsAppInfos** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfos | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -215,15 +216,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppInfoLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosgetinstance"></a>
+<a id="appinfosgetinstance"></a>
 # **AppInfosGetInstance**
-> AppInfoResponse AppInfosGetInstance (string id, List<string>? fieldsAppInfos = null, List<string>? include = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppInfoLocalizations = null, List<string>? fieldsAppCategories = null, int? limitAppInfoLocalizations = null)
+> AppInfoResponse AppInfosGetInstance (string id, List<string>? fieldsAppInfos = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppInfoLocalizations = null, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitAppInfoLocalizations = null)
 
 
 
@@ -253,15 +255,15 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppInfos = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfos (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
             var fieldsAppInfoLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfoLocalizations (optional) 
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppInfoLocalizations = 56;  // int? | maximum number of related appInfoLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppInfoResponse result = apiInstance.AppInfosGetInstance(id, fieldsAppInfos, include, fieldsAgeRatingDeclarations, fieldsAppInfoLocalizations, fieldsAppCategories, limitAppInfoLocalizations);
+                AppInfoResponse result = apiInstance.AppInfosGetInstance(id, fieldsAppInfos, fieldsAgeRatingDeclarations, fieldsAppInfoLocalizations, fieldsAppCategories, include, limitAppInfoLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -281,7 +283,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppInfoResponse> response = apiInstance.AppInfosGetInstanceWithHttpInfo(id, fieldsAppInfos, include, fieldsAgeRatingDeclarations, fieldsAppInfoLocalizations, fieldsAppCategories, limitAppInfoLocalizations);
+    ApiResponse<AppInfoResponse> response = apiInstance.AppInfosGetInstanceWithHttpInfo(id, fieldsAppInfos, fieldsAgeRatingDeclarations, fieldsAppInfoLocalizations, fieldsAppCategories, include, limitAppInfoLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -300,10 +302,10 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppInfos** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfos | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
 | **fieldsAppInfoLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfoLocalizations | [optional]  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppInfoLocalizations** | **int?** | maximum number of related appInfoLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
@@ -324,15 +326,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppInfo |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosprimarycategorygettoonerelated"></a>
+<a id="appinfosprimarycategorygettoonerelated"></a>
 # **AppInfosPrimaryCategoryGetToOneRelated**
-> AppCategoryResponse AppInfosPrimaryCategoryGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosPrimaryCategoryGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -362,12 +365,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosPrimaryCategoryGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosPrimaryCategoryGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -387,7 +390,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimaryCategoryGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimaryCategoryGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -406,8 +409,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -427,15 +430,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosprimarysubcategoryonegettoonerelated"></a>
+<a id="appinfosprimarysubcategoryonegettoonerelated"></a>
 # **AppInfosPrimarySubcategoryOneGetToOneRelated**
-> AppCategoryResponse AppInfosPrimarySubcategoryOneGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosPrimarySubcategoryOneGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -465,12 +469,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosPrimarySubcategoryOneGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosPrimarySubcategoryOneGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -490,7 +494,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimarySubcategoryOneGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimarySubcategoryOneGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -509,8 +513,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -530,15 +534,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosprimarysubcategorytwogettoonerelated"></a>
+<a id="appinfosprimarysubcategorytwogettoonerelated"></a>
 # **AppInfosPrimarySubcategoryTwoGetToOneRelated**
-> AppCategoryResponse AppInfosPrimarySubcategoryTwoGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosPrimarySubcategoryTwoGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -568,12 +573,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosPrimarySubcategoryTwoGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosPrimarySubcategoryTwoGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -593,7 +598,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimarySubcategoryTwoGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosPrimarySubcategoryTwoGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -612,8 +617,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -633,15 +638,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfossecondarycategorygettoonerelated"></a>
+<a id="appinfossecondarycategorygettoonerelated"></a>
 # **AppInfosSecondaryCategoryGetToOneRelated**
-> AppCategoryResponse AppInfosSecondaryCategoryGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosSecondaryCategoryGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -671,12 +677,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosSecondaryCategoryGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosSecondaryCategoryGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -696,7 +702,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondaryCategoryGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondaryCategoryGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -715,8 +721,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -736,15 +742,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfossecondarysubcategoryonegettoonerelated"></a>
+<a id="appinfossecondarysubcategoryonegettoonerelated"></a>
 # **AppInfosSecondarySubcategoryOneGetToOneRelated**
-> AppCategoryResponse AppInfosSecondarySubcategoryOneGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosSecondarySubcategoryOneGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -774,12 +781,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosSecondarySubcategoryOneGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosSecondarySubcategoryOneGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -799,7 +806,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondarySubcategoryOneGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondarySubcategoryOneGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -818,8 +825,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -839,15 +846,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfossecondarysubcategorytwogettoonerelated"></a>
+<a id="appinfossecondarysubcategorytwogettoonerelated"></a>
 # **AppInfosSecondarySubcategoryTwoGetToOneRelated**
-> AppCategoryResponse AppInfosSecondarySubcategoryTwoGetToOneRelated (string id, List<string>? fieldsAppCategories = null, int? limitSubcategories = null, List<string>? include = null)
+> AppCategoryResponse AppInfosSecondarySubcategoryTwoGetToOneRelated (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
 
 
@@ -877,12 +885,12 @@ namespace Example
             var apiInstance = new AppInfosApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCategories = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCategories (optional) 
-            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitSubcategories = 56;  // int? | maximum number of related subcategories returned (when they are included) (optional) 
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppInfosSecondarySubcategoryTwoGetToOneRelated(id, fieldsAppCategories, limitSubcategories, include);
+                AppCategoryResponse result = apiInstance.AppInfosSecondarySubcategoryTwoGetToOneRelated(id, fieldsAppCategories, include, limitSubcategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -902,7 +910,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondarySubcategoryTwoGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, limitSubcategories, include);
+    ApiResponse<AppCategoryResponse> response = apiInstance.AppInfosSecondarySubcategoryTwoGetToOneRelatedWithHttpInfo(id, fieldsAppCategories, include, limitSubcategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -921,8 +929,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCategories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCategories | [optional]  |
-| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitSubcategories** | **int?** | maximum number of related subcategories returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -942,13 +950,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfosupdateinstance"></a>
+<a id="appinfosupdateinstance"></a>
 # **AppInfosUpdateInstance**
 > AppInfoResponse AppInfosUpdateInstance (string id, AppInfoUpdateRequest appInfoUpdateRequest)
 
@@ -1041,8 +1050,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppInfo |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaAppReviewSubmissionsGetCollection**](BetaAppReviewSubmissionsApi.md#betaappreviewsubmissionsgetcollection) | **GET** /v1/betaAppReviewSubmissions |  |
 | [**BetaAppReviewSubmissionsGetInstance**](BetaAppReviewSubmissionsApi.md#betaappreviewsubmissionsgetinstance) | **GET** /v1/betaAppReviewSubmissions/{id} |  |
 
-<a name="betaappreviewsubmissionsbuildgettoonerelated"></a>
+<a id="betaappreviewsubmissionsbuildgettoonerelated"></a>
 # **BetaAppReviewSubmissionsBuildGetToOneRelated**
-> BuildResponse BetaAppReviewSubmissionsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
+> BuildWithoutIncludesResponse BetaAppReviewSubmissionsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
 
 
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                BuildResponse result = apiInstance.BetaAppReviewSubmissionsBuildGetToOneRelated(id, fieldsBuilds);
+                BuildWithoutIncludesResponse result = apiInstance.BetaAppReviewSubmissionsBuildGetToOneRelated(id, fieldsBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildResponse> response = apiInstance.BetaAppReviewSubmissionsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
+    ApiResponse<BuildWithoutIncludesResponse> response = apiInstance.BetaAppReviewSubmissionsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildResponse**](BuildResponse.md)
+[**BuildWithoutIncludesResponse**](BuildWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -102,13 +102,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single Build |  -  |
+| **200** | Single Build with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewsubmissionscreateinstance"></a>
+<a id="betaappreviewsubmissionscreateinstance"></a>
 # **BetaAppReviewSubmissionsCreateInstance**
 > BetaAppReviewSubmissionResponse BetaAppReviewSubmissionsCreateInstance (BetaAppReviewSubmissionCreateRequest betaAppReviewSubmissionCreateRequest)
 
@@ -199,15 +200,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaAppReviewSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewsubmissionsgetcollection"></a>
+<a id="betaappreviewsubmissionsgetcollection"></a>
 # **BetaAppReviewSubmissionsGetCollection**
-> BetaAppReviewSubmissionsResponse BetaAppReviewSubmissionsGetCollection (List<string> filterBuild, List<string>? filterBetaReviewState = null, List<string>? fieldsBetaAppReviewSubmissions = null, int? limit = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BetaAppReviewSubmissionsResponse BetaAppReviewSubmissionsGetCollection (List<string> filterBuild, List<string>? filterBetaReviewState = null, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsBuilds = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -238,13 +241,13 @@ namespace Example
             var filterBuild = new List<string>(); // List<string> | filter by id(s) of related 'build'
             var filterBetaReviewState = new List<string>?(); // List<string>? | filter by attribute 'betaReviewState' (optional) 
             var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
 
             try
             {
-                BetaAppReviewSubmissionsResponse result = apiInstance.BetaAppReviewSubmissionsGetCollection(filterBuild, filterBetaReviewState, fieldsBetaAppReviewSubmissions, limit, include, fieldsBuilds);
+                BetaAppReviewSubmissionsResponse result = apiInstance.BetaAppReviewSubmissionsGetCollection(filterBuild, filterBetaReviewState, fieldsBetaAppReviewSubmissions, fieldsBuilds, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -264,7 +267,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppReviewSubmissionsResponse> response = apiInstance.BetaAppReviewSubmissionsGetCollectionWithHttpInfo(filterBuild, filterBetaReviewState, fieldsBetaAppReviewSubmissions, limit, include, fieldsBuilds);
+    ApiResponse<BetaAppReviewSubmissionsResponse> response = apiInstance.BetaAppReviewSubmissionsGetCollectionWithHttpInfo(filterBuild, filterBetaReviewState, fieldsBetaAppReviewSubmissions, fieldsBuilds, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -284,9 +287,9 @@ catch (ApiException e)
 | **filterBuild** | [**List&lt;string&gt;**](string.md) | filter by id(s) of related &#39;build&#39; |  |
 | **filterBetaReviewState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;betaReviewState&#39; | [optional]  |
 | **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 
 ### Return type
 
@@ -306,14 +309,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaAppReviewSubmissions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewsubmissionsgetinstance"></a>
+<a id="betaappreviewsubmissionsgetinstance"></a>
 # **BetaAppReviewSubmissionsGetInstance**
-> BetaAppReviewSubmissionResponse BetaAppReviewSubmissionsGetInstance (string id, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BetaAppReviewSubmissionResponse BetaAppReviewSubmissionsGetInstance (string id, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsBuilds = null, List<string>? include = null)
 
 
 
@@ -343,12 +347,12 @@ namespace Example
             var apiInstance = new BetaAppReviewSubmissionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BetaAppReviewSubmissionResponse result = apiInstance.BetaAppReviewSubmissionsGetInstance(id, fieldsBetaAppReviewSubmissions, include, fieldsBuilds);
+                BetaAppReviewSubmissionResponse result = apiInstance.BetaAppReviewSubmissionsGetInstance(id, fieldsBetaAppReviewSubmissions, fieldsBuilds, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -368,7 +372,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppReviewSubmissionResponse> response = apiInstance.BetaAppReviewSubmissionsGetInstanceWithHttpInfo(id, fieldsBetaAppReviewSubmissions, include, fieldsBuilds);
+    ApiResponse<BetaAppReviewSubmissionResponse> response = apiInstance.BetaAppReviewSubmissionsGetInstanceWithHttpInfo(id, fieldsBetaAppReviewSubmissions, fieldsBuilds, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -387,8 +391,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -408,6 +412,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaAppReviewSubmission |  -  |

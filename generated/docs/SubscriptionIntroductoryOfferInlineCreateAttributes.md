@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | **DateTimeOffset** |  | [optional] 
-**EndDate** | **DateTimeOffset** |  | [optional] 
+**StartDate** | **DateOnly** |  | [optional] 
+**EndDate** | **DateOnly** |  | [optional] 
 **Duration** | **SubscriptionOfferDuration** |  | 
 **OfferMode** | **SubscriptionOfferMode** |  | 
 **NumberOfPeriods** | **int** |  | 

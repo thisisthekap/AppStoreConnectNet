@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionPromotionalOffersPricesGetToManyRelated**](SubscriptionPromotionalOffersApi.md#subscriptionpromotionalofferspricesgettomanyrelated) | **GET** /v1/subscriptionPromotionalOffers/{id}/prices |  |
 | [**SubscriptionPromotionalOffersUpdateInstance**](SubscriptionPromotionalOffersApi.md#subscriptionpromotionaloffersupdateinstance) | **PATCH** /v1/subscriptionPromotionalOffers/{id} |  |
 
-<a name="subscriptionpromotionalofferscreateinstance"></a>
+<a id="subscriptionpromotionalofferscreateinstance"></a>
 # **SubscriptionPromotionalOffersCreateInstance**
 > SubscriptionPromotionalOfferResponse SubscriptionPromotionalOffersCreateInstance (SubscriptionPromotionalOfferCreateRequest subscriptionPromotionalOfferCreateRequest)
 
@@ -101,13 +101,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionPromotionalOffer |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionpromotionaloffersdeleteinstance"></a>
+<a id="subscriptionpromotionaloffersdeleteinstance"></a>
 # **SubscriptionPromotionalOffersDeleteInstance**
 > void SubscriptionPromotionalOffersDeleteInstance (string id)
 
@@ -194,6 +196,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -201,9 +204,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionpromotionaloffersgetinstance"></a>
+<a id="subscriptionpromotionaloffersgetinstance"></a>
 # **SubscriptionPromotionalOffersGetInstance**
-> SubscriptionPromotionalOfferResponse SubscriptionPromotionalOffersGetInstance (string id, List<string>? fieldsSubscriptionPromotionalOffers = null, List<string>? include = null, List<string>? fieldsSubscriptionPromotionalOfferPrices = null, int? limitPrices = null)
+> SubscriptionPromotionalOfferResponse SubscriptionPromotionalOffersGetInstance (string id, List<string>? fieldsSubscriptionPromotionalOffers = null, List<string>? fieldsSubscriptionPromotionalOfferPrices = null, List<string>? include = null, int? limitPrices = null)
 
 
 
@@ -233,13 +236,13 @@ namespace Example
             var apiInstance = new SubscriptionPromotionalOffersApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsSubscriptionPromotionalOffers = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPromotionalOffers (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsSubscriptionPromotionalOfferPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPromotionalOfferPrices (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitPrices = 56;  // int? | maximum number of related prices returned (when they are included) (optional) 
 
             try
             {
-                SubscriptionPromotionalOfferResponse result = apiInstance.SubscriptionPromotionalOffersGetInstance(id, fieldsSubscriptionPromotionalOffers, include, fieldsSubscriptionPromotionalOfferPrices, limitPrices);
+                SubscriptionPromotionalOfferResponse result = apiInstance.SubscriptionPromotionalOffersGetInstance(id, fieldsSubscriptionPromotionalOffers, fieldsSubscriptionPromotionalOfferPrices, include, limitPrices);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -259,7 +262,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<SubscriptionPromotionalOfferResponse> response = apiInstance.SubscriptionPromotionalOffersGetInstanceWithHttpInfo(id, fieldsSubscriptionPromotionalOffers, include, fieldsSubscriptionPromotionalOfferPrices, limitPrices);
+    ApiResponse<SubscriptionPromotionalOfferResponse> response = apiInstance.SubscriptionPromotionalOffersGetInstanceWithHttpInfo(id, fieldsSubscriptionPromotionalOffers, fieldsSubscriptionPromotionalOfferPrices, include, limitPrices);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -278,8 +281,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsSubscriptionPromotionalOffers** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPromotionalOffers | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsSubscriptionPromotionalOfferPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPromotionalOfferPrices | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitPrices** | **int?** | maximum number of related prices returned (when they are included) | [optional]  |
 
 ### Return type
@@ -300,15 +303,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionPromotionalOffer |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionpromotionalofferspricesgettomanyrelated"></a>
+<a id="subscriptionpromotionalofferspricesgettomanyrelated"></a>
 # **SubscriptionPromotionalOffersPricesGetToManyRelated**
-> SubscriptionPromotionalOfferPricesResponse SubscriptionPromotionalOffersPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsSubscriptionPricePoints = null, List<string>? fieldsTerritories = null, List<string>? fieldsSubscriptionPromotionalOfferPrices = null, int? limit = null, List<string>? include = null)
+> SubscriptionPromotionalOfferPricesResponse SubscriptionPromotionalOffersPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsSubscriptionPromotionalOfferPrices = null, List<string>? fieldsTerritories = null, List<string>? fieldsSubscriptionPricePoints = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -338,15 +342,15 @@ namespace Example
             var apiInstance = new SubscriptionPromotionalOffersApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
-            var fieldsSubscriptionPricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPricePoints (optional) 
-            var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
             var fieldsSubscriptionPromotionalOfferPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPromotionalOfferPrices (optional) 
+            var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
+            var fieldsSubscriptionPricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPricePoints (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                SubscriptionPromotionalOfferPricesResponse result = apiInstance.SubscriptionPromotionalOffersPricesGetToManyRelated(id, filterTerritory, fieldsSubscriptionPricePoints, fieldsTerritories, fieldsSubscriptionPromotionalOfferPrices, limit, include);
+                SubscriptionPromotionalOfferPricesResponse result = apiInstance.SubscriptionPromotionalOffersPricesGetToManyRelated(id, filterTerritory, fieldsSubscriptionPromotionalOfferPrices, fieldsTerritories, fieldsSubscriptionPricePoints, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -366,7 +370,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<SubscriptionPromotionalOfferPricesResponse> response = apiInstance.SubscriptionPromotionalOffersPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsSubscriptionPricePoints, fieldsTerritories, fieldsSubscriptionPromotionalOfferPrices, limit, include);
+    ApiResponse<SubscriptionPromotionalOfferPricesResponse> response = apiInstance.SubscriptionPromotionalOffersPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsSubscriptionPromotionalOfferPrices, fieldsTerritories, fieldsSubscriptionPricePoints, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -385,9 +389,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
-| **fieldsSubscriptionPricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPricePoints | [optional]  |
-| **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
 | **fieldsSubscriptionPromotionalOfferPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPromotionalOfferPrices | [optional]  |
+| **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
+| **fieldsSubscriptionPricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPricePoints | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -409,13 +413,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of SubscriptionPromotionalOfferPrices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionpromotionaloffersupdateinstance"></a>
+<a id="subscriptionpromotionaloffersupdateinstance"></a>
 # **SubscriptionPromotionalOffersUpdateInstance**
 > SubscriptionPromotionalOfferResponse SubscriptionPromotionalOffersUpdateInstance (string id, SubscriptionPromotionalOfferUpdateRequest subscriptionPromotionalOfferUpdateRequest)
 
@@ -508,8 +513,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionPromotionalOffer |  -  |
 | **409** | Request entity error(s) |  -  |
 

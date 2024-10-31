@@ -7,7 +7,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionGracePeriodsGetInstance**](SubscriptionGracePeriodsApi.md#subscriptiongraceperiodsgetinstance) | **GET** /v1/subscriptionGracePeriods/{id} |  |
 | [**SubscriptionGracePeriodsUpdateInstance**](SubscriptionGracePeriodsApi.md#subscriptiongraceperiodsupdateinstance) | **PATCH** /v1/subscriptionGracePeriods/{id} |  |
 
-<a name="subscriptiongraceperiodsgetinstance"></a>
+<a id="subscriptiongraceperiodsgetinstance"></a>
 # **SubscriptionGracePeriodsGetInstance**
 > SubscriptionGracePeriodResponse SubscriptionGracePeriodsGetInstance (string id, List<string>? fieldsSubscriptionGracePeriods = null)
 
@@ -100,13 +100,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionGracePeriod |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptiongraceperiodsupdateinstance"></a>
+<a id="subscriptiongraceperiodsupdateinstance"></a>
 # **SubscriptionGracePeriodsUpdateInstance**
 > SubscriptionGracePeriodResponse SubscriptionGracePeriodsUpdateInstance (string id, SubscriptionGracePeriodUpdateRequest subscriptionGracePeriodUpdateRequest)
 
@@ -199,8 +200,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionGracePeriod |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppStoreVersion** | [**AppClipDefaultExperienceRelationshipsReleaseWithAppStoreVersion**](AppClipDefaultExperienceRelationshipsReleaseWithAppStoreVersion.md) |  | [optional] 
+**AppStoreVersion** | [**AppClipDefaultExperienceCreateRequestDataRelationshipsReleaseWithAppStoreVersion**](AppClipDefaultExperienceCreateRequestDataRelationshipsReleaseWithAppStoreVersion.md) |  | [optional] 
 **AppScreenshotSets** | [**AppCustomProductPageLocalizationRelationshipsAppScreenshotSets**](AppCustomProductPageLocalizationRelationshipsAppScreenshotSets.md) |  | [optional] 
 **AppPreviewSets** | [**AppCustomProductPageLocalizationRelationshipsAppPreviewSets**](AppCustomProductPageLocalizationRelationshipsAppPreviewSets.md) |  | [optional] 
 

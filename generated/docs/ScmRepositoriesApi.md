@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**ScmRepositoriesGitReferencesGetToManyRelated**](ScmRepositoriesApi.md#scmrepositoriesgitreferencesgettomanyrelated) | **GET** /v1/scmRepositories/{id}/gitReferences |  |
 | [**ScmRepositoriesPullRequestsGetToManyRelated**](ScmRepositoriesApi.md#scmrepositoriespullrequestsgettomanyrelated) | **GET** /v1/scmRepositories/{id}/pullRequests |  |
 
-<a name="scmrepositoriesgetcollection"></a>
+<a id="scmrepositoriesgetcollection"></a>
 # **ScmRepositoriesGetCollection**
-> ScmRepositoriesResponse ScmRepositoriesGetCollection (List<string>? filterId = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmPullRequests = null)
+> ScmRepositoriesResponse ScmRepositoriesGetCollection (List<string>? filterId = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -43,12 +43,10 @@ namespace Example
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
-            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
 
             try
             {
-                ScmRepositoriesResponse result = apiInstance.ScmRepositoriesGetCollection(filterId, fieldsScmRepositories, limit, include, fieldsScmGitReferences, fieldsScmPullRequests);
+                ScmRepositoriesResponse result = apiInstance.ScmRepositoriesGetCollection(filterId, fieldsScmRepositories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -68,7 +66,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ScmRepositoriesResponse> response = apiInstance.ScmRepositoriesGetCollectionWithHttpInfo(filterId, fieldsScmRepositories, limit, include, fieldsScmGitReferences, fieldsScmPullRequests);
+    ApiResponse<ScmRepositoriesResponse> response = apiInstance.ScmRepositoriesGetCollectionWithHttpInfo(filterId, fieldsScmRepositories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -89,8 +87,6 @@ catch (ApiException e)
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
-| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
 
 ### Return type
 
@@ -110,14 +106,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of ScmRepositories |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scmrepositoriesgetinstance"></a>
+<a id="scmrepositoriesgetinstance"></a>
 # **ScmRepositoriesGetInstance**
-> ScmRepositoryResponse ScmRepositoriesGetInstance (string id, List<string>? fieldsScmRepositories = null, List<string>? include = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmPullRequests = null)
+> ScmRepositoryResponse ScmRepositoriesGetInstance (string id, List<string>? fieldsScmRepositories = null, List<string>? include = null)
 
 
 
@@ -148,12 +145,10 @@ namespace Example
             var id = "id_example";  // string | the id of the requested resource
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
-            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
 
             try
             {
-                ScmRepositoryResponse result = apiInstance.ScmRepositoriesGetInstance(id, fieldsScmRepositories, include, fieldsScmGitReferences, fieldsScmPullRequests);
+                ScmRepositoryResponse result = apiInstance.ScmRepositoriesGetInstance(id, fieldsScmRepositories, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -173,7 +168,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ScmRepositoryResponse> response = apiInstance.ScmRepositoriesGetInstanceWithHttpInfo(id, fieldsScmRepositories, include, fieldsScmGitReferences, fieldsScmPullRequests);
+    ApiResponse<ScmRepositoryResponse> response = apiInstance.ScmRepositoriesGetInstanceWithHttpInfo(id, fieldsScmRepositories, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -193,8 +188,6 @@ catch (ApiException e)
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
-| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
 
 ### Return type
 
@@ -214,13 +207,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single ScmRepository |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scmrepositoriesgitreferencesgettomanyrelated"></a>
+<a id="scmrepositoriesgitreferencesgettomanyrelated"></a>
 # **ScmRepositoriesGitReferencesGetToManyRelated**
 > ScmGitReferencesResponse ScmRepositoriesGitReferencesGetToManyRelated (string id, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
 
@@ -319,13 +313,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of ScmGitReferences |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="scmrepositoriespullrequestsgettomanyrelated"></a>
+<a id="scmrepositoriespullrequestsgettomanyrelated"></a>
 # **ScmRepositoriesPullRequestsGetToManyRelated**
 > ScmPullRequestsResponse ScmRepositoriesPullRequestsGetToManyRelated (string id, List<string>? fieldsScmPullRequests = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
 
@@ -424,6 +419,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of ScmPullRequests |  -  |

@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityCreateRequestDataRelationshipsApp**](AppAvailabilityCreateRequestDataRelationshipsApp.md) |  | 
+**App** | [**AnalyticsReportRequestCreateRequestDataRelationshipsApp**](AnalyticsReportRequestCreateRequestDataRelationshipsApp.md) |  | 
 **AppCustomProductPageVersions** | [**AppCustomProductPageCreateRequestDataRelationshipsAppCustomProductPageVersions**](AppCustomProductPageCreateRequestDataRelationshipsAppCustomProductPageVersions.md) |  | [optional] 
 **AppStoreVersionTemplate** | [**AppClipDefaultExperienceCreateRequestDataRelationshipsReleaseWithAppStoreVersion**](AppClipDefaultExperienceCreateRequestDataRelationshipsReleaseWithAppStoreVersion.md) |  | [optional] 
-**CustomProductPageTemplate** | [**AppCustomProductPageVersionInlineCreateRelationshipsAppCustomProductPage**](AppCustomProductPageVersionInlineCreateRelationshipsAppCustomProductPage.md) |  | [optional] 
+**CustomProductPageTemplate** | [**AppCustomProductPageVersionRelationshipsAppCustomProductPage**](AppCustomProductPageVersionRelationshipsAppCustomProductPage.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

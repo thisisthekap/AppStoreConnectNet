@@ -11,6 +11,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BuildsAppStoreVersionGetToOneRelated**](BuildsApi.md#buildsappstoreversiongettoonerelated) | **GET** /v1/builds/{id}/appStoreVersion |  |
 | [**BuildsBetaAppReviewSubmissionGetToOneRelated**](BuildsApi.md#buildsbetaappreviewsubmissiongettoonerelated) | **GET** /v1/builds/{id}/betaAppReviewSubmission |  |
 | [**BuildsBetaBuildLocalizationsGetToManyRelated**](BuildsApi.md#buildsbetabuildlocalizationsgettomanyrelated) | **GET** /v1/builds/{id}/betaBuildLocalizations |  |
+| [**BuildsBetaBuildUsagesGetMetrics**](BuildsApi.md#buildsbetabuildusagesgetmetrics) | **GET** /v1/builds/{id}/metrics/betaBuildUsages |  |
 | [**BuildsBetaGroupsCreateToManyRelationship**](BuildsApi.md#buildsbetagroupscreatetomanyrelationship) | **POST** /v1/builds/{id}/relationships/betaGroups |  |
 | [**BuildsBetaGroupsDeleteToManyRelationship**](BuildsApi.md#buildsbetagroupsdeletetomanyrelationship) | **DELETE** /v1/builds/{id}/relationships/betaGroups |  |
 | [**BuildsBuildBetaDetailGetToOneRelated**](BuildsApi.md#buildsbuildbetadetailgettoonerelated) | **GET** /v1/builds/{id}/buildBetaDetail |  |
@@ -26,9 +27,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BuildsPreReleaseVersionGetToOneRelated**](BuildsApi.md#buildsprereleaseversiongettoonerelated) | **GET** /v1/builds/{id}/preReleaseVersion |  |
 | [**BuildsUpdateInstance**](BuildsApi.md#buildsupdateinstance) | **PATCH** /v1/builds/{id} |  |
 
-<a name="buildsappencryptiondeclarationgettoonerelated"></a>
+<a id="buildsappencryptiondeclarationgettoonerelated"></a>
 # **BuildsAppEncryptionDeclarationGetToOneRelated**
-> AppEncryptionDeclarationResponse BuildsAppEncryptionDeclarationGetToOneRelated (string id, List<string>? fieldsAppEncryptionDeclarations = null)
+> AppEncryptionDeclarationWithoutIncludesResponse BuildsAppEncryptionDeclarationGetToOneRelated (string id, List<string>? fieldsAppEncryptionDeclarations = null)
 
 
 
@@ -61,7 +62,7 @@ namespace Example
 
             try
             {
-                AppEncryptionDeclarationResponse result = apiInstance.BuildsAppEncryptionDeclarationGetToOneRelated(id, fieldsAppEncryptionDeclarations);
+                AppEncryptionDeclarationWithoutIncludesResponse result = apiInstance.BuildsAppEncryptionDeclarationGetToOneRelated(id, fieldsAppEncryptionDeclarations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -81,7 +82,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppEncryptionDeclarationResponse> response = apiInstance.BuildsAppEncryptionDeclarationGetToOneRelatedWithHttpInfo(id, fieldsAppEncryptionDeclarations);
+    ApiResponse<AppEncryptionDeclarationWithoutIncludesResponse> response = apiInstance.BuildsAppEncryptionDeclarationGetToOneRelatedWithHttpInfo(id, fieldsAppEncryptionDeclarations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -103,7 +104,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppEncryptionDeclarationResponse**](AppEncryptionDeclarationResponse.md)
+[**AppEncryptionDeclarationWithoutIncludesResponse**](AppEncryptionDeclarationWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -119,13 +120,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single AppEncryptionDeclaration |  -  |
+| **200** | Single AppEncryptionDeclaration with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsappencryptiondeclarationgettoonerelationship"></a>
+<a id="buildsappencryptiondeclarationgettoonerelationship"></a>
 # **BuildsAppEncryptionDeclarationGetToOneRelationship**
 > BuildAppEncryptionDeclarationLinkageResponse BuildsAppEncryptionDeclarationGetToOneRelationship (string id)
 
@@ -216,13 +218,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Related linkage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsappencryptiondeclarationupdatetoonerelationship"></a>
+<a id="buildsappencryptiondeclarationupdatetoonerelationship"></a>
 # **BuildsAppEncryptionDeclarationUpdateToOneRelationship**
 > void BuildsAppEncryptionDeclarationUpdateToOneRelationship (string id, BuildAppEncryptionDeclarationLinkageRequest buildAppEncryptionDeclarationLinkageRequest)
 
@@ -310,16 +313,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsappgettoonerelated"></a>
+<a id="buildsappgettoonerelated"></a>
 # **BuildsAppGetToOneRelated**
-> AppResponse BuildsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse BuildsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -352,7 +357,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.BuildsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.BuildsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -372,7 +377,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.BuildsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.BuildsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -394,7 +399,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -410,15 +415,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsappstoreversiongettoonerelated"></a>
+<a id="buildsappstoreversiongettoonerelated"></a>
 # **BuildsAppStoreVersionGetToOneRelated**
-> AppStoreVersionResponse BuildsAppStoreVersionGetToOneRelated (string id, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsApps = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionLocalizations = null, int? limitAppStoreVersionLocalizations = null, int? limitAppStoreVersionExperiments = null, List<string>? include = null)
+> AppStoreVersionResponse BuildsAppStoreVersionGetToOneRelated (string id, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsApps = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsGameCenterAppVersions = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAlternativeDistributionPackages = null, List<string>? include = null, int? limitAppStoreVersionLocalizations = null, int? limitAppStoreVersionExperiments = null, int? limitAppStoreVersionExperimentsV2 = null)
 
 
 
@@ -447,24 +453,27 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
-            var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
-            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
-            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
-            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
-            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
             var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
+            var fieldsGameCenterAppVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterAppVersions (optional) 
+            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
+            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
+            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
+            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
+            var fieldsAlternativeDistributionPackages = new List<string>?(); // List<string>? | the fields to include for returned resources of type alternativeDistributionPackages (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppStoreVersionLocalizations = 56;  // int? | maximum number of related appStoreVersionLocalizations returned (when they are included) (optional) 
             var limitAppStoreVersionExperiments = 56;  // int? | maximum number of related appStoreVersionExperiments returned (when they are included) (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppStoreVersionExperimentsV2 = 56;  // int? | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionResponse result = apiInstance.BuildsAppStoreVersionGetToOneRelated(id, fieldsAppStoreVersionExperiments, fieldsAgeRatingDeclarations, fieldsAppStoreVersionSubmissions, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsApps, fieldsRoutingAppCoverages, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, include);
+                AppStoreVersionResponse result = apiInstance.BuildsAppStoreVersionGetToOneRelated(id, fieldsAppStoreVersions, fieldsApps, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -484,7 +493,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionResponse> response = apiInstance.BuildsAppStoreVersionGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersionExperiments, fieldsAgeRatingDeclarations, fieldsAppStoreVersionSubmissions, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsApps, fieldsRoutingAppCoverages, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, include);
+    ApiResponse<AppStoreVersionResponse> response = apiInstance.BuildsAppStoreVersionGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersions, fieldsApps, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -502,20 +511,23 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
-| **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
-| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
-| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
-| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
-| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
 | **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
+| **fieldsGameCenterAppVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterAppVersions | [optional]  |
+| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
+| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
+| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
+| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
+| **fieldsAlternativeDistributionPackages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type alternativeDistributionPackages | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppStoreVersionLocalizations** | **int?** | maximum number of related appStoreVersionLocalizations returned (when they are included) | [optional]  |
 | **limitAppStoreVersionExperiments** | **int?** | maximum number of related appStoreVersionExperiments returned (when they are included) | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppStoreVersionExperimentsV2** | **int?** | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -535,15 +547,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersion |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsbetaappreviewsubmissiongettoonerelated"></a>
+<a id="buildsbetaappreviewsubmissiongettoonerelated"></a>
 # **BuildsBetaAppReviewSubmissionGetToOneRelated**
-> BetaAppReviewSubmissionResponse BuildsBetaAppReviewSubmissionGetToOneRelated (string id, List<string>? fieldsBetaAppReviewSubmissions = null)
+> BetaAppReviewSubmissionWithoutIncludesResponse BuildsBetaAppReviewSubmissionGetToOneRelated (string id, List<string>? fieldsBetaAppReviewSubmissions = null)
 
 
 
@@ -576,7 +589,7 @@ namespace Example
 
             try
             {
-                BetaAppReviewSubmissionResponse result = apiInstance.BuildsBetaAppReviewSubmissionGetToOneRelated(id, fieldsBetaAppReviewSubmissions);
+                BetaAppReviewSubmissionWithoutIncludesResponse result = apiInstance.BuildsBetaAppReviewSubmissionGetToOneRelated(id, fieldsBetaAppReviewSubmissions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -596,7 +609,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppReviewSubmissionResponse> response = apiInstance.BuildsBetaAppReviewSubmissionGetToOneRelatedWithHttpInfo(id, fieldsBetaAppReviewSubmissions);
+    ApiResponse<BetaAppReviewSubmissionWithoutIncludesResponse> response = apiInstance.BuildsBetaAppReviewSubmissionGetToOneRelatedWithHttpInfo(id, fieldsBetaAppReviewSubmissions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -618,7 +631,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BetaAppReviewSubmissionResponse**](BetaAppReviewSubmissionResponse.md)
+[**BetaAppReviewSubmissionWithoutIncludesResponse**](BetaAppReviewSubmissionWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -634,15 +647,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single BetaAppReviewSubmission |  -  |
+| **200** | Single BetaAppReviewSubmission with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsbetabuildlocalizationsgettomanyrelated"></a>
+<a id="buildsbetabuildlocalizationsgettomanyrelated"></a>
 # **BuildsBetaBuildLocalizationsGetToManyRelated**
-> BetaBuildLocalizationsResponse BuildsBetaBuildLocalizationsGetToManyRelated (string id, List<string>? fieldsBetaBuildLocalizations = null, int? limit = null)
+> BetaBuildLocalizationsWithoutIncludesResponse BuildsBetaBuildLocalizationsGetToManyRelated (string id, List<string>? fieldsBetaBuildLocalizations = null, int? limit = null)
 
 
 
@@ -676,7 +690,7 @@ namespace Example
 
             try
             {
-                BetaBuildLocalizationsResponse result = apiInstance.BuildsBetaBuildLocalizationsGetToManyRelated(id, fieldsBetaBuildLocalizations, limit);
+                BetaBuildLocalizationsWithoutIncludesResponse result = apiInstance.BuildsBetaBuildLocalizationsGetToManyRelated(id, fieldsBetaBuildLocalizations, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -696,7 +710,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaBuildLocalizationsResponse> response = apiInstance.BuildsBetaBuildLocalizationsGetToManyRelatedWithHttpInfo(id, fieldsBetaBuildLocalizations, limit);
+    ApiResponse<BetaBuildLocalizationsWithoutIncludesResponse> response = apiInstance.BuildsBetaBuildLocalizationsGetToManyRelatedWithHttpInfo(id, fieldsBetaBuildLocalizations, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -719,7 +733,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BetaBuildLocalizationsResponse**](BetaBuildLocalizationsResponse.md)
+[**BetaBuildLocalizationsWithoutIncludesResponse**](BetaBuildLocalizationsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -735,13 +749,114 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of BetaBuildLocalizations |  -  |
+| **200** | List of BetaBuildLocalizations with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsbetagroupscreatetomanyrelationship"></a>
+<a id="buildsbetabuildusagesgetmetrics"></a>
+# **BuildsBetaBuildUsagesGetMetrics**
+> BetaBuildUsagesV1MetricResponse BuildsBetaBuildUsagesGetMetrics (string id, int? limit = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using AppStoreConnect.Net.Api;
+using AppStoreConnect.Net.Client;
+using AppStoreConnect.Net.Model;
+
+namespace Example
+{
+    public class BuildsBetaBuildUsagesGetMetricsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.appstoreconnect.apple.com";
+            // Configure Bearer token for authorization: itc-bearer-token
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // string | the id of the requested resource
+            var limit = 56;  // int? | maximum number of groups to return per page (optional) 
+
+            try
+            {
+                BetaBuildUsagesV1MetricResponse result = apiInstance.BuildsBetaBuildUsagesGetMetrics(id, limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling BuildsApi.BuildsBetaBuildUsagesGetMetrics: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BuildsBetaBuildUsagesGetMetricsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<BetaBuildUsagesV1MetricResponse> response = apiInstance.BuildsBetaBuildUsagesGetMetricsWithHttpInfo(id, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling BuildsApi.BuildsBetaBuildUsagesGetMetricsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | the id of the requested resource |  |
+| **limit** | **int?** | maximum number of groups to return per page | [optional]  |
+
+### Return type
+
+[**BetaBuildUsagesV1MetricResponse**](BetaBuildUsagesV1MetricResponse.md)
+
+### Authorization
+
+[itc-bearer-token](../README.md#itc-bearer-token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
+| **403** | Forbidden error |  -  |
+| **404** | Not found error |  -  |
+| **200** | Metrics data response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="buildsbetagroupscreatetomanyrelationship"></a>
 # **BuildsBetaGroupsCreateToManyRelationship**
 > void BuildsBetaGroupsCreateToManyRelationship (string id, BuildBetaGroupsLinkagesRequest buildBetaGroupsLinkagesRequest)
 
@@ -829,14 +944,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsbetagroupsdeletetomanyrelationship"></a>
+<a id="buildsbetagroupsdeletetomanyrelationship"></a>
 # **BuildsBetaGroupsDeleteToManyRelationship**
 > void BuildsBetaGroupsDeleteToManyRelationship (string id, BuildBetaGroupsLinkagesRequest buildBetaGroupsLinkagesRequest)
 
@@ -924,16 +1041,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsbuildbetadetailgettoonerelated"></a>
+<a id="buildsbuildbetadetailgettoonerelated"></a>
 # **BuildsBuildBetaDetailGetToOneRelated**
-> BuildBetaDetailResponse BuildsBuildBetaDetailGetToOneRelated (string id, List<string>? fieldsBuildBetaDetails = null)
+> BuildBetaDetailResponse BuildsBuildBetaDetailGetToOneRelated (string id, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsBuilds = null, List<string>? include = null)
 
 
 
@@ -963,10 +1082,12 @@ namespace Example
             var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BuildBetaDetailResponse result = apiInstance.BuildsBuildBetaDetailGetToOneRelated(id, fieldsBuildBetaDetails);
+                BuildBetaDetailResponse result = apiInstance.BuildsBuildBetaDetailGetToOneRelated(id, fieldsBuildBetaDetails, fieldsBuilds, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -986,7 +1107,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildBetaDetailResponse> response = apiInstance.BuildsBuildBetaDetailGetToOneRelatedWithHttpInfo(id, fieldsBuildBetaDetails);
+    ApiResponse<BuildBetaDetailResponse> response = apiInstance.BuildsBuildBetaDetailGetToOneRelatedWithHttpInfo(id, fieldsBuildBetaDetails, fieldsBuilds, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1005,6 +1126,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -1024,13 +1147,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BuildBetaDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsdiagnosticsignaturesgettomanyrelated"></a>
+<a id="buildsdiagnosticsignaturesgettomanyrelated"></a>
 # **BuildsDiagnosticSignaturesGetToManyRelated**
 > DiagnosticSignaturesResponse BuildsDiagnosticSignaturesGetToManyRelated (string id, List<string>? filterDiagnosticType = null, List<string>? fieldsDiagnosticSignatures = null, int? limit = null)
 
@@ -1127,15 +1251,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of DiagnosticSignatures |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsgetcollection"></a>
+<a id="buildsgetcollection"></a>
 # **BuildsGetCollection**
-> BuildsResponse BuildsGetCollection (List<string>? filterBetaAppReviewSubmissionBetaReviewState = null, List<string>? filterBuildAudienceType = null, List<string>? filterExpired = null, List<string>? filterPreReleaseVersionPlatform = null, List<string>? filterPreReleaseVersionVersion = null, List<string>? filterProcessingState = null, List<string>? filterUsesNonExemptEncryption = null, List<string>? filterVersion = null, List<string>? filterApp = null, List<string>? filterAppStoreVersion = null, List<string>? filterBetaGroups = null, List<string>? filterPreReleaseVersion = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBuilds = null, int? limit = null, List<string>? include = null, List<string>? fieldsDiagnosticSignatures = null, List<string>? fieldsBuildIcons = null, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsBetaTesters = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsAppEncryptionDeclarations = null, List<string>? fieldsApps = null, List<string>? fieldsPerfPowerMetrics = null, int? limitBetaBuildLocalizations = null, int? limitBetaGroups = null, int? limitBuildBundles = null, int? limitIcons = null, int? limitIndividualTesters = null)
+> BuildsResponse BuildsGetCollection (List<string>? filterVersion = null, List<string>? filterExpired = null, List<string>? filterProcessingState = null, List<string>? filterBetaAppReviewSubmissionBetaReviewState = null, List<string>? filterUsesNonExemptEncryption = null, List<string>? filterPreReleaseVersionVersion = null, List<string>? filterPreReleaseVersionPlatform = null, List<string>? filterBuildAudienceType = null, List<string>? filterPreReleaseVersion = null, List<string>? filterApp = null, List<string>? filterBetaGroups = null, List<string>? filterAppStoreVersion = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBuilds = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsBetaTesters = null, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsAppEncryptionDeclarations = null, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsApps = null, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsBuildIcons = null, int? limit = null, List<string>? include = null, int? limitBetaBuildLocalizations = null, int? limitBetaGroups = null, int? limitBuildBundles = null, int? limitIcons = null, int? limitIndividualTesters = null)
 
 
 
@@ -1163,34 +1288,32 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
-            var filterBetaAppReviewSubmissionBetaReviewState = new List<string>?(); // List<string>? | filter by attribute 'betaAppReviewSubmission.betaReviewState' (optional) 
-            var filterBuildAudienceType = new List<string>?(); // List<string>? | filter by attribute 'buildAudienceType' (optional) 
-            var filterExpired = new List<string>?(); // List<string>? | filter by attribute 'expired' (optional) 
-            var filterPreReleaseVersionPlatform = new List<string>?(); // List<string>? | filter by attribute 'preReleaseVersion.platform' (optional) 
-            var filterPreReleaseVersionVersion = new List<string>?(); // List<string>? | filter by attribute 'preReleaseVersion.version' (optional) 
-            var filterProcessingState = new List<string>?(); // List<string>? | filter by attribute 'processingState' (optional) 
-            var filterUsesNonExemptEncryption = new List<string>?(); // List<string>? | filter by attribute 'usesNonExemptEncryption' (optional) 
             var filterVersion = new List<string>?(); // List<string>? | filter by attribute 'version' (optional) 
-            var filterApp = new List<string>?(); // List<string>? | filter by id(s) of related 'app' (optional) 
-            var filterAppStoreVersion = new List<string>?(); // List<string>? | filter by id(s) of related 'appStoreVersion' (optional) 
-            var filterBetaGroups = new List<string>?(); // List<string>? | filter by id(s) of related 'betaGroups' (optional) 
+            var filterExpired = new List<string>?(); // List<string>? | filter by attribute 'expired' (optional) 
+            var filterProcessingState = new List<string>?(); // List<string>? | filter by attribute 'processingState' (optional) 
+            var filterBetaAppReviewSubmissionBetaReviewState = new List<string>?(); // List<string>? | filter by attribute 'betaAppReviewSubmission.betaReviewState' (optional) 
+            var filterUsesNonExemptEncryption = new List<string>?(); // List<string>? | filter by attribute 'usesNonExemptEncryption' (optional) 
+            var filterPreReleaseVersionVersion = new List<string>?(); // List<string>? | filter by attribute 'preReleaseVersion.version' (optional) 
+            var filterPreReleaseVersionPlatform = new List<string>?(); // List<string>? | filter by attribute 'preReleaseVersion.platform' (optional) 
+            var filterBuildAudienceType = new List<string>?(); // List<string>? | filter by attribute 'buildAudienceType' (optional) 
             var filterPreReleaseVersion = new List<string>?(); // List<string>? | filter by id(s) of related 'preReleaseVersion' (optional) 
+            var filterApp = new List<string>?(); // List<string>? | filter by id(s) of related 'app' (optional) 
+            var filterBetaGroups = new List<string>?(); // List<string>? | filter by id(s) of related 'betaGroups' (optional) 
+            var filterAppStoreVersion = new List<string>?(); // List<string>? | filter by id(s) of related 'appStoreVersion' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
+            var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
+            var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
+            var fieldsAppEncryptionDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEncryptionDeclarations (optional) 
+            var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsBuildIcons = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildIcons (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsDiagnosticSignatures = new List<string>?(); // List<string>? | the fields to include for returned resources of type diagnosticSignatures (optional) 
-            var fieldsBuildIcons = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildIcons (optional) 
-            var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
-            var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
-            var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
-            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
-            var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
-            var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
-            var fieldsAppEncryptionDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEncryptionDeclarations (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsPerfPowerMetrics = new List<string>?(); // List<string>? | the fields to include for returned resources of type perfPowerMetrics (optional) 
             var limitBetaBuildLocalizations = 56;  // int? | maximum number of related betaBuildLocalizations returned (when they are included) (optional) 
             var limitBetaGroups = 56;  // int? | maximum number of related betaGroups returned (when they are included) (optional) 
             var limitBuildBundles = 56;  // int? | maximum number of related buildBundles returned (when they are included) (optional) 
@@ -1199,7 +1322,7 @@ namespace Example
 
             try
             {
-                BuildsResponse result = apiInstance.BuildsGetCollection(filterBetaAppReviewSubmissionBetaReviewState, filterBuildAudienceType, filterExpired, filterPreReleaseVersionPlatform, filterPreReleaseVersionVersion, filterProcessingState, filterUsesNonExemptEncryption, filterVersion, filterApp, filterAppStoreVersion, filterBetaGroups, filterPreReleaseVersion, filterId, sort, fieldsBuilds, limit, include, fieldsDiagnosticSignatures, fieldsBuildIcons, fieldsBuildBetaDetails, fieldsBetaAppReviewSubmissions, fieldsBetaTesters, fieldsAppStoreVersions, fieldsBetaBuildLocalizations, fieldsPreReleaseVersions, fieldsAppEncryptionDeclarations, fieldsApps, fieldsPerfPowerMetrics, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
+                BuildsResponse result = apiInstance.BuildsGetCollection(filterVersion, filterExpired, filterProcessingState, filterBetaAppReviewSubmissionBetaReviewState, filterUsesNonExemptEncryption, filterPreReleaseVersionVersion, filterPreReleaseVersionPlatform, filterBuildAudienceType, filterPreReleaseVersion, filterApp, filterBetaGroups, filterAppStoreVersion, filterId, sort, fieldsBuilds, fieldsPreReleaseVersions, fieldsBetaTesters, fieldsBetaBuildLocalizations, fieldsAppEncryptionDeclarations, fieldsBetaAppReviewSubmissions, fieldsApps, fieldsBuildBetaDetails, fieldsAppStoreVersions, fieldsBuildIcons, limit, include, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1219,7 +1342,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildsResponse> response = apiInstance.BuildsGetCollectionWithHttpInfo(filterBetaAppReviewSubmissionBetaReviewState, filterBuildAudienceType, filterExpired, filterPreReleaseVersionPlatform, filterPreReleaseVersionVersion, filterProcessingState, filterUsesNonExemptEncryption, filterVersion, filterApp, filterAppStoreVersion, filterBetaGroups, filterPreReleaseVersion, filterId, sort, fieldsBuilds, limit, include, fieldsDiagnosticSignatures, fieldsBuildIcons, fieldsBuildBetaDetails, fieldsBetaAppReviewSubmissions, fieldsBetaTesters, fieldsAppStoreVersions, fieldsBetaBuildLocalizations, fieldsPreReleaseVersions, fieldsAppEncryptionDeclarations, fieldsApps, fieldsPerfPowerMetrics, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
+    ApiResponse<BuildsResponse> response = apiInstance.BuildsGetCollectionWithHttpInfo(filterVersion, filterExpired, filterProcessingState, filterBetaAppReviewSubmissionBetaReviewState, filterUsesNonExemptEncryption, filterPreReleaseVersionVersion, filterPreReleaseVersionPlatform, filterBuildAudienceType, filterPreReleaseVersion, filterApp, filterBetaGroups, filterAppStoreVersion, filterId, sort, fieldsBuilds, fieldsPreReleaseVersions, fieldsBetaTesters, fieldsBetaBuildLocalizations, fieldsAppEncryptionDeclarations, fieldsBetaAppReviewSubmissions, fieldsApps, fieldsBuildBetaDetails, fieldsAppStoreVersions, fieldsBuildIcons, limit, include, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1236,34 +1359,32 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterBetaAppReviewSubmissionBetaReviewState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;betaAppReviewSubmission.betaReviewState&#39; | [optional]  |
-| **filterBuildAudienceType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;buildAudienceType&#39; | [optional]  |
-| **filterExpired** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;expired&#39; | [optional]  |
-| **filterPreReleaseVersionPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;preReleaseVersion.platform&#39; | [optional]  |
-| **filterPreReleaseVersionVersion** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;preReleaseVersion.version&#39; | [optional]  |
-| **filterProcessingState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;processingState&#39; | [optional]  |
-| **filterUsesNonExemptEncryption** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;usesNonExemptEncryption&#39; | [optional]  |
 | **filterVersion** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;version&#39; | [optional]  |
-| **filterApp** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;app&#39; | [optional]  |
-| **filterAppStoreVersion** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appStoreVersion&#39; | [optional]  |
-| **filterBetaGroups** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;betaGroups&#39; | [optional]  |
+| **filterExpired** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;expired&#39; | [optional]  |
+| **filterProcessingState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;processingState&#39; | [optional]  |
+| **filterBetaAppReviewSubmissionBetaReviewState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;betaAppReviewSubmission.betaReviewState&#39; | [optional]  |
+| **filterUsesNonExemptEncryption** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;usesNonExemptEncryption&#39; | [optional]  |
+| **filterPreReleaseVersionVersion** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;preReleaseVersion.version&#39; | [optional]  |
+| **filterPreReleaseVersionPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;preReleaseVersion.platform&#39; | [optional]  |
+| **filterBuildAudienceType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;buildAudienceType&#39; | [optional]  |
 | **filterPreReleaseVersion** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;preReleaseVersion&#39; | [optional]  |
+| **filterApp** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;app&#39; | [optional]  |
+| **filterBetaGroups** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;betaGroups&#39; | [optional]  |
+| **filterAppStoreVersion** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appStoreVersion&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
+| **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
+| **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
+| **fieldsAppEncryptionDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEncryptionDeclarations | [optional]  |
+| **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsBuildIcons** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildIcons | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsDiagnosticSignatures** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type diagnosticSignatures | [optional]  |
-| **fieldsBuildIcons** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildIcons | [optional]  |
-| **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
-| **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
-| **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
-| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
-| **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
-| **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
-| **fieldsAppEncryptionDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEncryptionDeclarations | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsPerfPowerMetrics** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type perfPowerMetrics | [optional]  |
 | **limitBetaBuildLocalizations** | **int?** | maximum number of related betaBuildLocalizations returned (when they are included) | [optional]  |
 | **limitBetaGroups** | **int?** | maximum number of related betaGroups returned (when they are included) | [optional]  |
 | **limitBuildBundles** | **int?** | maximum number of related buildBundles returned (when they are included) | [optional]  |
@@ -1288,14 +1409,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of Builds |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsgetinstance"></a>
+<a id="buildsgetinstance"></a>
 # **BuildsGetInstance**
-> BuildResponse BuildsGetInstance (string id, List<string>? fieldsBuilds = null, List<string>? include = null, List<string>? fieldsDiagnosticSignatures = null, List<string>? fieldsBuildIcons = null, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsBetaTesters = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsAppEncryptionDeclarations = null, List<string>? fieldsApps = null, List<string>? fieldsPerfPowerMetrics = null, int? limitBetaBuildLocalizations = null, int? limitBetaGroups = null, int? limitBuildBundles = null, int? limitIcons = null, int? limitIndividualTesters = null)
+> BuildResponse BuildsGetInstance (string id, List<string>? fieldsBuilds = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsBetaTesters = null, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsAppEncryptionDeclarations = null, List<string>? fieldsBetaAppReviewSubmissions = null, List<string>? fieldsApps = null, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsBuildIcons = null, List<string>? include = null, int? limitBetaBuildLocalizations = null, int? limitBetaGroups = null, int? limitBuildBundles = null, int? limitIcons = null, int? limitIndividualTesters = null)
 
 
 
@@ -1325,18 +1447,16 @@ namespace Example
             var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsDiagnosticSignatures = new List<string>?(); // List<string>? | the fields to include for returned resources of type diagnosticSignatures (optional) 
-            var fieldsBuildIcons = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildIcons (optional) 
-            var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
-            var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
-            var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
-            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
-            var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
             var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
+            var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
+            var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
             var fieldsAppEncryptionDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEncryptionDeclarations (optional) 
+            var fieldsBetaAppReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewSubmissions (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsPerfPowerMetrics = new List<string>?(); // List<string>? | the fields to include for returned resources of type perfPowerMetrics (optional) 
+            var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsBuildIcons = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildIcons (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitBetaBuildLocalizations = 56;  // int? | maximum number of related betaBuildLocalizations returned (when they are included) (optional) 
             var limitBetaGroups = 56;  // int? | maximum number of related betaGroups returned (when they are included) (optional) 
             var limitBuildBundles = 56;  // int? | maximum number of related buildBundles returned (when they are included) (optional) 
@@ -1345,7 +1465,7 @@ namespace Example
 
             try
             {
-                BuildResponse result = apiInstance.BuildsGetInstance(id, fieldsBuilds, include, fieldsDiagnosticSignatures, fieldsBuildIcons, fieldsBuildBetaDetails, fieldsBetaAppReviewSubmissions, fieldsBetaTesters, fieldsAppStoreVersions, fieldsBetaBuildLocalizations, fieldsPreReleaseVersions, fieldsAppEncryptionDeclarations, fieldsApps, fieldsPerfPowerMetrics, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
+                BuildResponse result = apiInstance.BuildsGetInstance(id, fieldsBuilds, fieldsPreReleaseVersions, fieldsBetaTesters, fieldsBetaBuildLocalizations, fieldsAppEncryptionDeclarations, fieldsBetaAppReviewSubmissions, fieldsApps, fieldsBuildBetaDetails, fieldsAppStoreVersions, fieldsBuildIcons, include, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1365,7 +1485,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildResponse> response = apiInstance.BuildsGetInstanceWithHttpInfo(id, fieldsBuilds, include, fieldsDiagnosticSignatures, fieldsBuildIcons, fieldsBuildBetaDetails, fieldsBetaAppReviewSubmissions, fieldsBetaTesters, fieldsAppStoreVersions, fieldsBetaBuildLocalizations, fieldsPreReleaseVersions, fieldsAppEncryptionDeclarations, fieldsApps, fieldsPerfPowerMetrics, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
+    ApiResponse<BuildResponse> response = apiInstance.BuildsGetInstanceWithHttpInfo(id, fieldsBuilds, fieldsPreReleaseVersions, fieldsBetaTesters, fieldsBetaBuildLocalizations, fieldsAppEncryptionDeclarations, fieldsBetaAppReviewSubmissions, fieldsApps, fieldsBuildBetaDetails, fieldsAppStoreVersions, fieldsBuildIcons, include, limitBetaBuildLocalizations, limitBetaGroups, limitBuildBundles, limitIcons, limitIndividualTesters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1384,18 +1504,16 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsDiagnosticSignatures** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type diagnosticSignatures | [optional]  |
-| **fieldsBuildIcons** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildIcons | [optional]  |
-| **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
-| **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
-| **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
-| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
-| **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
 | **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
+| **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
+| **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
 | **fieldsAppEncryptionDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEncryptionDeclarations | [optional]  |
+| **fieldsBetaAppReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewSubmissions | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsPerfPowerMetrics** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type perfPowerMetrics | [optional]  |
+| **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsBuildIcons** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildIcons | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitBetaBuildLocalizations** | **int?** | maximum number of related betaBuildLocalizations returned (when they are included) | [optional]  |
 | **limitBetaGroups** | **int?** | maximum number of related betaGroups returned (when they are included) | [optional]  |
 | **limitBuildBundles** | **int?** | maximum number of related buildBundles returned (when they are included) | [optional]  |
@@ -1420,15 +1538,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single Build |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsiconsgettomanyrelated"></a>
+<a id="buildsiconsgettomanyrelated"></a>
 # **BuildsIconsGetToManyRelated**
-> BuildIconsResponse BuildsIconsGetToManyRelated (string id, List<string>? fieldsBuildIcons = null, int? limit = null)
+> BuildIconsWithoutIncludesResponse BuildsIconsGetToManyRelated (string id, List<string>? fieldsBuildIcons = null, int? limit = null)
 
 
 
@@ -1462,7 +1581,7 @@ namespace Example
 
             try
             {
-                BuildIconsResponse result = apiInstance.BuildsIconsGetToManyRelated(id, fieldsBuildIcons, limit);
+                BuildIconsWithoutIncludesResponse result = apiInstance.BuildsIconsGetToManyRelated(id, fieldsBuildIcons, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1482,7 +1601,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildIconsResponse> response = apiInstance.BuildsIconsGetToManyRelatedWithHttpInfo(id, fieldsBuildIcons, limit);
+    ApiResponse<BuildIconsWithoutIncludesResponse> response = apiInstance.BuildsIconsGetToManyRelatedWithHttpInfo(id, fieldsBuildIcons, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1505,7 +1624,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildIconsResponse**](BuildIconsResponse.md)
+[**BuildIconsWithoutIncludesResponse**](BuildIconsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -1521,13 +1640,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of BuildIcons |  -  |
+| **200** | List of BuildIcons with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsindividualtesterscreatetomanyrelationship"></a>
+<a id="buildsindividualtesterscreatetomanyrelationship"></a>
 # **BuildsIndividualTestersCreateToManyRelationship**
 > void BuildsIndividualTestersCreateToManyRelationship (string id, BuildIndividualTestersLinkagesRequest buildIndividualTestersLinkagesRequest)
 
@@ -1615,14 +1735,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsindividualtestersdeletetomanyrelationship"></a>
+<a id="buildsindividualtestersdeletetomanyrelationship"></a>
 # **BuildsIndividualTestersDeleteToManyRelationship**
 > void BuildsIndividualTestersDeleteToManyRelationship (string id, BuildIndividualTestersLinkagesRequest buildIndividualTestersLinkagesRequest)
 
@@ -1710,16 +1832,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsindividualtestersgettomanyrelated"></a>
+<a id="buildsindividualtestersgettomanyrelated"></a>
 # **BuildsIndividualTestersGetToManyRelated**
-> BetaTestersResponse BuildsIndividualTestersGetToManyRelated (string id, List<string>? fieldsBetaTesters = null, int? limit = null)
+> BetaTestersWithoutIncludesResponse BuildsIndividualTestersGetToManyRelated (string id, List<string>? fieldsBetaTesters = null, int? limit = null)
 
 
 
@@ -1753,7 +1877,7 @@ namespace Example
 
             try
             {
-                BetaTestersResponse result = apiInstance.BuildsIndividualTestersGetToManyRelated(id, fieldsBetaTesters, limit);
+                BetaTestersWithoutIncludesResponse result = apiInstance.BuildsIndividualTestersGetToManyRelated(id, fieldsBetaTesters, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1773,7 +1897,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaTestersResponse> response = apiInstance.BuildsIndividualTestersGetToManyRelatedWithHttpInfo(id, fieldsBetaTesters, limit);
+    ApiResponse<BetaTestersWithoutIncludesResponse> response = apiInstance.BuildsIndividualTestersGetToManyRelatedWithHttpInfo(id, fieldsBetaTesters, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1796,7 +1920,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BetaTestersResponse**](BetaTestersResponse.md)
+[**BetaTestersWithoutIncludesResponse**](BetaTestersWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -1812,13 +1936,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of BetaTesters |  -  |
+| **200** | List of BetaTesters with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsindividualtestersgettomanyrelationship"></a>
+<a id="buildsindividualtestersgettomanyrelationship"></a>
 # **BuildsIndividualTestersGetToManyRelationship**
 > BuildIndividualTestersLinkagesResponse BuildsIndividualTestersGetToManyRelationship (string id, int? limit = null)
 
@@ -1911,15 +2036,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsperfpowermetricsgettomanyrelated"></a>
+<a id="buildsperfpowermetricsgettomanyrelated"></a>
 # **BuildsPerfPowerMetricsGetToManyRelated**
-> XcodeMetrics BuildsPerfPowerMetricsGetToManyRelated (string id, List<string>? filterDeviceType = null, List<string>? filterMetricType = null, List<string>? filterPlatform = null)
+> XcodeMetrics BuildsPerfPowerMetricsGetToManyRelated (string id, List<string>? filterPlatform = null, List<string>? filterMetricType = null, List<string>? filterDeviceType = null)
 
 
 
@@ -1948,13 +2074,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BuildsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var filterDeviceType = new List<string>?(); // List<string>? | filter by attribute 'deviceType' (optional) 
-            var filterMetricType = new List<string>?(); // List<string>? | filter by attribute 'metricType' (optional) 
             var filterPlatform = new List<string>?(); // List<string>? | filter by attribute 'platform' (optional) 
+            var filterMetricType = new List<string>?(); // List<string>? | filter by attribute 'metricType' (optional) 
+            var filterDeviceType = new List<string>?(); // List<string>? | filter by attribute 'deviceType' (optional) 
 
             try
             {
-                XcodeMetrics result = apiInstance.BuildsPerfPowerMetricsGetToManyRelated(id, filterDeviceType, filterMetricType, filterPlatform);
+                XcodeMetrics result = apiInstance.BuildsPerfPowerMetricsGetToManyRelated(id, filterPlatform, filterMetricType, filterDeviceType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1974,7 +2100,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<XcodeMetrics> response = apiInstance.BuildsPerfPowerMetricsGetToManyRelatedWithHttpInfo(id, filterDeviceType, filterMetricType, filterPlatform);
+    ApiResponse<XcodeMetrics> response = apiInstance.BuildsPerfPowerMetricsGetToManyRelatedWithHttpInfo(id, filterPlatform, filterMetricType, filterDeviceType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1992,9 +2118,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **filterDeviceType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;deviceType&#39; | [optional]  |
-| **filterMetricType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;metricType&#39; | [optional]  |
 | **filterPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;platform&#39; | [optional]  |
+| **filterMetricType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;metricType&#39; | [optional]  |
+| **filterDeviceType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;deviceType&#39; | [optional]  |
 
 ### Return type
 
@@ -2014,15 +2140,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of PerfPowerMetrics |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsprereleaseversiongettoonerelated"></a>
+<a id="buildsprereleaseversiongettoonerelated"></a>
 # **BuildsPreReleaseVersionGetToOneRelated**
-> PrereleaseVersionResponse BuildsPreReleaseVersionGetToOneRelated (string id, List<string>? fieldsPreReleaseVersions = null)
+> PrereleaseVersionWithoutIncludesResponse BuildsPreReleaseVersionGetToOneRelated (string id, List<string>? fieldsPreReleaseVersions = null)
 
 
 
@@ -2055,7 +2182,7 @@ namespace Example
 
             try
             {
-                PrereleaseVersionResponse result = apiInstance.BuildsPreReleaseVersionGetToOneRelated(id, fieldsPreReleaseVersions);
+                PrereleaseVersionWithoutIncludesResponse result = apiInstance.BuildsPreReleaseVersionGetToOneRelated(id, fieldsPreReleaseVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2075,7 +2202,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<PrereleaseVersionResponse> response = apiInstance.BuildsPreReleaseVersionGetToOneRelatedWithHttpInfo(id, fieldsPreReleaseVersions);
+    ApiResponse<PrereleaseVersionWithoutIncludesResponse> response = apiInstance.BuildsPreReleaseVersionGetToOneRelatedWithHttpInfo(id, fieldsPreReleaseVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2097,7 +2224,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**PrereleaseVersionResponse**](PrereleaseVersionResponse.md)
+[**PrereleaseVersionWithoutIncludesResponse**](PrereleaseVersionWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -2113,13 +2240,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single PrereleaseVersion |  -  |
+| **200** | Single PrereleaseVersion with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildsupdateinstance"></a>
+<a id="buildsupdateinstance"></a>
 # **BuildsUpdateInstance**
 > BuildResponse BuildsUpdateInstance (string id, BuildUpdateRequest buildUpdateRequest)
 
@@ -2212,8 +2340,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single Build |  -  |
 | **409** | Request entity error(s) |  -  |
 

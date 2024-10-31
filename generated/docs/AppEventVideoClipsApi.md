@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppEventVideoClipsGetInstance**](AppEventVideoClipsApi.md#appeventvideoclipsgetinstance) | **GET** /v1/appEventVideoClips/{id} |  |
 | [**AppEventVideoClipsUpdateInstance**](AppEventVideoClipsApi.md#appeventvideoclipsupdateinstance) | **PATCH** /v1/appEventVideoClips/{id} |  |
 
-<a name="appeventvideoclipscreateinstance"></a>
+<a id="appeventvideoclipscreateinstance"></a>
 # **AppEventVideoClipsCreateInstance**
 > AppEventVideoClipResponse AppEventVideoClipsCreateInstance (AppEventVideoClipCreateRequest appEventVideoClipCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppEventVideoClip |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventvideoclipsdeleteinstance"></a>
+<a id="appeventvideoclipsdeleteinstance"></a>
 # **AppEventVideoClipsDeleteInstance**
 > void AppEventVideoClipsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventvideoclipsgetinstance"></a>
+<a id="appeventvideoclipsgetinstance"></a>
 # **AppEventVideoClipsGetInstance**
 > AppEventVideoClipResponse AppEventVideoClipsGetInstance (string id, List<string>? fieldsAppEventVideoClips = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppEventVideoClip |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventvideoclipsupdateinstance"></a>
+<a id="appeventvideoclipsupdateinstance"></a>
 # **AppEventVideoClipsUpdateInstance**
 > AppEventVideoClipResponse AppEventVideoClipsUpdateInstance (string id, AppEventVideoClipUpdateRequest appEventVideoClipUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppEventVideoClip |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**BetaTesterInvitationsCreateInstance**](BetaTesterInvitationsApi.md#betatesterinvitationscreateinstance) | **POST** /v1/betaTesterInvitations |  |
 
-<a name="betatesterinvitationscreateinstance"></a>
+<a id="betatesterinvitationscreateinstance"></a>
 # **BetaTesterInvitationsCreateInstance**
 > BetaTesterInvitationResponse BetaTesterInvitationsCreateInstance (BetaTesterInvitationCreateRequest betaTesterInvitationCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaTesterInvitation |  -  |
 | **409** | Request entity error(s) |  -  |
 

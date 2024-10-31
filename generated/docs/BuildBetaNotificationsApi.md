@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**BuildBetaNotificationsCreateInstance**](BuildBetaNotificationsApi.md#buildbetanotificationscreateinstance) | **POST** /v1/buildBetaNotifications |  |
 
-<a name="buildbetanotificationscreateinstance"></a>
+<a id="buildbetanotificationscreateinstance"></a>
 # **BuildBetaNotificationsCreateInstance**
 > BuildBetaNotificationResponse BuildBetaNotificationsCreateInstance (BuildBetaNotificationCreateRequest buildBetaNotificationCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BuildBetaNotification |  -  |
 | **409** | Request entity error(s) |  -  |
 

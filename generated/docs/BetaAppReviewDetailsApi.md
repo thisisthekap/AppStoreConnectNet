@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaAppReviewDetailsGetInstance**](BetaAppReviewDetailsApi.md#betaappreviewdetailsgetinstance) | **GET** /v1/betaAppReviewDetails/{id} |  |
 | [**BetaAppReviewDetailsUpdateInstance**](BetaAppReviewDetailsApi.md#betaappreviewdetailsupdateinstance) | **PATCH** /v1/betaAppReviewDetails/{id} |  |
 
-<a name="betaappreviewdetailsappgettoonerelated"></a>
+<a id="betaappreviewdetailsappgettoonerelated"></a>
 # **BetaAppReviewDetailsAppGetToOneRelated**
-> AppResponse BetaAppReviewDetailsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse BetaAppReviewDetailsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.BetaAppReviewDetailsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.BetaAppReviewDetailsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.BetaAppReviewDetailsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.BetaAppReviewDetailsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -102,15 +102,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewdetailsgetcollection"></a>
+<a id="betaappreviewdetailsgetcollection"></a>
 # **BetaAppReviewDetailsGetCollection**
-> BetaAppReviewDetailsResponse BetaAppReviewDetailsGetCollection (List<string> filterApp, List<string>? fieldsBetaAppReviewDetails = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaAppReviewDetailsResponse BetaAppReviewDetailsGetCollection (List<string> filterApp, List<string>? fieldsBetaAppReviewDetails = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -140,13 +141,13 @@ namespace Example
             var apiInstance = new BetaAppReviewDetailsApi(httpClient, config, httpClientHandler);
             var filterApp = new List<string>(); // List<string> | filter by id(s) of related 'app'
             var fieldsBetaAppReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewDetails (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
 
             try
             {
-                BetaAppReviewDetailsResponse result = apiInstance.BetaAppReviewDetailsGetCollection(filterApp, fieldsBetaAppReviewDetails, limit, include, fieldsApps);
+                BetaAppReviewDetailsResponse result = apiInstance.BetaAppReviewDetailsGetCollection(filterApp, fieldsBetaAppReviewDetails, fieldsApps, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -166,7 +167,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppReviewDetailsResponse> response = apiInstance.BetaAppReviewDetailsGetCollectionWithHttpInfo(filterApp, fieldsBetaAppReviewDetails, limit, include, fieldsApps);
+    ApiResponse<BetaAppReviewDetailsResponse> response = apiInstance.BetaAppReviewDetailsGetCollectionWithHttpInfo(filterApp, fieldsBetaAppReviewDetails, fieldsApps, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -185,9 +186,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filterApp** | [**List&lt;string&gt;**](string.md) | filter by id(s) of related &#39;app&#39; |  |
 | **fieldsBetaAppReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewDetails | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 
 ### Return type
 
@@ -207,14 +208,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaAppReviewDetails |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewdetailsgetinstance"></a>
+<a id="betaappreviewdetailsgetinstance"></a>
 # **BetaAppReviewDetailsGetInstance**
-> BetaAppReviewDetailResponse BetaAppReviewDetailsGetInstance (string id, List<string>? fieldsBetaAppReviewDetails = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaAppReviewDetailResponse BetaAppReviewDetailsGetInstance (string id, List<string>? fieldsBetaAppReviewDetails = null, List<string>? fieldsApps = null, List<string>? include = null)
 
 
 
@@ -244,12 +246,12 @@ namespace Example
             var apiInstance = new BetaAppReviewDetailsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaAppReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewDetails (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BetaAppReviewDetailResponse result = apiInstance.BetaAppReviewDetailsGetInstance(id, fieldsBetaAppReviewDetails, include, fieldsApps);
+                BetaAppReviewDetailResponse result = apiInstance.BetaAppReviewDetailsGetInstance(id, fieldsBetaAppReviewDetails, fieldsApps, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -269,7 +271,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppReviewDetailResponse> response = apiInstance.BetaAppReviewDetailsGetInstanceWithHttpInfo(id, fieldsBetaAppReviewDetails, include, fieldsApps);
+    ApiResponse<BetaAppReviewDetailResponse> response = apiInstance.BetaAppReviewDetailsGetInstanceWithHttpInfo(id, fieldsBetaAppReviewDetails, fieldsApps, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -288,8 +290,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaAppReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewDetails | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -309,13 +311,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaAppReviewDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappreviewdetailsupdateinstance"></a>
+<a id="betaappreviewdetailsupdateinstance"></a>
 # **BetaAppReviewDetailsUpdateInstance**
 > BetaAppReviewDetailResponse BetaAppReviewDetailsUpdateInstance (string id, BetaAppReviewDetailUpdateRequest betaAppReviewDetailUpdateRequest)
 
@@ -408,8 +411,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BetaAppReviewDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 

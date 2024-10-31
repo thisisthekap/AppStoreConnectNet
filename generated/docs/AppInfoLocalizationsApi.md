@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppInfoLocalizationsGetInstance**](AppInfoLocalizationsApi.md#appinfolocalizationsgetinstance) | **GET** /v1/appInfoLocalizations/{id} |  |
 | [**AppInfoLocalizationsUpdateInstance**](AppInfoLocalizationsApi.md#appinfolocalizationsupdateinstance) | **PATCH** /v1/appInfoLocalizations/{id} |  |
 
-<a name="appinfolocalizationscreateinstance"></a>
+<a id="appinfolocalizationscreateinstance"></a>
 # **AppInfoLocalizationsCreateInstance**
 > AppInfoLocalizationResponse AppInfoLocalizationsCreateInstance (AppInfoLocalizationCreateRequest appInfoLocalizationCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppInfoLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfolocalizationsdeleteinstance"></a>
+<a id="appinfolocalizationsdeleteinstance"></a>
 # **AppInfoLocalizationsDeleteInstance**
 > void AppInfoLocalizationsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfolocalizationsgetinstance"></a>
+<a id="appinfolocalizationsgetinstance"></a>
 # **AppInfoLocalizationsGetInstance**
 > AppInfoLocalizationResponse AppInfoLocalizationsGetInstance (string id, List<string>? fieldsAppInfoLocalizations = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppInfoLocalization |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appinfolocalizationsupdateinstance"></a>
+<a id="appinfolocalizationsupdateinstance"></a>
 # **AppInfoLocalizationsUpdateInstance**
 > AppInfoLocalizationResponse AppInfoLocalizationsUpdateInstance (string id, AppInfoLocalizationUpdateRequest appInfoLocalizationUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppInfoLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 

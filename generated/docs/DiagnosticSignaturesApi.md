@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**DiagnosticSignaturesLogsGetToManyRelated**](DiagnosticSignaturesApi.md#diagnosticsignatureslogsgettomanyrelated) | **GET** /v1/diagnosticSignatures/{id}/logs |  |
 
-<a name="diagnosticsignatureslogsgettomanyrelated"></a>
+<a id="diagnosticsignatureslogsgettomanyrelated"></a>
 # **DiagnosticSignaturesLogsGetToManyRelated**
 > DiagnosticLogs DiagnosticSignaturesLogsGetToManyRelated (string id, int? limit = null)
 
@@ -99,6 +99,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of DiagnosticLogs |  -  |

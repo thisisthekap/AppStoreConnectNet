@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**CiArtifactsGetInstance**](CiArtifactsApi.md#ciartifactsgetinstance) | **GET** /v1/ciArtifacts/{id} |  |
 
-<a name="ciartifactsgetinstance"></a>
+<a id="ciartifactsgetinstance"></a>
 # **CiArtifactsGetInstance**
 > CiArtifactResponse CiArtifactsGetInstance (string id, List<string>? fieldsCiArtifacts = null)
 
@@ -99,6 +99,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiArtifact |  -  |

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**List&lt;AppAvailabilityRelationshipsAppData&gt;**](AppAvailabilityRelationshipsAppData.md) |  | 
+**Data** | [**List&lt;AlternativeDistributionKeyCreateRequestDataRelationshipsAppData&gt;**](AlternativeDistributionKeyCreateRequestDataRelationshipsAppData.md) |  | 
 **Links** | [**PagedDocumentLinks**](PagedDocumentLinks.md) |  | 
 **Meta** | [**PagingInformation**](PagingInformation.md) |  | [optional] 
 

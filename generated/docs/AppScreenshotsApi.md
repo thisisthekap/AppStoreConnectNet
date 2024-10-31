@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppScreenshotsGetInstance**](AppScreenshotsApi.md#appscreenshotsgetinstance) | **GET** /v1/appScreenshots/{id} |  |
 | [**AppScreenshotsUpdateInstance**](AppScreenshotsApi.md#appscreenshotsupdateinstance) | **PATCH** /v1/appScreenshots/{id} |  |
 
-<a name="appscreenshotscreateinstance"></a>
+<a id="appscreenshotscreateinstance"></a>
 # **AppScreenshotsCreateInstance**
 > AppScreenshotResponse AppScreenshotsCreateInstance (AppScreenshotCreateRequest appScreenshotCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppScreenshot |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsdeleteinstance"></a>
+<a id="appscreenshotsdeleteinstance"></a>
 # **AppScreenshotsDeleteInstance**
 > void AppScreenshotsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsgetinstance"></a>
+<a id="appscreenshotsgetinstance"></a>
 # **AppScreenshotsGetInstance**
 > AppScreenshotResponse AppScreenshotsGetInstance (string id, List<string>? fieldsAppScreenshots = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppScreenshot |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsupdateinstance"></a>
+<a id="appscreenshotsupdateinstance"></a>
 # **AppScreenshotsUpdateInstance**
 > AppScreenshotResponse AppScreenshotsUpdateInstance (string id, AppScreenshotUpdateRequest appScreenshotUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppScreenshot |  -  |
 | **409** | Request entity error(s) |  -  |
 

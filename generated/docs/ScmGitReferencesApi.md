@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**ScmGitReferencesGetInstance**](ScmGitReferencesApi.md#scmgitreferencesgetinstance) | **GET** /v1/scmGitReferences/{id} |  |
 
-<a name="scmgitreferencesgetinstance"></a>
+<a id="scmgitreferencesgetinstance"></a>
 # **ScmGitReferencesGetInstance**
 > ScmGitReferenceResponse ScmGitReferencesGetInstance (string id, List<string>? fieldsScmGitReferences = null, List<string>? include = null)
 
@@ -101,6 +101,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single ScmGitReference |  -  |

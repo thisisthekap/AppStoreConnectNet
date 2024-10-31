@@ -7,9 +7,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionPricePointsEqualizationsGetToManyRelated**](SubscriptionPricePointsApi.md#subscriptionpricepointsequalizationsgettomanyrelated) | **GET** /v1/subscriptionPricePoints/{id}/equalizations |  |
 | [**SubscriptionPricePointsGetInstance**](SubscriptionPricePointsApi.md#subscriptionpricepointsgetinstance) | **GET** /v1/subscriptionPricePoints/{id} |  |
 
-<a name="subscriptionpricepointsequalizationsgettomanyrelated"></a>
+<a id="subscriptionpricepointsequalizationsgettomanyrelated"></a>
 # **SubscriptionPricePointsEqualizationsGetToManyRelated**
-> SubscriptionPricePointsResponse SubscriptionPricePointsEqualizationsGetToManyRelated (string id, List<string>? filterSubscription = null, List<string>? filterTerritory = null, List<string>? fieldsSubscriptionPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
+> SubscriptionPricePointsResponse SubscriptionPricePointsEqualizationsGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? filterSubscription = null, List<string>? fieldsSubscriptionPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -38,8 +38,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SubscriptionPricePointsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var filterSubscription = new List<string>?(); // List<string>? | filter by id(s) of related 'subscription' (optional) 
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
+            var filterSubscription = new List<string>?(); // List<string>? | filter by id(s) of related 'subscription' (optional) 
             var fieldsSubscriptionPricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionPricePoints (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                SubscriptionPricePointsResponse result = apiInstance.SubscriptionPricePointsEqualizationsGetToManyRelated(id, filterSubscription, filterTerritory, fieldsSubscriptionPricePoints, fieldsTerritories, limit, include);
+                SubscriptionPricePointsResponse result = apiInstance.SubscriptionPricePointsEqualizationsGetToManyRelated(id, filterTerritory, filterSubscription, fieldsSubscriptionPricePoints, fieldsTerritories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,7 +67,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<SubscriptionPricePointsResponse> response = apiInstance.SubscriptionPricePointsEqualizationsGetToManyRelatedWithHttpInfo(id, filterSubscription, filterTerritory, fieldsSubscriptionPricePoints, fieldsTerritories, limit, include);
+    ApiResponse<SubscriptionPricePointsResponse> response = apiInstance.SubscriptionPricePointsEqualizationsGetToManyRelatedWithHttpInfo(id, filterTerritory, filterSubscription, fieldsSubscriptionPricePoints, fieldsTerritories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -85,8 +85,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **filterSubscription** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;subscription&#39; | [optional]  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
+| **filterSubscription** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;subscription&#39; | [optional]  |
 | **fieldsSubscriptionPricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionPricePoints | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
@@ -110,13 +110,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of SubscriptionPricePoints |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionpricepointsgetinstance"></a>
+<a id="subscriptionpricepointsgetinstance"></a>
 # **SubscriptionPricePointsGetInstance**
 > SubscriptionPricePointResponse SubscriptionPricePointsGetInstance (string id, List<string>? fieldsSubscriptionPricePoints = null, List<string>? include = null)
 
@@ -211,6 +212,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionPricePoint |  -  |

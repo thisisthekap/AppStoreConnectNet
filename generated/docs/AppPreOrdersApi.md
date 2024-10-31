@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppPreOrdersGetInstance**](AppPreOrdersApi.md#apppreordersgetinstance) | **GET** /v1/appPreOrders/{id} |  |
 | [**AppPreOrdersUpdateInstance**](AppPreOrdersApi.md#apppreordersupdateinstance) | **PATCH** /v1/appPreOrders/{id} |  |
 
-<a name="apppreorderscreateinstance"></a>
+<a id="apppreorderscreateinstance"></a>
 # **AppPreOrdersCreateInstance**
 > AppPreOrderResponse AppPreOrdersCreateInstance (AppPreOrderCreateRequest appPreOrderCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppPreOrder |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreordersdeleteinstance"></a>
+<a id="apppreordersdeleteinstance"></a>
 # **AppPreOrdersDeleteInstance**
 > void AppPreOrdersDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreordersgetinstance"></a>
+<a id="apppreordersgetinstance"></a>
 # **AppPreOrdersGetInstance**
 > AppPreOrderResponse AppPreOrdersGetInstance (string id, List<string>? fieldsAppPreOrders = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppPreOrder |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreordersupdateinstance"></a>
+<a id="apppreordersupdateinstance"></a>
 # **AppPreOrdersUpdateInstance**
 > AppPreOrderResponse AppPreOrdersUpdateInstance (string id, AppPreOrderUpdateRequest appPreOrderUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppPreOrder |  -  |
 | **409** | Request entity error(s) |  -  |
 

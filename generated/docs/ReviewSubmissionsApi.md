@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**ReviewSubmissionsItemsGetToManyRelated**](ReviewSubmissionsApi.md#reviewsubmissionsitemsgettomanyrelated) | **GET** /v1/reviewSubmissions/{id}/items |  |
 | [**ReviewSubmissionsUpdateInstance**](ReviewSubmissionsApi.md#reviewsubmissionsupdateinstance) | **PATCH** /v1/reviewSubmissions/{id} |  |
 
-<a name="reviewsubmissionscreateinstance"></a>
+<a id="reviewsubmissionscreateinstance"></a>
 # **ReviewSubmissionsCreateInstance**
 > ReviewSubmissionResponse ReviewSubmissionsCreateInstance (ReviewSubmissionCreateRequest reviewSubmissionCreateRequest)
 
@@ -101,15 +101,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single ReviewSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionsgetcollection"></a>
+<a id="reviewsubmissionsgetcollection"></a>
 # **ReviewSubmissionsGetCollection**
-> ReviewSubmissionsResponse ReviewSubmissionsGetCollection (List<string> filterApp, List<string>? filterPlatform = null, List<string>? filterState = null, List<string>? fieldsReviewSubmissions = null, int? limit = null, List<string>? include = null, List<string>? fieldsReviewSubmissionItems = null, int? limitItems = null)
+> ReviewSubmissionsResponse ReviewSubmissionsGetCollection (List<string> filterApp, List<string>? filterPlatform = null, List<string>? filterState = null, List<string>? fieldsReviewSubmissions = null, List<string>? fieldsReviewSubmissionItems = null, int? limit = null, List<string>? include = null, int? limitItems = null)
 
 
 
@@ -141,14 +143,14 @@ namespace Example
             var filterPlatform = new List<string>?(); // List<string>? | filter by attribute 'platform' (optional) 
             var filterState = new List<string>?(); // List<string>? | filter by attribute 'state' (optional) 
             var fieldsReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissions (optional) 
+            var fieldsReviewSubmissionItems = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissionItems (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsReviewSubmissionItems = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissionItems (optional) 
             var limitItems = 56;  // int? | maximum number of related items returned (when they are included) (optional) 
 
             try
             {
-                ReviewSubmissionsResponse result = apiInstance.ReviewSubmissionsGetCollection(filterApp, filterPlatform, filterState, fieldsReviewSubmissions, limit, include, fieldsReviewSubmissionItems, limitItems);
+                ReviewSubmissionsResponse result = apiInstance.ReviewSubmissionsGetCollection(filterApp, filterPlatform, filterState, fieldsReviewSubmissions, fieldsReviewSubmissionItems, limit, include, limitItems);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -168,7 +170,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ReviewSubmissionsResponse> response = apiInstance.ReviewSubmissionsGetCollectionWithHttpInfo(filterApp, filterPlatform, filterState, fieldsReviewSubmissions, limit, include, fieldsReviewSubmissionItems, limitItems);
+    ApiResponse<ReviewSubmissionsResponse> response = apiInstance.ReviewSubmissionsGetCollectionWithHttpInfo(filterApp, filterPlatform, filterState, fieldsReviewSubmissions, fieldsReviewSubmissionItems, limit, include, limitItems);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -189,9 +191,9 @@ catch (ApiException e)
 | **filterPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;platform&#39; | [optional]  |
 | **filterState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;state&#39; | [optional]  |
 | **fieldsReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissions | [optional]  |
+| **fieldsReviewSubmissionItems** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissionItems | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsReviewSubmissionItems** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissionItems | [optional]  |
 | **limitItems** | **int?** | maximum number of related items returned (when they are included) | [optional]  |
 
 ### Return type
@@ -212,14 +214,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of ReviewSubmissions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionsgetinstance"></a>
+<a id="reviewsubmissionsgetinstance"></a>
 # **ReviewSubmissionsGetInstance**
-> ReviewSubmissionResponse ReviewSubmissionsGetInstance (string id, List<string>? fieldsReviewSubmissions = null, List<string>? include = null, List<string>? fieldsReviewSubmissionItems = null, int? limitItems = null)
+> ReviewSubmissionResponse ReviewSubmissionsGetInstance (string id, List<string>? fieldsReviewSubmissions = null, List<string>? fieldsReviewSubmissionItems = null, List<string>? include = null, int? limitItems = null)
 
 
 
@@ -249,13 +252,13 @@ namespace Example
             var apiInstance = new ReviewSubmissionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsReviewSubmissionItems = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissionItems (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitItems = 56;  // int? | maximum number of related items returned (when they are included) (optional) 
 
             try
             {
-                ReviewSubmissionResponse result = apiInstance.ReviewSubmissionsGetInstance(id, fieldsReviewSubmissions, include, fieldsReviewSubmissionItems, limitItems);
+                ReviewSubmissionResponse result = apiInstance.ReviewSubmissionsGetInstance(id, fieldsReviewSubmissions, fieldsReviewSubmissionItems, include, limitItems);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -275,7 +278,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ReviewSubmissionResponse> response = apiInstance.ReviewSubmissionsGetInstanceWithHttpInfo(id, fieldsReviewSubmissions, include, fieldsReviewSubmissionItems, limitItems);
+    ApiResponse<ReviewSubmissionResponse> response = apiInstance.ReviewSubmissionsGetInstanceWithHttpInfo(id, fieldsReviewSubmissions, fieldsReviewSubmissionItems, include, limitItems);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -294,8 +297,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsReviewSubmissionItems** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissionItems | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitItems** | **int?** | maximum number of related items returned (when they are included) | [optional]  |
 
 ### Return type
@@ -316,15 +319,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single ReviewSubmission |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionsitemsgettomanyrelated"></a>
+<a id="reviewsubmissionsitemsgettomanyrelated"></a>
 # **ReviewSubmissionsItemsGetToManyRelated**
-> ReviewSubmissionItemsResponse ReviewSubmissionsItemsGetToManyRelated (string id, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsReviewSubmissionItems = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppCustomProductPageVersions = null, List<string>? fieldsAppEvents = null, int? limit = null, List<string>? include = null)
+> ReviewSubmissionItemsResponse ReviewSubmissionsItemsGetToManyRelated (string id, List<string>? fieldsReviewSubmissionItems = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppCustomProductPageVersions = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAppEvents = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -353,17 +357,17 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ReviewSubmissionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
             var fieldsReviewSubmissionItems = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissionItems (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsAppCustomProductPageVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageVersions (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
             var fieldsAppEvents = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEvents (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                ReviewSubmissionItemsResponse result = apiInstance.ReviewSubmissionsItemsGetToManyRelated(id, fieldsAppStoreVersionExperiments, fieldsReviewSubmissionItems, fieldsAppStoreVersions, fieldsAppCustomProductPageVersions, fieldsAppEvents, limit, include);
+                ReviewSubmissionItemsResponse result = apiInstance.ReviewSubmissionsItemsGetToManyRelated(id, fieldsReviewSubmissionItems, fieldsAppStoreVersions, fieldsAppCustomProductPageVersions, fieldsAppStoreVersionExperiments, fieldsAppEvents, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -383,7 +387,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ReviewSubmissionItemsResponse> response = apiInstance.ReviewSubmissionsItemsGetToManyRelatedWithHttpInfo(id, fieldsAppStoreVersionExperiments, fieldsReviewSubmissionItems, fieldsAppStoreVersions, fieldsAppCustomProductPageVersions, fieldsAppEvents, limit, include);
+    ApiResponse<ReviewSubmissionItemsResponse> response = apiInstance.ReviewSubmissionsItemsGetToManyRelatedWithHttpInfo(id, fieldsReviewSubmissionItems, fieldsAppStoreVersions, fieldsAppCustomProductPageVersions, fieldsAppStoreVersionExperiments, fieldsAppEvents, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -401,10 +405,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
 | **fieldsReviewSubmissionItems** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissionItems | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsAppCustomProductPageVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageVersions | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
 | **fieldsAppEvents** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEvents | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
@@ -427,13 +431,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of ReviewSubmissionItems |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionsupdateinstance"></a>
+<a id="reviewsubmissionsupdateinstance"></a>
 # **ReviewSubmissionsUpdateInstance**
 > ReviewSubmissionResponse ReviewSubmissionsUpdateInstance (string id, ReviewSubmissionUpdateRequest reviewSubmissionUpdateRequest)
 
@@ -526,8 +531,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single ReviewSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 

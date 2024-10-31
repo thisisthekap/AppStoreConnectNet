@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**ScmPullRequestsGetInstance**](ScmPullRequestsApi.md#scmpullrequestsgetinstance) | **GET** /v1/scmPullRequests/{id} |  |
 
-<a name="scmpullrequestsgetinstance"></a>
+<a id="scmpullrequestsgetinstance"></a>
 # **ScmPullRequestsGetInstance**
 > ScmPullRequestResponse ScmPullRequestsGetInstance (string id, List<string>? fieldsScmPullRequests = null, List<string>? include = null)
 
@@ -101,6 +101,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single ScmPullRequest |  -  |

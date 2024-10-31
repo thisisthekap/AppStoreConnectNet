@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NumberOfCodes** | **int** |  | 
-**ExpirationDate** | **DateTimeOffset** |  | 
+**ExpirationDate** | **DateOnly** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

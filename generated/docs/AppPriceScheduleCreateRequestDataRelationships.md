@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityCreateRequestDataRelationshipsApp**](AppAvailabilityCreateRequestDataRelationshipsApp.md) |  | 
+**App** | [**AnalyticsReportRequestCreateRequestDataRelationshipsApp**](AnalyticsReportRequestCreateRequestDataRelationshipsApp.md) |  | 
 **BaseTerritory** | [**AppPriceScheduleCreateRequestDataRelationshipsBaseTerritory**](AppPriceScheduleCreateRequestDataRelationshipsBaseTerritory.md) |  | 
 **ManualPrices** | [**AppPriceScheduleCreateRequestDataRelationshipsManualPrices**](AppPriceScheduleCreateRequestDataRelationshipsManualPrices.md) |  | 
 

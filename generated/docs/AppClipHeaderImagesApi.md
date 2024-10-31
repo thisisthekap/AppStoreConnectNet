@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppClipHeaderImagesGetInstance**](AppClipHeaderImagesApi.md#appclipheaderimagesgetinstance) | **GET** /v1/appClipHeaderImages/{id} |  |
 | [**AppClipHeaderImagesUpdateInstance**](AppClipHeaderImagesApi.md#appclipheaderimagesupdateinstance) | **PATCH** /v1/appClipHeaderImages/{id} |  |
 
-<a name="appclipheaderimagescreateinstance"></a>
+<a id="appclipheaderimagescreateinstance"></a>
 # **AppClipHeaderImagesCreateInstance**
 > AppClipHeaderImageResponse AppClipHeaderImagesCreateInstance (AppClipHeaderImageCreateRequest appClipHeaderImageCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppClipHeaderImage |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipheaderimagesdeleteinstance"></a>
+<a id="appclipheaderimagesdeleteinstance"></a>
 # **AppClipHeaderImagesDeleteInstance**
 > void AppClipHeaderImagesDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipheaderimagesgetinstance"></a>
+<a id="appclipheaderimagesgetinstance"></a>
 # **AppClipHeaderImagesGetInstance**
 > AppClipHeaderImageResponse AppClipHeaderImagesGetInstance (string id, List<string>? fieldsAppClipHeaderImages = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipHeaderImage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipheaderimagesupdateinstance"></a>
+<a id="appclipheaderimagesupdateinstance"></a>
 # **AppClipHeaderImagesUpdateInstance**
 > AppClipHeaderImageResponse AppClipHeaderImagesUpdateInstance (string id, AppClipHeaderImageUpdateRequest appClipHeaderImageUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppClipHeaderImage |  -  |
 | **409** | Request entity error(s) |  -  |
 

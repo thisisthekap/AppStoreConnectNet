@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**UserInvitationsGetInstance**](UserInvitationsApi.md#userinvitationsgetinstance) | **GET** /v1/userInvitations/{id} |  |
 | [**UserInvitationsVisibleAppsGetToManyRelated**](UserInvitationsApi.md#userinvitationsvisibleappsgettomanyrelated) | **GET** /v1/userInvitations/{id}/visibleApps |  |
 
-<a name="userinvitationscreateinstance"></a>
+<a id="userinvitationscreateinstance"></a>
 # **UserInvitationsCreateInstance**
 > UserInvitationResponse UserInvitationsCreateInstance (UserInvitationCreateRequest userInvitationCreateRequest)
 
@@ -101,13 +101,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single UserInvitation |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="userinvitationsdeleteinstance"></a>
+<a id="userinvitationsdeleteinstance"></a>
 # **UserInvitationsDeleteInstance**
 > void UserInvitationsDeleteInstance (string id)
 
@@ -194,6 +196,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -201,9 +204,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="userinvitationsgetcollection"></a>
+<a id="userinvitationsgetcollection"></a>
 # **UserInvitationsGetCollection**
-> UserInvitationsResponse UserInvitationsGetCollection (List<string>? filterEmail = null, List<string>? filterRoles = null, List<string>? filterVisibleApps = null, List<string>? sort = null, List<string>? fieldsUserInvitations = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null, int? limitVisibleApps = null)
+> UserInvitationsResponse UserInvitationsGetCollection (List<string>? filterEmail = null, List<string>? filterRoles = null, List<string>? filterVisibleApps = null, List<string>? sort = null, List<string>? fieldsUserInvitations = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null, int? limitVisibleApps = null)
 
 
 
@@ -236,14 +239,14 @@ namespace Example
             var filterVisibleApps = new List<string>?(); // List<string>? | filter by id(s) of related 'visibleApps' (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsUserInvitations = new List<string>?(); // List<string>? | the fields to include for returned resources of type userInvitations (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limitVisibleApps = 56;  // int? | maximum number of related visibleApps returned (when they are included) (optional) 
 
             try
             {
-                UserInvitationsResponse result = apiInstance.UserInvitationsGetCollection(filterEmail, filterRoles, filterVisibleApps, sort, fieldsUserInvitations, limit, include, fieldsApps, limitVisibleApps);
+                UserInvitationsResponse result = apiInstance.UserInvitationsGetCollection(filterEmail, filterRoles, filterVisibleApps, sort, fieldsUserInvitations, fieldsApps, limit, include, limitVisibleApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -263,7 +266,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<UserInvitationsResponse> response = apiInstance.UserInvitationsGetCollectionWithHttpInfo(filterEmail, filterRoles, filterVisibleApps, sort, fieldsUserInvitations, limit, include, fieldsApps, limitVisibleApps);
+    ApiResponse<UserInvitationsResponse> response = apiInstance.UserInvitationsGetCollectionWithHttpInfo(filterEmail, filterRoles, filterVisibleApps, sort, fieldsUserInvitations, fieldsApps, limit, include, limitVisibleApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -285,9 +288,9 @@ catch (ApiException e)
 | **filterVisibleApps** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;visibleApps&#39; | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsUserInvitations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type userInvitations | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limitVisibleApps** | **int?** | maximum number of related visibleApps returned (when they are included) | [optional]  |
 
 ### Return type
@@ -308,14 +311,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of UserInvitations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="userinvitationsgetinstance"></a>
+<a id="userinvitationsgetinstance"></a>
 # **UserInvitationsGetInstance**
-> UserInvitationResponse UserInvitationsGetInstance (string id, List<string>? fieldsUserInvitations = null, List<string>? include = null, List<string>? fieldsApps = null, int? limitVisibleApps = null)
+> UserInvitationResponse UserInvitationsGetInstance (string id, List<string>? fieldsUserInvitations = null, List<string>? fieldsApps = null, List<string>? include = null, int? limitVisibleApps = null)
 
 
 
@@ -345,13 +349,13 @@ namespace Example
             var apiInstance = new UserInvitationsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsUserInvitations = new List<string>?(); // List<string>? | the fields to include for returned resources of type userInvitations (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitVisibleApps = 56;  // int? | maximum number of related visibleApps returned (when they are included) (optional) 
 
             try
             {
-                UserInvitationResponse result = apiInstance.UserInvitationsGetInstance(id, fieldsUserInvitations, include, fieldsApps, limitVisibleApps);
+                UserInvitationResponse result = apiInstance.UserInvitationsGetInstance(id, fieldsUserInvitations, fieldsApps, include, limitVisibleApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -371,7 +375,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<UserInvitationResponse> response = apiInstance.UserInvitationsGetInstanceWithHttpInfo(id, fieldsUserInvitations, include, fieldsApps, limitVisibleApps);
+    ApiResponse<UserInvitationResponse> response = apiInstance.UserInvitationsGetInstanceWithHttpInfo(id, fieldsUserInvitations, fieldsApps, include, limitVisibleApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -390,8 +394,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsUserInvitations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type userInvitations | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitVisibleApps** | **int?** | maximum number of related visibleApps returned (when they are included) | [optional]  |
 
 ### Return type
@@ -412,15 +416,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single UserInvitation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="userinvitationsvisibleappsgettomanyrelated"></a>
+<a id="userinvitationsvisibleappsgettomanyrelated"></a>
 # **UserInvitationsVisibleAppsGetToManyRelated**
-> AppsResponse UserInvitationsVisibleAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
+> AppsWithoutIncludesResponse UserInvitationsVisibleAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
 
 
 
@@ -454,7 +459,7 @@ namespace Example
 
             try
             {
-                AppsResponse result = apiInstance.UserInvitationsVisibleAppsGetToManyRelated(id, fieldsApps, limit);
+                AppsWithoutIncludesResponse result = apiInstance.UserInvitationsVisibleAppsGetToManyRelated(id, fieldsApps, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -474,7 +479,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppsResponse> response = apiInstance.UserInvitationsVisibleAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
+    ApiResponse<AppsWithoutIncludesResponse> response = apiInstance.UserInvitationsVisibleAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -497,7 +502,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppsResponse**](AppsResponse.md)
+[**AppsWithoutIncludesResponse**](AppsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -513,9 +518,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Apps |  -  |
+| **200** | List of Apps with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Apps** | [**BetaTesterRelationshipsApps**](BetaTesterRelationshipsApps.md) |  | [optional] 
+**Apps** | [**InAppPurchaseRelationshipsApps**](InAppPurchaseRelationshipsApps.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

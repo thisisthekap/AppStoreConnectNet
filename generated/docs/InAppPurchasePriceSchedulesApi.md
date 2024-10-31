@@ -10,9 +10,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**InAppPurchasePriceSchedulesGetInstance**](InAppPurchasePriceSchedulesApi.md#inapppurchasepriceschedulesgetinstance) | **GET** /v1/inAppPurchasePriceSchedules/{id} |  |
 | [**InAppPurchasePriceSchedulesManualPricesGetToManyRelated**](InAppPurchasePriceSchedulesApi.md#inapppurchasepriceschedulesmanualpricesgettomanyrelated) | **GET** /v1/inAppPurchasePriceSchedules/{id}/manualPrices |  |
 
-<a name="inapppurchasepriceschedulesautomaticpricesgettomanyrelated"></a>
+<a id="inapppurchasepriceschedulesautomaticpricesgettomanyrelated"></a>
 # **InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelated**
-> InAppPurchasePricesResponse InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsInAppPurchasePricePoints = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
+> InAppPurchasePricesResponse InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? fieldsInAppPurchasePricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -42,15 +42,15 @@ namespace Example
             var apiInstance = new InAppPurchasePriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
-            var fieldsInAppPurchasePricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePricePoints (optional) 
             var fieldsInAppPurchasePrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePrices (optional) 
+            var fieldsInAppPurchasePricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePricePoints (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                InAppPurchasePricesResponse result = apiInstance.InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelated(id, filterTerritory, fieldsInAppPurchasePricePoints, fieldsInAppPurchasePrices, fieldsTerritories, limit, include);
+                InAppPurchasePricesResponse result = apiInstance.InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelated(id, filterTerritory, fieldsInAppPurchasePrices, fieldsInAppPurchasePricePoints, fieldsTerritories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -70,7 +70,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InAppPurchasePricesResponse> response = apiInstance.InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsInAppPurchasePricePoints, fieldsInAppPurchasePrices, fieldsTerritories, limit, include);
+    ApiResponse<InAppPurchasePricesResponse> response = apiInstance.InAppPurchasePriceSchedulesAutomaticPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsInAppPurchasePrices, fieldsInAppPurchasePricePoints, fieldsTerritories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -89,8 +89,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
-| **fieldsInAppPurchasePricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePricePoints | [optional]  |
 | **fieldsInAppPurchasePrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePrices | [optional]  |
+| **fieldsInAppPurchasePricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePricePoints | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
@@ -113,13 +113,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of InAppPurchasePrices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchasepriceschedulesbaseterritorygettoonerelated"></a>
+<a id="inapppurchasepriceschedulesbaseterritorygettoonerelated"></a>
 # **InAppPurchasePriceSchedulesBaseTerritoryGetToOneRelated**
 > TerritoryResponse InAppPurchasePriceSchedulesBaseTerritoryGetToOneRelated (string id, List<string>? fieldsTerritories = null)
 
@@ -212,13 +213,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single Territory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchasepriceschedulescreateinstance"></a>
+<a id="inapppurchasepriceschedulescreateinstance"></a>
 # **InAppPurchasePriceSchedulesCreateInstance**
 > InAppPurchasePriceScheduleResponse InAppPurchasePriceSchedulesCreateInstance (InAppPurchasePriceScheduleCreateRequest inAppPurchasePriceScheduleCreateRequest)
 
@@ -309,15 +311,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single InAppPurchasePriceSchedule |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchasepriceschedulesgetinstance"></a>
+<a id="inapppurchasepriceschedulesgetinstance"></a>
 # **InAppPurchasePriceSchedulesGetInstance**
-> InAppPurchasePriceScheduleResponse InAppPurchasePriceSchedulesGetInstance (string id, List<string>? fieldsInAppPurchasePriceSchedules = null, List<string>? include = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? fieldsTerritories = null, int? limitAutomaticPrices = null, int? limitManualPrices = null)
+> InAppPurchasePriceScheduleResponse InAppPurchasePriceSchedulesGetInstance (string id, List<string>? fieldsInAppPurchasePriceSchedules = null, List<string>? fieldsTerritories = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? include = null, int? limitAutomaticPrices = null, int? limitManualPrices = null)
 
 
 
@@ -347,15 +351,15 @@ namespace Example
             var apiInstance = new InAppPurchasePriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsInAppPurchasePriceSchedules = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePriceSchedules (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsInAppPurchasePrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePrices (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
+            var fieldsInAppPurchasePrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePrices (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAutomaticPrices = 56;  // int? | maximum number of related automaticPrices returned (when they are included) (optional) 
             var limitManualPrices = 56;  // int? | maximum number of related manualPrices returned (when they are included) (optional) 
 
             try
             {
-                InAppPurchasePriceScheduleResponse result = apiInstance.InAppPurchasePriceSchedulesGetInstance(id, fieldsInAppPurchasePriceSchedules, include, fieldsInAppPurchasePrices, fieldsTerritories, limitAutomaticPrices, limitManualPrices);
+                InAppPurchasePriceScheduleResponse result = apiInstance.InAppPurchasePriceSchedulesGetInstance(id, fieldsInAppPurchasePriceSchedules, fieldsTerritories, fieldsInAppPurchasePrices, include, limitAutomaticPrices, limitManualPrices);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -375,7 +379,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InAppPurchasePriceScheduleResponse> response = apiInstance.InAppPurchasePriceSchedulesGetInstanceWithHttpInfo(id, fieldsInAppPurchasePriceSchedules, include, fieldsInAppPurchasePrices, fieldsTerritories, limitAutomaticPrices, limitManualPrices);
+    ApiResponse<InAppPurchasePriceScheduleResponse> response = apiInstance.InAppPurchasePriceSchedulesGetInstanceWithHttpInfo(id, fieldsInAppPurchasePriceSchedules, fieldsTerritories, fieldsInAppPurchasePrices, include, limitAutomaticPrices, limitManualPrices);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -394,9 +398,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsInAppPurchasePriceSchedules** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePriceSchedules | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsInAppPurchasePrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePrices | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
+| **fieldsInAppPurchasePrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePrices | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAutomaticPrices** | **int?** | maximum number of related automaticPrices returned (when they are included) | [optional]  |
 | **limitManualPrices** | **int?** | maximum number of related manualPrices returned (when they are included) | [optional]  |
 
@@ -418,15 +422,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single InAppPurchasePriceSchedule |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchasepriceschedulesmanualpricesgettomanyrelated"></a>
+<a id="inapppurchasepriceschedulesmanualpricesgettomanyrelated"></a>
 # **InAppPurchasePriceSchedulesManualPricesGetToManyRelated**
-> InAppPurchasePricesResponse InAppPurchasePriceSchedulesManualPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsInAppPurchasePricePoints = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
+> InAppPurchasePricesResponse InAppPurchasePriceSchedulesManualPricesGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? fieldsInAppPurchasePrices = null, List<string>? fieldsInAppPurchasePricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -456,15 +461,15 @@ namespace Example
             var apiInstance = new InAppPurchasePriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
-            var fieldsInAppPurchasePricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePricePoints (optional) 
             var fieldsInAppPurchasePrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePrices (optional) 
+            var fieldsInAppPurchasePricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchasePricePoints (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                InAppPurchasePricesResponse result = apiInstance.InAppPurchasePriceSchedulesManualPricesGetToManyRelated(id, filterTerritory, fieldsInAppPurchasePricePoints, fieldsInAppPurchasePrices, fieldsTerritories, limit, include);
+                InAppPurchasePricesResponse result = apiInstance.InAppPurchasePriceSchedulesManualPricesGetToManyRelated(id, filterTerritory, fieldsInAppPurchasePrices, fieldsInAppPurchasePricePoints, fieldsTerritories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -484,7 +489,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InAppPurchasePricesResponse> response = apiInstance.InAppPurchasePriceSchedulesManualPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsInAppPurchasePricePoints, fieldsInAppPurchasePrices, fieldsTerritories, limit, include);
+    ApiResponse<InAppPurchasePricesResponse> response = apiInstance.InAppPurchasePriceSchedulesManualPricesGetToManyRelatedWithHttpInfo(id, filterTerritory, fieldsInAppPurchasePrices, fieldsInAppPurchasePricePoints, fieldsTerritories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -503,8 +508,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
-| **fieldsInAppPurchasePricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePricePoints | [optional]  |
 | **fieldsInAppPurchasePrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePrices | [optional]  |
+| **fieldsInAppPurchasePricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchasePricePoints | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
@@ -527,6 +532,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of InAppPurchasePrices |  -  |

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityRelationshipsApp**](AppAvailabilityRelationshipsApp.md) |  | [optional] 
+**App** | [**AlternativeDistributionKeyCreateRequestDataRelationshipsApp**](AlternativeDistributionKeyCreateRequestDataRelationshipsApp.md) |  | [optional] 
 **AgeRatingDeclaration** | [**AppInfoRelationshipsAgeRatingDeclaration**](AppInfoRelationshipsAgeRatingDeclaration.md) |  | [optional] 
 **AppInfoLocalizations** | [**AppInfoRelationshipsAppInfoLocalizations**](AppInfoRelationshipsAppInfoLocalizations.md) |  | [optional] 
 **PrimaryCategory** | [**AppCategoryRelationshipsParent**](AppCategoryRelationshipsParent.md) |  | [optional] 

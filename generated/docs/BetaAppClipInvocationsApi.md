@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaAppClipInvocationsGetInstance**](BetaAppClipInvocationsApi.md#betaappclipinvocationsgetinstance) | **GET** /v1/betaAppClipInvocations/{id} |  |
 | [**BetaAppClipInvocationsUpdateInstance**](BetaAppClipInvocationsApi.md#betaappclipinvocationsupdateinstance) | **PATCH** /v1/betaAppClipInvocations/{id} |  |
 
-<a name="betaappclipinvocationscreateinstance"></a>
+<a id="betaappclipinvocationscreateinstance"></a>
 # **BetaAppClipInvocationsCreateInstance**
 > BetaAppClipInvocationResponse BetaAppClipInvocationsCreateInstance (BetaAppClipInvocationCreateRequest betaAppClipInvocationCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaAppClipInvocation |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappclipinvocationsdeleteinstance"></a>
+<a id="betaappclipinvocationsdeleteinstance"></a>
 # **BetaAppClipInvocationsDeleteInstance**
 > void BetaAppClipInvocationsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappclipinvocationsgetinstance"></a>
+<a id="betaappclipinvocationsgetinstance"></a>
 # **BetaAppClipInvocationsGetInstance**
 > BetaAppClipInvocationResponse BetaAppClipInvocationsGetInstance (string id, List<string>? fieldsBetaAppClipInvocations = null, List<string>? include = null, int? limitBetaAppClipInvocationLocalizations = null)
 
@@ -297,13 +300,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaAppClipInvocation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaappclipinvocationsupdateinstance"></a>
+<a id="betaappclipinvocationsupdateinstance"></a>
 # **BetaAppClipInvocationsUpdateInstance**
 > BetaAppClipInvocationResponse BetaAppClipInvocationsUpdateInstance (string id, BetaAppClipInvocationUpdateRequest betaAppClipInvocationUpdateRequest)
 
@@ -396,8 +400,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BetaAppClipInvocation |  -  |
 | **409** | Request entity error(s) |  -  |
 

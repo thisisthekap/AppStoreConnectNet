@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **AppStoreReviewScreenshot** | [**InAppPurchaseV2RelationshipsAppStoreReviewScreenshot**](InAppPurchaseV2RelationshipsAppStoreReviewScreenshot.md) |  | [optional] 
 **PromotedPurchase** | [**InAppPurchaseV2RelationshipsPromotedPurchase**](InAppPurchaseV2RelationshipsPromotedPurchase.md) |  | [optional] 
 **IapPriceSchedule** | [**InAppPurchaseV2RelationshipsIapPriceSchedule**](InAppPurchaseV2RelationshipsIapPriceSchedule.md) |  | [optional] 
+**InAppPurchaseAvailability** | [**InAppPurchaseV2RelationshipsInAppPurchaseAvailability**](InAppPurchaseV2RelationshipsInAppPurchaseAvailability.md) |  | [optional] 
+**Images** | [**InAppPurchaseV2RelationshipsImages**](InAppPurchaseV2RelationshipsImages.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

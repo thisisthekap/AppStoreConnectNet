@@ -11,9 +11,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaAppLocalizationsGetInstance**](BetaAppLocalizationsApi.md#betaapplocalizationsgetinstance) | **GET** /v1/betaAppLocalizations/{id} |  |
 | [**BetaAppLocalizationsUpdateInstance**](BetaAppLocalizationsApi.md#betaapplocalizationsupdateinstance) | **PATCH** /v1/betaAppLocalizations/{id} |  |
 
-<a name="betaapplocalizationsappgettoonerelated"></a>
+<a id="betaapplocalizationsappgettoonerelated"></a>
 # **BetaAppLocalizationsAppGetToOneRelated**
-> AppResponse BetaAppLocalizationsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse BetaAppLocalizationsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.BetaAppLocalizationsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.BetaAppLocalizationsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.BetaAppLocalizationsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.BetaAppLocalizationsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -88,7 +88,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -104,13 +104,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaapplocalizationscreateinstance"></a>
+<a id="betaapplocalizationscreateinstance"></a>
 # **BetaAppLocalizationsCreateInstance**
 > BetaAppLocalizationResponse BetaAppLocalizationsCreateInstance (BetaAppLocalizationCreateRequest betaAppLocalizationCreateRequest)
 
@@ -201,13 +202,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaAppLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaapplocalizationsdeleteinstance"></a>
+<a id="betaapplocalizationsdeleteinstance"></a>
 # **BetaAppLocalizationsDeleteInstance**
 > void BetaAppLocalizationsDeleteInstance (string id)
 
@@ -294,6 +297,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -301,9 +305,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaapplocalizationsgetcollection"></a>
+<a id="betaapplocalizationsgetcollection"></a>
 # **BetaAppLocalizationsGetCollection**
-> BetaAppLocalizationsResponse BetaAppLocalizationsGetCollection (List<string>? filterLocale = null, List<string>? filterApp = null, List<string>? fieldsBetaAppLocalizations = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaAppLocalizationsResponse BetaAppLocalizationsGetCollection (List<string>? filterLocale = null, List<string>? filterApp = null, List<string>? fieldsBetaAppLocalizations = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -334,13 +338,13 @@ namespace Example
             var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
             var filterApp = new List<string>?(); // List<string>? | filter by id(s) of related 'app' (optional) 
             var fieldsBetaAppLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppLocalizations (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
 
             try
             {
-                BetaAppLocalizationsResponse result = apiInstance.BetaAppLocalizationsGetCollection(filterLocale, filterApp, fieldsBetaAppLocalizations, limit, include, fieldsApps);
+                BetaAppLocalizationsResponse result = apiInstance.BetaAppLocalizationsGetCollection(filterLocale, filterApp, fieldsBetaAppLocalizations, fieldsApps, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -360,7 +364,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppLocalizationsResponse> response = apiInstance.BetaAppLocalizationsGetCollectionWithHttpInfo(filterLocale, filterApp, fieldsBetaAppLocalizations, limit, include, fieldsApps);
+    ApiResponse<BetaAppLocalizationsResponse> response = apiInstance.BetaAppLocalizationsGetCollectionWithHttpInfo(filterLocale, filterApp, fieldsBetaAppLocalizations, fieldsApps, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -380,9 +384,9 @@ catch (ApiException e)
 | **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
 | **filterApp** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;app&#39; | [optional]  |
 | **fieldsBetaAppLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppLocalizations | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 
 ### Return type
 
@@ -402,14 +406,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaAppLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaapplocalizationsgetinstance"></a>
+<a id="betaapplocalizationsgetinstance"></a>
 # **BetaAppLocalizationsGetInstance**
-> BetaAppLocalizationResponse BetaAppLocalizationsGetInstance (string id, List<string>? fieldsBetaAppLocalizations = null, List<string>? include = null, List<string>? fieldsApps = null)
+> BetaAppLocalizationResponse BetaAppLocalizationsGetInstance (string id, List<string>? fieldsBetaAppLocalizations = null, List<string>? fieldsApps = null, List<string>? include = null)
 
 
 
@@ -439,12 +444,12 @@ namespace Example
             var apiInstance = new BetaAppLocalizationsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaAppLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppLocalizations (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BetaAppLocalizationResponse result = apiInstance.BetaAppLocalizationsGetInstance(id, fieldsBetaAppLocalizations, include, fieldsApps);
+                BetaAppLocalizationResponse result = apiInstance.BetaAppLocalizationsGetInstance(id, fieldsBetaAppLocalizations, fieldsApps, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -464,7 +469,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppLocalizationResponse> response = apiInstance.BetaAppLocalizationsGetInstanceWithHttpInfo(id, fieldsBetaAppLocalizations, include, fieldsApps);
+    ApiResponse<BetaAppLocalizationResponse> response = apiInstance.BetaAppLocalizationsGetInstanceWithHttpInfo(id, fieldsBetaAppLocalizations, fieldsApps, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -483,8 +488,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaAppLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppLocalizations | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -504,13 +509,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaAppLocalization |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betaapplocalizationsupdateinstance"></a>
+<a id="betaapplocalizationsupdateinstance"></a>
 # **BetaAppLocalizationsUpdateInstance**
 > BetaAppLocalizationResponse BetaAppLocalizationsUpdateInstance (string id, BetaAppLocalizationUpdateRequest betaAppLocalizationUpdateRequest)
 
@@ -603,8 +609,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BetaAppLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 

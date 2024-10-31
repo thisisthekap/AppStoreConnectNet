@@ -14,7 +14,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**UsersVisibleAppsGetToManyRelationship**](UsersApi.md#usersvisibleappsgettomanyrelationship) | **GET** /v1/users/{id}/relationships/visibleApps |  |
 | [**UsersVisibleAppsReplaceToManyRelationship**](UsersApi.md#usersvisibleappsreplacetomanyrelationship) | **PATCH** /v1/users/{id}/relationships/visibleApps |  |
 
-<a name="usersdeleteinstance"></a>
+<a id="usersdeleteinstance"></a>
 # **UsersDeleteInstance**
 > void UsersDeleteInstance (string id)
 
@@ -101,6 +101,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -108,9 +109,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersgetcollection"></a>
+<a id="usersgetcollection"></a>
 # **UsersGetCollection**
-> UsersResponse UsersGetCollection (List<string>? filterRoles = null, List<string>? filterUsername = null, List<string>? filterVisibleApps = null, List<string>? sort = null, List<string>? fieldsUsers = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null, int? limitVisibleApps = null)
+> UsersResponse UsersGetCollection (List<string>? filterUsername = null, List<string>? filterRoles = null, List<string>? filterVisibleApps = null, List<string>? sort = null, List<string>? fieldsUsers = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null, int? limitVisibleApps = null)
 
 
 
@@ -138,19 +139,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var filterRoles = new List<string>?(); // List<string>? | filter by attribute 'roles' (optional) 
             var filterUsername = new List<string>?(); // List<string>? | filter by attribute 'username' (optional) 
+            var filterRoles = new List<string>?(); // List<string>? | filter by attribute 'roles' (optional) 
             var filterVisibleApps = new List<string>?(); // List<string>? | filter by id(s) of related 'visibleApps' (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsUsers = new List<string>?(); // List<string>? | the fields to include for returned resources of type users (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limitVisibleApps = 56;  // int? | maximum number of related visibleApps returned (when they are included) (optional) 
 
             try
             {
-                UsersResponse result = apiInstance.UsersGetCollection(filterRoles, filterUsername, filterVisibleApps, sort, fieldsUsers, limit, include, fieldsApps, limitVisibleApps);
+                UsersResponse result = apiInstance.UsersGetCollection(filterUsername, filterRoles, filterVisibleApps, sort, fieldsUsers, fieldsApps, limit, include, limitVisibleApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -170,7 +171,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<UsersResponse> response = apiInstance.UsersGetCollectionWithHttpInfo(filterRoles, filterUsername, filterVisibleApps, sort, fieldsUsers, limit, include, fieldsApps, limitVisibleApps);
+    ApiResponse<UsersResponse> response = apiInstance.UsersGetCollectionWithHttpInfo(filterUsername, filterRoles, filterVisibleApps, sort, fieldsUsers, fieldsApps, limit, include, limitVisibleApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -187,14 +188,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterRoles** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;roles&#39; | [optional]  |
 | **filterUsername** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;username&#39; | [optional]  |
+| **filterRoles** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;roles&#39; | [optional]  |
 | **filterVisibleApps** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;visibleApps&#39; | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsUsers** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type users | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limitVisibleApps** | **int?** | maximum number of related visibleApps returned (when they are included) | [optional]  |
 
 ### Return type
@@ -215,14 +216,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of Users |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersgetinstance"></a>
+<a id="usersgetinstance"></a>
 # **UsersGetInstance**
-> UserResponse UsersGetInstance (string id, List<string>? fieldsUsers = null, List<string>? include = null, List<string>? fieldsApps = null, int? limitVisibleApps = null)
+> UserResponse UsersGetInstance (string id, List<string>? fieldsUsers = null, List<string>? fieldsApps = null, List<string>? include = null, int? limitVisibleApps = null)
 
 
 
@@ -252,13 +254,13 @@ namespace Example
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsUsers = new List<string>?(); // List<string>? | the fields to include for returned resources of type users (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitVisibleApps = 56;  // int? | maximum number of related visibleApps returned (when they are included) (optional) 
 
             try
             {
-                UserResponse result = apiInstance.UsersGetInstance(id, fieldsUsers, include, fieldsApps, limitVisibleApps);
+                UserResponse result = apiInstance.UsersGetInstance(id, fieldsUsers, fieldsApps, include, limitVisibleApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -278,7 +280,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<UserResponse> response = apiInstance.UsersGetInstanceWithHttpInfo(id, fieldsUsers, include, fieldsApps, limitVisibleApps);
+    ApiResponse<UserResponse> response = apiInstance.UsersGetInstanceWithHttpInfo(id, fieldsUsers, fieldsApps, include, limitVisibleApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -297,8 +299,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsUsers** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type users | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitVisibleApps** | **int?** | maximum number of related visibleApps returned (when they are included) | [optional]  |
 
 ### Return type
@@ -319,13 +321,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single User |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersupdateinstance"></a>
+<a id="usersupdateinstance"></a>
 # **UsersUpdateInstance**
 > UserResponse UsersUpdateInstance (string id, UserUpdateRequest userUpdateRequest)
 
@@ -418,14 +421,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single User |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersvisibleappscreatetomanyrelationship"></a>
+<a id="usersvisibleappscreatetomanyrelationship"></a>
 # **UsersVisibleAppsCreateToManyRelationship**
 > void UsersVisibleAppsCreateToManyRelationship (string id, UserVisibleAppsLinkagesRequest userVisibleAppsLinkagesRequest)
 
@@ -513,14 +518,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersvisibleappsdeletetomanyrelationship"></a>
+<a id="usersvisibleappsdeletetomanyrelationship"></a>
 # **UsersVisibleAppsDeleteToManyRelationship**
 > void UsersVisibleAppsDeleteToManyRelationship (string id, UserVisibleAppsLinkagesRequest userVisibleAppsLinkagesRequest)
 
@@ -608,16 +615,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersvisibleappsgettomanyrelated"></a>
+<a id="usersvisibleappsgettomanyrelated"></a>
 # **UsersVisibleAppsGetToManyRelated**
-> AppsResponse UsersVisibleAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
+> AppsWithoutIncludesResponse UsersVisibleAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
 
 
 
@@ -651,7 +660,7 @@ namespace Example
 
             try
             {
-                AppsResponse result = apiInstance.UsersVisibleAppsGetToManyRelated(id, fieldsApps, limit);
+                AppsWithoutIncludesResponse result = apiInstance.UsersVisibleAppsGetToManyRelated(id, fieldsApps, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -671,7 +680,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppsResponse> response = apiInstance.UsersVisibleAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
+    ApiResponse<AppsWithoutIncludesResponse> response = apiInstance.UsersVisibleAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -694,7 +703,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppsResponse**](AppsResponse.md)
+[**AppsWithoutIncludesResponse**](AppsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -710,13 +719,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Apps |  -  |
+| **200** | List of Apps with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersvisibleappsgettomanyrelationship"></a>
+<a id="usersvisibleappsgettomanyrelationship"></a>
 # **UsersVisibleAppsGetToManyRelationship**
 > UserVisibleAppsLinkagesResponse UsersVisibleAppsGetToManyRelationship (string id, int? limit = null)
 
@@ -809,13 +819,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="usersvisibleappsreplacetomanyrelationship"></a>
+<a id="usersvisibleappsreplacetomanyrelationship"></a>
 # **UsersVisibleAppsReplaceToManyRelationship**
 > void UsersVisibleAppsReplaceToManyRelationship (string id, UserVisibleAppsLinkagesRequest userVisibleAppsLinkagesRequest)
 
@@ -903,8 +914,10 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 

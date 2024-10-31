@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System;
 using static System.Net.WebRequestMethods;
 using System.Text.RegularExpressions;
+using AppStoreConnect.Net.Client;
 
 namespace AppStoreConnect.Client;
 

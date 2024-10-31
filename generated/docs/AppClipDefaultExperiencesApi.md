@@ -14,7 +14,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppClipDefaultExperiencesReleaseWithAppStoreVersionUpdateToOneRelationship**](AppClipDefaultExperiencesApi.md#appclipdefaultexperiencesreleasewithappstoreversionupdatetoonerelationship) | **PATCH** /v1/appClipDefaultExperiences/{id}/relationships/releaseWithAppStoreVersion |  |
 | [**AppClipDefaultExperiencesUpdateInstance**](AppClipDefaultExperiencesApi.md#appclipdefaultexperiencesupdateinstance) | **PATCH** /v1/appClipDefaultExperiences/{id} |  |
 
-<a name="appclipdefaultexperiencesappclipappstorereviewdetailgettoonerelated"></a>
+<a id="appclipdefaultexperiencesappclipappstorereviewdetailgettoonerelated"></a>
 # **AppClipDefaultExperiencesAppClipAppStoreReviewDetailGetToOneRelated**
 > AppClipAppStoreReviewDetailResponse AppClipDefaultExperiencesAppClipAppStoreReviewDetailGetToOneRelated (string id, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? include = null)
 
@@ -111,15 +111,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipAppStoreReviewDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesappclipdefaultexperiencelocalizationsgettomanyrelated"></a>
+<a id="appclipdefaultexperiencesappclipdefaultexperiencelocalizationsgettomanyrelated"></a>
 # **AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelated**
-> AppClipDefaultExperienceLocalizationsResponse AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, List<string>? fieldsAppClipHeaderImages = null, int? limit = null, List<string>? include = null)
+> AppClipDefaultExperienceLocalizationsResponse AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppClipHeaderImages = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -149,15 +150,15 @@ namespace Example
             var apiInstance = new AppClipDefaultExperiencesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
-            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
             var fieldsAppClipDefaultExperienceLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperienceLocalizations (optional) 
+            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
             var fieldsAppClipHeaderImages = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipHeaderImages (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppClipDefaultExperienceLocalizationsResponse result = apiInstance.AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelated(id, filterLocale, fieldsAppClipDefaultExperiences, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipHeaderImages, limit, include);
+                AppClipDefaultExperienceLocalizationsResponse result = apiInstance.AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelated(id, filterLocale, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipDefaultExperiences, fieldsAppClipHeaderImages, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -177,7 +178,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppClipDefaultExperienceLocalizationsResponse> response = apiInstance.AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppClipDefaultExperiences, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipHeaderImages, limit, include);
+    ApiResponse<AppClipDefaultExperienceLocalizationsResponse> response = apiInstance.AppClipDefaultExperiencesAppClipDefaultExperienceLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipDefaultExperiences, fieldsAppClipHeaderImages, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -196,8 +197,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
-| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
 | **fieldsAppClipDefaultExperienceLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperienceLocalizations | [optional]  |
+| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
 | **fieldsAppClipHeaderImages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipHeaderImages | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
@@ -220,13 +221,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppClipDefaultExperienceLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencescreateinstance"></a>
+<a id="appclipdefaultexperiencescreateinstance"></a>
 # **AppClipDefaultExperiencesCreateInstance**
 > AppClipDefaultExperienceResponse AppClipDefaultExperiencesCreateInstance (AppClipDefaultExperienceCreateRequest appClipDefaultExperienceCreateRequest)
 
@@ -317,13 +319,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppClipDefaultExperience |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesdeleteinstance"></a>
+<a id="appclipdefaultexperiencesdeleteinstance"></a>
 # **AppClipDefaultExperiencesDeleteInstance**
 > void AppClipDefaultExperiencesDeleteInstance (string id)
 
@@ -410,6 +414,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -417,9 +422,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesgetinstance"></a>
+<a id="appclipdefaultexperiencesgetinstance"></a>
 # **AppClipDefaultExperiencesGetInstance**
-> AppClipDefaultExperienceResponse AppClipDefaultExperiencesGetInstance (string id, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? include = null, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, int? limitAppClipDefaultExperienceLocalizations = null)
+> AppClipDefaultExperienceResponse AppClipDefaultExperiencesGetInstance (string id, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? include = null, int? limitAppClipDefaultExperienceLocalizations = null)
 
 
 
@@ -449,15 +454,15 @@ namespace Example
             var apiInstance = new AppClipDefaultExperiencesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsAppClipAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipAppStoreReviewDetails (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsAppClipDefaultExperienceLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperienceLocalizations (optional) 
+            var fieldsAppClipAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipAppStoreReviewDetails (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppClipDefaultExperienceLocalizations = 56;  // int? | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppClipDefaultExperienceResponse result = apiInstance.AppClipDefaultExperiencesGetInstance(id, fieldsAppClipDefaultExperiences, include, fieldsAppClipAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, limitAppClipDefaultExperienceLocalizations);
+                AppClipDefaultExperienceResponse result = apiInstance.AppClipDefaultExperiencesGetInstance(id, fieldsAppClipDefaultExperiences, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipAppStoreReviewDetails, include, limitAppClipDefaultExperienceLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -477,7 +482,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppClipDefaultExperienceResponse> response = apiInstance.AppClipDefaultExperiencesGetInstanceWithHttpInfo(id, fieldsAppClipDefaultExperiences, include, fieldsAppClipAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, limitAppClipDefaultExperienceLocalizations);
+    ApiResponse<AppClipDefaultExperienceResponse> response = apiInstance.AppClipDefaultExperiencesGetInstanceWithHttpInfo(id, fieldsAppClipDefaultExperiences, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipAppStoreReviewDetails, include, limitAppClipDefaultExperienceLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -496,10 +501,10 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsAppClipAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipAppStoreReviewDetails | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsAppClipDefaultExperienceLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperienceLocalizations | [optional]  |
+| **fieldsAppClipAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipAppStoreReviewDetails | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppClipDefaultExperienceLocalizations** | **int?** | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
@@ -520,15 +525,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipDefaultExperience |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesreleasewithappstoreversiongettoonerelated"></a>
+<a id="appclipdefaultexperiencesreleasewithappstoreversiongettoonerelated"></a>
 # **AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelated**
-> AppStoreVersionResponse AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelated (string id, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsApps = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionLocalizations = null, int? limitAppStoreVersionLocalizations = null, int? limitAppStoreVersionExperiments = null, List<string>? include = null)
+> AppStoreVersionResponse AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelated (string id, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsApps = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsGameCenterAppVersions = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAlternativeDistributionPackages = null, List<string>? include = null, int? limitAppStoreVersionLocalizations = null, int? limitAppStoreVersionExperiments = null, int? limitAppStoreVersionExperimentsV2 = null)
 
 
 
@@ -557,24 +563,27 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppClipDefaultExperiencesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
-            var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
-            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
-            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
-            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
-            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
             var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
+            var fieldsGameCenterAppVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterAppVersions (optional) 
+            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
+            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
+            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
+            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
+            var fieldsAlternativeDistributionPackages = new List<string>?(); // List<string>? | the fields to include for returned resources of type alternativeDistributionPackages (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppStoreVersionLocalizations = 56;  // int? | maximum number of related appStoreVersionLocalizations returned (when they are included) (optional) 
             var limitAppStoreVersionExperiments = 56;  // int? | maximum number of related appStoreVersionExperiments returned (when they are included) (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppStoreVersionExperimentsV2 = 56;  // int? | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionResponse result = apiInstance.AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelated(id, fieldsAppStoreVersionExperiments, fieldsAgeRatingDeclarations, fieldsAppStoreVersionSubmissions, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsApps, fieldsRoutingAppCoverages, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, include);
+                AppStoreVersionResponse result = apiInstance.AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelated(id, fieldsAppStoreVersions, fieldsApps, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -594,7 +603,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionResponse> response = apiInstance.AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersionExperiments, fieldsAgeRatingDeclarations, fieldsAppStoreVersionSubmissions, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsApps, fieldsRoutingAppCoverages, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, include);
+    ApiResponse<AppStoreVersionResponse> response = apiInstance.AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersions, fieldsApps, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -612,20 +621,23 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
-| **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
-| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
-| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
-| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
-| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
 | **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
+| **fieldsGameCenterAppVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterAppVersions | [optional]  |
+| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
+| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
+| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
+| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
+| **fieldsAlternativeDistributionPackages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type alternativeDistributionPackages | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppStoreVersionLocalizations** | **int?** | maximum number of related appStoreVersionLocalizations returned (when they are included) | [optional]  |
 | **limitAppStoreVersionExperiments** | **int?** | maximum number of related appStoreVersionExperiments returned (when they are included) | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppStoreVersionExperimentsV2** | **int?** | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -645,13 +657,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersion |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesreleasewithappstoreversiongettoonerelationship"></a>
+<a id="appclipdefaultexperiencesreleasewithappstoreversiongettoonerelationship"></a>
 # **AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelationship**
 > AppClipDefaultExperienceReleaseWithAppStoreVersionLinkageResponse AppClipDefaultExperiencesReleaseWithAppStoreVersionGetToOneRelationship (string id)
 
@@ -742,13 +755,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Related linkage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesreleasewithappstoreversionupdatetoonerelationship"></a>
+<a id="appclipdefaultexperiencesreleasewithappstoreversionupdatetoonerelationship"></a>
 # **AppClipDefaultExperiencesReleaseWithAppStoreVersionUpdateToOneRelationship**
 > void AppClipDefaultExperiencesReleaseWithAppStoreVersionUpdateToOneRelationship (string id, AppClipDefaultExperienceReleaseWithAppStoreVersionLinkageRequest appClipDefaultExperienceReleaseWithAppStoreVersionLinkageRequest)
 
@@ -836,14 +850,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipdefaultexperiencesupdateinstance"></a>
+<a id="appclipdefaultexperiencesupdateinstance"></a>
 # **AppClipDefaultExperiencesUpdateInstance**
 > AppClipDefaultExperienceResponse AppClipDefaultExperiencesUpdateInstance (string id, AppClipDefaultExperienceUpdateRequest appClipDefaultExperienceUpdateRequest)
 
@@ -936,8 +952,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppClipDefaultExperience |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**AppStoreVersionReleaseRequestsCreateInstance**](AppStoreVersionReleaseRequestsApi.md#appstoreversionreleaserequestscreateinstance) | **POST** /v1/appStoreVersionReleaseRequests |  |
 
-<a name="appstoreversionreleaserequestscreateinstance"></a>
+<a id="appstoreversionreleaserequestscreateinstance"></a>
 # **AppStoreVersionReleaseRequestsCreateInstance**
 > AppStoreVersionReleaseRequestResponse AppStoreVersionReleaseRequestsCreateInstance (AppStoreVersionReleaseRequestCreateRequest appStoreVersionReleaseRequestCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersionReleaseRequest |  -  |
 | **409** | Request entity error(s) |  -  |
 

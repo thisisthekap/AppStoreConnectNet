@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionOfferCodeCustomCodesGetInstance**](SubscriptionOfferCodeCustomCodesApi.md#subscriptionoffercodecustomcodesgetinstance) | **GET** /v1/subscriptionOfferCodeCustomCodes/{id} |  |
 | [**SubscriptionOfferCodeCustomCodesUpdateInstance**](SubscriptionOfferCodeCustomCodesApi.md#subscriptionoffercodecustomcodesupdateinstance) | **PATCH** /v1/subscriptionOfferCodeCustomCodes/{id} |  |
 
-<a name="subscriptionoffercodecustomcodescreateinstance"></a>
+<a id="subscriptionoffercodecustomcodescreateinstance"></a>
 # **SubscriptionOfferCodeCustomCodesCreateInstance**
 > SubscriptionOfferCodeCustomCodeResponse SubscriptionOfferCodeCustomCodesCreateInstance (SubscriptionOfferCodeCustomCodeCreateRequest subscriptionOfferCodeCustomCodeCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionOfferCodeCustomCode |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionoffercodecustomcodesgetinstance"></a>
+<a id="subscriptionoffercodecustomcodesgetinstance"></a>
 # **SubscriptionOfferCodeCustomCodesGetInstance**
 > SubscriptionOfferCodeCustomCodeResponse SubscriptionOfferCodeCustomCodesGetInstance (string id, List<string>? fieldsSubscriptionOfferCodeCustomCodes = null, List<string>? include = null)
 
@@ -200,13 +202,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionOfferCodeCustomCode |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionoffercodecustomcodesupdateinstance"></a>
+<a id="subscriptionoffercodecustomcodesupdateinstance"></a>
 # **SubscriptionOfferCodeCustomCodesUpdateInstance**
 > SubscriptionOfferCodeCustomCodeResponse SubscriptionOfferCodeCustomCodesUpdateInstance (string id, SubscriptionOfferCodeCustomCodeUpdateRequest subscriptionOfferCodeCustomCodeUpdateRequest)
 
@@ -299,8 +302,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionOfferCodeCustomCode |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**AppStoreVersionPromotionsCreateInstance**](AppStoreVersionPromotionsApi.md#appstoreversionpromotionscreateinstance) | **POST** /v1/appStoreVersionPromotions |  |
 
-<a name="appstoreversionpromotionscreateinstance"></a>
+<a id="appstoreversionpromotionscreateinstance"></a>
 # **AppStoreVersionPromotionsCreateInstance**
 > AppStoreVersionPromotionResponse AppStoreVersionPromotionsCreateInstance (AppStoreVersionPromotionCreateRequest appStoreVersionPromotionCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersionPromotion |  -  |
 | **409** | Request entity error(s) |  -  |
 

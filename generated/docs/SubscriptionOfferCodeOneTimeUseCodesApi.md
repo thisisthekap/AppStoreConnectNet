@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionOfferCodeOneTimeUseCodesUpdateInstance**](SubscriptionOfferCodeOneTimeUseCodesApi.md#subscriptionoffercodeonetimeusecodesupdateinstance) | **PATCH** /v1/subscriptionOfferCodeOneTimeUseCodes/{id} |  |
 | [**SubscriptionOfferCodeOneTimeUseCodesValuesGetToOneRelated**](SubscriptionOfferCodeOneTimeUseCodesApi.md#subscriptionoffercodeonetimeusecodesvaluesgettoonerelated) | **GET** /v1/subscriptionOfferCodeOneTimeUseCodes/{id}/values |  |
 
-<a name="subscriptionoffercodeonetimeusecodescreateinstance"></a>
+<a id="subscriptionoffercodeonetimeusecodescreateinstance"></a>
 # **SubscriptionOfferCodeOneTimeUseCodesCreateInstance**
 > SubscriptionOfferCodeOneTimeUseCodeResponse SubscriptionOfferCodeOneTimeUseCodesCreateInstance (SubscriptionOfferCodeOneTimeUseCodeCreateRequest subscriptionOfferCodeOneTimeUseCodeCreateRequest)
 
@@ -100,15 +100,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionOfferCodeOneTimeUseCode |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionoffercodeonetimeusecodesgetinstance"></a>
+<a id="subscriptionoffercodeonetimeusecodesgetinstance"></a>
 # **SubscriptionOfferCodeOneTimeUseCodesGetInstance**
-> SubscriptionOfferCodeOneTimeUseCodeResponse SubscriptionOfferCodeOneTimeUseCodesGetInstance (string id, List<string>? fieldsSubscriptionOfferCodeOneTimeUseCodes = null, List<string>? include = null, List<string>? fieldsSubscriptionOfferCodeOneTimeUseCodeValues = null)
+> SubscriptionOfferCodeOneTimeUseCodeResponse SubscriptionOfferCodeOneTimeUseCodesGetInstance (string id, List<string>? fieldsSubscriptionOfferCodeOneTimeUseCodes = null, List<string>? include = null)
 
 
 
@@ -139,11 +141,10 @@ namespace Example
             var id = "id_example";  // string | the id of the requested resource
             var fieldsSubscriptionOfferCodeOneTimeUseCodes = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionOfferCodeOneTimeUseCodes (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsSubscriptionOfferCodeOneTimeUseCodeValues = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionOfferCodeOneTimeUseCodeValues (optional) 
 
             try
             {
-                SubscriptionOfferCodeOneTimeUseCodeResponse result = apiInstance.SubscriptionOfferCodeOneTimeUseCodesGetInstance(id, fieldsSubscriptionOfferCodeOneTimeUseCodes, include, fieldsSubscriptionOfferCodeOneTimeUseCodeValues);
+                SubscriptionOfferCodeOneTimeUseCodeResponse result = apiInstance.SubscriptionOfferCodeOneTimeUseCodesGetInstance(id, fieldsSubscriptionOfferCodeOneTimeUseCodes, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -163,7 +164,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<SubscriptionOfferCodeOneTimeUseCodeResponse> response = apiInstance.SubscriptionOfferCodeOneTimeUseCodesGetInstanceWithHttpInfo(id, fieldsSubscriptionOfferCodeOneTimeUseCodes, include, fieldsSubscriptionOfferCodeOneTimeUseCodeValues);
+    ApiResponse<SubscriptionOfferCodeOneTimeUseCodeResponse> response = apiInstance.SubscriptionOfferCodeOneTimeUseCodesGetInstanceWithHttpInfo(id, fieldsSubscriptionOfferCodeOneTimeUseCodes, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -183,7 +184,6 @@ catch (ApiException e)
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsSubscriptionOfferCodeOneTimeUseCodes** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionOfferCodeOneTimeUseCodes | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsSubscriptionOfferCodeOneTimeUseCodeValues** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionOfferCodeOneTimeUseCodeValues | [optional]  |
 
 ### Return type
 
@@ -203,13 +203,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionOfferCodeOneTimeUseCode |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionoffercodeonetimeusecodesupdateinstance"></a>
+<a id="subscriptionoffercodeonetimeusecodesupdateinstance"></a>
 # **SubscriptionOfferCodeOneTimeUseCodesUpdateInstance**
 > SubscriptionOfferCodeOneTimeUseCodeResponse SubscriptionOfferCodeOneTimeUseCodesUpdateInstance (string id, SubscriptionOfferCodeOneTimeUseCodeUpdateRequest subscriptionOfferCodeOneTimeUseCodeUpdateRequest)
 
@@ -302,14 +303,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionOfferCodeOneTimeUseCode |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionoffercodeonetimeusecodesvaluesgettoonerelated"></a>
+<a id="subscriptionoffercodeonetimeusecodesvaluesgettoonerelated"></a>
 # **SubscriptionOfferCodeOneTimeUseCodesValuesGetToOneRelated**
 > string SubscriptionOfferCodeOneTimeUseCodesValuesGetToOneRelated (string id)
 
@@ -400,6 +403,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionOfferCodeOneTimeUseCodeValue |  -  |

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**SubscriptionSubmissionsCreateInstance**](SubscriptionSubmissionsApi.md#subscriptionsubmissionscreateinstance) | **POST** /v1/subscriptionSubmissions |  |
 
-<a name="subscriptionsubmissionscreateinstance"></a>
+<a id="subscriptionsubmissionscreateinstance"></a>
 # **SubscriptionSubmissionsCreateInstance**
 > SubscriptionSubmissionResponse SubscriptionSubmissionsCreateInstance (SubscriptionSubmissionCreateRequest subscriptionSubmissionCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 

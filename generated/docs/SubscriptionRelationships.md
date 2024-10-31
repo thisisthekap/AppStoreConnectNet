@@ -11,7 +11,11 @@ Name | Type | Description | Notes
 **PromotionalOffers** | [**SubscriptionRelationshipsPromotionalOffers**](SubscriptionRelationshipsPromotionalOffers.md) |  | [optional] 
 **OfferCodes** | [**SubscriptionRelationshipsOfferCodes**](SubscriptionRelationshipsOfferCodes.md) |  | [optional] 
 **Prices** | [**SubscriptionRelationshipsPrices**](SubscriptionRelationshipsPrices.md) |  | [optional] 
+**PricePoints** | [**AnalyticsReportInstanceRelationshipsSegments**](AnalyticsReportInstanceRelationshipsSegments.md) |  | [optional] 
 **PromotedPurchase** | [**InAppPurchaseV2RelationshipsPromotedPurchase**](InAppPurchaseV2RelationshipsPromotedPurchase.md) |  | [optional] 
+**SubscriptionAvailability** | [**SubscriptionRelationshipsSubscriptionAvailability**](SubscriptionRelationshipsSubscriptionAvailability.md) |  | [optional] 
+**WinBackOffers** | [**SubscriptionRelationshipsWinBackOffers**](SubscriptionRelationshipsWinBackOffers.md) |  | [optional] 
+**Images** | [**SubscriptionRelationshipsImages**](SubscriptionRelationshipsImages.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

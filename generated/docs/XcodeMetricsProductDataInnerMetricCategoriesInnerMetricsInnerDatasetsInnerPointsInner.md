@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **Value** | **decimal** |  | [optional] 
 **ErrorMargin** | **decimal** |  | [optional] 
 **PercentageBreakdown** | [**XcodeMetricsProductDataInnerMetricCategoriesInnerMetricsInnerDatasetsInnerPointsInnerPercentageBreakdown**](XcodeMetricsProductDataInnerMetricCategoriesInnerMetricsInnerDatasetsInnerPointsInnerPercentageBreakdown.md) |  | [optional] 

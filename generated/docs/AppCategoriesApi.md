@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppCategoriesParentGetToOneRelated**](AppCategoriesApi.md#appcategoriesparentgettoonerelated) | **GET** /v1/appCategories/{id}/parent |  |
 | [**AppCategoriesSubcategoriesGetToManyRelated**](AppCategoriesApi.md#appcategoriessubcategoriesgettomanyrelated) | **GET** /v1/appCategories/{id}/subcategories |  |
 
-<a name="appcategoriesgetcollection"></a>
+<a id="appcategoriesgetcollection"></a>
 # **AppCategoriesGetCollection**
 > AppCategoriesResponse AppCategoriesGetCollection (List<string>? filterPlatforms = null, bool? existsParent = null, List<string>? fieldsAppCategories = null, int? limit = null, List<string>? include = null, int? limitSubcategories = null)
 
@@ -110,12 +110,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of AppCategories |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcategoriesgetinstance"></a>
+<a id="appcategoriesgetinstance"></a>
 # **AppCategoriesGetInstance**
 > AppCategoryResponse AppCategoriesGetInstance (string id, List<string>? fieldsAppCategories = null, List<string>? include = null, int? limitSubcategories = null)
 
@@ -212,15 +213,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCategory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcategoriesparentgettoonerelated"></a>
+<a id="appcategoriesparentgettoonerelated"></a>
 # **AppCategoriesParentGetToOneRelated**
-> AppCategoryResponse AppCategoriesParentGetToOneRelated (string id, List<string>? fieldsAppCategories = null)
+> AppCategoryWithoutIncludesResponse AppCategoriesParentGetToOneRelated (string id, List<string>? fieldsAppCategories = null)
 
 
 
@@ -253,7 +255,7 @@ namespace Example
 
             try
             {
-                AppCategoryResponse result = apiInstance.AppCategoriesParentGetToOneRelated(id, fieldsAppCategories);
+                AppCategoryWithoutIncludesResponse result = apiInstance.AppCategoriesParentGetToOneRelated(id, fieldsAppCategories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -273,7 +275,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoryResponse> response = apiInstance.AppCategoriesParentGetToOneRelatedWithHttpInfo(id, fieldsAppCategories);
+    ApiResponse<AppCategoryWithoutIncludesResponse> response = apiInstance.AppCategoriesParentGetToOneRelatedWithHttpInfo(id, fieldsAppCategories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -295,7 +297,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppCategoryResponse**](AppCategoryResponse.md)
+[**AppCategoryWithoutIncludesResponse**](AppCategoryWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -311,15 +313,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single AppCategory |  -  |
+| **200** | Single AppCategory with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcategoriessubcategoriesgettomanyrelated"></a>
+<a id="appcategoriessubcategoriesgettomanyrelated"></a>
 # **AppCategoriesSubcategoriesGetToManyRelated**
-> AppCategoriesResponse AppCategoriesSubcategoriesGetToManyRelated (string id, List<string>? fieldsAppCategories = null, int? limit = null)
+> AppCategoriesWithoutIncludesResponse AppCategoriesSubcategoriesGetToManyRelated (string id, List<string>? fieldsAppCategories = null, int? limit = null)
 
 
 
@@ -353,7 +356,7 @@ namespace Example
 
             try
             {
-                AppCategoriesResponse result = apiInstance.AppCategoriesSubcategoriesGetToManyRelated(id, fieldsAppCategories, limit);
+                AppCategoriesWithoutIncludesResponse result = apiInstance.AppCategoriesSubcategoriesGetToManyRelated(id, fieldsAppCategories, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -373,7 +376,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCategoriesResponse> response = apiInstance.AppCategoriesSubcategoriesGetToManyRelatedWithHttpInfo(id, fieldsAppCategories, limit);
+    ApiResponse<AppCategoriesWithoutIncludesResponse> response = apiInstance.AppCategoriesSubcategoriesGetToManyRelatedWithHttpInfo(id, fieldsAppCategories, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -396,7 +399,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppCategoriesResponse**](AppCategoriesResponse.md)
+[**AppCategoriesWithoutIncludesResponse**](AppCategoriesWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -412,9 +415,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of AppCategories |  -  |
+| **200** | List of AppCategories with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

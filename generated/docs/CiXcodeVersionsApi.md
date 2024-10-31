@@ -8,9 +8,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CiXcodeVersionsGetInstance**](CiXcodeVersionsApi.md#cixcodeversionsgetinstance) | **GET** /v1/ciXcodeVersions/{id} |  |
 | [**CiXcodeVersionsMacOsVersionsGetToManyRelated**](CiXcodeVersionsApi.md#cixcodeversionsmacosversionsgettomanyrelated) | **GET** /v1/ciXcodeVersions/{id}/macOsVersions |  |
 
-<a name="cixcodeversionsgetcollection"></a>
+<a id="cixcodeversionsgetcollection"></a>
 # **CiXcodeVersionsGetCollection**
-> CiXcodeVersionsResponse CiXcodeVersionsGetCollection (List<string>? fieldsCiXcodeVersions = null, int? limit = null, List<string>? include = null, List<string>? fieldsCiMacOsVersions = null, int? limitMacOsVersions = null)
+> CiXcodeVersionsResponse CiXcodeVersionsGetCollection (List<string>? fieldsCiXcodeVersions = null, List<string>? fieldsCiMacOsVersions = null, int? limit = null, List<string>? include = null, int? limitMacOsVersions = null)
 
 
 
@@ -39,14 +39,14 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiXcodeVersionsApi(httpClient, config, httpClientHandler);
             var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
+            var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
             var limitMacOsVersions = 56;  // int? | maximum number of related macOsVersions returned (when they are included) (optional) 
 
             try
             {
-                CiXcodeVersionsResponse result = apiInstance.CiXcodeVersionsGetCollection(fieldsCiXcodeVersions, limit, include, fieldsCiMacOsVersions, limitMacOsVersions);
+                CiXcodeVersionsResponse result = apiInstance.CiXcodeVersionsGetCollection(fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, include, limitMacOsVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiXcodeVersionsResponse> response = apiInstance.CiXcodeVersionsGetCollectionWithHttpInfo(fieldsCiXcodeVersions, limit, include, fieldsCiMacOsVersions, limitMacOsVersions);
+    ApiResponse<CiXcodeVersionsResponse> response = apiInstance.CiXcodeVersionsGetCollectionWithHttpInfo(fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, include, limitMacOsVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -84,9 +84,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
+| **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
 | **limitMacOsVersions** | **int?** | maximum number of related macOsVersions returned (when they are included) | [optional]  |
 
 ### Return type
@@ -107,14 +107,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of CiXcodeVersions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cixcodeversionsgetinstance"></a>
+<a id="cixcodeversionsgetinstance"></a>
 # **CiXcodeVersionsGetInstance**
-> CiXcodeVersionResponse CiXcodeVersionsGetInstance (string id, List<string>? fieldsCiXcodeVersions = null, List<string>? include = null, List<string>? fieldsCiMacOsVersions = null, int? limitMacOsVersions = null)
+> CiXcodeVersionResponse CiXcodeVersionsGetInstance (string id, List<string>? fieldsCiXcodeVersions = null, List<string>? fieldsCiMacOsVersions = null, List<string>? include = null, int? limitMacOsVersions = null)
 
 
 
@@ -144,13 +145,13 @@ namespace Example
             var apiInstance = new CiXcodeVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitMacOsVersions = 56;  // int? | maximum number of related macOsVersions returned (when they are included) (optional) 
 
             try
             {
-                CiXcodeVersionResponse result = apiInstance.CiXcodeVersionsGetInstance(id, fieldsCiXcodeVersions, include, fieldsCiMacOsVersions, limitMacOsVersions);
+                CiXcodeVersionResponse result = apiInstance.CiXcodeVersionsGetInstance(id, fieldsCiXcodeVersions, fieldsCiMacOsVersions, include, limitMacOsVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -170,7 +171,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiXcodeVersionResponse> response = apiInstance.CiXcodeVersionsGetInstanceWithHttpInfo(id, fieldsCiXcodeVersions, include, fieldsCiMacOsVersions, limitMacOsVersions);
+    ApiResponse<CiXcodeVersionResponse> response = apiInstance.CiXcodeVersionsGetInstanceWithHttpInfo(id, fieldsCiXcodeVersions, fieldsCiMacOsVersions, include, limitMacOsVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -189,8 +190,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitMacOsVersions** | **int?** | maximum number of related macOsVersions returned (when they are included) | [optional]  |
 
 ### Return type
@@ -211,15 +212,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiXcodeVersion |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cixcodeversionsmacosversionsgettomanyrelated"></a>
+<a id="cixcodeversionsmacosversionsgettomanyrelated"></a>
 # **CiXcodeVersionsMacOsVersionsGetToManyRelated**
-> CiMacOsVersionsResponse CiXcodeVersionsMacOsVersionsGetToManyRelated (string id, List<string>? fieldsCiXcodeVersions = null, List<string>? fieldsCiMacOsVersions = null, int? limit = null, int? limitXcodeVersions = null, List<string>? include = null)
+> CiMacOsVersionsResponse CiXcodeVersionsMacOsVersionsGetToManyRelated (string id, List<string>? fieldsCiMacOsVersions = null, List<string>? fieldsCiXcodeVersions = null, int? limit = null, List<string>? include = null, int? limitXcodeVersions = null)
 
 
 
@@ -248,15 +250,15 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiXcodeVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
             var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
+            var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitXcodeVersions = 56;  // int? | maximum number of related xcodeVersions returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitXcodeVersions = 56;  // int? | maximum number of related xcodeVersions returned (when they are included) (optional) 
 
             try
             {
-                CiMacOsVersionsResponse result = apiInstance.CiXcodeVersionsMacOsVersionsGetToManyRelated(id, fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, limitXcodeVersions, include);
+                CiMacOsVersionsResponse result = apiInstance.CiXcodeVersionsMacOsVersionsGetToManyRelated(id, fieldsCiMacOsVersions, fieldsCiXcodeVersions, limit, include, limitXcodeVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -276,7 +278,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiMacOsVersionsResponse> response = apiInstance.CiXcodeVersionsMacOsVersionsGetToManyRelatedWithHttpInfo(id, fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, limitXcodeVersions, include);
+    ApiResponse<CiMacOsVersionsResponse> response = apiInstance.CiXcodeVersionsMacOsVersionsGetToManyRelatedWithHttpInfo(id, fieldsCiMacOsVersions, fieldsCiXcodeVersions, limit, include, limitXcodeVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -294,11 +296,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
 | **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
+| **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitXcodeVersions** | **int?** | maximum number of related xcodeVersions returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitXcodeVersions** | **int?** | maximum number of related xcodeVersions returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -318,6 +320,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiMacOsVersions |  -  |

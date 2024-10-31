@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityCreateRequestDataRelationshipsApp**](AppAvailabilityCreateRequestDataRelationshipsApp.md) |  | 
-**InAppPurchaseV2** | [**InAppPurchasePriceInlineCreateRelationshipsInAppPurchaseV2**](InAppPurchasePriceInlineCreateRelationshipsInAppPurchaseV2.md) |  | [optional] 
-**Subscription** | [**PromotedPurchaseCreateRequestDataRelationshipsSubscription**](PromotedPurchaseCreateRequestDataRelationshipsSubscription.md) |  | [optional] 
+**App** | [**AnalyticsReportRequestCreateRequestDataRelationshipsApp**](AnalyticsReportRequestCreateRequestDataRelationshipsApp.md) |  | 
+**InAppPurchaseV2** | [**InAppPurchaseAppStoreReviewScreenshotRelationshipsInAppPurchaseV2**](InAppPurchaseAppStoreReviewScreenshotRelationshipsInAppPurchaseV2.md) |  | [optional] 
+**Subscription** | [**PromotedPurchaseRelationshipsSubscription**](PromotedPurchaseRelationshipsSubscription.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **SubscriptionStatusUrlVersion** | **SubscriptionStatusUrlVersion** |  | [optional] 
 **SubscriptionStatusUrlForSandbox** | **string** |  | [optional] 
 **SubscriptionStatusUrlVersionForSandbox** | **SubscriptionStatusUrlVersion** |  | [optional] 
-**AvailableInNewTerritories** | **bool** |  | [optional] 
 **ContentRightsDeclaration** | **string** |  | [optional] 
+**StreamlinedPurchasingEnabled** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

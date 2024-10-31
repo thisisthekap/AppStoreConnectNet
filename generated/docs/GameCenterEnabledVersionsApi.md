@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**GameCenterEnabledVersionsCompatibleVersionsGetToManyRelationship**](GameCenterEnabledVersionsApi.md#gamecenterenabledversionscompatibleversionsgettomanyrelationship) | **GET** /v1/gameCenterEnabledVersions/{id}/relationships/compatibleVersions |  |
 | [**GameCenterEnabledVersionsCompatibleVersionsReplaceToManyRelationship**](GameCenterEnabledVersionsApi.md#gamecenterenabledversionscompatibleversionsreplacetomanyrelationship) | **PATCH** /v1/gameCenterEnabledVersions/{id}/relationships/compatibleVersions |  |
 
-<a name="gamecenterenabledversionscompatibleversionscreatetomanyrelationship"></a>
+<a id="gamecenterenabledversionscompatibleversionscreatetomanyrelationship"></a>
 # **GameCenterEnabledVersionsCompatibleVersionsCreateToManyRelationship**
 > void GameCenterEnabledVersionsCompatibleVersionsCreateToManyRelationship (string id, GameCenterEnabledVersionCompatibleVersionsLinkagesRequest gameCenterEnabledVersionCompatibleVersionsLinkagesRequest)
 
@@ -98,14 +98,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="gamecenterenabledversionscompatibleversionsdeletetomanyrelationship"></a>
+<a id="gamecenterenabledversionscompatibleversionsdeletetomanyrelationship"></a>
 # **GameCenterEnabledVersionsCompatibleVersionsDeleteToManyRelationship**
 > void GameCenterEnabledVersionsCompatibleVersionsDeleteToManyRelationship (string id, GameCenterEnabledVersionCompatibleVersionsLinkagesRequest gameCenterEnabledVersionCompatibleVersionsLinkagesRequest)
 
@@ -193,16 +195,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="gamecenterenabledversionscompatibleversionsgettomanyrelated"></a>
+<a id="gamecenterenabledversionscompatibleversionsgettomanyrelated"></a>
 # **GameCenterEnabledVersionsCompatibleVersionsGetToManyRelated**
-> GameCenterEnabledVersionsResponse GameCenterEnabledVersionsCompatibleVersionsGetToManyRelated (string id, List<string>? filterPlatform = null, List<string>? filterVersionString = null, List<string>? filterApp = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsGameCenterEnabledVersions = null, List<string>? fieldsApps = null, int? limit = null, int? limitCompatibleVersions = null, List<string>? include = null)
+> GameCenterEnabledVersionsResponse GameCenterEnabledVersionsCompatibleVersionsGetToManyRelated (string id, List<string>? filterPlatform = null, List<string>? filterVersionString = null, List<string>? filterApp = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsGameCenterEnabledVersions = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null, int? limitCompatibleVersions = null)
 
 
 
@@ -239,12 +243,12 @@ namespace Example
             var fieldsGameCenterEnabledVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterEnabledVersions (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitCompatibleVersions = 56;  // int? | maximum number of related compatibleVersions returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitCompatibleVersions = 56;  // int? | maximum number of related compatibleVersions returned (when they are included) (optional) 
 
             try
             {
-                GameCenterEnabledVersionsResponse result = apiInstance.GameCenterEnabledVersionsCompatibleVersionsGetToManyRelated(id, filterPlatform, filterVersionString, filterApp, filterId, sort, fieldsGameCenterEnabledVersions, fieldsApps, limit, limitCompatibleVersions, include);
+                GameCenterEnabledVersionsResponse result = apiInstance.GameCenterEnabledVersionsCompatibleVersionsGetToManyRelated(id, filterPlatform, filterVersionString, filterApp, filterId, sort, fieldsGameCenterEnabledVersions, fieldsApps, limit, include, limitCompatibleVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -264,7 +268,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<GameCenterEnabledVersionsResponse> response = apiInstance.GameCenterEnabledVersionsCompatibleVersionsGetToManyRelatedWithHttpInfo(id, filterPlatform, filterVersionString, filterApp, filterId, sort, fieldsGameCenterEnabledVersions, fieldsApps, limit, limitCompatibleVersions, include);
+    ApiResponse<GameCenterEnabledVersionsResponse> response = apiInstance.GameCenterEnabledVersionsCompatibleVersionsGetToManyRelatedWithHttpInfo(id, filterPlatform, filterVersionString, filterApp, filterId, sort, fieldsGameCenterEnabledVersions, fieldsApps, limit, include, limitCompatibleVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -290,8 +294,8 @@ catch (ApiException e)
 | **fieldsGameCenterEnabledVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterEnabledVersions | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitCompatibleVersions** | **int?** | maximum number of related compatibleVersions returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitCompatibleVersions** | **int?** | maximum number of related compatibleVersions returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -311,13 +315,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of GameCenterEnabledVersions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="gamecenterenabledversionscompatibleversionsgettomanyrelationship"></a>
+<a id="gamecenterenabledversionscompatibleversionsgettomanyrelationship"></a>
 # **GameCenterEnabledVersionsCompatibleVersionsGetToManyRelationship**
 > GameCenterEnabledVersionCompatibleVersionsLinkagesResponse GameCenterEnabledVersionsCompatibleVersionsGetToManyRelationship (string id, int? limit = null)
 
@@ -410,13 +415,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="gamecenterenabledversionscompatibleversionsreplacetomanyrelationship"></a>
+<a id="gamecenterenabledversionscompatibleversionsreplacetomanyrelationship"></a>
 # **GameCenterEnabledVersionsCompatibleVersionsReplaceToManyRelationship**
 > void GameCenterEnabledVersionsCompatibleVersionsReplaceToManyRelationship (string id, GameCenterEnabledVersionCompatibleVersionsLinkagesRequest gameCenterEnabledVersionCompatibleVersionsLinkagesRequest)
 
@@ -504,8 +510,10 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 

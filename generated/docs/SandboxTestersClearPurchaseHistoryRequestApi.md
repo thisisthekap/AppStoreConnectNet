@@ -4,11 +4,11 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SandboxTestersClearPurchaseHistoryRequestCreateInstance**](SandboxTestersClearPurchaseHistoryRequestApi.md#sandboxtestersclearpurchasehistoryrequestcreateinstance) | **POST** /v2/sandboxTestersClearPurchaseHistoryRequest |  |
+| [**SandboxTestersClearPurchaseHistoryRequestV2CreateInstance**](SandboxTestersClearPurchaseHistoryRequestApi.md#sandboxtestersclearpurchasehistoryrequestv2createinstance) | **POST** /v2/sandboxTestersClearPurchaseHistoryRequest |  |
 
-<a name="sandboxtestersclearpurchasehistoryrequestcreateinstance"></a>
-# **SandboxTestersClearPurchaseHistoryRequestCreateInstance**
-> SandboxTestersClearPurchaseHistoryRequestV2Response SandboxTestersClearPurchaseHistoryRequestCreateInstance (SandboxTestersClearPurchaseHistoryRequestV2CreateRequest sandboxTestersClearPurchaseHistoryRequestV2CreateRequest)
+<a id="sandboxtestersclearpurchasehistoryrequestv2createinstance"></a>
+# **SandboxTestersClearPurchaseHistoryRequestV2CreateInstance**
+> SandboxTestersClearPurchaseHistoryRequestV2Response SandboxTestersClearPurchaseHistoryRequestV2CreateInstance (SandboxTestersClearPurchaseHistoryRequestV2CreateRequest sandboxTestersClearPurchaseHistoryRequestV2CreateRequest)
 
 
 
@@ -23,7 +23,7 @@ using AppStoreConnect.Net.Model;
 
 namespace Example
 {
-    public class SandboxTestersClearPurchaseHistoryRequestCreateInstanceExample
+    public class SandboxTestersClearPurchaseHistoryRequestV2CreateInstanceExample
     {
         public static void Main()
         {
@@ -40,12 +40,12 @@ namespace Example
 
             try
             {
-                SandboxTestersClearPurchaseHistoryRequestV2Response result = apiInstance.SandboxTestersClearPurchaseHistoryRequestCreateInstance(sandboxTestersClearPurchaseHistoryRequestV2CreateRequest);
+                SandboxTestersClearPurchaseHistoryRequestV2Response result = apiInstance.SandboxTestersClearPurchaseHistoryRequestV2CreateInstance(sandboxTestersClearPurchaseHistoryRequestV2CreateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SandboxTestersClearPurchaseHistoryRequestApi.SandboxTestersClearPurchaseHistoryRequestCreateInstance: " + e.Message);
+                Debug.Print("Exception when calling SandboxTestersClearPurchaseHistoryRequestApi.SandboxTestersClearPurchaseHistoryRequestV2CreateInstance: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -54,20 +54,20 @@ namespace Example
 }
 ```
 
-#### Using the SandboxTestersClearPurchaseHistoryRequestCreateInstanceWithHttpInfo variant
+#### Using the SandboxTestersClearPurchaseHistoryRequestV2CreateInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<SandboxTestersClearPurchaseHistoryRequestV2Response> response = apiInstance.SandboxTestersClearPurchaseHistoryRequestCreateInstanceWithHttpInfo(sandboxTestersClearPurchaseHistoryRequestV2CreateRequest);
+    ApiResponse<SandboxTestersClearPurchaseHistoryRequestV2Response> response = apiInstance.SandboxTestersClearPurchaseHistoryRequestV2CreateInstanceWithHttpInfo(sandboxTestersClearPurchaseHistoryRequestV2CreateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SandboxTestersClearPurchaseHistoryRequestApi.SandboxTestersClearPurchaseHistoryRequestCreateInstanceWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SandboxTestersClearPurchaseHistoryRequestApi.SandboxTestersClearPurchaseHistoryRequestV2CreateInstanceWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SandboxTestersClearPurchaseHistoryRequest |  -  |
 | **409** | Request entity error(s) |  -  |
 

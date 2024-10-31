@@ -11,9 +11,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CiWorkflowsRepositoryGetToOneRelated**](CiWorkflowsApi.md#ciworkflowsrepositorygettoonerelated) | **GET** /v1/ciWorkflows/{id}/repository |  |
 | [**CiWorkflowsUpdateInstance**](CiWorkflowsApi.md#ciworkflowsupdateinstance) | **PATCH** /v1/ciWorkflows/{id} |  |
 
-<a name="ciworkflowsbuildrunsgettomanyrelated"></a>
+<a id="ciworkflowsbuildrunsgettomanyrelated"></a>
 # **CiWorkflowsBuildRunsGetToManyRelated**
-> CiBuildRunsResponse CiWorkflowsBuildRunsGetToManyRelated (string id, List<string>? filterBuilds = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsScmPullRequests = null, List<string>? fieldsCiProducts = null, List<string>? fieldsBuilds = null, int? limit = null, int? limitBuilds = null, List<string>? include = null)
+> CiBuildRunsResponse CiWorkflowsBuildRunsGetToManyRelated (string id, List<string>? filterBuilds = null, List<string>? sort = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsBuilds = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsCiProducts = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmPullRequests = null, int? limit = null, List<string>? include = null, int? limitBuilds = null)
 
 
 
@@ -43,19 +43,20 @@ namespace Example
             var apiInstance = new CiWorkflowsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterBuilds = new List<string>?(); // List<string>? | filter by id(s) of related 'builds' (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
+            var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
-            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
-            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
+            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
+            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                CiBuildRunsResponse result = apiInstance.CiWorkflowsBuildRunsGetToManyRelated(id, filterBuilds, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limit, limitBuilds, include);
+                CiBuildRunsResponse result = apiInstance.CiWorkflowsBuildRunsGetToManyRelated(id, filterBuilds, sort, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, limit, include, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -75,7 +76,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiBuildRunsResponse> response = apiInstance.CiWorkflowsBuildRunsGetToManyRelatedWithHttpInfo(id, filterBuilds, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limit, limitBuilds, include);
+    ApiResponse<CiBuildRunsResponse> response = apiInstance.CiWorkflowsBuildRunsGetToManyRelatedWithHttpInfo(id, filterBuilds, sort, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, limit, include, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -94,15 +95,16 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterBuilds** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;builds&#39; | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
+| **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
-| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
-| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
+| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
+| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -122,13 +124,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiBuildRuns |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciworkflowscreateinstance"></a>
+<a id="ciworkflowscreateinstance"></a>
 # **CiWorkflowsCreateInstance**
 > CiWorkflowResponse CiWorkflowsCreateInstance (CiWorkflowCreateRequest ciWorkflowCreateRequest)
 
@@ -219,13 +222,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single CiWorkflow |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciworkflowsdeleteinstance"></a>
+<a id="ciworkflowsdeleteinstance"></a>
 # **CiWorkflowsDeleteInstance**
 > void CiWorkflowsDeleteInstance (string id)
 
@@ -312,6 +317,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -319,9 +325,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciworkflowsgetinstance"></a>
+<a id="ciworkflowsgetinstance"></a>
 # **CiWorkflowsGetInstance**
-> CiWorkflowResponse CiWorkflowsGetInstance (string id, List<string>? fieldsCiWorkflows = null, List<string>? include = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsScmRepositories = null)
+> CiWorkflowResponse CiWorkflowsGetInstance (string id, List<string>? fieldsCiWorkflows = null, List<string>? fieldsScmRepositories = null, List<string>? include = null)
 
 
 
@@ -351,13 +357,12 @@ namespace Example
             var apiInstance = new CiWorkflowsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                CiWorkflowResponse result = apiInstance.CiWorkflowsGetInstance(id, fieldsCiWorkflows, include, fieldsCiBuildRuns, fieldsScmRepositories);
+                CiWorkflowResponse result = apiInstance.CiWorkflowsGetInstance(id, fieldsCiWorkflows, fieldsScmRepositories, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -377,7 +382,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiWorkflowResponse> response = apiInstance.CiWorkflowsGetInstanceWithHttpInfo(id, fieldsCiWorkflows, include, fieldsCiBuildRuns, fieldsScmRepositories);
+    ApiResponse<CiWorkflowResponse> response = apiInstance.CiWorkflowsGetInstanceWithHttpInfo(id, fieldsCiWorkflows, fieldsScmRepositories, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -396,9 +401,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -418,15 +422,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiWorkflow |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciworkflowsrepositorygettoonerelated"></a>
+<a id="ciworkflowsrepositorygettoonerelated"></a>
 # **CiWorkflowsRepositoryGetToOneRelated**
-> ScmRepositoryResponse CiWorkflowsRepositoryGetToOneRelated (string id, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmRepositories = null, List<string>? include = null)
+> ScmRepositoryResponse CiWorkflowsRepositoryGetToOneRelated (string id, List<string>? fieldsScmRepositories = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmGitReferences = null, List<string>? include = null)
 
 
 
@@ -455,14 +460,14 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiWorkflowsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
-            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                ScmRepositoryResponse result = apiInstance.CiWorkflowsRepositoryGetToOneRelated(id, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, include);
+                ScmRepositoryResponse result = apiInstance.CiWorkflowsRepositoryGetToOneRelated(id, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -482,7 +487,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ScmRepositoryResponse> response = apiInstance.CiWorkflowsRepositoryGetToOneRelatedWithHttpInfo(id, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, include);
+    ApiResponse<ScmRepositoryResponse> response = apiInstance.CiWorkflowsRepositoryGetToOneRelatedWithHttpInfo(id, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -500,9 +505,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
-| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
@@ -523,13 +528,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single ScmRepository |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciworkflowsupdateinstance"></a>
+<a id="ciworkflowsupdateinstance"></a>
 # **CiWorkflowsUpdateInstance**
 > CiWorkflowResponse CiWorkflowsUpdateInstance (string id, CiWorkflowUpdateRequest ciWorkflowUpdateRequest)
 
@@ -622,8 +628,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single CiWorkflow |  -  |
 | **409** | Request entity error(s) |  -  |
 

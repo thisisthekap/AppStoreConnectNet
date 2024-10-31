@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppClipAdvancedExperiencesGetInstance**](AppClipAdvancedExperiencesApi.md#appclipadvancedexperiencesgetinstance) | **GET** /v1/appClipAdvancedExperiences/{id} |  |
 | [**AppClipAdvancedExperiencesUpdateInstance**](AppClipAdvancedExperiencesApi.md#appclipadvancedexperiencesupdateinstance) | **PATCH** /v1/appClipAdvancedExperiences/{id} |  |
 
-<a name="appclipadvancedexperiencescreateinstance"></a>
+<a id="appclipadvancedexperiencescreateinstance"></a>
 # **AppClipAdvancedExperiencesCreateInstance**
 > AppClipAdvancedExperienceResponse AppClipAdvancedExperiencesCreateInstance (AppClipAdvancedExperienceCreateRequest appClipAdvancedExperienceCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppClipAdvancedExperience |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipadvancedexperiencesgetinstance"></a>
+<a id="appclipadvancedexperiencesgetinstance"></a>
 # **AppClipAdvancedExperiencesGetInstance**
 > AppClipAdvancedExperienceResponse AppClipAdvancedExperiencesGetInstance (string id, List<string>? fieldsAppClipAdvancedExperiences = null, List<string>? include = null, int? limitLocalizations = null)
 
@@ -202,13 +204,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipAdvancedExperience |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipadvancedexperiencesupdateinstance"></a>
+<a id="appclipadvancedexperiencesupdateinstance"></a>
 # **AppClipAdvancedExperiencesUpdateInstance**
 > AppClipAdvancedExperienceResponse AppClipAdvancedExperiencesUpdateInstance (string id, AppClipAdvancedExperienceUpdateRequest appClipAdvancedExperienceUpdateRequest)
 
@@ -301,8 +304,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppClipAdvancedExperience |  -  |
 | **409** | Request entity error(s) |  -  |
 

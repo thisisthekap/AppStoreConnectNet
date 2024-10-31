@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreReviewAttachmentsGetInstance**](AppStoreReviewAttachmentsApi.md#appstorereviewattachmentsgetinstance) | **GET** /v1/appStoreReviewAttachments/{id} |  |
 | [**AppStoreReviewAttachmentsUpdateInstance**](AppStoreReviewAttachmentsApi.md#appstorereviewattachmentsupdateinstance) | **PATCH** /v1/appStoreReviewAttachments/{id} |  |
 
-<a name="appstorereviewattachmentscreateinstance"></a>
+<a id="appstorereviewattachmentscreateinstance"></a>
 # **AppStoreReviewAttachmentsCreateInstance**
 > AppStoreReviewAttachmentResponse AppStoreReviewAttachmentsCreateInstance (AppStoreReviewAttachmentCreateRequest appStoreReviewAttachmentCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreReviewAttachment |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewattachmentsdeleteinstance"></a>
+<a id="appstorereviewattachmentsdeleteinstance"></a>
 # **AppStoreReviewAttachmentsDeleteInstance**
 > void AppStoreReviewAttachmentsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewattachmentsgetinstance"></a>
+<a id="appstorereviewattachmentsgetinstance"></a>
 # **AppStoreReviewAttachmentsGetInstance**
 > AppStoreReviewAttachmentResponse AppStoreReviewAttachmentsGetInstance (string id, List<string>? fieldsAppStoreReviewAttachments = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreReviewAttachment |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewattachmentsupdateinstance"></a>
+<a id="appstorereviewattachmentsupdateinstance"></a>
 # **AppStoreReviewAttachmentsUpdateInstance**
 > AppStoreReviewAttachmentResponse AppStoreReviewAttachmentsUpdateInstance (string id, AppStoreReviewAttachmentUpdateRequest appStoreReviewAttachmentUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppStoreReviewAttachment |  -  |
 | **409** | Request entity error(s) |  -  |
 

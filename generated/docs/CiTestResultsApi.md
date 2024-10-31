@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**CiTestResultsGetInstance**](CiTestResultsApi.md#citestresultsgetinstance) | **GET** /v1/ciTestResults/{id} |  |
 
-<a name="citestresultsgetinstance"></a>
+<a id="citestresultsgetinstance"></a>
 # **CiTestResultsGetInstance**
 > CiTestResultResponse CiTestResultsGetInstance (string id, List<string>? fieldsCiTestResults = null)
 
@@ -99,6 +99,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiTestResult |  -  |

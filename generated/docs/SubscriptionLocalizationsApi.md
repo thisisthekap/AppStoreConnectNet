@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionLocalizationsGetInstance**](SubscriptionLocalizationsApi.md#subscriptionlocalizationsgetinstance) | **GET** /v1/subscriptionLocalizations/{id} |  |
 | [**SubscriptionLocalizationsUpdateInstance**](SubscriptionLocalizationsApi.md#subscriptionlocalizationsupdateinstance) | **PATCH** /v1/subscriptionLocalizations/{id} |  |
 
-<a name="subscriptionlocalizationscreateinstance"></a>
+<a id="subscriptionlocalizationscreateinstance"></a>
 # **SubscriptionLocalizationsCreateInstance**
 > SubscriptionLocalizationResponse SubscriptionLocalizationsCreateInstance (SubscriptionLocalizationCreateRequest subscriptionLocalizationCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionlocalizationsdeleteinstance"></a>
+<a id="subscriptionlocalizationsdeleteinstance"></a>
 # **SubscriptionLocalizationsDeleteInstance**
 > void SubscriptionLocalizationsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionlocalizationsgetinstance"></a>
+<a id="subscriptionlocalizationsgetinstance"></a>
 # **SubscriptionLocalizationsGetInstance**
 > SubscriptionLocalizationResponse SubscriptionLocalizationsGetInstance (string id, List<string>? fieldsSubscriptionLocalizations = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionLocalization |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionlocalizationsupdateinstance"></a>
+<a id="subscriptionlocalizationsupdateinstance"></a>
 # **SubscriptionLocalizationsUpdateInstance**
 > SubscriptionLocalizationResponse SubscriptionLocalizationsUpdateInstance (string id, SubscriptionLocalizationUpdateRequest subscriptionLocalizationUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 

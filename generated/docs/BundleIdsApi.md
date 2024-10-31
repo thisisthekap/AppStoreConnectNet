@@ -13,9 +13,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BundleIdsProfilesGetToManyRelated**](BundleIdsApi.md#bundleidsprofilesgettomanyrelated) | **GET** /v1/bundleIds/{id}/profiles |  |
 | [**BundleIdsUpdateInstance**](BundleIdsApi.md#bundleidsupdateinstance) | **PATCH** /v1/bundleIds/{id} |  |
 
-<a name="bundleidsappgettoonerelated"></a>
+<a id="bundleidsappgettoonerelated"></a>
 # **BundleIdsAppGetToOneRelated**
-> AppResponse BundleIdsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse BundleIdsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.BundleIdsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.BundleIdsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -68,7 +68,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.BundleIdsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.BundleIdsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -90,7 +90,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -106,15 +106,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsbundleidcapabilitiesgettomanyrelated"></a>
+<a id="bundleidsbundleidcapabilitiesgettomanyrelated"></a>
 # **BundleIdsBundleIdCapabilitiesGetToManyRelated**
-> BundleIdCapabilitiesResponse BundleIdsBundleIdCapabilitiesGetToManyRelated (string id, List<string>? fieldsBundleIdCapabilities = null, int? limit = null)
+> BundleIdCapabilitiesWithoutIncludesResponse BundleIdsBundleIdCapabilitiesGetToManyRelated (string id, List<string>? fieldsBundleIdCapabilities = null, int? limit = null)
 
 
 
@@ -148,7 +149,7 @@ namespace Example
 
             try
             {
-                BundleIdCapabilitiesResponse result = apiInstance.BundleIdsBundleIdCapabilitiesGetToManyRelated(id, fieldsBundleIdCapabilities, limit);
+                BundleIdCapabilitiesWithoutIncludesResponse result = apiInstance.BundleIdsBundleIdCapabilitiesGetToManyRelated(id, fieldsBundleIdCapabilities, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -168,7 +169,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BundleIdCapabilitiesResponse> response = apiInstance.BundleIdsBundleIdCapabilitiesGetToManyRelatedWithHttpInfo(id, fieldsBundleIdCapabilities, limit);
+    ApiResponse<BundleIdCapabilitiesWithoutIncludesResponse> response = apiInstance.BundleIdsBundleIdCapabilitiesGetToManyRelatedWithHttpInfo(id, fieldsBundleIdCapabilities, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -191,7 +192,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BundleIdCapabilitiesResponse**](BundleIdCapabilitiesResponse.md)
+[**BundleIdCapabilitiesWithoutIncludesResponse**](BundleIdCapabilitiesWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -207,13 +208,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of BundleIdCapabilities |  -  |
+| **200** | List of BundleIdCapabilities with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidscreateinstance"></a>
+<a id="bundleidscreateinstance"></a>
 # **BundleIdsCreateInstance**
 > BundleIdResponse BundleIdsCreateInstance (BundleIdCreateRequest bundleIdCreateRequest)
 
@@ -304,13 +306,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BundleId |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsdeleteinstance"></a>
+<a id="bundleidsdeleteinstance"></a>
 # **BundleIdsDeleteInstance**
 > void BundleIdsDeleteInstance (string id)
 
@@ -397,6 +401,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -404,9 +409,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsgetcollection"></a>
+<a id="bundleidsgetcollection"></a>
 # **BundleIdsGetCollection**
-> BundleIdsResponse BundleIdsGetCollection (List<string>? filterIdentifier = null, List<string>? filterName = null, List<string>? filterPlatform = null, List<string>? filterSeedId = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBundleIds = null, int? limit = null, List<string>? include = null, List<string>? fieldsBundleIdCapabilities = null, List<string>? fieldsProfiles = null, List<string>? fieldsApps = null, int? limitBundleIdCapabilities = null, int? limitProfiles = null)
+> BundleIdsResponse BundleIdsGetCollection (List<string>? filterName = null, List<string>? filterPlatform = null, List<string>? filterIdentifier = null, List<string>? filterSeedId = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBundleIds = null, List<string>? fieldsProfiles = null, List<string>? fieldsBundleIdCapabilities = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null, int? limitBundleIdCapabilities = null, int? limitProfiles = null)
 
 
 
@@ -434,24 +439,24 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BundleIdsApi(httpClient, config, httpClientHandler);
-            var filterIdentifier = new List<string>?(); // List<string>? | filter by attribute 'identifier' (optional) 
             var filterName = new List<string>?(); // List<string>? | filter by attribute 'name' (optional) 
             var filterPlatform = new List<string>?(); // List<string>? | filter by attribute 'platform' (optional) 
+            var filterIdentifier = new List<string>?(); // List<string>? | filter by attribute 'identifier' (optional) 
             var filterSeedId = new List<string>?(); // List<string>? | filter by attribute 'seedId' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsBundleIds = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIds (optional) 
+            var fieldsProfiles = new List<string>?(); // List<string>? | the fields to include for returned resources of type profiles (optional) 
+            var fieldsBundleIdCapabilities = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIdCapabilities (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsBundleIdCapabilities = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIdCapabilities (optional) 
-            var fieldsProfiles = new List<string>?(); // List<string>? | the fields to include for returned resources of type profiles (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limitBundleIdCapabilities = 56;  // int? | maximum number of related bundleIdCapabilities returned (when they are included) (optional) 
             var limitProfiles = 56;  // int? | maximum number of related profiles returned (when they are included) (optional) 
 
             try
             {
-                BundleIdsResponse result = apiInstance.BundleIdsGetCollection(filterIdentifier, filterName, filterPlatform, filterSeedId, filterId, sort, fieldsBundleIds, limit, include, fieldsBundleIdCapabilities, fieldsProfiles, fieldsApps, limitBundleIdCapabilities, limitProfiles);
+                BundleIdsResponse result = apiInstance.BundleIdsGetCollection(filterName, filterPlatform, filterIdentifier, filterSeedId, filterId, sort, fieldsBundleIds, fieldsProfiles, fieldsBundleIdCapabilities, fieldsApps, limit, include, limitBundleIdCapabilities, limitProfiles);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -471,7 +476,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BundleIdsResponse> response = apiInstance.BundleIdsGetCollectionWithHttpInfo(filterIdentifier, filterName, filterPlatform, filterSeedId, filterId, sort, fieldsBundleIds, limit, include, fieldsBundleIdCapabilities, fieldsProfiles, fieldsApps, limitBundleIdCapabilities, limitProfiles);
+    ApiResponse<BundleIdsResponse> response = apiInstance.BundleIdsGetCollectionWithHttpInfo(filterName, filterPlatform, filterIdentifier, filterSeedId, filterId, sort, fieldsBundleIds, fieldsProfiles, fieldsBundleIdCapabilities, fieldsApps, limit, include, limitBundleIdCapabilities, limitProfiles);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -488,18 +493,18 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterIdentifier** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;identifier&#39; | [optional]  |
 | **filterName** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;name&#39; | [optional]  |
 | **filterPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;platform&#39; | [optional]  |
+| **filterIdentifier** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;identifier&#39; | [optional]  |
 | **filterSeedId** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;seedId&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsBundleIds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIds | [optional]  |
+| **fieldsProfiles** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type profiles | [optional]  |
+| **fieldsBundleIdCapabilities** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIdCapabilities | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsBundleIdCapabilities** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIdCapabilities | [optional]  |
-| **fieldsProfiles** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type profiles | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limitBundleIdCapabilities** | **int?** | maximum number of related bundleIdCapabilities returned (when they are included) | [optional]  |
 | **limitProfiles** | **int?** | maximum number of related profiles returned (when they are included) | [optional]  |
 
@@ -521,14 +526,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BundleIds |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsgetinstance"></a>
+<a id="bundleidsgetinstance"></a>
 # **BundleIdsGetInstance**
-> BundleIdResponse BundleIdsGetInstance (string id, List<string>? fieldsBundleIds = null, List<string>? include = null, List<string>? fieldsBundleIdCapabilities = null, List<string>? fieldsProfiles = null, List<string>? fieldsApps = null, int? limitBundleIdCapabilities = null, int? limitProfiles = null)
+> BundleIdResponse BundleIdsGetInstance (string id, List<string>? fieldsBundleIds = null, List<string>? fieldsProfiles = null, List<string>? fieldsBundleIdCapabilities = null, List<string>? fieldsApps = null, List<string>? include = null, int? limitBundleIdCapabilities = null, int? limitProfiles = null)
 
 
 
@@ -558,16 +564,16 @@ namespace Example
             var apiInstance = new BundleIdsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBundleIds = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIds (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsBundleIdCapabilities = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIdCapabilities (optional) 
             var fieldsProfiles = new List<string>?(); // List<string>? | the fields to include for returned resources of type profiles (optional) 
+            var fieldsBundleIdCapabilities = new List<string>?(); // List<string>? | the fields to include for returned resources of type bundleIdCapabilities (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitBundleIdCapabilities = 56;  // int? | maximum number of related bundleIdCapabilities returned (when they are included) (optional) 
             var limitProfiles = 56;  // int? | maximum number of related profiles returned (when they are included) (optional) 
 
             try
             {
-                BundleIdResponse result = apiInstance.BundleIdsGetInstance(id, fieldsBundleIds, include, fieldsBundleIdCapabilities, fieldsProfiles, fieldsApps, limitBundleIdCapabilities, limitProfiles);
+                BundleIdResponse result = apiInstance.BundleIdsGetInstance(id, fieldsBundleIds, fieldsProfiles, fieldsBundleIdCapabilities, fieldsApps, include, limitBundleIdCapabilities, limitProfiles);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -587,7 +593,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BundleIdResponse> response = apiInstance.BundleIdsGetInstanceWithHttpInfo(id, fieldsBundleIds, include, fieldsBundleIdCapabilities, fieldsProfiles, fieldsApps, limitBundleIdCapabilities, limitProfiles);
+    ApiResponse<BundleIdResponse> response = apiInstance.BundleIdsGetInstanceWithHttpInfo(id, fieldsBundleIds, fieldsProfiles, fieldsBundleIdCapabilities, fieldsApps, include, limitBundleIdCapabilities, limitProfiles);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -606,10 +612,10 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBundleIds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIds | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsBundleIdCapabilities** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIdCapabilities | [optional]  |
 | **fieldsProfiles** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type profiles | [optional]  |
+| **fieldsBundleIdCapabilities** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type bundleIdCapabilities | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitBundleIdCapabilities** | **int?** | maximum number of related bundleIdCapabilities returned (when they are included) | [optional]  |
 | **limitProfiles** | **int?** | maximum number of related profiles returned (when they are included) | [optional]  |
 
@@ -631,15 +637,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BundleId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsprofilesgettomanyrelated"></a>
+<a id="bundleidsprofilesgettomanyrelated"></a>
 # **BundleIdsProfilesGetToManyRelated**
-> ProfilesResponse BundleIdsProfilesGetToManyRelated (string id, List<string>? fieldsProfiles = null, int? limit = null)
+> ProfilesWithoutIncludesResponse BundleIdsProfilesGetToManyRelated (string id, List<string>? fieldsProfiles = null, int? limit = null)
 
 
 
@@ -673,7 +680,7 @@ namespace Example
 
             try
             {
-                ProfilesResponse result = apiInstance.BundleIdsProfilesGetToManyRelated(id, fieldsProfiles, limit);
+                ProfilesWithoutIncludesResponse result = apiInstance.BundleIdsProfilesGetToManyRelated(id, fieldsProfiles, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -693,7 +700,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ProfilesResponse> response = apiInstance.BundleIdsProfilesGetToManyRelatedWithHttpInfo(id, fieldsProfiles, limit);
+    ApiResponse<ProfilesWithoutIncludesResponse> response = apiInstance.BundleIdsProfilesGetToManyRelatedWithHttpInfo(id, fieldsProfiles, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -716,7 +723,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ProfilesResponse**](ProfilesResponse.md)
+[**ProfilesWithoutIncludesResponse**](ProfilesWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -732,13 +739,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Profiles |  -  |
+| **200** | List of Profiles with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidsupdateinstance"></a>
+<a id="bundleidsupdateinstance"></a>
 # **BundleIdsUpdateInstance**
 > BundleIdResponse BundleIdsUpdateInstance (string id, BundleIdUpdateRequest bundleIdUpdateRequest)
 
@@ -831,8 +839,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BundleId |  -  |
 | **409** | Request entity error(s) |  -  |
 

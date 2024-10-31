@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**InAppPurchaseContentsGetInstance**](InAppPurchaseContentsApi.md#inapppurchasecontentsgetinstance) | **GET** /v1/inAppPurchaseContents/{id} |  |
 
-<a name="inapppurchasecontentsgetinstance"></a>
+<a id="inapppurchasecontentsgetinstance"></a>
 # **InAppPurchaseContentsGetInstance**
 > InAppPurchaseContentResponse InAppPurchaseContentsGetInstance (string id, List<string>? fieldsInAppPurchaseContents = null, List<string>? include = null)
 
@@ -101,6 +101,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single InAppPurchaseContent |  -  |

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | [**List&lt;AppCategory&gt;**](AppCategory.md) |  | 
-**Included** | [**List&lt;AppCategoriesResponseIncludedInner&gt;**](AppCategoriesResponseIncludedInner.md) |  | [optional] 
+**Included** | [**List&lt;AppCategory&gt;**](AppCategory.md) |  | [optional] 
 **Links** | [**PagedDocumentLinks**](PagedDocumentLinks.md) |  | 
 **Meta** | [**PagingInformation**](PagingInformation.md) |  | [optional] 
 

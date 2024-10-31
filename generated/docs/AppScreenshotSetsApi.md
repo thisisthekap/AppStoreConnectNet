@@ -11,9 +11,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppScreenshotSetsDeleteInstance**](AppScreenshotSetsApi.md#appscreenshotsetsdeleteinstance) | **DELETE** /v1/appScreenshotSets/{id} |  |
 | [**AppScreenshotSetsGetInstance**](AppScreenshotSetsApi.md#appscreenshotsetsgetinstance) | **GET** /v1/appScreenshotSets/{id} |  |
 
-<a name="appscreenshotsetsappscreenshotsgettomanyrelated"></a>
+<a id="appscreenshotsetsappscreenshotsgettomanyrelated"></a>
 # **AppScreenshotSetsAppScreenshotsGetToManyRelated**
-> AppScreenshotsResponse AppScreenshotSetsAppScreenshotsGetToManyRelated (string id, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppScreenshots = null, int? limit = null, List<string>? include = null)
+> AppScreenshotsResponse AppScreenshotSetsAppScreenshotsGetToManyRelated (string id, List<string>? fieldsAppScreenshots = null, List<string>? fieldsAppScreenshotSets = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -42,14 +42,14 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppScreenshotSetsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
             var fieldsAppScreenshots = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshots (optional) 
+            var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppScreenshotsResponse result = apiInstance.AppScreenshotSetsAppScreenshotsGetToManyRelated(id, fieldsAppScreenshotSets, fieldsAppScreenshots, limit, include);
+                AppScreenshotsResponse result = apiInstance.AppScreenshotSetsAppScreenshotsGetToManyRelated(id, fieldsAppScreenshots, fieldsAppScreenshotSets, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,7 +69,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppScreenshotsResponse> response = apiInstance.AppScreenshotSetsAppScreenshotsGetToManyRelatedWithHttpInfo(id, fieldsAppScreenshotSets, fieldsAppScreenshots, limit, include);
+    ApiResponse<AppScreenshotsResponse> response = apiInstance.AppScreenshotSetsAppScreenshotsGetToManyRelatedWithHttpInfo(id, fieldsAppScreenshots, fieldsAppScreenshotSets, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -87,8 +87,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
 | **fieldsAppScreenshots** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshots | [optional]  |
+| **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -110,13 +110,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppScreenshots |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsetsappscreenshotsgettomanyrelationship"></a>
+<a id="appscreenshotsetsappscreenshotsgettomanyrelationship"></a>
 # **AppScreenshotSetsAppScreenshotsGetToManyRelationship**
 > AppScreenshotSetAppScreenshotsLinkagesResponse AppScreenshotSetsAppScreenshotsGetToManyRelationship (string id, int? limit = null)
 
@@ -209,13 +210,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsetsappscreenshotsreplacetomanyrelationship"></a>
+<a id="appscreenshotsetsappscreenshotsreplacetomanyrelationship"></a>
 # **AppScreenshotSetsAppScreenshotsReplaceToManyRelationship**
 > void AppScreenshotSetsAppScreenshotsReplaceToManyRelationship (string id, AppScreenshotSetAppScreenshotsLinkagesRequest appScreenshotSetAppScreenshotsLinkagesRequest)
 
@@ -303,14 +305,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsetscreateinstance"></a>
+<a id="appscreenshotsetscreateinstance"></a>
 # **AppScreenshotSetsCreateInstance**
 > AppScreenshotSetResponse AppScreenshotSetsCreateInstance (AppScreenshotSetCreateRequest appScreenshotSetCreateRequest)
 
@@ -401,13 +405,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppScreenshotSet |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsetsdeleteinstance"></a>
+<a id="appscreenshotsetsdeleteinstance"></a>
 # **AppScreenshotSetsDeleteInstance**
 > void AppScreenshotSetsDeleteInstance (string id)
 
@@ -494,6 +500,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -501,9 +508,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appscreenshotsetsgetinstance"></a>
+<a id="appscreenshotsetsgetinstance"></a>
 # **AppScreenshotSetsGetInstance**
-> AppScreenshotSetResponse AppScreenshotSetsGetInstance (string id, List<string>? fieldsAppScreenshotSets = null, List<string>? include = null, List<string>? fieldsAppScreenshots = null, int? limitAppScreenshots = null)
+> AppScreenshotSetResponse AppScreenshotSetsGetInstance (string id, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppScreenshots = null, List<string>? include = null, int? limitAppScreenshots = null)
 
 
 
@@ -533,13 +540,13 @@ namespace Example
             var apiInstance = new AppScreenshotSetsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppScreenshots = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshots (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppScreenshots = 56;  // int? | maximum number of related appScreenshots returned (when they are included) (optional) 
 
             try
             {
-                AppScreenshotSetResponse result = apiInstance.AppScreenshotSetsGetInstance(id, fieldsAppScreenshotSets, include, fieldsAppScreenshots, limitAppScreenshots);
+                AppScreenshotSetResponse result = apiInstance.AppScreenshotSetsGetInstance(id, fieldsAppScreenshotSets, fieldsAppScreenshots, include, limitAppScreenshots);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -559,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppScreenshotSetResponse> response = apiInstance.AppScreenshotSetsGetInstanceWithHttpInfo(id, fieldsAppScreenshotSets, include, fieldsAppScreenshots, limitAppScreenshots);
+    ApiResponse<AppScreenshotSetResponse> response = apiInstance.AppScreenshotSetsGetInstanceWithHttpInfo(id, fieldsAppScreenshotSets, fieldsAppScreenshots, include, limitAppScreenshots);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -578,8 +585,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppScreenshots** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshots | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppScreenshots** | **int?** | maximum number of related appScreenshots returned (when they are included) | [optional]  |
 
 ### Return type
@@ -600,6 +607,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppScreenshotSet |  -  |

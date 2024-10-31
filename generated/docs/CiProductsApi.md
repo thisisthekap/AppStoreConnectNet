@@ -13,9 +13,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CiProductsPrimaryRepositoriesGetToManyRelated**](CiProductsApi.md#ciproductsprimaryrepositoriesgettomanyrelated) | **GET** /v1/ciProducts/{id}/primaryRepositories |  |
 | [**CiProductsWorkflowsGetToManyRelated**](CiProductsApi.md#ciproductsworkflowsgettomanyrelated) | **GET** /v1/ciProducts/{id}/workflows |  |
 
-<a name="ciproductsadditionalrepositoriesgettomanyrelated"></a>
+<a id="ciproductsadditionalrepositoriesgettomanyrelated"></a>
 # **CiProductsAdditionalRepositoriesGetToManyRelated**
-> ScmRepositoriesResponse CiProductsAdditionalRepositoriesGetToManyRelated (string id, List<string>? filterId = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
+> ScmRepositoriesResponse CiProductsAdditionalRepositoriesGetToManyRelated (string id, List<string>? filterId = null, List<string>? fieldsScmRepositories = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmGitReferences = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -45,15 +45,15 @@ namespace Example
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
-            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                ScmRepositoriesResponse result = apiInstance.CiProductsAdditionalRepositoriesGetToManyRelated(id, filterId, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, limit, include);
+                ScmRepositoriesResponse result = apiInstance.CiProductsAdditionalRepositoriesGetToManyRelated(id, filterId, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -73,7 +73,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ScmRepositoriesResponse> response = apiInstance.CiProductsAdditionalRepositoriesGetToManyRelatedWithHttpInfo(id, filterId, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, limit, include);
+    ApiResponse<ScmRepositoriesResponse> response = apiInstance.CiProductsAdditionalRepositoriesGetToManyRelatedWithHttpInfo(id, filterId, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -92,9 +92,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
-| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -116,15 +116,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of ScmRepositories |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsappgettoonerelated"></a>
+<a id="ciproductsappgettoonerelated"></a>
 # **CiProductsAppGetToOneRelated**
-> AppResponse CiProductsAppGetToOneRelated (string id, List<string>? fieldsBetaLicenseAgreements = null, List<string>? fieldsBetaAppReviewDetails = null, List<string>? fieldsAppClips = null, List<string>? fieldsBetaAppLocalizations = null, List<string>? fieldsAppInfos = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsInAppPurchases = null, List<string>? fieldsCiProducts = null, List<string>? fieldsInAppPurchases2 = null, List<string>? fieldsSubscriptionGroups = null, List<string>? fieldsReviewSubmissions = null, List<string>? fieldsBetaGroups = null, List<string>? fieldsAppPreOrders = null, List<string>? fieldsAppPrices = null, List<string>? fieldsGameCenterEnabledVersions = null, List<string>? fieldsSubscriptionGracePeriods = null, List<string>? fieldsPromotedPurchases = null, List<string>? fieldsEndUserLicenseAgreements = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppCustomProductPages = null, List<string>? fieldsApps = null, List<string>? fieldsAppEvents = null, List<string>? fieldsTerritories = null, List<string>? fieldsBuilds = null, int? limitBetaGroups = null, int? limitAppStoreVersions = null, int? limitPreReleaseVersions = null, int? limitBetaAppLocalizations = null, int? limitBuilds = null, int? limitAppInfos = null, int? limitAppClips = null, int? limitPrices = null, int? limitAvailableTerritories = null, int? limitInAppPurchases = null, int? limitSubscriptionGroups = null, int? limitGameCenterEnabledVersions = null, int? limitAppCustomProductPages = null, int? limitInAppPurchasesV2 = null, int? limitPromotedPurchases = null, int? limitAppEvents = null, int? limitReviewSubmissions = null, List<string>? include = null)
+> AppResponse CiProductsAppGetToOneRelated (string id, List<string>? fieldsApps = null, List<string>? fieldsAppEncryptionDeclarations = null, List<string>? fieldsCiProducts = null, List<string>? fieldsBetaGroups = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsBetaAppLocalizations = null, List<string>? fieldsBuilds = null, List<string>? fieldsBetaLicenseAgreements = null, List<string>? fieldsBetaAppReviewDetails = null, List<string>? fieldsAppInfos = null, List<string>? fieldsAppClips = null, List<string>? fieldsEndUserLicenseAgreements = null, List<string>? fieldsAppPreOrders = null, List<string>? fieldsInAppPurchases = null, List<string>? fieldsSubscriptionGroups = null, List<string>? fieldsGameCenterEnabledVersions = null, List<string>? fieldsAppCustomProductPages = null, List<string>? fieldsPromotedPurchases = null, List<string>? fieldsAppEvents = null, List<string>? fieldsReviewSubmissions = null, List<string>? fieldsSubscriptionGracePeriods = null, List<string>? fieldsGameCenterDetails = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? include = null, int? limitAppEncryptionDeclarations = null, int? limitBetaGroups = null, int? limitAppStoreVersions = null, int? limitPreReleaseVersions = null, int? limitBetaAppLocalizations = null, int? limitBuilds = null, int? limitAppInfos = null, int? limitAppClips = null, int? limitInAppPurchases = null, int? limitSubscriptionGroups = null, int? limitGameCenterEnabledVersions = null, int? limitAppCustomProductPages = null, int? limitInAppPurchasesV2 = null, int? limitPromotedPurchases = null, int? limitAppEvents = null, int? limitReviewSubmissions = null, int? limitAppStoreVersionExperimentsV2 = null)
 
 
 
@@ -153,30 +154,32 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var fieldsAppEncryptionDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEncryptionDeclarations (optional) 
+            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
+            var fieldsBetaGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaGroups (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
+            var fieldsBetaAppLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppLocalizations (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var fieldsBetaLicenseAgreements = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaLicenseAgreements (optional) 
             var fieldsBetaAppReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppReviewDetails (optional) 
-            var fieldsAppClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClips (optional) 
-            var fieldsBetaAppLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppLocalizations (optional) 
             var fieldsAppInfos = new List<string>?(); // List<string>? | the fields to include for returned resources of type appInfos (optional) 
-            var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
-            var fieldsInAppPurchases = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchases (optional) 
-            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
-            var fieldsInAppPurchases2 = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchases (optional) 
-            var fieldsSubscriptionGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionGroups (optional) 
-            var fieldsReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissions (optional) 
-            var fieldsBetaGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaGroups (optional) 
-            var fieldsAppPreOrders = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreOrders (optional) 
-            var fieldsAppPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPrices (optional) 
-            var fieldsGameCenterEnabledVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterEnabledVersions (optional) 
-            var fieldsSubscriptionGracePeriods = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionGracePeriods (optional) 
-            var fieldsPromotedPurchases = new List<string>?(); // List<string>? | the fields to include for returned resources of type promotedPurchases (optional) 
+            var fieldsAppClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClips (optional) 
             var fieldsEndUserLicenseAgreements = new List<string>?(); // List<string>? | the fields to include for returned resources of type endUserLicenseAgreements (optional) 
-            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsAppPreOrders = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreOrders (optional) 
+            var fieldsInAppPurchases = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchases (optional) 
+            var fieldsSubscriptionGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionGroups (optional) 
+            var fieldsGameCenterEnabledVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterEnabledVersions (optional) 
             var fieldsAppCustomProductPages = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPages (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var fieldsPromotedPurchases = new List<string>?(); // List<string>? | the fields to include for returned resources of type promotedPurchases (optional) 
             var fieldsAppEvents = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEvents (optional) 
-            var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsReviewSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type reviewSubmissions (optional) 
+            var fieldsSubscriptionGracePeriods = new List<string>?(); // List<string>? | the fields to include for returned resources of type subscriptionGracePeriods (optional) 
+            var fieldsGameCenterDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterDetails (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppEncryptionDeclarations = 56;  // int? | maximum number of related appEncryptionDeclarations returned (when they are included) (optional) 
             var limitBetaGroups = 56;  // int? | maximum number of related betaGroups returned (when they are included) (optional) 
             var limitAppStoreVersions = 56;  // int? | maximum number of related appStoreVersions returned (when they are included) (optional) 
             var limitPreReleaseVersions = 56;  // int? | maximum number of related preReleaseVersions returned (when they are included) (optional) 
@@ -184,8 +187,6 @@ namespace Example
             var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
             var limitAppInfos = 56;  // int? | maximum number of related appInfos returned (when they are included) (optional) 
             var limitAppClips = 56;  // int? | maximum number of related appClips returned (when they are included) (optional) 
-            var limitPrices = 56;  // int? | maximum number of related prices returned (when they are included) (optional) 
-            var limitAvailableTerritories = 56;  // int? | maximum number of related availableTerritories returned (when they are included) (optional) 
             var limitInAppPurchases = 56;  // int? | maximum number of related inAppPurchases returned (when they are included) (optional) 
             var limitSubscriptionGroups = 56;  // int? | maximum number of related subscriptionGroups returned (when they are included) (optional) 
             var limitGameCenterEnabledVersions = 56;  // int? | maximum number of related gameCenterEnabledVersions returned (when they are included) (optional) 
@@ -194,11 +195,11 @@ namespace Example
             var limitPromotedPurchases = 56;  // int? | maximum number of related promotedPurchases returned (when they are included) (optional) 
             var limitAppEvents = 56;  // int? | maximum number of related appEvents returned (when they are included) (optional) 
             var limitReviewSubmissions = 56;  // int? | maximum number of related reviewSubmissions returned (when they are included) (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppStoreVersionExperimentsV2 = 56;  // int? | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) (optional) 
 
             try
             {
-                AppResponse result = apiInstance.CiProductsAppGetToOneRelated(id, fieldsBetaLicenseAgreements, fieldsBetaAppReviewDetails, fieldsAppClips, fieldsBetaAppLocalizations, fieldsAppInfos, fieldsPreReleaseVersions, fieldsInAppPurchases, fieldsCiProducts, fieldsInAppPurchases2, fieldsSubscriptionGroups, fieldsReviewSubmissions, fieldsBetaGroups, fieldsAppPreOrders, fieldsAppPrices, fieldsGameCenterEnabledVersions, fieldsSubscriptionGracePeriods, fieldsPromotedPurchases, fieldsEndUserLicenseAgreements, fieldsAppStoreVersions, fieldsAppCustomProductPages, fieldsApps, fieldsAppEvents, fieldsTerritories, fieldsBuilds, limitBetaGroups, limitAppStoreVersions, limitPreReleaseVersions, limitBetaAppLocalizations, limitBuilds, limitAppInfos, limitAppClips, limitPrices, limitAvailableTerritories, limitInAppPurchases, limitSubscriptionGroups, limitGameCenterEnabledVersions, limitAppCustomProductPages, limitInAppPurchasesV2, limitPromotedPurchases, limitAppEvents, limitReviewSubmissions, include);
+                AppResponse result = apiInstance.CiProductsAppGetToOneRelated(id, fieldsApps, fieldsAppEncryptionDeclarations, fieldsCiProducts, fieldsBetaGroups, fieldsAppStoreVersions, fieldsPreReleaseVersions, fieldsBetaAppLocalizations, fieldsBuilds, fieldsBetaLicenseAgreements, fieldsBetaAppReviewDetails, fieldsAppInfos, fieldsAppClips, fieldsEndUserLicenseAgreements, fieldsAppPreOrders, fieldsInAppPurchases, fieldsSubscriptionGroups, fieldsGameCenterEnabledVersions, fieldsAppCustomProductPages, fieldsPromotedPurchases, fieldsAppEvents, fieldsReviewSubmissions, fieldsSubscriptionGracePeriods, fieldsGameCenterDetails, fieldsAppStoreVersionExperiments, include, limitAppEncryptionDeclarations, limitBetaGroups, limitAppStoreVersions, limitPreReleaseVersions, limitBetaAppLocalizations, limitBuilds, limitAppInfos, limitAppClips, limitInAppPurchases, limitSubscriptionGroups, limitGameCenterEnabledVersions, limitAppCustomProductPages, limitInAppPurchasesV2, limitPromotedPurchases, limitAppEvents, limitReviewSubmissions, limitAppStoreVersionExperimentsV2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -218,7 +219,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.CiProductsAppGetToOneRelatedWithHttpInfo(id, fieldsBetaLicenseAgreements, fieldsBetaAppReviewDetails, fieldsAppClips, fieldsBetaAppLocalizations, fieldsAppInfos, fieldsPreReleaseVersions, fieldsInAppPurchases, fieldsCiProducts, fieldsInAppPurchases2, fieldsSubscriptionGroups, fieldsReviewSubmissions, fieldsBetaGroups, fieldsAppPreOrders, fieldsAppPrices, fieldsGameCenterEnabledVersions, fieldsSubscriptionGracePeriods, fieldsPromotedPurchases, fieldsEndUserLicenseAgreements, fieldsAppStoreVersions, fieldsAppCustomProductPages, fieldsApps, fieldsAppEvents, fieldsTerritories, fieldsBuilds, limitBetaGroups, limitAppStoreVersions, limitPreReleaseVersions, limitBetaAppLocalizations, limitBuilds, limitAppInfos, limitAppClips, limitPrices, limitAvailableTerritories, limitInAppPurchases, limitSubscriptionGroups, limitGameCenterEnabledVersions, limitAppCustomProductPages, limitInAppPurchasesV2, limitPromotedPurchases, limitAppEvents, limitReviewSubmissions, include);
+    ApiResponse<AppResponse> response = apiInstance.CiProductsAppGetToOneRelatedWithHttpInfo(id, fieldsApps, fieldsAppEncryptionDeclarations, fieldsCiProducts, fieldsBetaGroups, fieldsAppStoreVersions, fieldsPreReleaseVersions, fieldsBetaAppLocalizations, fieldsBuilds, fieldsBetaLicenseAgreements, fieldsBetaAppReviewDetails, fieldsAppInfos, fieldsAppClips, fieldsEndUserLicenseAgreements, fieldsAppPreOrders, fieldsInAppPurchases, fieldsSubscriptionGroups, fieldsGameCenterEnabledVersions, fieldsAppCustomProductPages, fieldsPromotedPurchases, fieldsAppEvents, fieldsReviewSubmissions, fieldsSubscriptionGracePeriods, fieldsGameCenterDetails, fieldsAppStoreVersionExperiments, include, limitAppEncryptionDeclarations, limitBetaGroups, limitAppStoreVersions, limitPreReleaseVersions, limitBetaAppLocalizations, limitBuilds, limitAppInfos, limitAppClips, limitInAppPurchases, limitSubscriptionGroups, limitGameCenterEnabledVersions, limitAppCustomProductPages, limitInAppPurchasesV2, limitPromotedPurchases, limitAppEvents, limitReviewSubmissions, limitAppStoreVersionExperimentsV2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -236,30 +237,32 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **fieldsAppEncryptionDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEncryptionDeclarations | [optional]  |
+| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
+| **fieldsBetaGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaGroups | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
+| **fieldsBetaAppLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppLocalizations | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **fieldsBetaLicenseAgreements** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaLicenseAgreements | [optional]  |
 | **fieldsBetaAppReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppReviewDetails | [optional]  |
-| **fieldsAppClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClips | [optional]  |
-| **fieldsBetaAppLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppLocalizations | [optional]  |
 | **fieldsAppInfos** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appInfos | [optional]  |
-| **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
-| **fieldsInAppPurchases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchases | [optional]  |
-| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
-| **fieldsInAppPurchases2** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchases | [optional]  |
-| **fieldsSubscriptionGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionGroups | [optional]  |
-| **fieldsReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissions | [optional]  |
-| **fieldsBetaGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaGroups | [optional]  |
-| **fieldsAppPreOrders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreOrders | [optional]  |
-| **fieldsAppPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPrices | [optional]  |
-| **fieldsGameCenterEnabledVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterEnabledVersions | [optional]  |
-| **fieldsSubscriptionGracePeriods** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionGracePeriods | [optional]  |
-| **fieldsPromotedPurchases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type promotedPurchases | [optional]  |
+| **fieldsAppClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClips | [optional]  |
 | **fieldsEndUserLicenseAgreements** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type endUserLicenseAgreements | [optional]  |
-| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsAppPreOrders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreOrders | [optional]  |
+| **fieldsInAppPurchases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchases | [optional]  |
+| **fieldsSubscriptionGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionGroups | [optional]  |
+| **fieldsGameCenterEnabledVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterEnabledVersions | [optional]  |
 | **fieldsAppCustomProductPages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPages | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **fieldsPromotedPurchases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type promotedPurchases | [optional]  |
 | **fieldsAppEvents** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEvents | [optional]  |
-| **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsReviewSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type reviewSubmissions | [optional]  |
+| **fieldsSubscriptionGracePeriods** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type subscriptionGracePeriods | [optional]  |
+| **fieldsGameCenterDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterDetails | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppEncryptionDeclarations** | **int?** | maximum number of related appEncryptionDeclarations returned (when they are included) | [optional]  |
 | **limitBetaGroups** | **int?** | maximum number of related betaGroups returned (when they are included) | [optional]  |
 | **limitAppStoreVersions** | **int?** | maximum number of related appStoreVersions returned (when they are included) | [optional]  |
 | **limitPreReleaseVersions** | **int?** | maximum number of related preReleaseVersions returned (when they are included) | [optional]  |
@@ -267,8 +270,6 @@ catch (ApiException e)
 | **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 | **limitAppInfos** | **int?** | maximum number of related appInfos returned (when they are included) | [optional]  |
 | **limitAppClips** | **int?** | maximum number of related appClips returned (when they are included) | [optional]  |
-| **limitPrices** | **int?** | maximum number of related prices returned (when they are included) | [optional]  |
-| **limitAvailableTerritories** | **int?** | maximum number of related availableTerritories returned (when they are included) | [optional]  |
 | **limitInAppPurchases** | **int?** | maximum number of related inAppPurchases returned (when they are included) | [optional]  |
 | **limitSubscriptionGroups** | **int?** | maximum number of related subscriptionGroups returned (when they are included) | [optional]  |
 | **limitGameCenterEnabledVersions** | **int?** | maximum number of related gameCenterEnabledVersions returned (when they are included) | [optional]  |
@@ -277,7 +278,7 @@ catch (ApiException e)
 | **limitPromotedPurchases** | **int?** | maximum number of related promotedPurchases returned (when they are included) | [optional]  |
 | **limitAppEvents** | **int?** | maximum number of related appEvents returned (when they are included) | [optional]  |
 | **limitReviewSubmissions** | **int?** | maximum number of related reviewSubmissions returned (when they are included) | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppStoreVersionExperimentsV2** | **int?** | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -297,15 +298,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single App |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsbuildrunsgettomanyrelated"></a>
+<a id="ciproductsbuildrunsgettomanyrelated"></a>
 # **CiProductsBuildRunsGetToManyRelated**
-> CiBuildRunsResponse CiProductsBuildRunsGetToManyRelated (string id, List<string>? filterBuilds = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsScmPullRequests = null, List<string>? fieldsCiProducts = null, List<string>? fieldsBuilds = null, int? limit = null, int? limitBuilds = null, List<string>? include = null)
+> CiBuildRunsResponse CiProductsBuildRunsGetToManyRelated (string id, List<string>? filterBuilds = null, List<string>? sort = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsBuilds = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsCiProducts = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmPullRequests = null, int? limit = null, List<string>? include = null, int? limitBuilds = null)
 
 
 
@@ -335,19 +337,20 @@ namespace Example
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterBuilds = new List<string>?(); // List<string>? | filter by id(s) of related 'builds' (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
+            var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
-            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
-            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
+            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
+            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                CiBuildRunsResponse result = apiInstance.CiProductsBuildRunsGetToManyRelated(id, filterBuilds, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limit, limitBuilds, include);
+                CiBuildRunsResponse result = apiInstance.CiProductsBuildRunsGetToManyRelated(id, filterBuilds, sort, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, limit, include, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -367,7 +370,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiBuildRunsResponse> response = apiInstance.CiProductsBuildRunsGetToManyRelatedWithHttpInfo(id, filterBuilds, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limit, limitBuilds, include);
+    ApiResponse<CiBuildRunsResponse> response = apiInstance.CiProductsBuildRunsGetToManyRelatedWithHttpInfo(id, filterBuilds, sort, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, limit, include, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -386,15 +389,16 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterBuilds** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;builds&#39; | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
+| **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
-| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
-| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
+| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
+| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -414,13 +418,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiBuildRuns |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsdeleteinstance"></a>
+<a id="ciproductsdeleteinstance"></a>
 # **CiProductsDeleteInstance**
 > void CiProductsDeleteInstance (string id)
 
@@ -507,6 +512,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -514,9 +520,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsgetcollection"></a>
+<a id="ciproductsgetcollection"></a>
 # **CiProductsGetCollection**
-> CiProductsResponse CiProductsGetCollection (List<string>? filterProductType = null, List<string>? filterApp = null, List<string>? fieldsCiProducts = null, int? limit = null, List<string>? include = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsApps = null, List<string>? fieldsScmRepositories = null, int? limitPrimaryRepositories = null)
+> CiProductsResponse CiProductsGetCollection (List<string>? filterProductType = null, List<string>? filterApp = null, List<string>? fieldsCiProducts = null, List<string>? fieldsApps = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null, int? limitPrimaryRepositories = null)
 
 
 
@@ -547,17 +553,15 @@ namespace Example
             var filterProductType = new List<string>?(); // List<string>? | filter by attribute 'productType' (optional) 
             var filterApp = new List<string>?(); // List<string>? | filter by id(s) of related 'app' (optional) 
             var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
-            var limit = 56;  // int? | maximum resources per page (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var limit = 56;  // int? | maximum resources per page (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitPrimaryRepositories = 56;  // int? | maximum number of related primaryRepositories returned (when they are included) (optional) 
 
             try
             {
-                CiProductsResponse result = apiInstance.CiProductsGetCollection(filterProductType, filterApp, fieldsCiProducts, limit, include, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsApps, fieldsScmRepositories, limitPrimaryRepositories);
+                CiProductsResponse result = apiInstance.CiProductsGetCollection(filterProductType, filterApp, fieldsCiProducts, fieldsApps, fieldsScmRepositories, limit, include, limitPrimaryRepositories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -577,7 +581,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiProductsResponse> response = apiInstance.CiProductsGetCollectionWithHttpInfo(filterProductType, filterApp, fieldsCiProducts, limit, include, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsApps, fieldsScmRepositories, limitPrimaryRepositories);
+    ApiResponse<CiProductsResponse> response = apiInstance.CiProductsGetCollectionWithHttpInfo(filterProductType, filterApp, fieldsCiProducts, fieldsApps, fieldsScmRepositories, limit, include, limitPrimaryRepositories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -597,12 +601,10 @@ catch (ApiException e)
 | **filterProductType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;productType&#39; | [optional]  |
 | **filterApp** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;app&#39; | [optional]  |
 | **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
-| **limit** | **int?** | maximum resources per page | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **limit** | **int?** | maximum resources per page | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitPrimaryRepositories** | **int?** | maximum number of related primaryRepositories returned (when they are included) | [optional]  |
 
 ### Return type
@@ -623,14 +625,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of CiProducts |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsgetinstance"></a>
+<a id="ciproductsgetinstance"></a>
 # **CiProductsGetInstance**
-> CiProductResponse CiProductsGetInstance (string id, List<string>? fieldsCiProducts = null, List<string>? include = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsApps = null, List<string>? fieldsScmRepositories = null, int? limitPrimaryRepositories = null)
+> CiProductResponse CiProductsGetInstance (string id, List<string>? fieldsCiProducts = null, List<string>? fieldsApps = null, List<string>? fieldsScmRepositories = null, List<string>? include = null, int? limitPrimaryRepositories = null)
 
 
 
@@ -660,16 +663,14 @@ namespace Example
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitPrimaryRepositories = 56;  // int? | maximum number of related primaryRepositories returned (when they are included) (optional) 
 
             try
             {
-                CiProductResponse result = apiInstance.CiProductsGetInstance(id, fieldsCiProducts, include, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsApps, fieldsScmRepositories, limitPrimaryRepositories);
+                CiProductResponse result = apiInstance.CiProductsGetInstance(id, fieldsCiProducts, fieldsApps, fieldsScmRepositories, include, limitPrimaryRepositories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -689,7 +690,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiProductResponse> response = apiInstance.CiProductsGetInstanceWithHttpInfo(id, fieldsCiProducts, include, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsApps, fieldsScmRepositories, limitPrimaryRepositories);
+    ApiResponse<CiProductResponse> response = apiInstance.CiProductsGetInstanceWithHttpInfo(id, fieldsCiProducts, fieldsApps, fieldsScmRepositories, include, limitPrimaryRepositories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -708,11 +709,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitPrimaryRepositories** | **int?** | maximum number of related primaryRepositories returned (when they are included) | [optional]  |
 
 ### Return type
@@ -733,15 +732,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiProduct |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsprimaryrepositoriesgettomanyrelated"></a>
+<a id="ciproductsprimaryrepositoriesgettomanyrelated"></a>
 # **CiProductsPrimaryRepositoriesGetToManyRelated**
-> ScmRepositoriesResponse CiProductsPrimaryRepositoriesGetToManyRelated (string id, List<string>? filterId = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
+> ScmRepositoriesResponse CiProductsPrimaryRepositoriesGetToManyRelated (string id, List<string>? filterId = null, List<string>? fieldsScmRepositories = null, List<string>? fieldsScmProviders = null, List<string>? fieldsScmGitReferences = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -771,15 +771,15 @@ namespace Example
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
-            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var fieldsScmProviders = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmProviders (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                ScmRepositoriesResponse result = apiInstance.CiProductsPrimaryRepositoriesGetToManyRelated(id, filterId, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, limit, include);
+                ScmRepositoriesResponse result = apiInstance.CiProductsPrimaryRepositoriesGetToManyRelated(id, filterId, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -799,7 +799,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<ScmRepositoriesResponse> response = apiInstance.CiProductsPrimaryRepositoriesGetToManyRelatedWithHttpInfo(id, filterId, fieldsScmGitReferences, fieldsScmProviders, fieldsScmRepositories, limit, include);
+    ApiResponse<ScmRepositoriesResponse> response = apiInstance.CiProductsPrimaryRepositoriesGetToManyRelatedWithHttpInfo(id, filterId, fieldsScmRepositories, fieldsScmProviders, fieldsScmGitReferences, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -818,9 +818,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
-| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **fieldsScmProviders** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmProviders | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -842,15 +842,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of ScmRepositories |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="ciproductsworkflowsgettomanyrelated"></a>
+<a id="ciproductsworkflowsgettomanyrelated"></a>
 # **CiProductsWorkflowsGetToManyRelated**
-> CiWorkflowsResponse CiProductsWorkflowsGetToManyRelated (string id, List<string>? fieldsCiXcodeVersions = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsCiMacOsVersions = null, List<string>? fieldsCiProducts = null, List<string>? fieldsScmRepositories = null, int? limit = null, List<string>? include = null)
+> CiWorkflowsResponse CiProductsWorkflowsGetToManyRelated (string id, List<string>? fieldsCiWorkflows = null, List<string>? fieldsCiProducts = null, List<string>? fieldsScmRepositories = null, List<string>? fieldsCiXcodeVersions = null, List<string>? fieldsCiMacOsVersions = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -879,17 +880,17 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiProductsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
             var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
-            var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
             var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
             var fieldsScmRepositories = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmRepositories (optional) 
+            var fieldsCiXcodeVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciXcodeVersions (optional) 
+            var fieldsCiMacOsVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciMacOsVersions (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                CiWorkflowsResponse result = apiInstance.CiProductsWorkflowsGetToManyRelated(id, fieldsCiXcodeVersions, fieldsCiWorkflows, fieldsCiMacOsVersions, fieldsCiProducts, fieldsScmRepositories, limit, include);
+                CiWorkflowsResponse result = apiInstance.CiProductsWorkflowsGetToManyRelated(id, fieldsCiWorkflows, fieldsCiProducts, fieldsScmRepositories, fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -909,7 +910,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiWorkflowsResponse> response = apiInstance.CiProductsWorkflowsGetToManyRelatedWithHttpInfo(id, fieldsCiXcodeVersions, fieldsCiWorkflows, fieldsCiMacOsVersions, fieldsCiProducts, fieldsScmRepositories, limit, include);
+    ApiResponse<CiWorkflowsResponse> response = apiInstance.CiProductsWorkflowsGetToManyRelatedWithHttpInfo(id, fieldsCiWorkflows, fieldsCiProducts, fieldsScmRepositories, fieldsCiXcodeVersions, fieldsCiMacOsVersions, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -927,11 +928,11 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
 | **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
-| **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
 | **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
 | **fieldsScmRepositories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmRepositories | [optional]  |
+| **fieldsCiXcodeVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciXcodeVersions | [optional]  |
+| **fieldsCiMacOsVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciMacOsVersions | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -953,6 +954,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiWorkflows |  -  |

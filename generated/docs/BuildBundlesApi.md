@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BuildBundlesBetaAppClipInvocationsGetToManyRelated**](BuildBundlesApi.md#buildbundlesbetaappclipinvocationsgettomanyrelated) | **GET** /v1/buildBundles/{id}/betaAppClipInvocations |  |
 | [**BuildBundlesBuildBundleFileSizesGetToManyRelated**](BuildBundlesApi.md#buildbundlesbuildbundlefilesizesgettomanyrelated) | **GET** /v1/buildBundles/{id}/buildBundleFileSizes |  |
 
-<a name="buildbundlesappclipdomaincachestatusgettoonerelated"></a>
+<a id="buildbundlesappclipdomaincachestatusgettoonerelated"></a>
 # **BuildBundlesAppClipDomainCacheStatusGetToOneRelated**
 > AppClipDomainStatusResponse BuildBundlesAppClipDomainCacheStatusGetToOneRelated (string id, List<string>? fieldsAppClipDomainStatuses = null)
 
@@ -102,13 +102,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipDomainStatus |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbundlesappclipdomaindebugstatusgettoonerelated"></a>
+<a id="buildbundlesappclipdomaindebugstatusgettoonerelated"></a>
 # **BuildBundlesAppClipDomainDebugStatusGetToOneRelated**
 > AppClipDomainStatusResponse BuildBundlesAppClipDomainDebugStatusGetToOneRelated (string id, List<string>? fieldsAppClipDomainStatuses = null)
 
@@ -201,15 +202,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipDomainStatus |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbundlesbetaappclipinvocationsgettomanyrelated"></a>
+<a id="buildbundlesbetaappclipinvocationsgettomanyrelated"></a>
 # **BuildBundlesBetaAppClipInvocationsGetToManyRelated**
-> BetaAppClipInvocationsResponse BuildBundlesBetaAppClipInvocationsGetToManyRelated (string id, List<string>? fieldsBetaAppClipInvocations = null, List<string>? fieldsBetaAppClipInvocationLocalizations = null, int? limit = null, int? limitBetaAppClipInvocationLocalizations = null, List<string>? include = null)
+> BetaAppClipInvocationsResponse BuildBundlesBetaAppClipInvocationsGetToManyRelated (string id, List<string>? fieldsBetaAppClipInvocations = null, List<string>? fieldsBetaAppClipInvocationLocalizations = null, int? limit = null, List<string>? include = null, int? limitBetaAppClipInvocationLocalizations = null)
 
 
 
@@ -241,12 +243,12 @@ namespace Example
             var fieldsBetaAppClipInvocations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppClipInvocations (optional) 
             var fieldsBetaAppClipInvocationLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaAppClipInvocationLocalizations (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitBetaAppClipInvocationLocalizations = 56;  // int? | maximum number of related betaAppClipInvocationLocalizations returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitBetaAppClipInvocationLocalizations = 56;  // int? | maximum number of related betaAppClipInvocationLocalizations returned (when they are included) (optional) 
 
             try
             {
-                BetaAppClipInvocationsResponse result = apiInstance.BuildBundlesBetaAppClipInvocationsGetToManyRelated(id, fieldsBetaAppClipInvocations, fieldsBetaAppClipInvocationLocalizations, limit, limitBetaAppClipInvocationLocalizations, include);
+                BetaAppClipInvocationsResponse result = apiInstance.BuildBundlesBetaAppClipInvocationsGetToManyRelated(id, fieldsBetaAppClipInvocations, fieldsBetaAppClipInvocationLocalizations, limit, include, limitBetaAppClipInvocationLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -266,7 +268,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaAppClipInvocationsResponse> response = apiInstance.BuildBundlesBetaAppClipInvocationsGetToManyRelatedWithHttpInfo(id, fieldsBetaAppClipInvocations, fieldsBetaAppClipInvocationLocalizations, limit, limitBetaAppClipInvocationLocalizations, include);
+    ApiResponse<BetaAppClipInvocationsResponse> response = apiInstance.BuildBundlesBetaAppClipInvocationsGetToManyRelatedWithHttpInfo(id, fieldsBetaAppClipInvocations, fieldsBetaAppClipInvocationLocalizations, limit, include, limitBetaAppClipInvocationLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -287,8 +289,8 @@ catch (ApiException e)
 | **fieldsBetaAppClipInvocations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppClipInvocations | [optional]  |
 | **fieldsBetaAppClipInvocationLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaAppClipInvocationLocalizations | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitBetaAppClipInvocationLocalizations** | **int?** | maximum number of related betaAppClipInvocationLocalizations returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitBetaAppClipInvocationLocalizations** | **int?** | maximum number of related betaAppClipInvocationLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -308,13 +310,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of BetaAppClipInvocations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbundlesbuildbundlefilesizesgettomanyrelated"></a>
+<a id="buildbundlesbuildbundlefilesizesgettomanyrelated"></a>
 # **BuildBundlesBuildBundleFileSizesGetToManyRelated**
 > BuildBundleFileSizesResponse BuildBundlesBuildBundleFileSizesGetToManyRelated (string id, List<string>? fieldsBuildBundleFileSizes = null, int? limit = null)
 
@@ -409,6 +412,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of BuildBundleFileSizes |  -  |

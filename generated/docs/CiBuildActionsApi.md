@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CiBuildActionsIssuesGetToManyRelated**](CiBuildActionsApi.md#cibuildactionsissuesgettomanyrelated) | **GET** /v1/ciBuildActions/{id}/issues |  |
 | [**CiBuildActionsTestResultsGetToManyRelated**](CiBuildActionsApi.md#cibuildactionstestresultsgettomanyrelated) | **GET** /v1/ciBuildActions/{id}/testResults |  |
 
-<a name="cibuildactionsartifactsgettomanyrelated"></a>
+<a id="cibuildactionsartifactsgettomanyrelated"></a>
 # **CiBuildActionsArtifactsGetToManyRelated**
 > CiArtifactsResponse CiBuildActionsArtifactsGetToManyRelated (string id, List<string>? fieldsCiArtifacts = null, int? limit = null)
 
@@ -105,15 +105,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiArtifacts |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cibuildactionsbuildrungettoonerelated"></a>
+<a id="cibuildactionsbuildrungettoonerelated"></a>
 # **CiBuildActionsBuildRunGetToOneRelated**
-> CiBuildRunResponse CiBuildActionsBuildRunGetToOneRelated (string id, List<string>? fieldsScmGitReferences = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsScmPullRequests = null, List<string>? fieldsCiProducts = null, List<string>? fieldsBuilds = null, int? limitBuilds = null, List<string>? include = null)
+> CiBuildRunResponse CiBuildActionsBuildRunGetToOneRelated (string id, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsBuilds = null, List<string>? fieldsCiWorkflows = null, List<string>? fieldsCiProducts = null, List<string>? fieldsScmGitReferences = null, List<string>? fieldsScmPullRequests = null, List<string>? include = null, int? limitBuilds = null)
 
 
 
@@ -142,18 +143,18 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CiBuildActionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
             var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
-            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
-            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
-            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
+            var fieldsCiWorkflows = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciWorkflows (optional) 
+            var fieldsCiProducts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciProducts (optional) 
+            var fieldsScmGitReferences = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmGitReferences (optional) 
+            var fieldsScmPullRequests = new List<string>?(); // List<string>? | the fields to include for returned resources of type scmPullRequests (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                CiBuildRunResponse result = apiInstance.CiBuildActionsBuildRunGetToOneRelated(id, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limitBuilds, include);
+                CiBuildRunResponse result = apiInstance.CiBuildActionsBuildRunGetToOneRelated(id, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, include, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -173,7 +174,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiBuildRunResponse> response = apiInstance.CiBuildActionsBuildRunGetToOneRelatedWithHttpInfo(id, fieldsScmGitReferences, fieldsCiBuildRuns, fieldsCiWorkflows, fieldsScmPullRequests, fieldsCiProducts, fieldsBuilds, limitBuilds, include);
+    ApiResponse<CiBuildRunResponse> response = apiInstance.CiBuildActionsBuildRunGetToOneRelatedWithHttpInfo(id, fieldsCiBuildRuns, fieldsBuilds, fieldsCiWorkflows, fieldsCiProducts, fieldsScmGitReferences, fieldsScmPullRequests, include, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -191,14 +192,14 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
 | **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
-| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
-| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
-| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
+| **fieldsCiWorkflows** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciWorkflows | [optional]  |
+| **fieldsCiProducts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciProducts | [optional]  |
+| **fieldsScmGitReferences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmGitReferences | [optional]  |
+| **fieldsScmPullRequests** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type scmPullRequests | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -218,15 +219,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiBuildRun |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cibuildactionsgetinstance"></a>
+<a id="cibuildactionsgetinstance"></a>
 # **CiBuildActionsGetInstance**
-> CiBuildActionResponse CiBuildActionsGetInstance (string id, List<string>? fieldsCiBuildActions = null, List<string>? include = null, List<string>? fieldsCiIssues = null, List<string>? fieldsCiBuildRuns = null, List<string>? fieldsCiTestResults = null, List<string>? fieldsCiArtifacts = null)
+> CiBuildActionResponse CiBuildActionsGetInstance (string id, List<string>? fieldsCiBuildActions = null, List<string>? fieldsCiBuildRuns = null, List<string>? include = null)
 
 
 
@@ -256,15 +258,12 @@ namespace Example
             var apiInstance = new CiBuildActionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsCiBuildActions = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildActions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsCiIssues = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciIssues (optional) 
             var fieldsCiBuildRuns = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciBuildRuns (optional) 
-            var fieldsCiTestResults = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciTestResults (optional) 
-            var fieldsCiArtifacts = new List<string>?(); // List<string>? | the fields to include for returned resources of type ciArtifacts (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                CiBuildActionResponse result = apiInstance.CiBuildActionsGetInstance(id, fieldsCiBuildActions, include, fieldsCiIssues, fieldsCiBuildRuns, fieldsCiTestResults, fieldsCiArtifacts);
+                CiBuildActionResponse result = apiInstance.CiBuildActionsGetInstance(id, fieldsCiBuildActions, fieldsCiBuildRuns, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -284,7 +283,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CiBuildActionResponse> response = apiInstance.CiBuildActionsGetInstanceWithHttpInfo(id, fieldsCiBuildActions, include, fieldsCiIssues, fieldsCiBuildRuns, fieldsCiTestResults, fieldsCiArtifacts);
+    ApiResponse<CiBuildActionResponse> response = apiInstance.CiBuildActionsGetInstanceWithHttpInfo(id, fieldsCiBuildActions, fieldsCiBuildRuns, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -303,11 +302,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsCiBuildActions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildActions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsCiIssues** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciIssues | [optional]  |
 | **fieldsCiBuildRuns** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciBuildRuns | [optional]  |
-| **fieldsCiTestResults** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciTestResults | [optional]  |
-| **fieldsCiArtifacts** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ciArtifacts | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -327,13 +323,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiBuildAction |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cibuildactionsissuesgettomanyrelated"></a>
+<a id="cibuildactionsissuesgettomanyrelated"></a>
 # **CiBuildActionsIssuesGetToManyRelated**
 > CiIssuesResponse CiBuildActionsIssuesGetToManyRelated (string id, List<string>? fieldsCiIssues = null, int? limit = null)
 
@@ -428,13 +425,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiIssues |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="cibuildactionstestresultsgettomanyrelated"></a>
+<a id="cibuildactionstestresultsgettomanyrelated"></a>
 # **CiBuildActionsTestResultsGetToManyRelated**
 > CiTestResultsResponse CiBuildActionsTestResultsGetToManyRelated (string id, List<string>? fieldsCiTestResults = null, int? limit = null)
 
@@ -529,6 +527,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CiTestResults |  -  |

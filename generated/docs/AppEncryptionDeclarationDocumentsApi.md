@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppEncryptionDeclarationDocumentsGetInstance**](AppEncryptionDeclarationDocumentsApi.md#appencryptiondeclarationdocumentsgetinstance) | **GET** /v1/appEncryptionDeclarationDocuments/{id} |  |
 | [**AppEncryptionDeclarationDocumentsUpdateInstance**](AppEncryptionDeclarationDocumentsApi.md#appencryptiondeclarationdocumentsupdateinstance) | **PATCH** /v1/appEncryptionDeclarationDocuments/{id} |  |
 
-<a name="appencryptiondeclarationdocumentscreateinstance"></a>
+<a id="appencryptiondeclarationdocumentscreateinstance"></a>
 # **AppEncryptionDeclarationDocumentsCreateInstance**
 > AppEncryptionDeclarationDocumentResponse AppEncryptionDeclarationDocumentsCreateInstance (AppEncryptionDeclarationDocumentCreateRequest appEncryptionDeclarationDocumentCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppEncryptionDeclarationDocument |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appencryptiondeclarationdocumentsgetinstance"></a>
+<a id="appencryptiondeclarationdocumentsgetinstance"></a>
 # **AppEncryptionDeclarationDocumentsGetInstance**
 > AppEncryptionDeclarationDocumentResponse AppEncryptionDeclarationDocumentsGetInstance (string id, List<string>? fieldsAppEncryptionDeclarationDocuments = null)
 
@@ -198,13 +200,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppEncryptionDeclarationDocument |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appencryptiondeclarationdocumentsupdateinstance"></a>
+<a id="appencryptiondeclarationdocumentsupdateinstance"></a>
 # **AppEncryptionDeclarationDocumentsUpdateInstance**
 > AppEncryptionDeclarationDocumentResponse AppEncryptionDeclarationDocumentsUpdateInstance (string id, AppEncryptionDeclarationDocumentUpdateRequest appEncryptionDeclarationDocumentUpdateRequest)
 
@@ -297,8 +300,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppEncryptionDeclarationDocument |  -  |
 | **409** | Request entity error(s) |  -  |
 

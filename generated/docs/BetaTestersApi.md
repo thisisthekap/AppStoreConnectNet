@@ -11,6 +11,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaTestersBetaGroupsDeleteToManyRelationship**](BetaTestersApi.md#betatestersbetagroupsdeletetomanyrelationship) | **DELETE** /v1/betaTesters/{id}/relationships/betaGroups |  |
 | [**BetaTestersBetaGroupsGetToManyRelated**](BetaTestersApi.md#betatestersbetagroupsgettomanyrelated) | **GET** /v1/betaTesters/{id}/betaGroups |  |
 | [**BetaTestersBetaGroupsGetToManyRelationship**](BetaTestersApi.md#betatestersbetagroupsgettomanyrelationship) | **GET** /v1/betaTesters/{id}/relationships/betaGroups |  |
+| [**BetaTestersBetaTesterUsagesGetMetrics**](BetaTestersApi.md#betatestersbetatesterusagesgetmetrics) | **GET** /v1/betaTesters/{id}/metrics/betaTesterUsages |  |
 | [**BetaTestersBuildsCreateToManyRelationship**](BetaTestersApi.md#betatestersbuildscreatetomanyrelationship) | **POST** /v1/betaTesters/{id}/relationships/builds |  |
 | [**BetaTestersBuildsDeleteToManyRelationship**](BetaTestersApi.md#betatestersbuildsdeletetomanyrelationship) | **DELETE** /v1/betaTesters/{id}/relationships/builds |  |
 | [**BetaTestersBuildsGetToManyRelated**](BetaTestersApi.md#betatestersbuildsgettomanyrelated) | **GET** /v1/betaTesters/{id}/builds |  |
@@ -20,7 +21,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaTestersGetCollection**](BetaTestersApi.md#betatestersgetcollection) | **GET** /v1/betaTesters |  |
 | [**BetaTestersGetInstance**](BetaTestersApi.md#betatestersgetinstance) | **GET** /v1/betaTesters/{id} |  |
 
-<a name="betatestersappsdeletetomanyrelationship"></a>
+<a id="betatestersappsdeletetomanyrelationship"></a>
 # **BetaTestersAppsDeleteToManyRelationship**
 > void BetaTestersAppsDeleteToManyRelationship (string id, BetaTesterAppsLinkagesRequest betaTesterAppsLinkagesRequest)
 
@@ -108,17 +109,19 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **202** | Accepted for future completion |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersappsgettomanyrelated"></a>
+<a id="betatestersappsgettomanyrelated"></a>
 # **BetaTestersAppsGetToManyRelated**
-> AppsResponse BetaTestersAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
+> AppsWithoutIncludesResponse BetaTestersAppsGetToManyRelated (string id, List<string>? fieldsApps = null, int? limit = null)
 
 
 
@@ -152,7 +155,7 @@ namespace Example
 
             try
             {
-                AppsResponse result = apiInstance.BetaTestersAppsGetToManyRelated(id, fieldsApps, limit);
+                AppsWithoutIncludesResponse result = apiInstance.BetaTestersAppsGetToManyRelated(id, fieldsApps, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -172,7 +175,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppsResponse> response = apiInstance.BetaTestersAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
+    ApiResponse<AppsWithoutIncludesResponse> response = apiInstance.BetaTestersAppsGetToManyRelatedWithHttpInfo(id, fieldsApps, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -195,7 +198,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppsResponse**](AppsResponse.md)
+[**AppsWithoutIncludesResponse**](AppsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -211,13 +214,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Apps |  -  |
+| **200** | List of Apps with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersappsgettomanyrelationship"></a>
+<a id="betatestersappsgettomanyrelationship"></a>
 # **BetaTestersAppsGetToManyRelationship**
 > BetaTesterAppsLinkagesResponse BetaTestersAppsGetToManyRelationship (string id, int? limit = null)
 
@@ -310,13 +314,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbetagroupscreatetomanyrelationship"></a>
+<a id="betatestersbetagroupscreatetomanyrelationship"></a>
 # **BetaTestersBetaGroupsCreateToManyRelationship**
 > void BetaTestersBetaGroupsCreateToManyRelationship (string id, BetaTesterBetaGroupsLinkagesRequest betaTesterBetaGroupsLinkagesRequest)
 
@@ -404,14 +409,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbetagroupsdeletetomanyrelationship"></a>
+<a id="betatestersbetagroupsdeletetomanyrelationship"></a>
 # **BetaTestersBetaGroupsDeleteToManyRelationship**
 > void BetaTestersBetaGroupsDeleteToManyRelationship (string id, BetaTesterBetaGroupsLinkagesRequest betaTesterBetaGroupsLinkagesRequest)
 
@@ -499,16 +506,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbetagroupsgettomanyrelated"></a>
+<a id="betatestersbetagroupsgettomanyrelated"></a>
 # **BetaTestersBetaGroupsGetToManyRelated**
-> BetaGroupsResponse BetaTestersBetaGroupsGetToManyRelated (string id, List<string>? fieldsBetaGroups = null, int? limit = null)
+> BetaGroupsWithoutIncludesResponse BetaTestersBetaGroupsGetToManyRelated (string id, List<string>? fieldsBetaGroups = null, int? limit = null)
 
 
 
@@ -542,7 +551,7 @@ namespace Example
 
             try
             {
-                BetaGroupsResponse result = apiInstance.BetaTestersBetaGroupsGetToManyRelated(id, fieldsBetaGroups, limit);
+                BetaGroupsWithoutIncludesResponse result = apiInstance.BetaTestersBetaGroupsGetToManyRelated(id, fieldsBetaGroups, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -562,7 +571,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaGroupsResponse> response = apiInstance.BetaTestersBetaGroupsGetToManyRelatedWithHttpInfo(id, fieldsBetaGroups, limit);
+    ApiResponse<BetaGroupsWithoutIncludesResponse> response = apiInstance.BetaTestersBetaGroupsGetToManyRelatedWithHttpInfo(id, fieldsBetaGroups, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -585,7 +594,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BetaGroupsResponse**](BetaGroupsResponse.md)
+[**BetaGroupsWithoutIncludesResponse**](BetaGroupsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -601,13 +610,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of BetaGroups |  -  |
+| **200** | List of BetaGroups with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbetagroupsgettomanyrelationship"></a>
+<a id="betatestersbetagroupsgettomanyrelationship"></a>
 # **BetaTestersBetaGroupsGetToManyRelationship**
 > BetaTesterBetaGroupsLinkagesResponse BetaTestersBetaGroupsGetToManyRelationship (string id, int? limit = null)
 
@@ -700,13 +710,118 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbuildscreatetomanyrelationship"></a>
+<a id="betatestersbetatesterusagesgetmetrics"></a>
+# **BetaTestersBetaTesterUsagesGetMetrics**
+> BetaTesterUsagesV1MetricResponse BetaTestersBetaTesterUsagesGetMetrics (string id, string filterApps, string? period = null, int? limit = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using AppStoreConnect.Net.Api;
+using AppStoreConnect.Net.Client;
+using AppStoreConnect.Net.Model;
+
+namespace Example
+{
+    public class BetaTestersBetaTesterUsagesGetMetricsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.appstoreconnect.apple.com";
+            // Configure Bearer token for authorization: itc-bearer-token
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new BetaTestersApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // string | the id of the requested resource
+            var filterApps = "filterApps_example";  // string | filter by 'apps' relationship dimension
+            var period = P7D;  // string? | the duration of the reporting period (optional) 
+            var limit = 56;  // int? | maximum number of groups to return per page (optional) 
+
+            try
+            {
+                BetaTesterUsagesV1MetricResponse result = apiInstance.BetaTestersBetaTesterUsagesGetMetrics(id, filterApps, period, limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling BetaTestersApi.BetaTestersBetaTesterUsagesGetMetrics: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BetaTestersBetaTesterUsagesGetMetricsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<BetaTesterUsagesV1MetricResponse> response = apiInstance.BetaTestersBetaTesterUsagesGetMetricsWithHttpInfo(id, filterApps, period, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling BetaTestersApi.BetaTestersBetaTesterUsagesGetMetricsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | the id of the requested resource |  |
+| **filterApps** | **string** | filter by &#39;apps&#39; relationship dimension |  |
+| **period** | **string?** | the duration of the reporting period | [optional]  |
+| **limit** | **int?** | maximum number of groups to return per page | [optional]  |
+
+### Return type
+
+[**BetaTesterUsagesV1MetricResponse**](BetaTesterUsagesV1MetricResponse.md)
+
+### Authorization
+
+[itc-bearer-token](../README.md#itc-bearer-token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
+| **403** | Forbidden error |  -  |
+| **404** | Not found error |  -  |
+| **200** | Metrics data response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="betatestersbuildscreatetomanyrelationship"></a>
 # **BetaTestersBuildsCreateToManyRelationship**
 > void BetaTestersBuildsCreateToManyRelationship (string id, BetaTesterBuildsLinkagesRequest betaTesterBuildsLinkagesRequest)
 
@@ -794,14 +909,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbuildsdeletetomanyrelationship"></a>
+<a id="betatestersbuildsdeletetomanyrelationship"></a>
 # **BetaTestersBuildsDeleteToManyRelationship**
 > void BetaTestersBuildsDeleteToManyRelationship (string id, BetaTesterBuildsLinkagesRequest betaTesterBuildsLinkagesRequest)
 
@@ -889,16 +1006,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbuildsgettomanyrelated"></a>
+<a id="betatestersbuildsgettomanyrelated"></a>
 # **BetaTestersBuildsGetToManyRelated**
-> BuildsResponse BetaTestersBuildsGetToManyRelated (string id, List<string>? fieldsBuilds = null, int? limit = null)
+> BuildsWithoutIncludesResponse BetaTestersBuildsGetToManyRelated (string id, List<string>? fieldsBuilds = null, int? limit = null)
 
 
 
@@ -932,7 +1051,7 @@ namespace Example
 
             try
             {
-                BuildsResponse result = apiInstance.BetaTestersBuildsGetToManyRelated(id, fieldsBuilds, limit);
+                BuildsWithoutIncludesResponse result = apiInstance.BetaTestersBuildsGetToManyRelated(id, fieldsBuilds, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -952,7 +1071,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildsResponse> response = apiInstance.BetaTestersBuildsGetToManyRelatedWithHttpInfo(id, fieldsBuilds, limit);
+    ApiResponse<BuildsWithoutIncludesResponse> response = apiInstance.BetaTestersBuildsGetToManyRelatedWithHttpInfo(id, fieldsBuilds, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -975,7 +1094,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildsResponse**](BuildsResponse.md)
+[**BuildsWithoutIncludesResponse**](BuildsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -991,13 +1110,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Builds |  -  |
+| **200** | List of Builds with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersbuildsgettomanyrelationship"></a>
+<a id="betatestersbuildsgettomanyrelationship"></a>
 # **BetaTestersBuildsGetToManyRelationship**
 > BetaTesterBuildsLinkagesResponse BetaTestersBuildsGetToManyRelationship (string id, int? limit = null)
 
@@ -1090,13 +1210,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatesterscreateinstance"></a>
+<a id="betatesterscreateinstance"></a>
 # **BetaTestersCreateInstance**
 > BetaTesterResponse BetaTestersCreateInstance (BetaTesterCreateRequest betaTesterCreateRequest)
 
@@ -1187,13 +1308,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaTester |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersdeleteinstance"></a>
+<a id="betatestersdeleteinstance"></a>
 # **BetaTestersDeleteInstance**
 > void BetaTestersDeleteInstance (string id)
 
@@ -1280,6 +1403,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -1288,9 +1412,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersgetcollection"></a>
+<a id="betatestersgetcollection"></a>
 # **BetaTestersGetCollection**
-> BetaTestersResponse BetaTestersGetCollection (List<string>? filterEmail = null, List<string>? filterFirstName = null, List<string>? filterInviteType = null, List<string>? filterLastName = null, List<string>? filterApps = null, List<string>? filterBetaGroups = null, List<string>? filterBuilds = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBetaTesters = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null, List<string>? fieldsBuilds = null, List<string>? fieldsBetaGroups = null, int? limitApps = null, int? limitBetaGroups = null, int? limitBuilds = null)
+> BetaTestersResponse BetaTestersGetCollection (List<string>? filterFirstName = null, List<string>? filterLastName = null, List<string>? filterEmail = null, List<string>? filterInviteType = null, List<string>? filterApps = null, List<string>? filterBetaGroups = null, List<string>? filterBuilds = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsBetaTesters = null, List<string>? fieldsApps = null, List<string>? fieldsBetaGroups = null, List<string>? fieldsBuilds = null, int? limit = null, List<string>? include = null, int? limitApps = null, int? limitBetaGroups = null, int? limitBuilds = null)
 
 
 
@@ -1318,28 +1442,28 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BetaTestersApi(httpClient, config, httpClientHandler);
-            var filterEmail = new List<string>?(); // List<string>? | filter by attribute 'email' (optional) 
             var filterFirstName = new List<string>?(); // List<string>? | filter by attribute 'firstName' (optional) 
-            var filterInviteType = new List<string>?(); // List<string>? | filter by attribute 'inviteType' (optional) 
             var filterLastName = new List<string>?(); // List<string>? | filter by attribute 'lastName' (optional) 
+            var filterEmail = new List<string>?(); // List<string>? | filter by attribute 'email' (optional) 
+            var filterInviteType = new List<string>?(); // List<string>? | filter by attribute 'inviteType' (optional) 
             var filterApps = new List<string>?(); // List<string>? | filter by id(s) of related 'apps' (optional) 
             var filterBetaGroups = new List<string>?(); // List<string>? | filter by id(s) of related 'betaGroups' (optional) 
             var filterBuilds = new List<string>?(); // List<string>? | filter by id(s) of related 'builds' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var fieldsBetaGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaGroups (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
-            var fieldsBetaGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaGroups (optional) 
             var limitApps = 56;  // int? | maximum number of related apps returned (when they are included) (optional) 
             var limitBetaGroups = 56;  // int? | maximum number of related betaGroups returned (when they are included) (optional) 
             var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                BetaTestersResponse result = apiInstance.BetaTestersGetCollection(filterEmail, filterFirstName, filterInviteType, filterLastName, filterApps, filterBetaGroups, filterBuilds, filterId, sort, fieldsBetaTesters, limit, include, fieldsApps, fieldsBuilds, fieldsBetaGroups, limitApps, limitBetaGroups, limitBuilds);
+                BetaTestersResponse result = apiInstance.BetaTestersGetCollection(filterFirstName, filterLastName, filterEmail, filterInviteType, filterApps, filterBetaGroups, filterBuilds, filterId, sort, fieldsBetaTesters, fieldsApps, fieldsBetaGroups, fieldsBuilds, limit, include, limitApps, limitBetaGroups, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1359,7 +1483,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaTestersResponse> response = apiInstance.BetaTestersGetCollectionWithHttpInfo(filterEmail, filterFirstName, filterInviteType, filterLastName, filterApps, filterBetaGroups, filterBuilds, filterId, sort, fieldsBetaTesters, limit, include, fieldsApps, fieldsBuilds, fieldsBetaGroups, limitApps, limitBetaGroups, limitBuilds);
+    ApiResponse<BetaTestersResponse> response = apiInstance.BetaTestersGetCollectionWithHttpInfo(filterFirstName, filterLastName, filterEmail, filterInviteType, filterApps, filterBetaGroups, filterBuilds, filterId, sort, fieldsBetaTesters, fieldsApps, fieldsBetaGroups, fieldsBuilds, limit, include, limitApps, limitBetaGroups, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1376,21 +1500,21 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterEmail** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;email&#39; | [optional]  |
 | **filterFirstName** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;firstName&#39; | [optional]  |
-| **filterInviteType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;inviteType&#39; | [optional]  |
 | **filterLastName** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;lastName&#39; | [optional]  |
+| **filterEmail** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;email&#39; | [optional]  |
+| **filterInviteType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;inviteType&#39; | [optional]  |
 | **filterApps** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;apps&#39; | [optional]  |
 | **filterBetaGroups** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;betaGroups&#39; | [optional]  |
 | **filterBuilds** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;builds&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **fieldsBetaGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaGroups | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
-| **fieldsBetaGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaGroups | [optional]  |
 | **limitApps** | **int?** | maximum number of related apps returned (when they are included) | [optional]  |
 | **limitBetaGroups** | **int?** | maximum number of related betaGroups returned (when they are included) | [optional]  |
 | **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
@@ -1413,14 +1537,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaTesters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betatestersgetinstance"></a>
+<a id="betatestersgetinstance"></a>
 # **BetaTestersGetInstance**
-> BetaTesterResponse BetaTestersGetInstance (string id, List<string>? fieldsBetaTesters = null, List<string>? include = null, List<string>? fieldsApps = null, List<string>? fieldsBuilds = null, List<string>? fieldsBetaGroups = null, int? limitApps = null, int? limitBetaGroups = null, int? limitBuilds = null)
+> BetaTesterResponse BetaTestersGetInstance (string id, List<string>? fieldsBetaTesters = null, List<string>? fieldsApps = null, List<string>? fieldsBetaGroups = null, List<string>? fieldsBuilds = null, List<string>? include = null, int? limitApps = null, int? limitBetaGroups = null, int? limitBuilds = null)
 
 
 
@@ -1450,17 +1575,17 @@ namespace Example
             var apiInstance = new BetaTestersApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaTesters = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaTesters (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var fieldsBetaGroups = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaGroups (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitApps = 56;  // int? | maximum number of related apps returned (when they are included) (optional) 
             var limitBetaGroups = 56;  // int? | maximum number of related betaGroups returned (when they are included) (optional) 
             var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                BetaTesterResponse result = apiInstance.BetaTestersGetInstance(id, fieldsBetaTesters, include, fieldsApps, fieldsBuilds, fieldsBetaGroups, limitApps, limitBetaGroups, limitBuilds);
+                BetaTesterResponse result = apiInstance.BetaTestersGetInstance(id, fieldsBetaTesters, fieldsApps, fieldsBetaGroups, fieldsBuilds, include, limitApps, limitBetaGroups, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1480,7 +1605,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaTesterResponse> response = apiInstance.BetaTestersGetInstanceWithHttpInfo(id, fieldsBetaTesters, include, fieldsApps, fieldsBuilds, fieldsBetaGroups, limitApps, limitBetaGroups, limitBuilds);
+    ApiResponse<BetaTesterResponse> response = apiInstance.BetaTestersGetInstanceWithHttpInfo(id, fieldsBetaTesters, fieldsApps, fieldsBetaGroups, fieldsBuilds, include, limitApps, limitBetaGroups, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1499,10 +1624,10 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaTesters** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaTesters | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **fieldsBetaGroups** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaGroups | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitApps** | **int?** | maximum number of related apps returned (when they are included) | [optional]  |
 | **limitBetaGroups** | **int?** | maximum number of related betaGroups returned (when they are included) | [optional]  |
 | **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
@@ -1525,6 +1650,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaTester |  -  |

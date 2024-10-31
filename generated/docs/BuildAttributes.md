@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **UploadedDate** | **DateTimeOffset** |  | [optional] 
 **ExpirationDate** | **DateTimeOffset** |  | [optional] 
 **Expired** | **bool** |  | [optional] 

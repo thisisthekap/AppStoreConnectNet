@@ -10,9 +10,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppPriceSchedulesGetInstance**](AppPriceSchedulesApi.md#apppriceschedulesgetinstance) | **GET** /v1/appPriceSchedules/{id} |  |
 | [**AppPriceSchedulesManualPricesGetToManyRelated**](AppPriceSchedulesApi.md#apppriceschedulesmanualpricesgettomanyrelated) | **GET** /v1/appPriceSchedules/{id}/manualPrices |  |
 
-<a name="apppriceschedulesautomaticpricesgettomanyrelated"></a>
+<a id="apppriceschedulesautomaticpricesgettomanyrelated"></a>
 # **AppPriceSchedulesAutomaticPricesGetToManyRelated**
-> AppPricesV2Response AppPriceSchedulesAutomaticPricesGetToManyRelated (string id, List<string>? filterEndDate = null, List<string>? filterStartDate = null, List<string>? filterTerritory = null, List<string>? fieldsAppPrices = null, List<string>? fieldsAppPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
+> AppPricesV2Response AppPriceSchedulesAutomaticPricesGetToManyRelated (string id, List<string>? filterStartDate = null, List<string>? filterEndDate = null, List<string>? filterTerritory = null, List<string>? fieldsAppPrices = null, List<string>? fieldsAppPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -41,8 +41,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppPriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var filterEndDate = new List<string>?(); // List<string>? | filter by attribute 'endDate' (optional) 
             var filterStartDate = new List<string>?(); // List<string>? | filter by attribute 'startDate' (optional) 
+            var filterEndDate = new List<string>?(); // List<string>? | filter by attribute 'endDate' (optional) 
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
             var fieldsAppPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPrices (optional) 
             var fieldsAppPricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPricePoints (optional) 
@@ -52,7 +52,7 @@ namespace Example
 
             try
             {
-                AppPricesV2Response result = apiInstance.AppPriceSchedulesAutomaticPricesGetToManyRelated(id, filterEndDate, filterStartDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
+                AppPricesV2Response result = apiInstance.AppPriceSchedulesAutomaticPricesGetToManyRelated(id, filterStartDate, filterEndDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -72,7 +72,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppPricesV2Response> response = apiInstance.AppPriceSchedulesAutomaticPricesGetToManyRelatedWithHttpInfo(id, filterEndDate, filterStartDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
+    ApiResponse<AppPricesV2Response> response = apiInstance.AppPriceSchedulesAutomaticPricesGetToManyRelatedWithHttpInfo(id, filterStartDate, filterEndDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -90,8 +90,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **filterEndDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;endDate&#39; | [optional]  |
 | **filterStartDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;startDate&#39; | [optional]  |
+| **filterEndDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;endDate&#39; | [optional]  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
 | **fieldsAppPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPrices | [optional]  |
 | **fieldsAppPricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPricePoints | [optional]  |
@@ -117,13 +117,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppPrices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppriceschedulesbaseterritorygettoonerelated"></a>
+<a id="apppriceschedulesbaseterritorygettoonerelated"></a>
 # **AppPriceSchedulesBaseTerritoryGetToOneRelated**
 > TerritoryResponse AppPriceSchedulesBaseTerritoryGetToOneRelated (string id, List<string>? fieldsTerritories = null)
 
@@ -216,13 +217,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single Territory |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppriceschedulescreateinstance"></a>
+<a id="apppriceschedulescreateinstance"></a>
 # **AppPriceSchedulesCreateInstance**
 > AppPriceScheduleResponse AppPriceSchedulesCreateInstance (AppPriceScheduleCreateRequest appPriceScheduleCreateRequest)
 
@@ -313,15 +315,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppPriceSchedule |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppriceschedulesgetinstance"></a>
+<a id="apppriceschedulesgetinstance"></a>
 # **AppPriceSchedulesGetInstance**
-> AppPriceScheduleResponse AppPriceSchedulesGetInstance (string id, List<string>? fieldsAppPriceSchedules = null, List<string>? include = null, List<string>? fieldsAppPrices = null, List<string>? fieldsTerritories = null, int? limitAutomaticPrices = null, int? limitManualPrices = null)
+> AppPriceScheduleResponse AppPriceSchedulesGetInstance (string id, List<string>? fieldsAppPriceSchedules = null, List<string>? fieldsTerritories = null, List<string>? fieldsAppPrices = null, List<string>? include = null, int? limitAutomaticPrices = null, int? limitManualPrices = null)
 
 
 
@@ -351,15 +355,15 @@ namespace Example
             var apiInstance = new AppPriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppPriceSchedules = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPriceSchedules (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsAppPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPrices (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
+            var fieldsAppPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPrices (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAutomaticPrices = 56;  // int? | maximum number of related automaticPrices returned (when they are included) (optional) 
             var limitManualPrices = 56;  // int? | maximum number of related manualPrices returned (when they are included) (optional) 
 
             try
             {
-                AppPriceScheduleResponse result = apiInstance.AppPriceSchedulesGetInstance(id, fieldsAppPriceSchedules, include, fieldsAppPrices, fieldsTerritories, limitAutomaticPrices, limitManualPrices);
+                AppPriceScheduleResponse result = apiInstance.AppPriceSchedulesGetInstance(id, fieldsAppPriceSchedules, fieldsTerritories, fieldsAppPrices, include, limitAutomaticPrices, limitManualPrices);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -379,7 +383,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppPriceScheduleResponse> response = apiInstance.AppPriceSchedulesGetInstanceWithHttpInfo(id, fieldsAppPriceSchedules, include, fieldsAppPrices, fieldsTerritories, limitAutomaticPrices, limitManualPrices);
+    ApiResponse<AppPriceScheduleResponse> response = apiInstance.AppPriceSchedulesGetInstanceWithHttpInfo(id, fieldsAppPriceSchedules, fieldsTerritories, fieldsAppPrices, include, limitAutomaticPrices, limitManualPrices);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -398,9 +402,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppPriceSchedules** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPriceSchedules | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsAppPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPrices | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
+| **fieldsAppPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPrices | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAutomaticPrices** | **int?** | maximum number of related automaticPrices returned (when they are included) | [optional]  |
 | **limitManualPrices** | **int?** | maximum number of related manualPrices returned (when they are included) | [optional]  |
 
@@ -422,15 +426,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppPriceSchedule |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppriceschedulesmanualpricesgettomanyrelated"></a>
+<a id="apppriceschedulesmanualpricesgettomanyrelated"></a>
 # **AppPriceSchedulesManualPricesGetToManyRelated**
-> AppPricesV2Response AppPriceSchedulesManualPricesGetToManyRelated (string id, List<string>? filterEndDate = null, List<string>? filterStartDate = null, List<string>? filterTerritory = null, List<string>? fieldsAppPrices = null, List<string>? fieldsAppPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
+> AppPricesV2Response AppPriceSchedulesManualPricesGetToManyRelated (string id, List<string>? filterStartDate = null, List<string>? filterEndDate = null, List<string>? filterTerritory = null, List<string>? fieldsAppPrices = null, List<string>? fieldsAppPricePoints = null, List<string>? fieldsTerritories = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -459,8 +464,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppPriceSchedulesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var filterEndDate = new List<string>?(); // List<string>? | filter by attribute 'endDate' (optional) 
             var filterStartDate = new List<string>?(); // List<string>? | filter by attribute 'startDate' (optional) 
+            var filterEndDate = new List<string>?(); // List<string>? | filter by attribute 'endDate' (optional) 
             var filterTerritory = new List<string>?(); // List<string>? | filter by id(s) of related 'territory' (optional) 
             var fieldsAppPrices = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPrices (optional) 
             var fieldsAppPricePoints = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPricePoints (optional) 
@@ -470,7 +475,7 @@ namespace Example
 
             try
             {
-                AppPricesV2Response result = apiInstance.AppPriceSchedulesManualPricesGetToManyRelated(id, filterEndDate, filterStartDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
+                AppPricesV2Response result = apiInstance.AppPriceSchedulesManualPricesGetToManyRelated(id, filterStartDate, filterEndDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -490,7 +495,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppPricesV2Response> response = apiInstance.AppPriceSchedulesManualPricesGetToManyRelatedWithHttpInfo(id, filterEndDate, filterStartDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
+    ApiResponse<AppPricesV2Response> response = apiInstance.AppPriceSchedulesManualPricesGetToManyRelatedWithHttpInfo(id, filterStartDate, filterEndDate, filterTerritory, fieldsAppPrices, fieldsAppPricePoints, fieldsTerritories, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -508,8 +513,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **filterEndDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;endDate&#39; | [optional]  |
 | **filterStartDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;startDate&#39; | [optional]  |
+| **filterEndDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;endDate&#39; | [optional]  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;territory&#39; | [optional]  |
 | **fieldsAppPrices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPrices | [optional]  |
 | **fieldsAppPricePoints** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPricePoints | [optional]  |
@@ -535,6 +540,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppPrices |  -  |

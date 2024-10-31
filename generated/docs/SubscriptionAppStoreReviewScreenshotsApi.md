@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionAppStoreReviewScreenshotsGetInstance**](SubscriptionAppStoreReviewScreenshotsApi.md#subscriptionappstorereviewscreenshotsgetinstance) | **GET** /v1/subscriptionAppStoreReviewScreenshots/{id} |  |
 | [**SubscriptionAppStoreReviewScreenshotsUpdateInstance**](SubscriptionAppStoreReviewScreenshotsApi.md#subscriptionappstorereviewscreenshotsupdateinstance) | **PATCH** /v1/subscriptionAppStoreReviewScreenshots/{id} |  |
 
-<a name="subscriptionappstorereviewscreenshotscreateinstance"></a>
+<a id="subscriptionappstorereviewscreenshotscreateinstance"></a>
 # **SubscriptionAppStoreReviewScreenshotsCreateInstance**
 > SubscriptionAppStoreReviewScreenshotResponse SubscriptionAppStoreReviewScreenshotsCreateInstance (SubscriptionAppStoreReviewScreenshotCreateRequest subscriptionAppStoreReviewScreenshotCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionAppStoreReviewScreenshot |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionappstorereviewscreenshotsdeleteinstance"></a>
+<a id="subscriptionappstorereviewscreenshotsdeleteinstance"></a>
 # **SubscriptionAppStoreReviewScreenshotsDeleteInstance**
 > void SubscriptionAppStoreReviewScreenshotsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionappstorereviewscreenshotsgetinstance"></a>
+<a id="subscriptionappstorereviewscreenshotsgetinstance"></a>
 # **SubscriptionAppStoreReviewScreenshotsGetInstance**
 > SubscriptionAppStoreReviewScreenshotResponse SubscriptionAppStoreReviewScreenshotsGetInstance (string id, List<string>? fieldsSubscriptionAppStoreReviewScreenshots = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single SubscriptionAppStoreReviewScreenshot |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionappstorereviewscreenshotsupdateinstance"></a>
+<a id="subscriptionappstorereviewscreenshotsupdateinstance"></a>
 # **SubscriptionAppStoreReviewScreenshotsUpdateInstance**
 > SubscriptionAppStoreReviewScreenshotResponse SubscriptionAppStoreReviewScreenshotsUpdateInstance (string id, SubscriptionAppStoreReviewScreenshotUpdateRequest subscriptionAppStoreReviewScreenshotUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionAppStoreReviewScreenshot |  -  |
 | **409** | Request entity error(s) |  -  |
 

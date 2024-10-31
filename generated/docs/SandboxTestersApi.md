@@ -4,12 +4,12 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SandboxTestersGetCollection**](SandboxTestersApi.md#sandboxtestersgetcollection) | **GET** /v2/sandboxTesters |  |
-| [**SandboxTestersUpdateInstance**](SandboxTestersApi.md#sandboxtestersupdateinstance) | **PATCH** /v2/sandboxTesters/{id} |  |
+| [**SandboxTestersV2GetCollection**](SandboxTestersApi.md#sandboxtestersv2getcollection) | **GET** /v2/sandboxTesters |  |
+| [**SandboxTestersV2UpdateInstance**](SandboxTestersApi.md#sandboxtestersv2updateinstance) | **PATCH** /v2/sandboxTesters/{id} |  |
 
-<a name="sandboxtestersgetcollection"></a>
-# **SandboxTestersGetCollection**
-> SandboxTestersV2Response SandboxTestersGetCollection (List<string>? fieldsSandboxTesters = null, int? limit = null)
+<a id="sandboxtestersv2getcollection"></a>
+# **SandboxTestersV2GetCollection**
+> SandboxTestersV2Response SandboxTestersV2GetCollection (List<string>? fieldsSandboxTesters = null, int? limit = null)
 
 
 
@@ -24,7 +24,7 @@ using AppStoreConnect.Net.Model;
 
 namespace Example
 {
-    public class SandboxTestersGetCollectionExample
+    public class SandboxTestersV2GetCollectionExample
     {
         public static void Main()
         {
@@ -42,12 +42,12 @@ namespace Example
 
             try
             {
-                SandboxTestersV2Response result = apiInstance.SandboxTestersGetCollection(fieldsSandboxTesters, limit);
+                SandboxTestersV2Response result = apiInstance.SandboxTestersV2GetCollection(fieldsSandboxTesters, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersGetCollection: " + e.Message);
+                Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersV2GetCollection: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -56,20 +56,20 @@ namespace Example
 }
 ```
 
-#### Using the SandboxTestersGetCollectionWithHttpInfo variant
+#### Using the SandboxTestersV2GetCollectionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<SandboxTestersV2Response> response = apiInstance.SandboxTestersGetCollectionWithHttpInfo(fieldsSandboxTesters, limit);
+    ApiResponse<SandboxTestersV2Response> response = apiInstance.SandboxTestersV2GetCollectionWithHttpInfo(fieldsSandboxTesters, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersGetCollectionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersV2GetCollectionWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -100,14 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of SandboxTesters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="sandboxtestersupdateinstance"></a>
-# **SandboxTestersUpdateInstance**
-> SandboxTesterV2Response SandboxTestersUpdateInstance (string id, SandboxTesterV2UpdateRequest sandboxTesterV2UpdateRequest)
+<a id="sandboxtestersv2updateinstance"></a>
+# **SandboxTestersV2UpdateInstance**
+> SandboxTesterV2Response SandboxTestersV2UpdateInstance (string id, SandboxTesterV2UpdateRequest sandboxTesterV2UpdateRequest)
 
 
 
@@ -122,7 +123,7 @@ using AppStoreConnect.Net.Model;
 
 namespace Example
 {
-    public class SandboxTestersUpdateInstanceExample
+    public class SandboxTestersV2UpdateInstanceExample
     {
         public static void Main()
         {
@@ -140,12 +141,12 @@ namespace Example
 
             try
             {
-                SandboxTesterV2Response result = apiInstance.SandboxTestersUpdateInstance(id, sandboxTesterV2UpdateRequest);
+                SandboxTesterV2Response result = apiInstance.SandboxTestersV2UpdateInstance(id, sandboxTesterV2UpdateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersUpdateInstance: " + e.Message);
+                Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersV2UpdateInstance: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -154,20 +155,20 @@ namespace Example
 }
 ```
 
-#### Using the SandboxTestersUpdateInstanceWithHttpInfo variant
+#### Using the SandboxTestersV2UpdateInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<SandboxTesterV2Response> response = apiInstance.SandboxTestersUpdateInstanceWithHttpInfo(id, sandboxTesterV2UpdateRequest);
+    ApiResponse<SandboxTesterV2Response> response = apiInstance.SandboxTestersV2UpdateInstanceWithHttpInfo(id, sandboxTesterV2UpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersUpdateInstanceWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SandboxTestersApi.SandboxTestersV2UpdateInstanceWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -198,8 +199,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SandboxTester |  -  |
 | **409** | Request entity error(s) |  -  |
 

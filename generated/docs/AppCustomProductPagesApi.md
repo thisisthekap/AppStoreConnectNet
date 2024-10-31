@@ -10,9 +10,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppCustomProductPagesGetInstance**](AppCustomProductPagesApi.md#appcustomproductpagesgetinstance) | **GET** /v1/appCustomProductPages/{id} |  |
 | [**AppCustomProductPagesUpdateInstance**](AppCustomProductPagesApi.md#appcustomproductpagesupdateinstance) | **PATCH** /v1/appCustomProductPages/{id} |  |
 
-<a name="appcustomproductpagesappcustomproductpageversionsgettomanyrelated"></a>
+<a id="appcustomproductpagesappcustomproductpageversionsgettomanyrelated"></a>
 # **AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelated**
-> AppCustomProductPageVersionsResponse AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelated (string id, List<string>? filterState = null, List<string>? fieldsAppCustomProductPageLocalizations = null, List<string>? fieldsAppCustomProductPageVersions = null, List<string>? fieldsAppCustomProductPages = null, int? limit = null, int? limitAppCustomProductPageLocalizations = null, List<string>? include = null)
+> AppCustomProductPageVersionsResponse AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelated (string id, List<string>? filterState = null, List<string>? fieldsAppCustomProductPageVersions = null, List<string>? fieldsAppCustomProductPages = null, List<string>? fieldsAppCustomProductPageLocalizations = null, int? limit = null, List<string>? include = null, int? limitAppCustomProductPageLocalizations = null)
 
 
 
@@ -42,16 +42,16 @@ namespace Example
             var apiInstance = new AppCustomProductPagesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterState = new List<string>?(); // List<string>? | filter by attribute 'state' (optional) 
-            var fieldsAppCustomProductPageLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageLocalizations (optional) 
             var fieldsAppCustomProductPageVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageVersions (optional) 
             var fieldsAppCustomProductPages = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPages (optional) 
+            var fieldsAppCustomProductPageLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageLocalizations (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitAppCustomProductPageLocalizations = 56;  // int? | maximum number of related appCustomProductPageLocalizations returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppCustomProductPageLocalizations = 56;  // int? | maximum number of related appCustomProductPageLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppCustomProductPageVersionsResponse result = apiInstance.AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelated(id, filterState, fieldsAppCustomProductPageLocalizations, fieldsAppCustomProductPageVersions, fieldsAppCustomProductPages, limit, limitAppCustomProductPageLocalizations, include);
+                AppCustomProductPageVersionsResponse result = apiInstance.AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelated(id, filterState, fieldsAppCustomProductPageVersions, fieldsAppCustomProductPages, fieldsAppCustomProductPageLocalizations, limit, include, limitAppCustomProductPageLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -71,7 +71,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCustomProductPageVersionsResponse> response = apiInstance.AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelatedWithHttpInfo(id, filterState, fieldsAppCustomProductPageLocalizations, fieldsAppCustomProductPageVersions, fieldsAppCustomProductPages, limit, limitAppCustomProductPageLocalizations, include);
+    ApiResponse<AppCustomProductPageVersionsResponse> response = apiInstance.AppCustomProductPagesAppCustomProductPageVersionsGetToManyRelatedWithHttpInfo(id, filterState, fieldsAppCustomProductPageVersions, fieldsAppCustomProductPages, fieldsAppCustomProductPageLocalizations, limit, include, limitAppCustomProductPageLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -90,12 +90,12 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;state&#39; | [optional]  |
-| **fieldsAppCustomProductPageLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageLocalizations | [optional]  |
 | **fieldsAppCustomProductPageVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageVersions | [optional]  |
 | **fieldsAppCustomProductPages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPages | [optional]  |
+| **fieldsAppCustomProductPageLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageLocalizations | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitAppCustomProductPageLocalizations** | **int?** | maximum number of related appCustomProductPageLocalizations returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppCustomProductPageLocalizations** | **int?** | maximum number of related appCustomProductPageLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -115,13 +115,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppCustomProductPageVersions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcustomproductpagescreateinstance"></a>
+<a id="appcustomproductpagescreateinstance"></a>
 # **AppCustomProductPagesCreateInstance**
 > AppCustomProductPageResponse AppCustomProductPagesCreateInstance (AppCustomProductPageCreateRequest appCustomProductPageCreateRequest)
 
@@ -212,13 +213,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppCustomProductPage |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcustomproductpagesdeleteinstance"></a>
+<a id="appcustomproductpagesdeleteinstance"></a>
 # **AppCustomProductPagesDeleteInstance**
 > void AppCustomProductPagesDeleteInstance (string id)
 
@@ -305,6 +308,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -312,9 +316,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcustomproductpagesgetinstance"></a>
+<a id="appcustomproductpagesgetinstance"></a>
 # **AppCustomProductPagesGetInstance**
-> AppCustomProductPageResponse AppCustomProductPagesGetInstance (string id, List<string>? fieldsAppCustomProductPages = null, List<string>? include = null, List<string>? fieldsAppCustomProductPageVersions = null, int? limitAppCustomProductPageVersions = null)
+> AppCustomProductPageResponse AppCustomProductPagesGetInstance (string id, List<string>? fieldsAppCustomProductPages = null, List<string>? fieldsAppCustomProductPageVersions = null, List<string>? include = null, int? limitAppCustomProductPageVersions = null)
 
 
 
@@ -344,13 +348,13 @@ namespace Example
             var apiInstance = new AppCustomProductPagesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppCustomProductPages = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPages (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppCustomProductPageVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageVersions (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppCustomProductPageVersions = 56;  // int? | maximum number of related appCustomProductPageVersions returned (when they are included) (optional) 
 
             try
             {
-                AppCustomProductPageResponse result = apiInstance.AppCustomProductPagesGetInstance(id, fieldsAppCustomProductPages, include, fieldsAppCustomProductPageVersions, limitAppCustomProductPageVersions);
+                AppCustomProductPageResponse result = apiInstance.AppCustomProductPagesGetInstance(id, fieldsAppCustomProductPages, fieldsAppCustomProductPageVersions, include, limitAppCustomProductPageVersions);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -370,7 +374,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppCustomProductPageResponse> response = apiInstance.AppCustomProductPagesGetInstanceWithHttpInfo(id, fieldsAppCustomProductPages, include, fieldsAppCustomProductPageVersions, limitAppCustomProductPageVersions);
+    ApiResponse<AppCustomProductPageResponse> response = apiInstance.AppCustomProductPagesGetInstanceWithHttpInfo(id, fieldsAppCustomProductPages, fieldsAppCustomProductPageVersions, include, limitAppCustomProductPageVersions);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -389,8 +393,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppCustomProductPages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPages | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppCustomProductPageVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageVersions | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppCustomProductPageVersions** | **int?** | maximum number of related appCustomProductPageVersions returned (when they are included) | [optional]  |
 
 ### Return type
@@ -411,13 +415,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppCustomProductPage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appcustomproductpagesupdateinstance"></a>
+<a id="appcustomproductpagesupdateinstance"></a>
 # **AppCustomProductPagesUpdateInstance**
 > AppCustomProductPageResponse AppCustomProductPagesUpdateInstance (string id, AppCustomProductPageUpdateRequest appCustomProductPageUpdateRequest)
 
@@ -510,8 +515,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppCustomProductPage |  -  |
 | **409** | Request entity error(s) |  -  |
 

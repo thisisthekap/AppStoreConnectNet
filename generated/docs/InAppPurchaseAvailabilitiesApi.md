@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**InAppPurchaseAvailabilitiesCreateInstance**](InAppPurchaseAvailabilitiesApi.md#inapppurchaseavailabilitiescreateinstance) | **POST** /v1/inAppPurchaseAvailabilities |  |
 | [**InAppPurchaseAvailabilitiesGetInstance**](InAppPurchaseAvailabilitiesApi.md#inapppurchaseavailabilitiesgetinstance) | **GET** /v1/inAppPurchaseAvailabilities/{id} |  |
 
-<a name="inapppurchaseavailabilitiesavailableterritoriesgettomanyrelated"></a>
+<a id="inapppurchaseavailabilitiesavailableterritoriesgettomanyrelated"></a>
 # **InAppPurchaseAvailabilitiesAvailableTerritoriesGetToManyRelated**
 > TerritoriesResponse InAppPurchaseAvailabilitiesAvailableTerritoriesGetToManyRelated (string id, List<string>? fieldsTerritories = null, int? limit = null)
 
@@ -103,13 +103,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of Territories |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchaseavailabilitiescreateinstance"></a>
+<a id="inapppurchaseavailabilitiescreateinstance"></a>
 # **InAppPurchaseAvailabilitiesCreateInstance**
 > InAppPurchaseAvailabilityResponse InAppPurchaseAvailabilitiesCreateInstance (InAppPurchaseAvailabilityCreateRequest inAppPurchaseAvailabilityCreateRequest)
 
@@ -200,15 +201,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single InAppPurchaseAvailability |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="inapppurchaseavailabilitiesgetinstance"></a>
+<a id="inapppurchaseavailabilitiesgetinstance"></a>
 # **InAppPurchaseAvailabilitiesGetInstance**
-> InAppPurchaseAvailabilityResponse InAppPurchaseAvailabilitiesGetInstance (string id, List<string>? fieldsInAppPurchaseAvailabilities = null, List<string>? include = null, List<string>? fieldsTerritories = null, int? limitAvailableTerritories = null)
+> InAppPurchaseAvailabilityResponse InAppPurchaseAvailabilitiesGetInstance (string id, List<string>? fieldsInAppPurchaseAvailabilities = null, List<string>? fieldsTerritories = null, List<string>? include = null, int? limitAvailableTerritories = null)
 
 
 
@@ -238,13 +241,13 @@ namespace Example
             var apiInstance = new InAppPurchaseAvailabilitiesApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsInAppPurchaseAvailabilities = new List<string>?(); // List<string>? | the fields to include for returned resources of type inAppPurchaseAvailabilities (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAvailableTerritories = 56;  // int? | maximum number of related availableTerritories returned (when they are included) (optional) 
 
             try
             {
-                InAppPurchaseAvailabilityResponse result = apiInstance.InAppPurchaseAvailabilitiesGetInstance(id, fieldsInAppPurchaseAvailabilities, include, fieldsTerritories, limitAvailableTerritories);
+                InAppPurchaseAvailabilityResponse result = apiInstance.InAppPurchaseAvailabilitiesGetInstance(id, fieldsInAppPurchaseAvailabilities, fieldsTerritories, include, limitAvailableTerritories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -264,7 +267,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<InAppPurchaseAvailabilityResponse> response = apiInstance.InAppPurchaseAvailabilitiesGetInstanceWithHttpInfo(id, fieldsInAppPurchaseAvailabilities, include, fieldsTerritories, limitAvailableTerritories);
+    ApiResponse<InAppPurchaseAvailabilityResponse> response = apiInstance.InAppPurchaseAvailabilitiesGetInstanceWithHttpInfo(id, fieldsInAppPurchaseAvailabilities, fieldsTerritories, include, limitAvailableTerritories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -283,8 +286,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsInAppPurchaseAvailabilities** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type inAppPurchaseAvailabilities | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAvailableTerritories** | **int?** | maximum number of related availableTerritories returned (when they are included) | [optional]  |
 
 ### Return type
@@ -305,6 +308,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single InAppPurchaseAvailability |  -  |

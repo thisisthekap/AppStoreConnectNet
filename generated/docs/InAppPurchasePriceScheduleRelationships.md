@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **InAppPurchase** | [**InAppPurchaseAppStoreReviewScreenshotRelationshipsInAppPurchaseV2**](InAppPurchaseAppStoreReviewScreenshotRelationshipsInAppPurchaseV2.md) |  | [optional] 
-**BaseTerritory** | [**AppPricePointV2RelationshipsTerritory**](AppPricePointV2RelationshipsTerritory.md) |  | [optional] 
+**BaseTerritory** | [**AppPriceScheduleRelationshipsBaseTerritory**](AppPriceScheduleRelationshipsBaseTerritory.md) |  | [optional] 
 **ManualPrices** | [**InAppPurchasePriceScheduleRelationshipsManualPrices**](InAppPurchasePriceScheduleRelationshipsManualPrices.md) |  | [optional] 
 **AutomaticPrices** | [**InAppPurchasePriceScheduleRelationshipsManualPrices**](InAppPurchasePriceScheduleRelationshipsManualPrices.md) |  | [optional] 
 

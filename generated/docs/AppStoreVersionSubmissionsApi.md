@@ -7,7 +7,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreVersionSubmissionsCreateInstance**](AppStoreVersionSubmissionsApi.md#appstoreversionsubmissionscreateinstance) | **POST** /v1/appStoreVersionSubmissions |  |
 | [**AppStoreVersionSubmissionsDeleteInstance**](AppStoreVersionSubmissionsApi.md#appstoreversionsubmissionsdeleteinstance) | **DELETE** /v1/appStoreVersionSubmissions/{id} |  |
 
-<a name="appstoreversionsubmissionscreateinstance"></a>
+<a id="appstoreversionsubmissionscreateinstance"></a>
 # **AppStoreVersionSubmissionsCreateInstance**
 > AppStoreVersionSubmissionResponse AppStoreVersionSubmissionsCreateInstance (AppStoreVersionSubmissionCreateRequest appStoreVersionSubmissionCreateRequest)
 
@@ -98,13 +98,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersionSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsubmissionsdeleteinstance"></a>
+<a id="appstoreversionsubmissionsdeleteinstance"></a>
 # **AppStoreVersionSubmissionsDeleteInstance**
 > void AppStoreVersionSubmissionsDeleteInstance (string id)
 
@@ -191,6 +193,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |

@@ -5,11 +5,13 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AppStoreVersionsAgeRatingDeclarationGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsageratingdeclarationgettoonerelated) | **GET** /v1/appStoreVersions/{id}/ageRatingDeclaration |  |
+| [**AppStoreVersionsAlternativeDistributionPackageGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsalternativedistributionpackagegettoonerelated) | **GET** /v1/appStoreVersions/{id}/alternativeDistributionPackage |  |
 | [**AppStoreVersionsAppClipDefaultExperienceGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsappclipdefaultexperiencegettoonerelated) | **GET** /v1/appStoreVersions/{id}/appClipDefaultExperience |  |
 | [**AppStoreVersionsAppClipDefaultExperienceGetToOneRelationship**](AppStoreVersionsApi.md#appstoreversionsappclipdefaultexperiencegettoonerelationship) | **GET** /v1/appStoreVersions/{id}/relationships/appClipDefaultExperience |  |
 | [**AppStoreVersionsAppClipDefaultExperienceUpdateToOneRelationship**](AppStoreVersionsApi.md#appstoreversionsappclipdefaultexperienceupdatetoonerelationship) | **PATCH** /v1/appStoreVersions/{id}/relationships/appClipDefaultExperience |  |
 | [**AppStoreVersionsAppStoreReviewDetailGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsappstorereviewdetailgettoonerelated) | **GET** /v1/appStoreVersions/{id}/appStoreReviewDetail |  |
 | [**AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated**](AppStoreVersionsApi.md#appstoreversionsappstoreversionexperimentsgettomanyrelated) | **GET** /v1/appStoreVersions/{id}/appStoreVersionExperiments |  |
+| [**AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelated**](AppStoreVersionsApi.md#appstoreversionsappstoreversionexperimentsv2gettomanyrelated) | **GET** /v1/appStoreVersions/{id}/appStoreVersionExperimentsV2 |  |
 | [**AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated**](AppStoreVersionsApi.md#appstoreversionsappstoreversionlocalizationsgettomanyrelated) | **GET** /v1/appStoreVersions/{id}/appStoreVersionLocalizations |  |
 | [**AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsappstoreversionphasedreleasegettoonerelated) | **GET** /v1/appStoreVersions/{id}/appStoreVersionPhasedRelease |  |
 | [**AppStoreVersionsAppStoreVersionSubmissionGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsappstoreversionsubmissiongettoonerelated) | **GET** /v1/appStoreVersions/{id}/appStoreVersionSubmission |  |
@@ -19,13 +21,14 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreVersionsCreateInstance**](AppStoreVersionsApi.md#appstoreversionscreateinstance) | **POST** /v1/appStoreVersions |  |
 | [**AppStoreVersionsCustomerReviewsGetToManyRelated**](AppStoreVersionsApi.md#appstoreversionscustomerreviewsgettomanyrelated) | **GET** /v1/appStoreVersions/{id}/customerReviews |  |
 | [**AppStoreVersionsDeleteInstance**](AppStoreVersionsApi.md#appstoreversionsdeleteinstance) | **DELETE** /v1/appStoreVersions/{id} |  |
+| [**AppStoreVersionsGameCenterAppVersionGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsgamecenterappversiongettoonerelated) | **GET** /v1/appStoreVersions/{id}/gameCenterAppVersion |  |
 | [**AppStoreVersionsGetInstance**](AppStoreVersionsApi.md#appstoreversionsgetinstance) | **GET** /v1/appStoreVersions/{id} |  |
 | [**AppStoreVersionsRoutingAppCoverageGetToOneRelated**](AppStoreVersionsApi.md#appstoreversionsroutingappcoveragegettoonerelated) | **GET** /v1/appStoreVersions/{id}/routingAppCoverage |  |
 | [**AppStoreVersionsUpdateInstance**](AppStoreVersionsApi.md#appstoreversionsupdateinstance) | **PATCH** /v1/appStoreVersions/{id} |  |
 
-<a name="appstoreversionsageratingdeclarationgettoonerelated"></a>
+<a id="appstoreversionsageratingdeclarationgettoonerelated"></a>
 # **AppStoreVersionsAgeRatingDeclarationGetToOneRelated**
-> AgeRatingDeclarationResponse AppStoreVersionsAgeRatingDeclarationGetToOneRelated (string id, List<string>? fieldsAgeRatingDeclarations = null)
+> AgeRatingDeclarationWithoutIncludesResponse AppStoreVersionsAgeRatingDeclarationGetToOneRelated (string id, List<string>? fieldsAgeRatingDeclarations = null)
 
 
 
@@ -58,7 +61,7 @@ namespace Example
 
             try
             {
-                AgeRatingDeclarationResponse result = apiInstance.AppStoreVersionsAgeRatingDeclarationGetToOneRelated(id, fieldsAgeRatingDeclarations);
+                AgeRatingDeclarationWithoutIncludesResponse result = apiInstance.AppStoreVersionsAgeRatingDeclarationGetToOneRelated(id, fieldsAgeRatingDeclarations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -78,7 +81,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AgeRatingDeclarationResponse> response = apiInstance.AppStoreVersionsAgeRatingDeclarationGetToOneRelatedWithHttpInfo(id, fieldsAgeRatingDeclarations);
+    ApiResponse<AgeRatingDeclarationWithoutIncludesResponse> response = apiInstance.AppStoreVersionsAgeRatingDeclarationGetToOneRelatedWithHttpInfo(id, fieldsAgeRatingDeclarations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -100,7 +103,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AgeRatingDeclarationResponse**](AgeRatingDeclarationResponse.md)
+[**AgeRatingDeclarationWithoutIncludesResponse**](AgeRatingDeclarationWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -116,15 +119,122 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single AgeRatingDeclaration |  -  |
+| **200** | Single AgeRatingDeclaration with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappclipdefaultexperiencegettoonerelated"></a>
+<a id="appstoreversionsalternativedistributionpackagegettoonerelated"></a>
+# **AppStoreVersionsAlternativeDistributionPackageGetToOneRelated**
+> AlternativeDistributionPackageResponse AppStoreVersionsAlternativeDistributionPackageGetToOneRelated (string id, List<string>? fieldsAlternativeDistributionPackages = null, List<string>? fieldsAlternativeDistributionPackageVersions = null, List<string>? include = null, int? limitVersions = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using AppStoreConnect.Net.Api;
+using AppStoreConnect.Net.Client;
+using AppStoreConnect.Net.Model;
+
+namespace Example
+{
+    public class AppStoreVersionsAlternativeDistributionPackageGetToOneRelatedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.appstoreconnect.apple.com";
+            // Configure Bearer token for authorization: itc-bearer-token
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // string | the id of the requested resource
+            var fieldsAlternativeDistributionPackages = new List<string>?(); // List<string>? | the fields to include for returned resources of type alternativeDistributionPackages (optional) 
+            var fieldsAlternativeDistributionPackageVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type alternativeDistributionPackageVersions (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitVersions = 56;  // int? | maximum number of related versions returned (when they are included) (optional) 
+
+            try
+            {
+                AlternativeDistributionPackageResponse result = apiInstance.AppStoreVersionsAlternativeDistributionPackageGetToOneRelated(id, fieldsAlternativeDistributionPackages, fieldsAlternativeDistributionPackageVersions, include, limitVersions);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsAlternativeDistributionPackageGetToOneRelated: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AppStoreVersionsAlternativeDistributionPackageGetToOneRelatedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<AlternativeDistributionPackageResponse> response = apiInstance.AppStoreVersionsAlternativeDistributionPackageGetToOneRelatedWithHttpInfo(id, fieldsAlternativeDistributionPackages, fieldsAlternativeDistributionPackageVersions, include, limitVersions);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsAlternativeDistributionPackageGetToOneRelatedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | the id of the requested resource |  |
+| **fieldsAlternativeDistributionPackages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type alternativeDistributionPackages | [optional]  |
+| **fieldsAlternativeDistributionPackageVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type alternativeDistributionPackageVersions | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitVersions** | **int?** | maximum number of related versions returned (when they are included) | [optional]  |
+
+### Return type
+
+[**AlternativeDistributionPackageResponse**](AlternativeDistributionPackageResponse.md)
+
+### Authorization
+
+[itc-bearer-token](../README.md#itc-bearer-token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
+| **403** | Forbidden error |  -  |
+| **404** | Not found error |  -  |
+| **200** | Single AlternativeDistributionPackage |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="appstoreversionsappclipdefaultexperiencegettoonerelated"></a>
 # **AppStoreVersionsAppClipDefaultExperienceGetToOneRelated**
-> AppClipDefaultExperienceResponse AppStoreVersionsAppClipDefaultExperienceGetToOneRelated (string id, List<string>? fieldsAppClips = null, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, int? limitAppClipDefaultExperienceLocalizations = null, List<string>? include = null)
+> AppClipDefaultExperienceResponse AppStoreVersionsAppClipDefaultExperienceGetToOneRelated (string id, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppClips = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppClipDefaultExperienceLocalizations = null, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? include = null, int? limitAppClipDefaultExperienceLocalizations = null)
 
 
 
@@ -153,17 +263,17 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClips (optional) 
-            var fieldsAppClipAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipAppStoreReviewDetails (optional) 
-            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
+            var fieldsAppClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClips (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsAppClipDefaultExperienceLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperienceLocalizations (optional) 
-            var limitAppClipDefaultExperienceLocalizations = 56;  // int? | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) (optional) 
+            var fieldsAppClipAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipAppStoreReviewDetails (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppClipDefaultExperienceLocalizations = 56;  // int? | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppClipDefaultExperienceResponse result = apiInstance.AppStoreVersionsAppClipDefaultExperienceGetToOneRelated(id, fieldsAppClips, fieldsAppClipAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppClipDefaultExperiences, fieldsAppClipDefaultExperienceLocalizations, limitAppClipDefaultExperienceLocalizations, include);
+                AppClipDefaultExperienceResponse result = apiInstance.AppStoreVersionsAppClipDefaultExperienceGetToOneRelated(id, fieldsAppClipDefaultExperiences, fieldsAppClips, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipAppStoreReviewDetails, include, limitAppClipDefaultExperienceLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -183,7 +293,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppClipDefaultExperienceResponse> response = apiInstance.AppStoreVersionsAppClipDefaultExperienceGetToOneRelatedWithHttpInfo(id, fieldsAppClips, fieldsAppClipAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppClipDefaultExperiences, fieldsAppClipDefaultExperienceLocalizations, limitAppClipDefaultExperienceLocalizations, include);
+    ApiResponse<AppClipDefaultExperienceResponse> response = apiInstance.AppStoreVersionsAppClipDefaultExperienceGetToOneRelatedWithHttpInfo(id, fieldsAppClipDefaultExperiences, fieldsAppClips, fieldsAppStoreVersions, fieldsAppClipDefaultExperienceLocalizations, fieldsAppClipAppStoreReviewDetails, include, limitAppClipDefaultExperienceLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -201,13 +311,13 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClips | [optional]  |
-| **fieldsAppClipAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipAppStoreReviewDetails | [optional]  |
-| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
+| **fieldsAppClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClips | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsAppClipDefaultExperienceLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperienceLocalizations | [optional]  |
-| **limitAppClipDefaultExperienceLocalizations** | **int?** | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) | [optional]  |
+| **fieldsAppClipAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipAppStoreReviewDetails | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppClipDefaultExperienceLocalizations** | **int?** | maximum number of related appClipDefaultExperienceLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -227,13 +337,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipDefaultExperience |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappclipdefaultexperiencegettoonerelationship"></a>
+<a id="appstoreversionsappclipdefaultexperiencegettoonerelationship"></a>
 # **AppStoreVersionsAppClipDefaultExperienceGetToOneRelationship**
 > AppStoreVersionAppClipDefaultExperienceLinkageResponse AppStoreVersionsAppClipDefaultExperienceGetToOneRelationship (string id)
 
@@ -324,13 +435,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Related linkage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappclipdefaultexperienceupdatetoonerelationship"></a>
+<a id="appstoreversionsappclipdefaultexperienceupdatetoonerelationship"></a>
 # **AppStoreVersionsAppClipDefaultExperienceUpdateToOneRelationship**
 > void AppStoreVersionsAppClipDefaultExperienceUpdateToOneRelationship (string id, AppStoreVersionAppClipDefaultExperienceLinkageRequest appStoreVersionAppClipDefaultExperienceLinkageRequest)
 
@@ -418,16 +530,18 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappstorereviewdetailgettoonerelated"></a>
+<a id="appstoreversionsappstorereviewdetailgettoonerelated"></a>
 # **AppStoreVersionsAppStoreReviewDetailGetToOneRelated**
-> AppStoreReviewDetailResponse AppStoreVersionsAppStoreReviewDetailGetToOneRelated (string id, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppStoreReviewAttachments = null, int? limitAppStoreReviewAttachments = null, List<string>? include = null)
+> AppStoreReviewDetailResponse AppStoreVersionsAppStoreReviewDetailGetToOneRelated (string id, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppStoreReviewAttachments = null, List<string>? include = null, int? limitAppStoreReviewAttachments = null)
 
 
 
@@ -459,12 +573,12 @@ namespace Example
             var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
             var fieldsAppStoreReviewAttachments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewAttachments (optional) 
-            var limitAppStoreReviewAttachments = 56;  // int? | maximum number of related appStoreReviewAttachments returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppStoreReviewAttachments = 56;  // int? | maximum number of related appStoreReviewAttachments returned (when they are included) (optional) 
 
             try
             {
-                AppStoreReviewDetailResponse result = apiInstance.AppStoreVersionsAppStoreReviewDetailGetToOneRelated(id, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppStoreReviewAttachments, limitAppStoreReviewAttachments, include);
+                AppStoreReviewDetailResponse result = apiInstance.AppStoreVersionsAppStoreReviewDetailGetToOneRelated(id, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppStoreReviewAttachments, include, limitAppStoreReviewAttachments);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -484,7 +598,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreReviewDetailResponse> response = apiInstance.AppStoreVersionsAppStoreReviewDetailGetToOneRelatedWithHttpInfo(id, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppStoreReviewAttachments, limitAppStoreReviewAttachments, include);
+    ApiResponse<AppStoreReviewDetailResponse> response = apiInstance.AppStoreVersionsAppStoreReviewDetailGetToOneRelatedWithHttpInfo(id, fieldsAppStoreReviewDetails, fieldsAppStoreVersions, fieldsAppStoreReviewAttachments, include, limitAppStoreReviewAttachments);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -505,8 +619,8 @@ catch (ApiException e)
 | **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
 | **fieldsAppStoreReviewAttachments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewAttachments | [optional]  |
-| **limitAppStoreReviewAttachments** | **int?** | maximum number of related appStoreReviewAttachments returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppStoreReviewAttachments** | **int?** | maximum number of related appStoreReviewAttachments returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -526,15 +640,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreReviewDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappstoreversionexperimentsgettomanyrelated"></a>
+<a id="appstoreversionsappstoreversionexperimentsgettomanyrelated"></a>
 # **AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated**
-> AppStoreVersionExperimentsResponse AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated (string id, List<string>? filterState = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAppStoreVersionExperimentTreatments = null, List<string>? fieldsAppStoreVersions = null, int? limit = null, int? limitAppStoreVersionExperimentTreatments = null, List<string>? include = null)
+> AppStoreVersionExperimentsResponse AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated (string id, List<string>? filterState = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppStoreVersionExperimentTreatments = null, int? limit = null, List<string>? include = null, int? limitAppStoreVersionExperimentTreatments = null)
 
 
 
@@ -565,15 +680,15 @@ namespace Example
             var id = "id_example";  // string | the id of the requested resource
             var filterState = new List<string>?(); // List<string>? | filter by attribute 'state' (optional) 
             var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
-            var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitAppStoreVersionExperimentTreatments = 56;  // int? | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppStoreVersionExperimentTreatments = 56;  // int? | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionExperimentsResponse result = apiInstance.AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated(id, filterState, fieldsAppStoreVersionExperiments, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersions, limit, limitAppStoreVersionExperimentTreatments, include);
+                AppStoreVersionExperimentsResponse result = apiInstance.AppStoreVersionsAppStoreVersionExperimentsGetToManyRelated(id, filterState, fieldsAppStoreVersionExperiments, fieldsAppStoreVersions, fieldsAppStoreVersionExperimentTreatments, limit, include, limitAppStoreVersionExperimentTreatments);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -593,7 +708,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionExperimentsResponse> response = apiInstance.AppStoreVersionsAppStoreVersionExperimentsGetToManyRelatedWithHttpInfo(id, filterState, fieldsAppStoreVersionExperiments, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersions, limit, limitAppStoreVersionExperimentTreatments, include);
+    ApiResponse<AppStoreVersionExperimentsResponse> response = apiInstance.AppStoreVersionsAppStoreVersionExperimentsGetToManyRelatedWithHttpInfo(id, filterState, fieldsAppStoreVersionExperiments, fieldsAppStoreVersions, fieldsAppStoreVersionExperimentTreatments, limit, include, limitAppStoreVersionExperimentTreatments);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -613,11 +728,11 @@ catch (ApiException e)
 | **id** | **string** | the id of the requested resource |  |
 | **filterState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;state&#39; | [optional]  |
 | **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
-| **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitAppStoreVersionExperimentTreatments** | **int?** | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppStoreVersionExperimentTreatments** | **int?** | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -637,15 +752,132 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppStoreVersionExperiments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappstoreversionlocalizationsgettomanyrelated"></a>
+<a id="appstoreversionsappstoreversionexperimentsv2gettomanyrelated"></a>
+# **AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelated**
+> AppStoreVersionExperimentsV2Response AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelated (string id, List<string>? filterState = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsApps = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppStoreVersionExperimentTreatments = null, int? limit = null, List<string>? include = null, int? limitControlVersions = null, int? limitAppStoreVersionExperimentTreatments = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using AppStoreConnect.Net.Api;
+using AppStoreConnect.Net.Client;
+using AppStoreConnect.Net.Model;
+
+namespace Example
+{
+    public class AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelatedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.appstoreconnect.apple.com";
+            // Configure Bearer token for authorization: itc-bearer-token
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // string | the id of the requested resource
+            var filterState = new List<string>?(); // List<string>? | filter by attribute 'state' (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
+            var limit = 56;  // int? | maximum resources per page (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitControlVersions = 56;  // int? | maximum number of related controlVersions returned (when they are included) (optional) 
+            var limitAppStoreVersionExperimentTreatments = 56;  // int? | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) (optional) 
+
+            try
+            {
+                AppStoreVersionExperimentsV2Response result = apiInstance.AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelated(id, filterState, fieldsAppStoreVersionExperiments, fieldsApps, fieldsAppStoreVersions, fieldsAppStoreVersionExperimentTreatments, limit, include, limitControlVersions, limitAppStoreVersionExperimentTreatments);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelated: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelatedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<AppStoreVersionExperimentsV2Response> response = apiInstance.AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelatedWithHttpInfo(id, filterState, fieldsAppStoreVersionExperiments, fieldsApps, fieldsAppStoreVersions, fieldsAppStoreVersionExperimentTreatments, limit, include, limitControlVersions, limitAppStoreVersionExperimentTreatments);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsAppStoreVersionExperimentsV2GetToManyRelatedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | the id of the requested resource |  |
+| **filterState** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;state&#39; | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
+| **limit** | **int?** | maximum resources per page | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitControlVersions** | **int?** | maximum number of related controlVersions returned (when they are included) | [optional]  |
+| **limitAppStoreVersionExperimentTreatments** | **int?** | maximum number of related appStoreVersionExperimentTreatments returned (when they are included) | [optional]  |
+
+### Return type
+
+[**AppStoreVersionExperimentsV2Response**](AppStoreVersionExperimentsV2Response.md)
+
+### Authorization
+
+[itc-bearer-token](../README.md#itc-bearer-token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
+| **403** | Forbidden error |  -  |
+| **404** | Not found error |  -  |
+| **200** | List of AppStoreVersionExperiments |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="appstoreversionsappstoreversionlocalizationsgettomanyrelated"></a>
 # **AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated**
-> AppStoreVersionLocalizationsResponse AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated (string id, List<string>? fieldsAppStoreVersionLocalizations = null, int? limit = null)
+> AppStoreVersionLocalizationsResponse AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppPreviewSets = null, int? limit = null, List<string>? include = null, int? limitAppScreenshotSets = null, int? limitAppPreviewSets = null)
 
 
 
@@ -674,12 +906,19 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
+            var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
             var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
+            var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppScreenshotSets = 56;  // int? | maximum number of related appScreenshotSets returned (when they are included) (optional) 
+            var limitAppPreviewSets = 56;  // int? | maximum number of related appPreviewSets returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionLocalizationsResponse result = apiInstance.AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated(id, fieldsAppStoreVersionLocalizations, limit);
+                AppStoreVersionLocalizationsResponse result = apiInstance.AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelated(id, filterLocale, fieldsAppStoreVersionLocalizations, fieldsAppStoreVersions, fieldsAppScreenshotSets, fieldsAppPreviewSets, limit, include, limitAppScreenshotSets, limitAppPreviewSets);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -699,7 +938,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionLocalizationsResponse> response = apiInstance.AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelatedWithHttpInfo(id, fieldsAppStoreVersionLocalizations, limit);
+    ApiResponse<AppStoreVersionLocalizationsResponse> response = apiInstance.AppStoreVersionsAppStoreVersionLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppStoreVersionLocalizations, fieldsAppStoreVersions, fieldsAppScreenshotSets, fieldsAppPreviewSets, limit, include, limitAppScreenshotSets, limitAppPreviewSets);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -717,8 +956,15 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
+| **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
 | **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
+| **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppScreenshotSets** | **int?** | maximum number of related appScreenshotSets returned (when they are included) | [optional]  |
+| **limitAppPreviewSets** | **int?** | maximum number of related appPreviewSets returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -738,15 +984,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppStoreVersionLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappstoreversionphasedreleasegettoonerelated"></a>
+<a id="appstoreversionsappstoreversionphasedreleasegettoonerelated"></a>
 # **AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated**
-> AppStoreVersionPhasedReleaseResponse AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated (string id, List<string>? fieldsAppStoreVersionPhasedReleases = null)
+> AppStoreVersionPhasedReleaseWithoutIncludesResponse AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated (string id, List<string>? fieldsAppStoreVersionPhasedReleases = null)
 
 
 
@@ -779,7 +1026,7 @@ namespace Example
 
             try
             {
-                AppStoreVersionPhasedReleaseResponse result = apiInstance.AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated(id, fieldsAppStoreVersionPhasedReleases);
+                AppStoreVersionPhasedReleaseWithoutIncludesResponse result = apiInstance.AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelated(id, fieldsAppStoreVersionPhasedReleases);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -799,7 +1046,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionPhasedReleaseResponse> response = apiInstance.AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersionPhasedReleases);
+    ApiResponse<AppStoreVersionPhasedReleaseWithoutIncludesResponse> response = apiInstance.AppStoreVersionsAppStoreVersionPhasedReleaseGetToOneRelatedWithHttpInfo(id, fieldsAppStoreVersionPhasedReleases);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -821,7 +1068,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppStoreVersionPhasedReleaseResponse**](AppStoreVersionPhasedReleaseResponse.md)
+[**AppStoreVersionPhasedReleaseWithoutIncludesResponse**](AppStoreVersionPhasedReleaseWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -837,13 +1084,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single AppStoreVersionPhasedRelease |  -  |
+| **200** | Single AppStoreVersionPhasedRelease with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsappstoreversionsubmissiongettoonerelated"></a>
+<a id="appstoreversionsappstoreversionsubmissiongettoonerelated"></a>
 # **AppStoreVersionsAppStoreVersionSubmissionGetToOneRelated**
 > AppStoreVersionSubmissionResponse AppStoreVersionsAppStoreVersionSubmissionGetToOneRelated (string id, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppStoreVersions = null, List<string>? include = null)
 
@@ -940,15 +1188,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersionSubmission |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsbuildgettoonerelated"></a>
+<a id="appstoreversionsbuildgettoonerelated"></a>
 # **AppStoreVersionsBuildGetToOneRelated**
-> BuildResponse AppStoreVersionsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
+> BuildWithoutIncludesResponse AppStoreVersionsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
 
 
 
@@ -981,7 +1230,7 @@ namespace Example
 
             try
             {
-                BuildResponse result = apiInstance.AppStoreVersionsBuildGetToOneRelated(id, fieldsBuilds);
+                BuildWithoutIncludesResponse result = apiInstance.AppStoreVersionsBuildGetToOneRelated(id, fieldsBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1001,7 +1250,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildResponse> response = apiInstance.AppStoreVersionsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
+    ApiResponse<BuildWithoutIncludesResponse> response = apiInstance.AppStoreVersionsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1023,7 +1272,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildResponse**](BuildResponse.md)
+[**BuildWithoutIncludesResponse**](BuildWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -1039,13 +1288,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single Build |  -  |
+| **200** | Single Build with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsbuildgettoonerelationship"></a>
+<a id="appstoreversionsbuildgettoonerelationship"></a>
 # **AppStoreVersionsBuildGetToOneRelationship**
 > AppStoreVersionBuildLinkageResponse AppStoreVersionsBuildGetToOneRelationship (string id)
 
@@ -1136,13 +1386,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Related linkage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsbuildupdatetoonerelationship"></a>
+<a id="appstoreversionsbuildupdatetoonerelationship"></a>
 # **AppStoreVersionsBuildUpdateToOneRelationship**
 > void AppStoreVersionsBuildUpdateToOneRelationship (string id, AppStoreVersionBuildLinkageRequest appStoreVersionBuildLinkageRequest)
 
@@ -1230,14 +1481,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionscreateinstance"></a>
+<a id="appstoreversionscreateinstance"></a>
 # **AppStoreVersionsCreateInstance**
 > AppStoreVersionResponse AppStoreVersionsCreateInstance (AppStoreVersionCreateRequest appStoreVersionCreateRequest)
 
@@ -1328,15 +1581,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersion |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionscustomerreviewsgettomanyrelated"></a>
+<a id="appstoreversionscustomerreviewsgettomanyrelated"></a>
 # **AppStoreVersionsCustomerReviewsGetToManyRelated**
-> CustomerReviewsResponse AppStoreVersionsCustomerReviewsGetToManyRelated (string id, List<string>? filterRating = null, List<string>? filterTerritory = null, bool? existsPublishedResponse = null, List<string>? sort = null, List<string>? fieldsCustomerReviews = null, List<string>? fieldsCustomerReviewResponses = null, int? limit = null, List<string>? include = null)
+> CustomerReviewsResponse AppStoreVersionsCustomerReviewsGetToManyRelated (string id, List<string>? filterTerritory = null, List<string>? filterRating = null, bool? existsPublishedResponse = null, List<string>? sort = null, List<string>? fieldsCustomerReviews = null, List<string>? fieldsCustomerReviewResponses = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -1365,8 +1620,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var filterRating = new List<string>?(); // List<string>? | filter by attribute 'rating' (optional) 
             var filterTerritory = new List<string>?(); // List<string>? | filter by attribute 'territory' (optional) 
+            var filterRating = new List<string>?(); // List<string>? | filter by attribute 'rating' (optional) 
             var existsPublishedResponse = true;  // bool? | filter by publishedResponse (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsCustomerReviews = new List<string>?(); // List<string>? | the fields to include for returned resources of type customerReviews (optional) 
@@ -1376,7 +1631,7 @@ namespace Example
 
             try
             {
-                CustomerReviewsResponse result = apiInstance.AppStoreVersionsCustomerReviewsGetToManyRelated(id, filterRating, filterTerritory, existsPublishedResponse, sort, fieldsCustomerReviews, fieldsCustomerReviewResponses, limit, include);
+                CustomerReviewsResponse result = apiInstance.AppStoreVersionsCustomerReviewsGetToManyRelated(id, filterTerritory, filterRating, existsPublishedResponse, sort, fieldsCustomerReviews, fieldsCustomerReviewResponses, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1396,7 +1651,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CustomerReviewsResponse> response = apiInstance.AppStoreVersionsCustomerReviewsGetToManyRelatedWithHttpInfo(id, filterRating, filterTerritory, existsPublishedResponse, sort, fieldsCustomerReviews, fieldsCustomerReviewResponses, limit, include);
+    ApiResponse<CustomerReviewsResponse> response = apiInstance.AppStoreVersionsCustomerReviewsGetToManyRelatedWithHttpInfo(id, filterTerritory, filterRating, existsPublishedResponse, sort, fieldsCustomerReviews, fieldsCustomerReviewResponses, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1414,8 +1669,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **filterRating** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;rating&#39; | [optional]  |
 | **filterTerritory** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;territory&#39; | [optional]  |
+| **filterRating** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;rating&#39; | [optional]  |
 | **existsPublishedResponse** | **bool?** | filter by publishedResponse | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsCustomerReviews** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type customerReviews | [optional]  |
@@ -1441,13 +1696,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of CustomerReviews |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsdeleteinstance"></a>
+<a id="appstoreversionsdeleteinstance"></a>
 # **AppStoreVersionsDeleteInstance**
 > void AppStoreVersionsDeleteInstance (string id)
 
@@ -1534,6 +1790,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -1541,9 +1798,115 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsgetinstance"></a>
+<a id="appstoreversionsgamecenterappversiongettoonerelated"></a>
+# **AppStoreVersionsGameCenterAppVersionGetToOneRelated**
+> GameCenterAppVersionResponse AppStoreVersionsGameCenterAppVersionGetToOneRelated (string id, List<string>? fieldsGameCenterAppVersions = null, List<string>? fieldsAppStoreVersions = null, List<string>? include = null, int? limitCompatibilityVersions = null)
+
+
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using AppStoreConnect.Net.Api;
+using AppStoreConnect.Net.Client;
+using AppStoreConnect.Net.Model;
+
+namespace Example
+{
+    public class AppStoreVersionsGameCenterAppVersionGetToOneRelatedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.appstoreconnect.apple.com";
+            // Configure Bearer token for authorization: itc-bearer-token
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
+            var id = "id_example";  // string | the id of the requested resource
+            var fieldsGameCenterAppVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterAppVersions (optional) 
+            var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitCompatibilityVersions = 56;  // int? | maximum number of related compatibilityVersions returned (when they are included) (optional) 
+
+            try
+            {
+                GameCenterAppVersionResponse result = apiInstance.AppStoreVersionsGameCenterAppVersionGetToOneRelated(id, fieldsGameCenterAppVersions, fieldsAppStoreVersions, include, limitCompatibilityVersions);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsGameCenterAppVersionGetToOneRelated: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AppStoreVersionsGameCenterAppVersionGetToOneRelatedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<GameCenterAppVersionResponse> response = apiInstance.AppStoreVersionsGameCenterAppVersionGetToOneRelatedWithHttpInfo(id, fieldsGameCenterAppVersions, fieldsAppStoreVersions, include, limitCompatibilityVersions);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AppStoreVersionsApi.AppStoreVersionsGameCenterAppVersionGetToOneRelatedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | the id of the requested resource |  |
+| **fieldsGameCenterAppVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterAppVersions | [optional]  |
+| **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitCompatibilityVersions** | **int?** | maximum number of related compatibilityVersions returned (when they are included) | [optional]  |
+
+### Return type
+
+[**GameCenterAppVersionResponse**](GameCenterAppVersionResponse.md)
+
+### Authorization
+
+[itc-bearer-token](../README.md#itc-bearer-token)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
+| **403** | Forbidden error |  -  |
+| **404** | Not found error |  -  |
+| **200** | Single GameCenterAppVersion |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="appstoreversionsgetinstance"></a>
 # **AppStoreVersionsGetInstance**
-> AppStoreVersionResponse AppStoreVersionsGetInstance (string id, List<string>? fieldsAppStoreVersions = null, List<string>? include = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsCustomerReviews = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionLocalizations = null, int? limitAppStoreVersionExperiments = null, int? limitAppStoreVersionLocalizations = null)
+> AppStoreVersionResponse AppStoreVersionsGetInstance (string id, List<string>? fieldsAppStoreVersions = null, List<string>? fieldsAgeRatingDeclarations = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsBuilds = null, List<string>? fieldsAppStoreVersionPhasedReleases = null, List<string>? fieldsGameCenterAppVersions = null, List<string>? fieldsRoutingAppCoverages = null, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreVersionSubmissions = null, List<string>? fieldsAppClipDefaultExperiences = null, List<string>? fieldsAppStoreVersionExperiments = null, List<string>? fieldsAlternativeDistributionPackages = null, List<string>? include = null, int? limitAppStoreVersionExperiments = null, int? limitAppStoreVersionExperimentsV2 = null, int? limitAppStoreVersionLocalizations = null)
 
 
 
@@ -1573,23 +1936,25 @@ namespace Example
             var apiInstance = new AppStoreVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppStoreVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
-            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
             var fieldsAgeRatingDeclarations = new List<string>?(); // List<string>? | the fields to include for returned resources of type ageRatingDeclarations (optional) 
-            var fieldsCustomerReviews = new List<string>?(); // List<string>? | the fields to include for returned resources of type customerReviews (optional) 
-            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
-            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
-            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
-            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsAppStoreVersionPhasedReleases = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionPhasedReleases (optional) 
+            var fieldsGameCenterAppVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type gameCenterAppVersions (optional) 
+            var fieldsRoutingAppCoverages = new List<string>?(); // List<string>? | the fields to include for returned resources of type routingAppCoverages (optional) 
+            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
+            var fieldsAppStoreVersionSubmissions = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionSubmissions (optional) 
+            var fieldsAppClipDefaultExperiences = new List<string>?(); // List<string>? | the fields to include for returned resources of type appClipDefaultExperiences (optional) 
+            var fieldsAppStoreVersionExperiments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperiments (optional) 
+            var fieldsAlternativeDistributionPackages = new List<string>?(); // List<string>? | the fields to include for returned resources of type alternativeDistributionPackages (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppStoreVersionExperiments = 56;  // int? | maximum number of related appStoreVersionExperiments returned (when they are included) (optional) 
+            var limitAppStoreVersionExperimentsV2 = 56;  // int? | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) (optional) 
             var limitAppStoreVersionLocalizations = 56;  // int? | maximum number of related appStoreVersionLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionResponse result = apiInstance.AppStoreVersionsGetInstance(id, fieldsAppStoreVersions, include, fieldsAppStoreVersionExperiments, fieldsAppStoreVersionSubmissions, fieldsAgeRatingDeclarations, fieldsCustomerReviews, fieldsAppStoreReviewDetails, fieldsAppClipDefaultExperiences, fieldsRoutingAppCoverages, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionLocalizations);
+                AppStoreVersionResponse result = apiInstance.AppStoreVersionsGetInstance(id, fieldsAppStoreVersions, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2, limitAppStoreVersionLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1609,7 +1974,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionResponse> response = apiInstance.AppStoreVersionsGetInstanceWithHttpInfo(id, fieldsAppStoreVersions, include, fieldsAppStoreVersionExperiments, fieldsAppStoreVersionSubmissions, fieldsAgeRatingDeclarations, fieldsCustomerReviews, fieldsAppStoreReviewDetails, fieldsAppClipDefaultExperiences, fieldsRoutingAppCoverages, fieldsAppStoreVersionPhasedReleases, fieldsBuilds, fieldsAppStoreVersionLocalizations, limitAppStoreVersionExperiments, limitAppStoreVersionLocalizations);
+    ApiResponse<AppStoreVersionResponse> response = apiInstance.AppStoreVersionsGetInstanceWithHttpInfo(id, fieldsAppStoreVersions, fieldsAgeRatingDeclarations, fieldsAppStoreVersionLocalizations, fieldsBuilds, fieldsAppStoreVersionPhasedReleases, fieldsGameCenterAppVersions, fieldsRoutingAppCoverages, fieldsAppStoreReviewDetails, fieldsAppStoreVersionSubmissions, fieldsAppClipDefaultExperiences, fieldsAppStoreVersionExperiments, fieldsAlternativeDistributionPackages, include, limitAppStoreVersionExperiments, limitAppStoreVersionExperimentsV2, limitAppStoreVersionLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1628,18 +1993,20 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppStoreVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
-| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
 | **fieldsAgeRatingDeclarations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type ageRatingDeclarations | [optional]  |
-| **fieldsCustomerReviews** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type customerReviews | [optional]  |
-| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
-| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
-| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
-| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsAppStoreVersionPhasedReleases** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionPhasedReleases | [optional]  |
+| **fieldsGameCenterAppVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type gameCenterAppVersions | [optional]  |
+| **fieldsRoutingAppCoverages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type routingAppCoverages | [optional]  |
+| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
+| **fieldsAppStoreVersionSubmissions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionSubmissions | [optional]  |
+| **fieldsAppClipDefaultExperiences** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appClipDefaultExperiences | [optional]  |
+| **fieldsAppStoreVersionExperiments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperiments | [optional]  |
+| **fieldsAlternativeDistributionPackages** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type alternativeDistributionPackages | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppStoreVersionExperiments** | **int?** | maximum number of related appStoreVersionExperiments returned (when they are included) | [optional]  |
+| **limitAppStoreVersionExperimentsV2** | **int?** | maximum number of related appStoreVersionExperimentsV2 returned (when they are included) | [optional]  |
 | **limitAppStoreVersionLocalizations** | **int?** | maximum number of related appStoreVersionLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
@@ -1660,15 +2027,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersion |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsroutingappcoveragegettoonerelated"></a>
+<a id="appstoreversionsroutingappcoveragegettoonerelated"></a>
 # **AppStoreVersionsRoutingAppCoverageGetToOneRelated**
-> RoutingAppCoverageResponse AppStoreVersionsRoutingAppCoverageGetToOneRelated (string id, List<string>? fieldsRoutingAppCoverages = null)
+> RoutingAppCoverageWithoutIncludesResponse AppStoreVersionsRoutingAppCoverageGetToOneRelated (string id, List<string>? fieldsRoutingAppCoverages = null)
 
 
 
@@ -1701,7 +2069,7 @@ namespace Example
 
             try
             {
-                RoutingAppCoverageResponse result = apiInstance.AppStoreVersionsRoutingAppCoverageGetToOneRelated(id, fieldsRoutingAppCoverages);
+                RoutingAppCoverageWithoutIncludesResponse result = apiInstance.AppStoreVersionsRoutingAppCoverageGetToOneRelated(id, fieldsRoutingAppCoverages);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1721,7 +2089,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<RoutingAppCoverageResponse> response = apiInstance.AppStoreVersionsRoutingAppCoverageGetToOneRelatedWithHttpInfo(id, fieldsRoutingAppCoverages);
+    ApiResponse<RoutingAppCoverageWithoutIncludesResponse> response = apiInstance.AppStoreVersionsRoutingAppCoverageGetToOneRelatedWithHttpInfo(id, fieldsRoutingAppCoverages);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1743,7 +2111,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**RoutingAppCoverageResponse**](RoutingAppCoverageResponse.md)
+[**RoutingAppCoverageWithoutIncludesResponse**](RoutingAppCoverageWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -1759,13 +2127,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single RoutingAppCoverage |  -  |
+| **200** | Single RoutingAppCoverage with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionsupdateinstance"></a>
+<a id="appstoreversionsupdateinstance"></a>
 # **AppStoreVersionsUpdateInstance**
 > AppStoreVersionResponse AppStoreVersionsUpdateInstance (string id, AppStoreVersionUpdateRequest appStoreVersionUpdateRequest)
 
@@ -1858,8 +2227,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppStoreVersion |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**SubscriptionIntroductoryOffersDeleteInstance**](SubscriptionIntroductoryOffersApi.md#subscriptionintroductoryoffersdeleteinstance) | **DELETE** /v1/subscriptionIntroductoryOffers/{id} |  |
 | [**SubscriptionIntroductoryOffersUpdateInstance**](SubscriptionIntroductoryOffersApi.md#subscriptionintroductoryoffersupdateinstance) | **PATCH** /v1/subscriptionIntroductoryOffers/{id} |  |
 
-<a name="subscriptionintroductoryofferscreateinstance"></a>
+<a id="subscriptionintroductoryofferscreateinstance"></a>
 # **SubscriptionIntroductoryOffersCreateInstance**
 > SubscriptionIntroductoryOfferResponse SubscriptionIntroductoryOffersCreateInstance (SubscriptionIntroductoryOfferCreateRequest subscriptionIntroductoryOfferCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single SubscriptionIntroductoryOffer |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionintroductoryoffersdeleteinstance"></a>
+<a id="subscriptionintroductoryoffersdeleteinstance"></a>
 # **SubscriptionIntroductoryOffersDeleteInstance**
 > void SubscriptionIntroductoryOffersDeleteInstance (string id)
 
@@ -192,6 +194,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -199,7 +202,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="subscriptionintroductoryoffersupdateinstance"></a>
+<a id="subscriptionintroductoryoffersupdateinstance"></a>
 # **SubscriptionIntroductoryOffersUpdateInstance**
 > SubscriptionIntroductoryOfferResponse SubscriptionIntroductoryOffersUpdateInstance (string id, SubscriptionIntroductoryOfferUpdateRequest subscriptionIntroductoryOfferUpdateRequest)
 
@@ -292,8 +295,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single SubscriptionIntroductoryOffer |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CustomerReviewResponsesDeleteInstance**](CustomerReviewResponsesApi.md#customerreviewresponsesdeleteinstance) | **DELETE** /v1/customerReviewResponses/{id} |  |
 | [**CustomerReviewResponsesGetInstance**](CustomerReviewResponsesApi.md#customerreviewresponsesgetinstance) | **GET** /v1/customerReviewResponses/{id} |  |
 
-<a name="customerreviewresponsescreateinstance"></a>
+<a id="customerreviewresponsescreateinstance"></a>
 # **CustomerReviewResponsesCreateInstance**
 > CustomerReviewResponseV1Response CustomerReviewResponsesCreateInstance (CustomerReviewResponseV1CreateRequest customerReviewResponseV1CreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single CustomerReviewResponse |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="customerreviewresponsesdeleteinstance"></a>
+<a id="customerreviewresponsesdeleteinstance"></a>
 # **CustomerReviewResponsesDeleteInstance**
 > void CustomerReviewResponsesDeleteInstance (string id)
 
@@ -192,6 +194,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -199,7 +202,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="customerreviewresponsesgetinstance"></a>
+<a id="customerreviewresponsesgetinstance"></a>
 # **CustomerReviewResponsesGetInstance**
 > CustomerReviewResponseV1Response CustomerReviewResponsesGetInstance (string id, List<string>? fieldsCustomerReviewResponses = null, List<string>? include = null)
 
@@ -294,6 +297,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CustomerReviewResponse |  -  |

@@ -11,9 +11,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreVersionLocalizationsGetInstance**](AppStoreVersionLocalizationsApi.md#appstoreversionlocalizationsgetinstance) | **GET** /v1/appStoreVersionLocalizations/{id} |  |
 | [**AppStoreVersionLocalizationsUpdateInstance**](AppStoreVersionLocalizationsApi.md#appstoreversionlocalizationsupdateinstance) | **PATCH** /v1/appStoreVersionLocalizations/{id} |  |
 
-<a name="appstoreversionlocalizationsapppreviewsetsgettomanyrelated"></a>
+<a id="appstoreversionlocalizationsapppreviewsetsgettomanyrelated"></a>
 # **AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelated**
-> AppPreviewSetsResponse AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelated (string id, List<string>? filterPreviewType = null, List<string>? filterAppCustomProductPageLocalization = null, List<string>? filterAppStoreVersionExperimentTreatmentLocalization = null, List<string>? fieldsAppCustomProductPageLocalizations = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppPreviews = null, List<string>? fieldsAppPreviewSets = null, List<string>? fieldsAppStoreVersionLocalizations = null, int? limit = null, int? limitAppPreviews = null, List<string>? include = null)
+> AppPreviewSetsResponse AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelated (string id, List<string>? filterPreviewType = null, List<string>? filterAppCustomProductPageLocalization = null, List<string>? filterAppStoreVersionExperimentTreatmentLocalization = null, List<string>? fieldsAppPreviewSets = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsAppCustomProductPageLocalizations = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppPreviews = null, int? limit = null, List<string>? include = null, int? limitAppPreviews = null)
 
 
 
@@ -45,18 +45,18 @@ namespace Example
             var filterPreviewType = new List<string>?(); // List<string>? | filter by attribute 'previewType' (optional) 
             var filterAppCustomProductPageLocalization = new List<string>?(); // List<string>? | filter by id(s) of related 'appCustomProductPageLocalization' (optional) 
             var filterAppStoreVersionExperimentTreatmentLocalization = new List<string>?(); // List<string>? | filter by id(s) of related 'appStoreVersionExperimentTreatmentLocalization' (optional) 
+            var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
+            var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
             var fieldsAppCustomProductPageLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageLocalizations (optional) 
             var fieldsAppStoreVersionExperimentTreatmentLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations (optional) 
             var fieldsAppPreviews = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviews (optional) 
-            var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
-            var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitAppPreviews = 56;  // int? | maximum number of related appPreviews returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppPreviews = 56;  // int? | maximum number of related appPreviews returned (when they are included) (optional) 
 
             try
             {
-                AppPreviewSetsResponse result = apiInstance.AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelated(id, filterPreviewType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviews, fieldsAppPreviewSets, fieldsAppStoreVersionLocalizations, limit, limitAppPreviews, include);
+                AppPreviewSetsResponse result = apiInstance.AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelated(id, filterPreviewType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppPreviewSets, fieldsAppStoreVersionLocalizations, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviews, limit, include, limitAppPreviews);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -76,7 +76,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppPreviewSetsResponse> response = apiInstance.AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelatedWithHttpInfo(id, filterPreviewType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviews, fieldsAppPreviewSets, fieldsAppStoreVersionLocalizations, limit, limitAppPreviews, include);
+    ApiResponse<AppPreviewSetsResponse> response = apiInstance.AppStoreVersionLocalizationsAppPreviewSetsGetToManyRelatedWithHttpInfo(id, filterPreviewType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppPreviewSets, fieldsAppStoreVersionLocalizations, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviews, limit, include, limitAppPreviews);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -97,14 +97,14 @@ catch (ApiException e)
 | **filterPreviewType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;previewType&#39; | [optional]  |
 | **filterAppCustomProductPageLocalization** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appCustomProductPageLocalization&#39; | [optional]  |
 | **filterAppStoreVersionExperimentTreatmentLocalization** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appStoreVersionExperimentTreatmentLocalization&#39; | [optional]  |
+| **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
+| **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
 | **fieldsAppCustomProductPageLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageLocalizations | [optional]  |
 | **fieldsAppStoreVersionExperimentTreatmentLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations | [optional]  |
 | **fieldsAppPreviews** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviews | [optional]  |
-| **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
-| **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitAppPreviews** | **int?** | maximum number of related appPreviews returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppPreviews** | **int?** | maximum number of related appPreviews returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -124,15 +124,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppPreviewSets |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionlocalizationsappscreenshotsetsgettomanyrelated"></a>
+<a id="appstoreversionlocalizationsappscreenshotsetsgettomanyrelated"></a>
 # **AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelated**
-> AppScreenshotSetsResponse AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelated (string id, List<string>? filterScreenshotDisplayType = null, List<string>? filterAppCustomProductPageLocalization = null, List<string>? filterAppStoreVersionExperimentTreatmentLocalization = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppCustomProductPageLocalizations = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppScreenshots = null, List<string>? fieldsAppStoreVersionLocalizations = null, int? limit = null, int? limitAppScreenshots = null, List<string>? include = null)
+> AppScreenshotSetsResponse AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelated (string id, List<string>? filterScreenshotDisplayType = null, List<string>? filterAppCustomProductPageLocalization = null, List<string>? filterAppStoreVersionExperimentTreatmentLocalization = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsAppCustomProductPageLocalizations = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppScreenshots = null, int? limit = null, List<string>? include = null, int? limitAppScreenshots = null)
 
 
 
@@ -165,17 +166,17 @@ namespace Example
             var filterAppCustomProductPageLocalization = new List<string>?(); // List<string>? | filter by id(s) of related 'appCustomProductPageLocalization' (optional) 
             var filterAppStoreVersionExperimentTreatmentLocalization = new List<string>?(); // List<string>? | filter by id(s) of related 'appStoreVersionExperimentTreatmentLocalization' (optional) 
             var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
+            var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
             var fieldsAppCustomProductPageLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appCustomProductPageLocalizations (optional) 
             var fieldsAppStoreVersionExperimentTreatmentLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations (optional) 
             var fieldsAppScreenshots = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshots (optional) 
-            var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
-            var limitAppScreenshots = 56;  // int? | maximum number of related appScreenshots returned (when they are included) (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
+            var limitAppScreenshots = 56;  // int? | maximum number of related appScreenshots returned (when they are included) (optional) 
 
             try
             {
-                AppScreenshotSetsResponse result = apiInstance.AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelated(id, filterScreenshotDisplayType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppScreenshotSets, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppScreenshots, fieldsAppStoreVersionLocalizations, limit, limitAppScreenshots, include);
+                AppScreenshotSetsResponse result = apiInstance.AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelated(id, filterScreenshotDisplayType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppScreenshotSets, fieldsAppStoreVersionLocalizations, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppScreenshots, limit, include, limitAppScreenshots);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -195,7 +196,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppScreenshotSetsResponse> response = apiInstance.AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelatedWithHttpInfo(id, filterScreenshotDisplayType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppScreenshotSets, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppScreenshots, fieldsAppStoreVersionLocalizations, limit, limitAppScreenshots, include);
+    ApiResponse<AppScreenshotSetsResponse> response = apiInstance.AppStoreVersionLocalizationsAppScreenshotSetsGetToManyRelatedWithHttpInfo(id, filterScreenshotDisplayType, filterAppCustomProductPageLocalization, filterAppStoreVersionExperimentTreatmentLocalization, fieldsAppScreenshotSets, fieldsAppStoreVersionLocalizations, fieldsAppCustomProductPageLocalizations, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppScreenshots, limit, include, limitAppScreenshots);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -217,13 +218,13 @@ catch (ApiException e)
 | **filterAppCustomProductPageLocalization** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appCustomProductPageLocalization&#39; | [optional]  |
 | **filterAppStoreVersionExperimentTreatmentLocalization** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;appStoreVersionExperimentTreatmentLocalization&#39; | [optional]  |
 | **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
+| **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
 | **fieldsAppCustomProductPageLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appCustomProductPageLocalizations | [optional]  |
 | **fieldsAppStoreVersionExperimentTreatmentLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations | [optional]  |
 | **fieldsAppScreenshots** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshots | [optional]  |
-| **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
-| **limitAppScreenshots** | **int?** | maximum number of related appScreenshots returned (when they are included) | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
+| **limitAppScreenshots** | **int?** | maximum number of related appScreenshots returned (when they are included) | [optional]  |
 
 ### Return type
 
@@ -243,13 +244,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppScreenshotSets |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionlocalizationscreateinstance"></a>
+<a id="appstoreversionlocalizationscreateinstance"></a>
 # **AppStoreVersionLocalizationsCreateInstance**
 > AppStoreVersionLocalizationResponse AppStoreVersionLocalizationsCreateInstance (AppStoreVersionLocalizationCreateRequest appStoreVersionLocalizationCreateRequest)
 
@@ -340,13 +342,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersionLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionlocalizationsdeleteinstance"></a>
+<a id="appstoreversionlocalizationsdeleteinstance"></a>
 # **AppStoreVersionLocalizationsDeleteInstance**
 > void AppStoreVersionLocalizationsDeleteInstance (string id)
 
@@ -433,6 +437,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -440,9 +445,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionlocalizationsgetinstance"></a>
+<a id="appstoreversionlocalizationsgetinstance"></a>
 # **AppStoreVersionLocalizationsGetInstance**
-> AppStoreVersionLocalizationResponse AppStoreVersionLocalizationsGetInstance (string id, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? include = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppPreviewSets = null, int? limitAppPreviewSets = null, int? limitAppScreenshotSets = null)
+> AppStoreVersionLocalizationResponse AppStoreVersionLocalizationsGetInstance (string id, List<string>? fieldsAppStoreVersionLocalizations = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppPreviewSets = null, List<string>? include = null, int? limitAppPreviewSets = null, int? limitAppScreenshotSets = null)
 
 
 
@@ -472,15 +477,15 @@ namespace Example
             var apiInstance = new AppStoreVersionLocalizationsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppStoreVersionLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionLocalizations (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
             var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppPreviewSets = 56;  // int? | maximum number of related appPreviewSets returned (when they are included) (optional) 
             var limitAppScreenshotSets = 56;  // int? | maximum number of related appScreenshotSets returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionLocalizationResponse result = apiInstance.AppStoreVersionLocalizationsGetInstance(id, fieldsAppStoreVersionLocalizations, include, fieldsAppScreenshotSets, fieldsAppPreviewSets, limitAppPreviewSets, limitAppScreenshotSets);
+                AppStoreVersionLocalizationResponse result = apiInstance.AppStoreVersionLocalizationsGetInstance(id, fieldsAppStoreVersionLocalizations, fieldsAppScreenshotSets, fieldsAppPreviewSets, include, limitAppPreviewSets, limitAppScreenshotSets);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -500,7 +505,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionLocalizationResponse> response = apiInstance.AppStoreVersionLocalizationsGetInstanceWithHttpInfo(id, fieldsAppStoreVersionLocalizations, include, fieldsAppScreenshotSets, fieldsAppPreviewSets, limitAppPreviewSets, limitAppScreenshotSets);
+    ApiResponse<AppStoreVersionLocalizationResponse> response = apiInstance.AppStoreVersionLocalizationsGetInstanceWithHttpInfo(id, fieldsAppStoreVersionLocalizations, fieldsAppScreenshotSets, fieldsAppPreviewSets, include, limitAppPreviewSets, limitAppScreenshotSets);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -519,9 +524,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppStoreVersionLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionLocalizations | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
 | **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppPreviewSets** | **int?** | maximum number of related appPreviewSets returned (when they are included) | [optional]  |
 | **limitAppScreenshotSets** | **int?** | maximum number of related appScreenshotSets returned (when they are included) | [optional]  |
 
@@ -543,13 +548,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersionLocalization |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionlocalizationsupdateinstance"></a>
+<a id="appstoreversionlocalizationsupdateinstance"></a>
 # **AppStoreVersionLocalizationsUpdateInstance**
 > AppStoreVersionLocalizationResponse AppStoreVersionLocalizationsUpdateInstance (string id, AppStoreVersionLocalizationUpdateRequest appStoreVersionLocalizationUpdateRequest)
 
@@ -642,8 +648,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppStoreVersionLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 

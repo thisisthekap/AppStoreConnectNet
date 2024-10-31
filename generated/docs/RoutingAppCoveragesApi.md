@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**RoutingAppCoveragesGetInstance**](RoutingAppCoveragesApi.md#routingappcoveragesgetinstance) | **GET** /v1/routingAppCoverages/{id} |  |
 | [**RoutingAppCoveragesUpdateInstance**](RoutingAppCoveragesApi.md#routingappcoveragesupdateinstance) | **PATCH** /v1/routingAppCoverages/{id} |  |
 
-<a name="routingappcoveragescreateinstance"></a>
+<a id="routingappcoveragescreateinstance"></a>
 # **RoutingAppCoveragesCreateInstance**
 > RoutingAppCoverageResponse RoutingAppCoveragesCreateInstance (RoutingAppCoverageCreateRequest routingAppCoverageCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single RoutingAppCoverage |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="routingappcoveragesdeleteinstance"></a>
+<a id="routingappcoveragesdeleteinstance"></a>
 # **RoutingAppCoveragesDeleteInstance**
 > void RoutingAppCoveragesDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="routingappcoveragesgetinstance"></a>
+<a id="routingappcoveragesgetinstance"></a>
 # **RoutingAppCoveragesGetInstance**
 > RoutingAppCoverageResponse RoutingAppCoveragesGetInstance (string id, List<string>? fieldsRoutingAppCoverages = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single RoutingAppCoverage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="routingappcoveragesupdateinstance"></a>
+<a id="routingappcoveragesupdateinstance"></a>
 # **RoutingAppCoveragesUpdateInstance**
 > RoutingAppCoverageResponse RoutingAppCoveragesUpdateInstance (string id, RoutingAppCoverageUpdateRequest routingAppCoverageUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single RoutingAppCoverage |  -  |
 | **409** | Request entity error(s) |  -  |
 

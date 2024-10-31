@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**DevicesGetInstance**](DevicesApi.md#devicesgetinstance) | **GET** /v1/devices/{id} |  |
 | [**DevicesUpdateInstance**](DevicesApi.md#devicesupdateinstance) | **PATCH** /v1/devices/{id} |  |
 
-<a name="devicescreateinstance"></a>
+<a id="devicescreateinstance"></a>
 # **DevicesCreateInstance**
 > DeviceResponse DevicesCreateInstance (DeviceCreateRequest deviceCreateRequest)
 
@@ -100,15 +100,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single Device |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="devicesgetcollection"></a>
+<a id="devicesgetcollection"></a>
 # **DevicesGetCollection**
-> DevicesResponse DevicesGetCollection (List<string>? filterName = null, List<string>? filterPlatform = null, List<string>? filterStatus = null, List<string>? filterUdid = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsDevices = null, int? limit = null)
+> DevicesResponse DevicesGetCollection (List<string>? filterName = null, List<string>? filterPlatform = null, List<string>? filterUdid = null, List<string>? filterStatus = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsDevices = null, int? limit = null)
 
 
 
@@ -138,8 +140,8 @@ namespace Example
             var apiInstance = new DevicesApi(httpClient, config, httpClientHandler);
             var filterName = new List<string>?(); // List<string>? | filter by attribute 'name' (optional) 
             var filterPlatform = new List<string>?(); // List<string>? | filter by attribute 'platform' (optional) 
-            var filterStatus = new List<string>?(); // List<string>? | filter by attribute 'status' (optional) 
             var filterUdid = new List<string>?(); // List<string>? | filter by attribute 'udid' (optional) 
+            var filterStatus = new List<string>?(); // List<string>? | filter by attribute 'status' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsDevices = new List<string>?(); // List<string>? | the fields to include for returned resources of type devices (optional) 
@@ -147,7 +149,7 @@ namespace Example
 
             try
             {
-                DevicesResponse result = apiInstance.DevicesGetCollection(filterName, filterPlatform, filterStatus, filterUdid, filterId, sort, fieldsDevices, limit);
+                DevicesResponse result = apiInstance.DevicesGetCollection(filterName, filterPlatform, filterUdid, filterStatus, filterId, sort, fieldsDevices, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -167,7 +169,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<DevicesResponse> response = apiInstance.DevicesGetCollectionWithHttpInfo(filterName, filterPlatform, filterStatus, filterUdid, filterId, sort, fieldsDevices, limit);
+    ApiResponse<DevicesResponse> response = apiInstance.DevicesGetCollectionWithHttpInfo(filterName, filterPlatform, filterUdid, filterStatus, filterId, sort, fieldsDevices, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -186,8 +188,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filterName** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;name&#39; | [optional]  |
 | **filterPlatform** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;platform&#39; | [optional]  |
-| **filterStatus** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;status&#39; | [optional]  |
 | **filterUdid** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;udid&#39; | [optional]  |
+| **filterStatus** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;status&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsDevices** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type devices | [optional]  |
@@ -211,12 +213,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of Devices |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="devicesgetinstance"></a>
+<a id="devicesgetinstance"></a>
 # **DevicesGetInstance**
 > DeviceResponse DevicesGetInstance (string id, List<string>? fieldsDevices = null)
 
@@ -309,13 +312,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single Device |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="devicesupdateinstance"></a>
+<a id="devicesupdateinstance"></a>
 # **DevicesUpdateInstance**
 > DeviceResponse DevicesUpdateInstance (string id, DeviceUpdateRequest deviceUpdateRequest)
 
@@ -408,8 +412,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single Device |  -  |
 | **409** | Request entity error(s) |  -  |
 

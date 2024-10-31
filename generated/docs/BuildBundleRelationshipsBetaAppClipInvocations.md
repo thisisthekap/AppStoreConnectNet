@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Links** | [**AppAvailabilityRelationshipsAppLinks**](AppAvailabilityRelationshipsAppLinks.md) |  | [optional] 
+**Links** | [**RelationshipLinks**](RelationshipLinks.md) |  | [optional] 
 **Meta** | [**PagingInformation**](PagingInformation.md) |  | [optional] 
 **Data** | [**List&lt;BetaAppClipInvocationLocalizationInlineCreateRelationshipsBetaAppClipInvocationData&gt;**](BetaAppClipInvocationLocalizationInlineCreateRelationshipsBetaAppClipInvocationData.md) |  | [optional] 
 

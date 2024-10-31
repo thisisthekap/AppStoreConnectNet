@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Platform** | **Platform** |  | 
 **VersionString** | **string** |  | 
 **Copyright** | **string** |  | [optional] 
+**ReviewType** | **string** |  | [optional] 
 **ReleaseType** | **string** |  | [optional] 
 **EarliestReleaseDate** | **DateTimeOffset** |  | [optional] 
 

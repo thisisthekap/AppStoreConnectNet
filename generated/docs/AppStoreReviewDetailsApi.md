@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreReviewDetailsGetInstance**](AppStoreReviewDetailsApi.md#appstorereviewdetailsgetinstance) | **GET** /v1/appStoreReviewDetails/{id} |  |
 | [**AppStoreReviewDetailsUpdateInstance**](AppStoreReviewDetailsApi.md#appstorereviewdetailsupdateinstance) | **PATCH** /v1/appStoreReviewDetails/{id} |  |
 
-<a name="appstorereviewdetailsappstorereviewattachmentsgettomanyrelated"></a>
+<a id="appstorereviewdetailsappstorereviewattachmentsgettomanyrelated"></a>
 # **AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelated**
-> AppStoreReviewAttachmentsResponse AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelated (string id, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreReviewAttachments = null, int? limit = null, List<string>? include = null)
+> AppStoreReviewAttachmentsResponse AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelated (string id, List<string>? fieldsAppStoreReviewAttachments = null, List<string>? fieldsAppStoreReviewDetails = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -40,14 +40,14 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppStoreReviewDetailsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
             var fieldsAppStoreReviewAttachments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewAttachments (optional) 
+            var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppStoreReviewAttachmentsResponse result = apiInstance.AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelated(id, fieldsAppStoreReviewDetails, fieldsAppStoreReviewAttachments, limit, include);
+                AppStoreReviewAttachmentsResponse result = apiInstance.AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelated(id, fieldsAppStoreReviewAttachments, fieldsAppStoreReviewDetails, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -67,7 +67,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreReviewAttachmentsResponse> response = apiInstance.AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelatedWithHttpInfo(id, fieldsAppStoreReviewDetails, fieldsAppStoreReviewAttachments, limit, include);
+    ApiResponse<AppStoreReviewAttachmentsResponse> response = apiInstance.AppStoreReviewDetailsAppStoreReviewAttachmentsGetToManyRelatedWithHttpInfo(id, fieldsAppStoreReviewAttachments, fieldsAppStoreReviewDetails, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -85,8 +85,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
 | **fieldsAppStoreReviewAttachments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewAttachments | [optional]  |
+| **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
@@ -108,13 +108,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppStoreReviewAttachments |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewdetailscreateinstance"></a>
+<a id="appstorereviewdetailscreateinstance"></a>
 # **AppStoreReviewDetailsCreateInstance**
 > AppStoreReviewDetailResponse AppStoreReviewDetailsCreateInstance (AppStoreReviewDetailCreateRequest appStoreReviewDetailCreateRequest)
 
@@ -205,15 +206,17 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreReviewDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewdetailsgetinstance"></a>
+<a id="appstorereviewdetailsgetinstance"></a>
 # **AppStoreReviewDetailsGetInstance**
-> AppStoreReviewDetailResponse AppStoreReviewDetailsGetInstance (string id, List<string>? fieldsAppStoreReviewDetails = null, List<string>? include = null, List<string>? fieldsAppStoreReviewAttachments = null, int? limitAppStoreReviewAttachments = null)
+> AppStoreReviewDetailResponse AppStoreReviewDetailsGetInstance (string id, List<string>? fieldsAppStoreReviewDetails = null, List<string>? fieldsAppStoreReviewAttachments = null, List<string>? include = null, int? limitAppStoreReviewAttachments = null)
 
 
 
@@ -243,13 +246,13 @@ namespace Example
             var apiInstance = new AppStoreReviewDetailsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppStoreReviewDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewDetails (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppStoreReviewAttachments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreReviewAttachments (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppStoreReviewAttachments = 56;  // int? | maximum number of related appStoreReviewAttachments returned (when they are included) (optional) 
 
             try
             {
-                AppStoreReviewDetailResponse result = apiInstance.AppStoreReviewDetailsGetInstance(id, fieldsAppStoreReviewDetails, include, fieldsAppStoreReviewAttachments, limitAppStoreReviewAttachments);
+                AppStoreReviewDetailResponse result = apiInstance.AppStoreReviewDetailsGetInstance(id, fieldsAppStoreReviewDetails, fieldsAppStoreReviewAttachments, include, limitAppStoreReviewAttachments);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -269,7 +272,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreReviewDetailResponse> response = apiInstance.AppStoreReviewDetailsGetInstanceWithHttpInfo(id, fieldsAppStoreReviewDetails, include, fieldsAppStoreReviewAttachments, limitAppStoreReviewAttachments);
+    ApiResponse<AppStoreReviewDetailResponse> response = apiInstance.AppStoreReviewDetailsGetInstanceWithHttpInfo(id, fieldsAppStoreReviewDetails, fieldsAppStoreReviewAttachments, include, limitAppStoreReviewAttachments);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -288,8 +291,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppStoreReviewDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewDetails | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppStoreReviewAttachments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreReviewAttachments | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppStoreReviewAttachments** | **int?** | maximum number of related appStoreReviewAttachments returned (when they are included) | [optional]  |
 
 ### Return type
@@ -310,13 +313,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreReviewDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstorereviewdetailsupdateinstance"></a>
+<a id="appstorereviewdetailsupdateinstance"></a>
 # **AppStoreReviewDetailsUpdateInstance**
 > AppStoreReviewDetailResponse AppStoreReviewDetailsUpdateInstance (string id, AppStoreReviewDetailUpdateRequest appStoreReviewDetailUpdateRequest)
 
@@ -409,8 +413,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppStoreReviewDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 

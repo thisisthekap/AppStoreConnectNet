@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**PreReleaseVersionsGetCollection**](PreReleaseVersionsApi.md#prereleaseversionsgetcollection) | **GET** /v1/preReleaseVersions |  |
 | [**PreReleaseVersionsGetInstance**](PreReleaseVersionsApi.md#prereleaseversionsgetinstance) | **GET** /v1/preReleaseVersions/{id} |  |
 
-<a name="prereleaseversionsappgettoonerelated"></a>
+<a id="prereleaseversionsappgettoonerelated"></a>
 # **PreReleaseVersionsAppGetToOneRelated**
-> AppResponse PreReleaseVersionsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
+> AppWithoutIncludesResponse PreReleaseVersionsAppGetToOneRelated (string id, List<string>? fieldsApps = null)
 
 
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                AppResponse result = apiInstance.PreReleaseVersionsAppGetToOneRelated(id, fieldsApps);
+                AppWithoutIncludesResponse result = apiInstance.PreReleaseVersionsAppGetToOneRelated(id, fieldsApps);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppResponse> response = apiInstance.PreReleaseVersionsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
+    ApiResponse<AppWithoutIncludesResponse> response = apiInstance.PreReleaseVersionsAppGetToOneRelatedWithHttpInfo(id, fieldsApps);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AppResponse**](AppResponse.md)
+[**AppWithoutIncludesResponse**](AppWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -102,15 +102,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single App |  -  |
+| **200** | Single App with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="prereleaseversionsbuildsgettomanyrelated"></a>
+<a id="prereleaseversionsbuildsgettomanyrelated"></a>
 # **PreReleaseVersionsBuildsGetToManyRelated**
-> BuildsResponse PreReleaseVersionsBuildsGetToManyRelated (string id, List<string>? fieldsBuilds = null, int? limit = null)
+> BuildsWithoutIncludesResponse PreReleaseVersionsBuildsGetToManyRelated (string id, List<string>? fieldsBuilds = null, int? limit = null)
 
 
 
@@ -144,7 +145,7 @@ namespace Example
 
             try
             {
-                BuildsResponse result = apiInstance.PreReleaseVersionsBuildsGetToManyRelated(id, fieldsBuilds, limit);
+                BuildsWithoutIncludesResponse result = apiInstance.PreReleaseVersionsBuildsGetToManyRelated(id, fieldsBuilds, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -164,7 +165,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildsResponse> response = apiInstance.PreReleaseVersionsBuildsGetToManyRelatedWithHttpInfo(id, fieldsBuilds, limit);
+    ApiResponse<BuildsWithoutIncludesResponse> response = apiInstance.PreReleaseVersionsBuildsGetToManyRelatedWithHttpInfo(id, fieldsBuilds, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -187,7 +188,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildsResponse**](BuildsResponse.md)
+[**BuildsWithoutIncludesResponse**](BuildsWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -203,15 +204,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Builds |  -  |
+| **200** | List of Builds with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="prereleaseversionsgetcollection"></a>
+<a id="prereleaseversionsgetcollection"></a>
 # **PreReleaseVersionsGetCollection**
-> PreReleaseVersionsResponse PreReleaseVersionsGetCollection (List<string>? filterBuildsExpired = null, List<string>? filterBuildsProcessingState = null, List<string>? filterBuildsVersion = null, List<string>? filterPlatform = null, List<string>? filterVersion = null, List<string>? filterApp = null, List<string>? filterBuilds = null, List<string>? sort = null, List<string>? fieldsPreReleaseVersions = null, int? limit = null, List<string>? include = null, List<string>? fieldsApps = null, List<string>? fieldsBuilds = null, int? limitBuilds = null)
+> PreReleaseVersionsResponse PreReleaseVersionsGetCollection (List<string>? filterBuildsExpired = null, List<string>? filterBuildsProcessingState = null, List<string>? filterBuildsVersion = null, List<string>? filterPlatform = null, List<string>? filterVersion = null, List<string>? filterApp = null, List<string>? filterBuilds = null, List<string>? sort = null, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsBuilds = null, List<string>? fieldsApps = null, int? limit = null, List<string>? include = null, int? limitBuilds = null)
 
 
 
@@ -248,15 +250,15 @@ namespace Example
             var filterBuilds = new List<string>?(); // List<string>? | filter by id(s) of related 'builds' (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
             var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                PreReleaseVersionsResponse result = apiInstance.PreReleaseVersionsGetCollection(filterBuildsExpired, filterBuildsProcessingState, filterBuildsVersion, filterPlatform, filterVersion, filterApp, filterBuilds, sort, fieldsPreReleaseVersions, limit, include, fieldsApps, fieldsBuilds, limitBuilds);
+                PreReleaseVersionsResponse result = apiInstance.PreReleaseVersionsGetCollection(filterBuildsExpired, filterBuildsProcessingState, filterBuildsVersion, filterPlatform, filterVersion, filterApp, filterBuilds, sort, fieldsPreReleaseVersions, fieldsBuilds, fieldsApps, limit, include, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -276,7 +278,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<PreReleaseVersionsResponse> response = apiInstance.PreReleaseVersionsGetCollectionWithHttpInfo(filterBuildsExpired, filterBuildsProcessingState, filterBuildsVersion, filterPlatform, filterVersion, filterApp, filterBuilds, sort, fieldsPreReleaseVersions, limit, include, fieldsApps, fieldsBuilds, limitBuilds);
+    ApiResponse<PreReleaseVersionsResponse> response = apiInstance.PreReleaseVersionsGetCollectionWithHttpInfo(filterBuildsExpired, filterBuildsProcessingState, filterBuildsVersion, filterPlatform, filterVersion, filterApp, filterBuilds, sort, fieldsPreReleaseVersions, fieldsBuilds, fieldsApps, limit, include, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -302,10 +304,10 @@ catch (ApiException e)
 | **filterBuilds** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;builds&#39; | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
 | **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 
 ### Return type
@@ -326,14 +328,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of PreReleaseVersions |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="prereleaseversionsgetinstance"></a>
+<a id="prereleaseversionsgetinstance"></a>
 # **PreReleaseVersionsGetInstance**
-> PrereleaseVersionResponse PreReleaseVersionsGetInstance (string id, List<string>? fieldsPreReleaseVersions = null, List<string>? include = null, List<string>? fieldsApps = null, List<string>? fieldsBuilds = null, int? limitBuilds = null)
+> PrereleaseVersionResponse PreReleaseVersionsGetInstance (string id, List<string>? fieldsPreReleaseVersions = null, List<string>? fieldsBuilds = null, List<string>? fieldsApps = null, List<string>? include = null, int? limitBuilds = null)
 
 
 
@@ -363,14 +366,14 @@ namespace Example
             var apiInstance = new PreReleaseVersionsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsPreReleaseVersions = new List<string>?(); // List<string>? | the fields to include for returned resources of type preReleaseVersions (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var fieldsApps = new List<string>?(); // List<string>? | the fields to include for returned resources of type apps (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitBuilds = 56;  // int? | maximum number of related builds returned (when they are included) (optional) 
 
             try
             {
-                PrereleaseVersionResponse result = apiInstance.PreReleaseVersionsGetInstance(id, fieldsPreReleaseVersions, include, fieldsApps, fieldsBuilds, limitBuilds);
+                PrereleaseVersionResponse result = apiInstance.PreReleaseVersionsGetInstance(id, fieldsPreReleaseVersions, fieldsBuilds, fieldsApps, include, limitBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -390,7 +393,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<PrereleaseVersionResponse> response = apiInstance.PreReleaseVersionsGetInstanceWithHttpInfo(id, fieldsPreReleaseVersions, include, fieldsApps, fieldsBuilds, limitBuilds);
+    ApiResponse<PrereleaseVersionResponse> response = apiInstance.PreReleaseVersionsGetInstanceWithHttpInfo(id, fieldsPreReleaseVersions, fieldsBuilds, fieldsApps, include, limitBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -409,9 +412,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsPreReleaseVersions** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type preReleaseVersions | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **fieldsApps** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type apps | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitBuilds** | **int?** | maximum number of related builds returned (when they are included) | [optional]  |
 
 ### Return type
@@ -432,6 +435,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single PrereleaseVersion |  -  |

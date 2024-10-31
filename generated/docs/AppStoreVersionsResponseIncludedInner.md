@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
 **Id** | **string** |  | 
-**Attributes** | [**AppStoreVersionExperimentAttributes**](AppStoreVersionExperimentAttributes.md) |  | [optional] 
-**Relationships** | [**AppStoreVersionExperimentRelationships**](AppStoreVersionExperimentRelationships.md) |  | [optional] 
-**Links** | [**ResourceLinks**](ResourceLinks.md) |  | 
+**Attributes** | [**AppStoreVersionExperimentV2Attributes**](AppStoreVersionExperimentV2Attributes.md) |  | [optional] 
+**Relationships** | [**AlternativeDistributionPackageRelationships**](AlternativeDistributionPackageRelationships.md) |  | [optional] 
+**Links** | [**ResourceLinks**](ResourceLinks.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

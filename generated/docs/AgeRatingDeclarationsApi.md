@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**AgeRatingDeclarationsUpdateInstance**](AgeRatingDeclarationsApi.md#ageratingdeclarationsupdateinstance) | **PATCH** /v1/ageRatingDeclarations/{id} |  |
 
-<a name="ageratingdeclarationsupdateinstance"></a>
+<a id="ageratingdeclarationsupdateinstance"></a>
 # **AgeRatingDeclarationsUpdateInstance**
 > AgeRatingDeclarationResponse AgeRatingDeclarationsUpdateInstance (string id, AgeRatingDeclarationUpdateRequest ageRatingDeclarationUpdateRequest)
 
@@ -99,8 +99,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AgeRatingDeclaration |  -  |
 | **409** | Request entity error(s) |  -  |
 

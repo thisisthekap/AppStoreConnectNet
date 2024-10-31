@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**ReviewSubmissionItemsDeleteInstance**](ReviewSubmissionItemsApi.md#reviewsubmissionitemsdeleteinstance) | **DELETE** /v1/reviewSubmissionItems/{id} |  |
 | [**ReviewSubmissionItemsUpdateInstance**](ReviewSubmissionItemsApi.md#reviewsubmissionitemsupdateinstance) | **PATCH** /v1/reviewSubmissionItems/{id} |  |
 
-<a name="reviewsubmissionitemscreateinstance"></a>
+<a id="reviewsubmissionitemscreateinstance"></a>
 # **ReviewSubmissionItemsCreateInstance**
 > ReviewSubmissionItemResponse ReviewSubmissionItemsCreateInstance (ReviewSubmissionItemCreateRequest reviewSubmissionItemCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single ReviewSubmissionItem |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionitemsdeleteinstance"></a>
+<a id="reviewsubmissionitemsdeleteinstance"></a>
 # **ReviewSubmissionItemsDeleteInstance**
 > void ReviewSubmissionItemsDeleteInstance (string id)
 
@@ -192,6 +194,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -199,7 +202,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="reviewsubmissionitemsupdateinstance"></a>
+<a id="reviewsubmissionitemsupdateinstance"></a>
 # **ReviewSubmissionItemsUpdateInstance**
 > ReviewSubmissionItemResponse ReviewSubmissionItemsUpdateInstance (string id, ReviewSubmissionItemUpdateRequest reviewSubmissionItemUpdateRequest)
 
@@ -292,8 +295,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single ReviewSubmissionItem |  -  |
 | **409** | Request entity error(s) |  -  |
 

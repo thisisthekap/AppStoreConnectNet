@@ -11,9 +11,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BetaBuildLocalizationsGetInstance**](BetaBuildLocalizationsApi.md#betabuildlocalizationsgetinstance) | **GET** /v1/betaBuildLocalizations/{id} |  |
 | [**BetaBuildLocalizationsUpdateInstance**](BetaBuildLocalizationsApi.md#betabuildlocalizationsupdateinstance) | **PATCH** /v1/betaBuildLocalizations/{id} |  |
 
-<a name="betabuildlocalizationsbuildgettoonerelated"></a>
+<a id="betabuildlocalizationsbuildgettoonerelated"></a>
 # **BetaBuildLocalizationsBuildGetToOneRelated**
-> BuildResponse BetaBuildLocalizationsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
+> BuildWithoutIncludesResponse BetaBuildLocalizationsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
 
 
 
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                BuildResponse result = apiInstance.BetaBuildLocalizationsBuildGetToOneRelated(id, fieldsBuilds);
+                BuildWithoutIncludesResponse result = apiInstance.BetaBuildLocalizationsBuildGetToOneRelated(id, fieldsBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,7 +66,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildResponse> response = apiInstance.BetaBuildLocalizationsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
+    ApiResponse<BuildWithoutIncludesResponse> response = apiInstance.BetaBuildLocalizationsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -88,7 +88,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildResponse**](BuildResponse.md)
+[**BuildWithoutIncludesResponse**](BuildWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -104,13 +104,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single Build |  -  |
+| **200** | Single Build with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betabuildlocalizationscreateinstance"></a>
+<a id="betabuildlocalizationscreateinstance"></a>
 # **BetaBuildLocalizationsCreateInstance**
 > BetaBuildLocalizationResponse BetaBuildLocalizationsCreateInstance (BetaBuildLocalizationCreateRequest betaBuildLocalizationCreateRequest)
 
@@ -201,13 +202,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BetaBuildLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betabuildlocalizationsdeleteinstance"></a>
+<a id="betabuildlocalizationsdeleteinstance"></a>
 # **BetaBuildLocalizationsDeleteInstance**
 > void BetaBuildLocalizationsDeleteInstance (string id)
 
@@ -294,6 +297,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -301,9 +305,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betabuildlocalizationsgetcollection"></a>
+<a id="betabuildlocalizationsgetcollection"></a>
 # **BetaBuildLocalizationsGetCollection**
-> BetaBuildLocalizationsResponse BetaBuildLocalizationsGetCollection (List<string>? filterLocale = null, List<string>? filterBuild = null, List<string>? fieldsBetaBuildLocalizations = null, int? limit = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BetaBuildLocalizationsResponse BetaBuildLocalizationsGetCollection (List<string>? filterLocale = null, List<string>? filterBuild = null, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsBuilds = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -334,13 +338,13 @@ namespace Example
             var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
             var filterBuild = new List<string>?(); // List<string>? | filter by id(s) of related 'build' (optional) 
             var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
 
             try
             {
-                BetaBuildLocalizationsResponse result = apiInstance.BetaBuildLocalizationsGetCollection(filterLocale, filterBuild, fieldsBetaBuildLocalizations, limit, include, fieldsBuilds);
+                BetaBuildLocalizationsResponse result = apiInstance.BetaBuildLocalizationsGetCollection(filterLocale, filterBuild, fieldsBetaBuildLocalizations, fieldsBuilds, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -360,7 +364,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaBuildLocalizationsResponse> response = apiInstance.BetaBuildLocalizationsGetCollectionWithHttpInfo(filterLocale, filterBuild, fieldsBetaBuildLocalizations, limit, include, fieldsBuilds);
+    ApiResponse<BetaBuildLocalizationsResponse> response = apiInstance.BetaBuildLocalizationsGetCollectionWithHttpInfo(filterLocale, filterBuild, fieldsBetaBuildLocalizations, fieldsBuilds, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -380,9 +384,9 @@ catch (ApiException e)
 | **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
 | **filterBuild** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;build&#39; | [optional]  |
 | **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 
 ### Return type
 
@@ -402,14 +406,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BetaBuildLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betabuildlocalizationsgetinstance"></a>
+<a id="betabuildlocalizationsgetinstance"></a>
 # **BetaBuildLocalizationsGetInstance**
-> BetaBuildLocalizationResponse BetaBuildLocalizationsGetInstance (string id, List<string>? fieldsBetaBuildLocalizations = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BetaBuildLocalizationResponse BetaBuildLocalizationsGetInstance (string id, List<string>? fieldsBetaBuildLocalizations = null, List<string>? fieldsBuilds = null, List<string>? include = null)
 
 
 
@@ -439,12 +444,12 @@ namespace Example
             var apiInstance = new BetaBuildLocalizationsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBetaBuildLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type betaBuildLocalizations (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BetaBuildLocalizationResponse result = apiInstance.BetaBuildLocalizationsGetInstance(id, fieldsBetaBuildLocalizations, include, fieldsBuilds);
+                BetaBuildLocalizationResponse result = apiInstance.BetaBuildLocalizationsGetInstance(id, fieldsBetaBuildLocalizations, fieldsBuilds, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -464,7 +469,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BetaBuildLocalizationResponse> response = apiInstance.BetaBuildLocalizationsGetInstanceWithHttpInfo(id, fieldsBetaBuildLocalizations, include, fieldsBuilds);
+    ApiResponse<BetaBuildLocalizationResponse> response = apiInstance.BetaBuildLocalizationsGetInstanceWithHttpInfo(id, fieldsBetaBuildLocalizations, fieldsBuilds, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -483,8 +488,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBetaBuildLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type betaBuildLocalizations | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -504,13 +509,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BetaBuildLocalization |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="betabuildlocalizationsupdateinstance"></a>
+<a id="betabuildlocalizationsupdateinstance"></a>
 # **BetaBuildLocalizationsUpdateInstance**
 > BetaBuildLocalizationResponse BetaBuildLocalizationsUpdateInstance (string id, BetaBuildLocalizationUpdateRequest betaBuildLocalizationUpdateRequest)
 
@@ -603,8 +609,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BetaBuildLocalization |  -  |
 | **409** | Request entity error(s) |  -  |
 

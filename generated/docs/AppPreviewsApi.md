@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppPreviewsGetInstance**](AppPreviewsApi.md#apppreviewsgetinstance) | **GET** /v1/appPreviews/{id} |  |
 | [**AppPreviewsUpdateInstance**](AppPreviewsApi.md#apppreviewsupdateinstance) | **PATCH** /v1/appPreviews/{id} |  |
 
-<a name="apppreviewscreateinstance"></a>
+<a id="apppreviewscreateinstance"></a>
 # **AppPreviewsCreateInstance**
 > AppPreviewResponse AppPreviewsCreateInstance (AppPreviewCreateRequest appPreviewCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppPreview |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsdeleteinstance"></a>
+<a id="apppreviewsdeleteinstance"></a>
 # **AppPreviewsDeleteInstance**
 > void AppPreviewsDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,7 +203,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsgetinstance"></a>
+<a id="apppreviewsgetinstance"></a>
 # **AppPreviewsGetInstance**
 > AppPreviewResponse AppPreviewsGetInstance (string id, List<string>? fieldsAppPreviews = null, List<string>? include = null)
 
@@ -295,13 +298,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppPreview |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsupdateinstance"></a>
+<a id="apppreviewsupdateinstance"></a>
 # **AppPreviewsUpdateInstance**
 > AppPreviewResponse AppPreviewsUpdateInstance (string id, AppPreviewUpdateRequest appPreviewUpdateRequest)
 
@@ -394,8 +398,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppPreview |  -  |
 | **409** | Request entity error(s) |  -  |
 

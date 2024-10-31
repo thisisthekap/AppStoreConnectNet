@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**EndUserLicenseAgreementsTerritoriesGetToManyRelated**](EndUserLicenseAgreementsApi.md#enduserlicenseagreementsterritoriesgettomanyrelated) | **GET** /v1/endUserLicenseAgreements/{id}/territories |  |
 | [**EndUserLicenseAgreementsUpdateInstance**](EndUserLicenseAgreementsApi.md#enduserlicenseagreementsupdateinstance) | **PATCH** /v1/endUserLicenseAgreements/{id} |  |
 
-<a name="enduserlicenseagreementscreateinstance"></a>
+<a id="enduserlicenseagreementscreateinstance"></a>
 # **EndUserLicenseAgreementsCreateInstance**
 > EndUserLicenseAgreementResponse EndUserLicenseAgreementsCreateInstance (EndUserLicenseAgreementCreateRequest endUserLicenseAgreementCreateRequest)
 
@@ -101,13 +101,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single EndUserLicenseAgreement |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enduserlicenseagreementsdeleteinstance"></a>
+<a id="enduserlicenseagreementsdeleteinstance"></a>
 # **EndUserLicenseAgreementsDeleteInstance**
 > void EndUserLicenseAgreementsDeleteInstance (string id)
 
@@ -194,6 +196,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -201,9 +204,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enduserlicenseagreementsgetinstance"></a>
+<a id="enduserlicenseagreementsgetinstance"></a>
 # **EndUserLicenseAgreementsGetInstance**
-> EndUserLicenseAgreementResponse EndUserLicenseAgreementsGetInstance (string id, List<string>? fieldsEndUserLicenseAgreements = null, List<string>? include = null, List<string>? fieldsTerritories = null, int? limitTerritories = null)
+> EndUserLicenseAgreementResponse EndUserLicenseAgreementsGetInstance (string id, List<string>? fieldsEndUserLicenseAgreements = null, List<string>? fieldsTerritories = null, List<string>? include = null, int? limitTerritories = null)
 
 
 
@@ -233,13 +236,13 @@ namespace Example
             var apiInstance = new EndUserLicenseAgreementsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsEndUserLicenseAgreements = new List<string>?(); // List<string>? | the fields to include for returned resources of type endUserLicenseAgreements (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsTerritories = new List<string>?(); // List<string>? | the fields to include for returned resources of type territories (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitTerritories = 56;  // int? | maximum number of related territories returned (when they are included) (optional) 
 
             try
             {
-                EndUserLicenseAgreementResponse result = apiInstance.EndUserLicenseAgreementsGetInstance(id, fieldsEndUserLicenseAgreements, include, fieldsTerritories, limitTerritories);
+                EndUserLicenseAgreementResponse result = apiInstance.EndUserLicenseAgreementsGetInstance(id, fieldsEndUserLicenseAgreements, fieldsTerritories, include, limitTerritories);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -259,7 +262,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<EndUserLicenseAgreementResponse> response = apiInstance.EndUserLicenseAgreementsGetInstanceWithHttpInfo(id, fieldsEndUserLicenseAgreements, include, fieldsTerritories, limitTerritories);
+    ApiResponse<EndUserLicenseAgreementResponse> response = apiInstance.EndUserLicenseAgreementsGetInstanceWithHttpInfo(id, fieldsEndUserLicenseAgreements, fieldsTerritories, include, limitTerritories);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -278,8 +281,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsEndUserLicenseAgreements** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type endUserLicenseAgreements | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsTerritories** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type territories | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitTerritories** | **int?** | maximum number of related territories returned (when they are included) | [optional]  |
 
 ### Return type
@@ -300,15 +303,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single EndUserLicenseAgreement |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enduserlicenseagreementsterritoriesgettomanyrelated"></a>
+<a id="enduserlicenseagreementsterritoriesgettomanyrelated"></a>
 # **EndUserLicenseAgreementsTerritoriesGetToManyRelated**
-> TerritoriesResponse EndUserLicenseAgreementsTerritoriesGetToManyRelated (string id, List<string>? fieldsTerritories = null, int? limit = null)
+> TerritoriesWithoutIncludesResponse EndUserLicenseAgreementsTerritoriesGetToManyRelated (string id, List<string>? fieldsTerritories = null, int? limit = null)
 
 
 
@@ -342,7 +346,7 @@ namespace Example
 
             try
             {
-                TerritoriesResponse result = apiInstance.EndUserLicenseAgreementsTerritoriesGetToManyRelated(id, fieldsTerritories, limit);
+                TerritoriesWithoutIncludesResponse result = apiInstance.EndUserLicenseAgreementsTerritoriesGetToManyRelated(id, fieldsTerritories, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -362,7 +366,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<TerritoriesResponse> response = apiInstance.EndUserLicenseAgreementsTerritoriesGetToManyRelatedWithHttpInfo(id, fieldsTerritories, limit);
+    ApiResponse<TerritoriesWithoutIncludesResponse> response = apiInstance.EndUserLicenseAgreementsTerritoriesGetToManyRelatedWithHttpInfo(id, fieldsTerritories, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -385,7 +389,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**TerritoriesResponse**](TerritoriesResponse.md)
+[**TerritoriesWithoutIncludesResponse**](TerritoriesWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -401,13 +405,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | List of Territories |  -  |
+| **200** | List of Territories with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="enduserlicenseagreementsupdateinstance"></a>
+<a id="enduserlicenseagreementsupdateinstance"></a>
 # **EndUserLicenseAgreementsUpdateInstance**
 > EndUserLicenseAgreementResponse EndUserLicenseAgreementsUpdateInstance (string id, EndUserLicenseAgreementUpdateRequest endUserLicenseAgreementUpdateRequest)
 
@@ -500,8 +505,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single EndUserLicenseAgreement |  -  |
 | **409** | Request entity error(s) |  -  |
 

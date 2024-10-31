@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**InAppPurchaseSubmissionsCreateInstance**](InAppPurchaseSubmissionsApi.md#inapppurchasesubmissionscreateinstance) | **POST** /v1/inAppPurchaseSubmissions |  |
 
-<a name="inapppurchasesubmissionscreateinstance"></a>
+<a id="inapppurchasesubmissionscreateinstance"></a>
 # **InAppPurchaseSubmissionsCreateInstance**
 > InAppPurchaseSubmissionResponse InAppPurchaseSubmissionsCreateInstance (InAppPurchaseSubmissionCreateRequest inAppPurchaseSubmissionCreateRequest)
 
@@ -97,7 +97,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single InAppPurchaseSubmission |  -  |
 | **409** | Request entity error(s) |  -  |
 

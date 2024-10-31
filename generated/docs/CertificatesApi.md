@@ -9,7 +9,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**CertificatesGetCollection**](CertificatesApi.md#certificatesgetcollection) | **GET** /v1/certificates |  |
 | [**CertificatesGetInstance**](CertificatesApi.md#certificatesgetinstance) | **GET** /v1/certificates/{id} |  |
 
-<a name="certificatescreateinstance"></a>
+<a id="certificatescreateinstance"></a>
 # **CertificatesCreateInstance**
 > CertificateResponse CertificatesCreateInstance (CertificateCreateRequest certificateCreateRequest)
 
@@ -100,13 +100,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single Certificate |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="certificatesdeleteinstance"></a>
+<a id="certificatesdeleteinstance"></a>
 # **CertificatesDeleteInstance**
 > void CertificatesDeleteInstance (string id)
 
@@ -193,6 +195,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -200,9 +203,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="certificatesgetcollection"></a>
+<a id="certificatesgetcollection"></a>
 # **CertificatesGetCollection**
-> CertificatesResponse CertificatesGetCollection (List<string>? filterCertificateType = null, List<string>? filterDisplayName = null, List<string>? filterSerialNumber = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsCertificates = null, int? limit = null)
+> CertificatesResponse CertificatesGetCollection (List<string>? filterDisplayName = null, List<string>? filterCertificateType = null, List<string>? filterSerialNumber = null, List<string>? filterId = null, List<string>? sort = null, List<string>? fieldsCertificates = null, int? limit = null)
 
 
 
@@ -230,8 +233,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CertificatesApi(httpClient, config, httpClientHandler);
-            var filterCertificateType = new List<string>?(); // List<string>? | filter by attribute 'certificateType' (optional) 
             var filterDisplayName = new List<string>?(); // List<string>? | filter by attribute 'displayName' (optional) 
+            var filterCertificateType = new List<string>?(); // List<string>? | filter by attribute 'certificateType' (optional) 
             var filterSerialNumber = new List<string>?(); // List<string>? | filter by attribute 'serialNumber' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var sort = new List<string>?(); // List<string>? | comma-separated list of sort expressions; resources will be sorted as specified (optional) 
@@ -240,7 +243,7 @@ namespace Example
 
             try
             {
-                CertificatesResponse result = apiInstance.CertificatesGetCollection(filterCertificateType, filterDisplayName, filterSerialNumber, filterId, sort, fieldsCertificates, limit);
+                CertificatesResponse result = apiInstance.CertificatesGetCollection(filterDisplayName, filterCertificateType, filterSerialNumber, filterId, sort, fieldsCertificates, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -260,7 +263,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<CertificatesResponse> response = apiInstance.CertificatesGetCollectionWithHttpInfo(filterCertificateType, filterDisplayName, filterSerialNumber, filterId, sort, fieldsCertificates, limit);
+    ApiResponse<CertificatesResponse> response = apiInstance.CertificatesGetCollectionWithHttpInfo(filterDisplayName, filterCertificateType, filterSerialNumber, filterId, sort, fieldsCertificates, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -277,8 +280,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterCertificateType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;certificateType&#39; | [optional]  |
 | **filterDisplayName** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;displayName&#39; | [optional]  |
+| **filterCertificateType** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;certificateType&#39; | [optional]  |
 | **filterSerialNumber** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;serialNumber&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **sort** | [**List&lt;string&gt;?**](string.md) | comma-separated list of sort expressions; resources will be sorted as specified | [optional]  |
@@ -303,12 +306,13 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of Certificates |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="certificatesgetinstance"></a>
+<a id="certificatesgetinstance"></a>
 # **CertificatesGetInstance**
 > CertificateResponse CertificatesGetInstance (string id, List<string>? fieldsCertificates = null)
 
@@ -401,6 +405,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single Certificate |  -  |

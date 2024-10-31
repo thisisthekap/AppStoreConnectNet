@@ -11,7 +11,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppPreviewSetsDeleteInstance**](AppPreviewSetsApi.md#apppreviewsetsdeleteinstance) | **DELETE** /v1/appPreviewSets/{id} |  |
 | [**AppPreviewSetsGetInstance**](AppPreviewSetsApi.md#apppreviewsetsgetinstance) | **GET** /v1/appPreviewSets/{id} |  |
 
-<a name="apppreviewsetsapppreviewsgettomanyrelated"></a>
+<a id="apppreviewsetsapppreviewsgettomanyrelated"></a>
 # **AppPreviewSetsAppPreviewsGetToManyRelated**
 > AppPreviewsResponse AppPreviewSetsAppPreviewsGetToManyRelated (string id, List<string>? fieldsAppPreviews = null, List<string>? fieldsAppPreviewSets = null, int? limit = null, List<string>? include = null)
 
@@ -110,13 +110,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppPreviews |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsetsapppreviewsgettomanyrelationship"></a>
+<a id="apppreviewsetsapppreviewsgettomanyrelationship"></a>
 # **AppPreviewSetsAppPreviewsGetToManyRelationship**
 > AppPreviewSetAppPreviewsLinkagesResponse AppPreviewSetsAppPreviewsGetToManyRelationship (string id, int? limit = null)
 
@@ -209,13 +210,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of related linkages |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsetsapppreviewsreplacetomanyrelationship"></a>
+<a id="apppreviewsetsapppreviewsreplacetomanyrelationship"></a>
 # **AppPreviewSetsAppPreviewsReplaceToManyRelationship**
 > void AppPreviewSetsAppPreviewsReplaceToManyRelationship (string id, AppPreviewSetAppPreviewsLinkagesRequest appPreviewSetAppPreviewsLinkagesRequest)
 
@@ -303,14 +305,16 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **409** | Request entity error(s) |  -  |
 | **204** | Success (no content) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsetscreateinstance"></a>
+<a id="apppreviewsetscreateinstance"></a>
 # **AppPreviewSetsCreateInstance**
 > AppPreviewSetResponse AppPreviewSetsCreateInstance (AppPreviewSetCreateRequest appPreviewSetCreateRequest)
 
@@ -401,13 +405,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppPreviewSet |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsetsdeleteinstance"></a>
+<a id="apppreviewsetsdeleteinstance"></a>
 # **AppPreviewSetsDeleteInstance**
 > void AppPreviewSetsDeleteInstance (string id)
 
@@ -494,6 +500,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -501,9 +508,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="apppreviewsetsgetinstance"></a>
+<a id="apppreviewsetsgetinstance"></a>
 # **AppPreviewSetsGetInstance**
-> AppPreviewSetResponse AppPreviewSetsGetInstance (string id, List<string>? fieldsAppPreviewSets = null, List<string>? include = null, List<string>? fieldsAppPreviews = null, int? limitAppPreviews = null)
+> AppPreviewSetResponse AppPreviewSetsGetInstance (string id, List<string>? fieldsAppPreviewSets = null, List<string>? fieldsAppPreviews = null, List<string>? include = null, int? limitAppPreviews = null)
 
 
 
@@ -533,13 +540,13 @@ namespace Example
             var apiInstance = new AppPreviewSetsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppPreviews = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviews (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppPreviews = 56;  // int? | maximum number of related appPreviews returned (when they are included) (optional) 
 
             try
             {
-                AppPreviewSetResponse result = apiInstance.AppPreviewSetsGetInstance(id, fieldsAppPreviewSets, include, fieldsAppPreviews, limitAppPreviews);
+                AppPreviewSetResponse result = apiInstance.AppPreviewSetsGetInstance(id, fieldsAppPreviewSets, fieldsAppPreviews, include, limitAppPreviews);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -559,7 +566,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppPreviewSetResponse> response = apiInstance.AppPreviewSetsGetInstanceWithHttpInfo(id, fieldsAppPreviewSets, include, fieldsAppPreviews, limitAppPreviews);
+    ApiResponse<AppPreviewSetResponse> response = apiInstance.AppPreviewSetsGetInstanceWithHttpInfo(id, fieldsAppPreviewSets, fieldsAppPreviews, include, limitAppPreviews);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -578,8 +585,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppPreviews** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviews | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppPreviews** | **int?** | maximum number of related appPreviews returned (when they are included) | [optional]  |
 
 ### Return type
@@ -600,6 +607,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppPreviewSet |  -  |

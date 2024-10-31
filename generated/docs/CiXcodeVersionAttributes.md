@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **TestDestinations** | [**List&lt;CiXcodeVersionAttributesTestDestinationsInner&gt;**](CiXcodeVersionAttributesTestDestinationsInner.md) |  | [optional] 
 

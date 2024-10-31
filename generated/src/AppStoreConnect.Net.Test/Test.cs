@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xunit;
 
 namespace AppStoreConnect.Test
 {
-
 	public class Test
 	{
 		[Fact]
@@ -14,7 +10,7 @@ namespace AppStoreConnect.Test
 		{
 			var config = Util.GetConfig();
 
-			var api = new AppStoreConnect.Api.ProfilesApi(config);
+			var api = new AppStoreConnect.Net.Api.ProfilesApi(config);
 
 			var profiles = await api.ProfilesGetCollectionAsync().ConfigureAwait(false);
 

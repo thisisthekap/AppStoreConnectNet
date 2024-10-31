@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Data** | [**AppCategory**](AppCategory.md) |  | 
-**Included** | [**List&lt;AppCategoriesResponseIncludedInner&gt;**](AppCategoriesResponseIncludedInner.md) |  | [optional] 
+**Included** | [**List&lt;AppCategory&gt;**](AppCategory.md) |  | [optional] 
 **Links** | [**DocumentLinks**](DocumentLinks.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

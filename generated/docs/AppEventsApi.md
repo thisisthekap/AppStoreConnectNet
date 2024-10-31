@@ -10,7 +10,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppEventsLocalizationsGetToManyRelated**](AppEventsApi.md#appeventslocalizationsgettomanyrelated) | **GET** /v1/appEvents/{id}/localizations |  |
 | [**AppEventsUpdateInstance**](AppEventsApi.md#appeventsupdateinstance) | **PATCH** /v1/appEvents/{id} |  |
 
-<a name="appeventscreateinstance"></a>
+<a id="appeventscreateinstance"></a>
 # **AppEventsCreateInstance**
 > AppEventResponse AppEventsCreateInstance (AppEventCreateRequest appEventCreateRequest)
 
@@ -101,13 +101,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppEvent |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventsdeleteinstance"></a>
+<a id="appeventsdeleteinstance"></a>
 # **AppEventsDeleteInstance**
 > void AppEventsDeleteInstance (string id)
 
@@ -194,6 +196,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -201,9 +204,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventsgetinstance"></a>
+<a id="appeventsgetinstance"></a>
 # **AppEventsGetInstance**
-> AppEventResponse AppEventsGetInstance (string id, List<string>? fieldsAppEvents = null, List<string>? include = null, List<string>? fieldsAppEventLocalizations = null, int? limitLocalizations = null)
+> AppEventResponse AppEventsGetInstance (string id, List<string>? fieldsAppEvents = null, List<string>? fieldsAppEventLocalizations = null, List<string>? include = null, int? limitLocalizations = null)
 
 
 
@@ -233,13 +236,13 @@ namespace Example
             var apiInstance = new AppEventsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppEvents = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEvents (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppEventLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventLocalizations (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitLocalizations = 56;  // int? | maximum number of related localizations returned (when they are included) (optional) 
 
             try
             {
-                AppEventResponse result = apiInstance.AppEventsGetInstance(id, fieldsAppEvents, include, fieldsAppEventLocalizations, limitLocalizations);
+                AppEventResponse result = apiInstance.AppEventsGetInstance(id, fieldsAppEvents, fieldsAppEventLocalizations, include, limitLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -259,7 +262,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppEventResponse> response = apiInstance.AppEventsGetInstanceWithHttpInfo(id, fieldsAppEvents, include, fieldsAppEventLocalizations, limitLocalizations);
+    ApiResponse<AppEventResponse> response = apiInstance.AppEventsGetInstanceWithHttpInfo(id, fieldsAppEvents, fieldsAppEventLocalizations, include, limitLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -278,8 +281,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppEvents** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEvents | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppEventLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventLocalizations | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitLocalizations** | **int?** | maximum number of related localizations returned (when they are included) | [optional]  |
 
 ### Return type
@@ -300,15 +303,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppEvent |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventslocalizationsgettomanyrelated"></a>
+<a id="appeventslocalizationsgettomanyrelated"></a>
 # **AppEventsLocalizationsGetToManyRelated**
-> AppEventLocalizationsResponse AppEventsLocalizationsGetToManyRelated (string id, List<string>? fieldsAppEventScreenshots = null, List<string>? fieldsAppEventVideoClips = null, List<string>? fieldsAppEventLocalizations = null, List<string>? fieldsAppEvents = null, int? limit = null, int? limitAppEventScreenshots = null, int? limitAppEventVideoClips = null, List<string>? include = null)
+> AppEventLocalizationsResponse AppEventsLocalizationsGetToManyRelated (string id, List<string>? fieldsAppEventLocalizations = null, List<string>? fieldsAppEvents = null, List<string>? fieldsAppEventScreenshots = null, List<string>? fieldsAppEventVideoClips = null, int? limit = null, List<string>? include = null, int? limitAppEventScreenshots = null, int? limitAppEventVideoClips = null)
 
 
 
@@ -337,18 +341,18 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AppEventsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
-            var fieldsAppEventScreenshots = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventScreenshots (optional) 
-            var fieldsAppEventVideoClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventVideoClips (optional) 
             var fieldsAppEventLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventLocalizations (optional) 
             var fieldsAppEvents = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEvents (optional) 
+            var fieldsAppEventScreenshots = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventScreenshots (optional) 
+            var fieldsAppEventVideoClips = new List<string>?(); // List<string>? | the fields to include for returned resources of type appEventVideoClips (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppEventScreenshots = 56;  // int? | maximum number of related appEventScreenshots returned (when they are included) (optional) 
             var limitAppEventVideoClips = 56;  // int? | maximum number of related appEventVideoClips returned (when they are included) (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppEventLocalizationsResponse result = apiInstance.AppEventsLocalizationsGetToManyRelated(id, fieldsAppEventScreenshots, fieldsAppEventVideoClips, fieldsAppEventLocalizations, fieldsAppEvents, limit, limitAppEventScreenshots, limitAppEventVideoClips, include);
+                AppEventLocalizationsResponse result = apiInstance.AppEventsLocalizationsGetToManyRelated(id, fieldsAppEventLocalizations, fieldsAppEvents, fieldsAppEventScreenshots, fieldsAppEventVideoClips, limit, include, limitAppEventScreenshots, limitAppEventVideoClips);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -368,7 +372,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppEventLocalizationsResponse> response = apiInstance.AppEventsLocalizationsGetToManyRelatedWithHttpInfo(id, fieldsAppEventScreenshots, fieldsAppEventVideoClips, fieldsAppEventLocalizations, fieldsAppEvents, limit, limitAppEventScreenshots, limitAppEventVideoClips, include);
+    ApiResponse<AppEventLocalizationsResponse> response = apiInstance.AppEventsLocalizationsGetToManyRelatedWithHttpInfo(id, fieldsAppEventLocalizations, fieldsAppEvents, fieldsAppEventScreenshots, fieldsAppEventVideoClips, limit, include, limitAppEventScreenshots, limitAppEventVideoClips);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -386,14 +390,14 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
-| **fieldsAppEventScreenshots** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventScreenshots | [optional]  |
-| **fieldsAppEventVideoClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventVideoClips | [optional]  |
 | **fieldsAppEventLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventLocalizations | [optional]  |
 | **fieldsAppEvents** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEvents | [optional]  |
+| **fieldsAppEventScreenshots** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventScreenshots | [optional]  |
+| **fieldsAppEventVideoClips** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appEventVideoClips | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppEventScreenshots** | **int?** | maximum number of related appEventScreenshots returned (when they are included) | [optional]  |
 | **limitAppEventVideoClips** | **int?** | maximum number of related appEventVideoClips returned (when they are included) | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -413,13 +417,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppEventLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appeventsupdateinstance"></a>
+<a id="appeventsupdateinstance"></a>
 # **AppEventsUpdateInstance**
 > AppEventResponse AppEventsUpdateInstance (string id, AppEventUpdateRequest appEventUpdateRequest)
 
@@ -512,8 +517,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppEvent |  -  |
 | **409** | Request entity error(s) |  -  |
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_Version** | **string** |  | [optional] 
+**VarVersion** | **string** |  | [optional] 
 **Insights** | [**XcodeMetricsInsights**](XcodeMetricsInsights.md) |  | [optional] 
 **ProductData** | [**List&lt;XcodeMetricsProductDataInner&gt;**](XcodeMetricsProductDataInner.md) |  | [optional] 
 

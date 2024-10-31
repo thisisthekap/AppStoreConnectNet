@@ -6,7 +6,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**CiIssuesGetInstance**](CiIssuesApi.md#ciissuesgetinstance) | **GET** /v1/ciIssues/{id} |  |
 
-<a name="ciissuesgetinstance"></a>
+<a id="ciissuesgetinstance"></a>
 # **CiIssuesGetInstance**
 > CiIssueResponse CiIssuesGetInstance (string id, List<string>? fieldsCiIssues = null)
 
@@ -99,6 +99,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single CiIssue |  -  |

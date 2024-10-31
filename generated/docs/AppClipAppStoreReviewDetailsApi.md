@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppClipAppStoreReviewDetailsGetInstance**](AppClipAppStoreReviewDetailsApi.md#appclipappstorereviewdetailsgetinstance) | **GET** /v1/appClipAppStoreReviewDetails/{id} |  |
 | [**AppClipAppStoreReviewDetailsUpdateInstance**](AppClipAppStoreReviewDetailsApi.md#appclipappstorereviewdetailsupdateinstance) | **PATCH** /v1/appClipAppStoreReviewDetails/{id} |  |
 
-<a name="appclipappstorereviewdetailscreateinstance"></a>
+<a id="appclipappstorereviewdetailscreateinstance"></a>
 # **AppClipAppStoreReviewDetailsCreateInstance**
 > AppClipAppStoreReviewDetailResponse AppClipAppStoreReviewDetailsCreateInstance (AppClipAppStoreReviewDetailCreateRequest appClipAppStoreReviewDetailCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppClipAppStoreReviewDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipappstorereviewdetailsgetinstance"></a>
+<a id="appclipappstorereviewdetailsgetinstance"></a>
 # **AppClipAppStoreReviewDetailsGetInstance**
 > AppClipAppStoreReviewDetailResponse AppClipAppStoreReviewDetailsGetInstance (string id, List<string>? fieldsAppClipAppStoreReviewDetails = null, List<string>? include = null)
 
@@ -200,13 +202,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipAppStoreReviewDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipappstorereviewdetailsupdateinstance"></a>
+<a id="appclipappstorereviewdetailsupdateinstance"></a>
 # **AppClipAppStoreReviewDetailsUpdateInstance**
 > AppClipAppStoreReviewDetailResponse AppClipAppStoreReviewDetailsUpdateInstance (string id, AppClipAppStoreReviewDetailUpdateRequest appClipAppStoreReviewDetailUpdateRequest)
 
@@ -299,8 +302,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppClipAppStoreReviewDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 

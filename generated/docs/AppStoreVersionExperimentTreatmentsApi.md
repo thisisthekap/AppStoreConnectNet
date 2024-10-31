@@ -10,9 +10,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppStoreVersionExperimentTreatmentsGetInstance**](AppStoreVersionExperimentTreatmentsApi.md#appstoreversionexperimenttreatmentsgetinstance) | **GET** /v1/appStoreVersionExperimentTreatments/{id} |  |
 | [**AppStoreVersionExperimentTreatmentsUpdateInstance**](AppStoreVersionExperimentTreatmentsApi.md#appstoreversionexperimenttreatmentsupdateinstance) | **PATCH** /v1/appStoreVersionExperimentTreatments/{id} |  |
 
-<a name="appstoreversionexperimenttreatmentsappstoreversionexperimenttreatmentlocalizationsgettomanyrelated"></a>
+<a id="appstoreversionexperimenttreatmentsappstoreversionexperimenttreatmentlocalizationsgettomanyrelated"></a>
 # **AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelated**
-> AppStoreVersionExperimentTreatmentLocalizationsResponse AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppStoreVersionExperimentTreatments = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppPreviewSets = null, int? limit = null, int? limitAppScreenshotSets = null, int? limitAppPreviewSets = null, List<string>? include = null)
+> AppStoreVersionExperimentTreatmentLocalizationsResponse AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelated (string id, List<string>? filterLocale = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? fieldsAppStoreVersionExperimentTreatments = null, List<string>? fieldsAppScreenshotSets = null, List<string>? fieldsAppPreviewSets = null, int? limit = null, List<string>? include = null, int? limitAppScreenshotSets = null, int? limitAppPreviewSets = null)
 
 
 
@@ -42,18 +42,18 @@ namespace Example
             var apiInstance = new AppStoreVersionExperimentTreatmentsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var filterLocale = new List<string>?(); // List<string>? | filter by attribute 'locale' (optional) 
-            var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
-            var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
             var fieldsAppStoreVersionExperimentTreatmentLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations (optional) 
+            var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
+            var fieldsAppScreenshotSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appScreenshotSets (optional) 
             var fieldsAppPreviewSets = new List<string>?(); // List<string>? | the fields to include for returned resources of type appPreviewSets (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppScreenshotSets = 56;  // int? | maximum number of related appScreenshotSets returned (when they are included) (optional) 
             var limitAppPreviewSets = 56;  // int? | maximum number of related appPreviewSets returned (when they are included) (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                AppStoreVersionExperimentTreatmentLocalizationsResponse result = apiInstance.AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelated(id, filterLocale, fieldsAppScreenshotSets, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviewSets, limit, limitAppScreenshotSets, limitAppPreviewSets, include);
+                AppStoreVersionExperimentTreatmentLocalizationsResponse result = apiInstance.AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelated(id, filterLocale, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppStoreVersionExperimentTreatments, fieldsAppScreenshotSets, fieldsAppPreviewSets, limit, include, limitAppScreenshotSets, limitAppPreviewSets);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -73,7 +73,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionExperimentTreatmentLocalizationsResponse> response = apiInstance.AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppScreenshotSets, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppPreviewSets, limit, limitAppScreenshotSets, limitAppPreviewSets, include);
+    ApiResponse<AppStoreVersionExperimentTreatmentLocalizationsResponse> response = apiInstance.AppStoreVersionExperimentTreatmentsAppStoreVersionExperimentTreatmentLocalizationsGetToManyRelatedWithHttpInfo(id, filterLocale, fieldsAppStoreVersionExperimentTreatmentLocalizations, fieldsAppStoreVersionExperimentTreatments, fieldsAppScreenshotSets, fieldsAppPreviewSets, limit, include, limitAppScreenshotSets, limitAppPreviewSets);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -92,14 +92,14 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **filterLocale** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;locale&#39; | [optional]  |
-| **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
-| **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
 | **fieldsAppStoreVersionExperimentTreatmentLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations | [optional]  |
+| **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
+| **fieldsAppScreenshotSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appScreenshotSets | [optional]  |
 | **fieldsAppPreviewSets** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appPreviewSets | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppScreenshotSets** | **int?** | maximum number of related appScreenshotSets returned (when they are included) | [optional]  |
 | **limitAppPreviewSets** | **int?** | maximum number of related appPreviewSets returned (when they are included) | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -119,13 +119,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | List of AppStoreVersionExperimentTreatmentLocalizations |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionexperimenttreatmentscreateinstance"></a>
+<a id="appstoreversionexperimenttreatmentscreateinstance"></a>
 # **AppStoreVersionExperimentTreatmentsCreateInstance**
 > AppStoreVersionExperimentTreatmentResponse AppStoreVersionExperimentTreatmentsCreateInstance (AppStoreVersionExperimentTreatmentCreateRequest appStoreVersionExperimentTreatmentCreateRequest)
 
@@ -216,13 +217,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppStoreVersionExperimentTreatment |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionexperimenttreatmentsdeleteinstance"></a>
+<a id="appstoreversionexperimenttreatmentsdeleteinstance"></a>
 # **AppStoreVersionExperimentTreatmentsDeleteInstance**
 > void AppStoreVersionExperimentTreatmentsDeleteInstance (string id)
 
@@ -309,6 +312,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -316,9 +320,9 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionexperimenttreatmentsgetinstance"></a>
+<a id="appstoreversionexperimenttreatmentsgetinstance"></a>
 # **AppStoreVersionExperimentTreatmentsGetInstance**
-> AppStoreVersionExperimentTreatmentResponse AppStoreVersionExperimentTreatmentsGetInstance (string id, List<string>? fieldsAppStoreVersionExperimentTreatments = null, List<string>? include = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, int? limitAppStoreVersionExperimentTreatmentLocalizations = null)
+> AppStoreVersionExperimentTreatmentResponse AppStoreVersionExperimentTreatmentsGetInstance (string id, List<string>? fieldsAppStoreVersionExperimentTreatments = null, List<string>? fieldsAppStoreVersionExperimentTreatmentLocalizations = null, List<string>? include = null, int? limitAppStoreVersionExperimentTreatmentLocalizations = null)
 
 
 
@@ -348,13 +352,13 @@ namespace Example
             var apiInstance = new AppStoreVersionExperimentTreatmentsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsAppStoreVersionExperimentTreatments = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatments (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsAppStoreVersionExperimentTreatmentLocalizations = new List<string>?(); // List<string>? | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var limitAppStoreVersionExperimentTreatmentLocalizations = 56;  // int? | maximum number of related appStoreVersionExperimentTreatmentLocalizations returned (when they are included) (optional) 
 
             try
             {
-                AppStoreVersionExperimentTreatmentResponse result = apiInstance.AppStoreVersionExperimentTreatmentsGetInstance(id, fieldsAppStoreVersionExperimentTreatments, include, fieldsAppStoreVersionExperimentTreatmentLocalizations, limitAppStoreVersionExperimentTreatmentLocalizations);
+                AppStoreVersionExperimentTreatmentResponse result = apiInstance.AppStoreVersionExperimentTreatmentsGetInstance(id, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersionExperimentTreatmentLocalizations, include, limitAppStoreVersionExperimentTreatmentLocalizations);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -374,7 +378,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<AppStoreVersionExperimentTreatmentResponse> response = apiInstance.AppStoreVersionExperimentTreatmentsGetInstanceWithHttpInfo(id, fieldsAppStoreVersionExperimentTreatments, include, fieldsAppStoreVersionExperimentTreatmentLocalizations, limitAppStoreVersionExperimentTreatmentLocalizations);
+    ApiResponse<AppStoreVersionExperimentTreatmentResponse> response = apiInstance.AppStoreVersionExperimentTreatmentsGetInstanceWithHttpInfo(id, fieldsAppStoreVersionExperimentTreatments, fieldsAppStoreVersionExperimentTreatmentLocalizations, include, limitAppStoreVersionExperimentTreatmentLocalizations);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -393,8 +397,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsAppStoreVersionExperimentTreatments** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatments | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsAppStoreVersionExperimentTreatmentLocalizations** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type appStoreVersionExperimentTreatmentLocalizations | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **limitAppStoreVersionExperimentTreatmentLocalizations** | **int?** | maximum number of related appStoreVersionExperimentTreatmentLocalizations returned (when they are included) | [optional]  |
 
 ### Return type
@@ -415,13 +419,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppStoreVersionExperimentTreatment |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appstoreversionexperimenttreatmentsupdateinstance"></a>
+<a id="appstoreversionexperimenttreatmentsupdateinstance"></a>
 # **AppStoreVersionExperimentTreatmentsUpdateInstance**
 > AppStoreVersionExperimentTreatmentResponse AppStoreVersionExperimentTreatmentsUpdateInstance (string id, AppStoreVersionExperimentTreatmentUpdateRequest appStoreVersionExperimentTreatmentUpdateRequest)
 
@@ -514,8 +519,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppStoreVersionExperimentTreatment |  -  |
 | **409** | Request entity error(s) |  -  |
 

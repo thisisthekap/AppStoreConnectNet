@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **VersionString** | **string** |  | [optional] 
 **Copyright** | **string** |  | [optional] 
+**ReviewType** | **string** |  | [optional] 
 **ReleaseType** | **string** |  | [optional] 
 **EarliestReleaseDate** | **DateTimeOffset** |  | [optional] 
 **Downloadable** | **bool** |  | [optional] 

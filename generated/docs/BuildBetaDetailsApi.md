@@ -9,9 +9,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BuildBetaDetailsGetInstance**](BuildBetaDetailsApi.md#buildbetadetailsgetinstance) | **GET** /v1/buildBetaDetails/{id} |  |
 | [**BuildBetaDetailsUpdateInstance**](BuildBetaDetailsApi.md#buildbetadetailsupdateinstance) | **PATCH** /v1/buildBetaDetails/{id} |  |
 
-<a name="buildbetadetailsbuildgettoonerelated"></a>
+<a id="buildbetadetailsbuildgettoonerelated"></a>
 # **BuildBetaDetailsBuildGetToOneRelated**
-> BuildResponse BuildBetaDetailsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
+> BuildWithoutIncludesResponse BuildBetaDetailsBuildGetToOneRelated (string id, List<string>? fieldsBuilds = null)
 
 
 
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                BuildResponse result = apiInstance.BuildBetaDetailsBuildGetToOneRelated(id, fieldsBuilds);
+                BuildWithoutIncludesResponse result = apiInstance.BuildBetaDetailsBuildGetToOneRelated(id, fieldsBuilds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -64,7 +64,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildResponse> response = apiInstance.BuildBetaDetailsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
+    ApiResponse<BuildWithoutIncludesResponse> response = apiInstance.BuildBetaDetailsBuildGetToOneRelatedWithHttpInfo(id, fieldsBuilds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -86,7 +86,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**BuildResponse**](BuildResponse.md)
+[**BuildWithoutIncludesResponse**](BuildWithoutIncludesResponse.md)
 
 ### Authorization
 
@@ -102,15 +102,16 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
-| **200** | Single Build |  -  |
+| **200** | Single Build with get |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbetadetailsgetcollection"></a>
+<a id="buildbetadetailsgetcollection"></a>
 # **BuildBetaDetailsGetCollection**
-> BuildBetaDetailsResponse BuildBetaDetailsGetCollection (List<string>? filterBuild = null, List<string>? filterId = null, List<string>? fieldsBuildBetaDetails = null, int? limit = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BuildBetaDetailsResponse BuildBetaDetailsGetCollection (List<string>? filterBuild = null, List<string>? filterId = null, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsBuilds = null, int? limit = null, List<string>? include = null)
 
 
 
@@ -141,13 +142,13 @@ namespace Example
             var filterBuild = new List<string>?(); // List<string>? | filter by id(s) of related 'build' (optional) 
             var filterId = new List<string>?(); // List<string>? | filter by id(s) (optional) 
             var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
+            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
             var limit = 56;  // int? | maximum resources per page (optional) 
             var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
-            var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
 
             try
             {
-                BuildBetaDetailsResponse result = apiInstance.BuildBetaDetailsGetCollection(filterBuild, filterId, fieldsBuildBetaDetails, limit, include, fieldsBuilds);
+                BuildBetaDetailsResponse result = apiInstance.BuildBetaDetailsGetCollection(filterBuild, filterId, fieldsBuildBetaDetails, fieldsBuilds, limit, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -167,7 +168,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildBetaDetailsResponse> response = apiInstance.BuildBetaDetailsGetCollectionWithHttpInfo(filterBuild, filterId, fieldsBuildBetaDetails, limit, include, fieldsBuilds);
+    ApiResponse<BuildBetaDetailsResponse> response = apiInstance.BuildBetaDetailsGetCollectionWithHttpInfo(filterBuild, filterId, fieldsBuildBetaDetails, fieldsBuilds, limit, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -187,9 +188,9 @@ catch (ApiException e)
 | **filterBuild** | [**List&lt;string&gt;?**](string.md) | filter by id(s) of related &#39;build&#39; | [optional]  |
 | **filterId** | [**List&lt;string&gt;?**](string.md) | filter by id(s) | [optional]  |
 | **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
+| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 | **limit** | **int?** | maximum resources per page | [optional]  |
 | **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
-| **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
 
 ### Return type
 
@@ -209,14 +210,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of BuildBetaDetails |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbetadetailsgetinstance"></a>
+<a id="buildbetadetailsgetinstance"></a>
 # **BuildBetaDetailsGetInstance**
-> BuildBetaDetailResponse BuildBetaDetailsGetInstance (string id, List<string>? fieldsBuildBetaDetails = null, List<string>? include = null, List<string>? fieldsBuilds = null)
+> BuildBetaDetailResponse BuildBetaDetailsGetInstance (string id, List<string>? fieldsBuildBetaDetails = null, List<string>? fieldsBuilds = null, List<string>? include = null)
 
 
 
@@ -246,12 +248,12 @@ namespace Example
             var apiInstance = new BuildBetaDetailsApi(httpClient, config, httpClientHandler);
             var id = "id_example";  // string | the id of the requested resource
             var fieldsBuildBetaDetails = new List<string>?(); // List<string>? | the fields to include for returned resources of type buildBetaDetails (optional) 
-            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
             var fieldsBuilds = new List<string>?(); // List<string>? | the fields to include for returned resources of type builds (optional) 
+            var include = new List<string>?(); // List<string>? | comma-separated list of relationships to include (optional) 
 
             try
             {
-                BuildBetaDetailResponse result = apiInstance.BuildBetaDetailsGetInstance(id, fieldsBuildBetaDetails, include, fieldsBuilds);
+                BuildBetaDetailResponse result = apiInstance.BuildBetaDetailsGetInstance(id, fieldsBuildBetaDetails, fieldsBuilds, include);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -271,7 +273,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<BuildBetaDetailResponse> response = apiInstance.BuildBetaDetailsGetInstanceWithHttpInfo(id, fieldsBuildBetaDetails, include, fieldsBuilds);
+    ApiResponse<BuildBetaDetailResponse> response = apiInstance.BuildBetaDetailsGetInstanceWithHttpInfo(id, fieldsBuildBetaDetails, fieldsBuilds, include);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -290,8 +292,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | the id of the requested resource |  |
 | **fieldsBuildBetaDetails** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type buildBetaDetails | [optional]  |
-| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 | **fieldsBuilds** | [**List&lt;string&gt;?**](string.md) | the fields to include for returned resources of type builds | [optional]  |
+| **include** | [**List&lt;string&gt;?**](string.md) | comma-separated list of relationships to include | [optional]  |
 
 ### Return type
 
@@ -311,13 +313,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single BuildBetaDetail |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="buildbetadetailsupdateinstance"></a>
+<a id="buildbetadetailsupdateinstance"></a>
 # **BuildBetaDetailsUpdateInstance**
 > BuildBetaDetailResponse BuildBetaDetailsUpdateInstance (string id, BuildBetaDetailUpdateRequest buildBetaDetailUpdateRequest)
 
@@ -410,8 +413,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BuildBetaDetail |  -  |
 | **409** | Request entity error(s) |  -  |
 

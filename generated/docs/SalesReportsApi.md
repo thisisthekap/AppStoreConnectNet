@@ -6,9 +6,9 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 |--------|--------------|-------------|
 | [**SalesReportsGetCollection**](SalesReportsApi.md#salesreportsgetcollection) | **GET** /v1/salesReports |  |
 
-<a name="salesreportsgetcollection"></a>
+<a id="salesreportsgetcollection"></a>
 # **SalesReportsGetCollection**
-> FileParameter SalesReportsGetCollection (List<string> filterFrequency, List<string> filterReportSubType, List<string> filterReportType, List<string> filterVendorNumber, List<string>? filterReportDate = null, List<string>? filterVersion = null)
+> FileParameter SalesReportsGetCollection (List<string> filterVendorNumber, List<string> filterReportType, List<string> filterReportSubType, List<string> filterFrequency, List<string>? filterReportDate = null, List<string>? filterVersion = null)
 
 
 
@@ -36,16 +36,16 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SalesReportsApi(httpClient, config, httpClientHandler);
-            var filterFrequency = new List<string>(); // List<string> | filter by attribute 'frequency'
-            var filterReportSubType = new List<string>(); // List<string> | filter by attribute 'reportSubType'
-            var filterReportType = new List<string>(); // List<string> | filter by attribute 'reportType'
             var filterVendorNumber = new List<string>(); // List<string> | filter by attribute 'vendorNumber'
+            var filterReportType = new List<string>(); // List<string> | filter by attribute 'reportType'
+            var filterReportSubType = new List<string>(); // List<string> | filter by attribute 'reportSubType'
+            var filterFrequency = new List<string>(); // List<string> | filter by attribute 'frequency'
             var filterReportDate = new List<string>?(); // List<string>? | filter by attribute 'reportDate' (optional) 
             var filterVersion = new List<string>?(); // List<string>? | filter by attribute 'version' (optional) 
 
             try
             {
-                FileParameter result = apiInstance.SalesReportsGetCollection(filterFrequency, filterReportSubType, filterReportType, filterVendorNumber, filterReportDate, filterVersion);
+                FileParameter result = apiInstance.SalesReportsGetCollection(filterVendorNumber, filterReportType, filterReportSubType, filterFrequency, filterReportDate, filterVersion);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,7 +65,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<FileParameter> response = apiInstance.SalesReportsGetCollectionWithHttpInfo(filterFrequency, filterReportSubType, filterReportType, filterVendorNumber, filterReportDate, filterVersion);
+    ApiResponse<FileParameter> response = apiInstance.SalesReportsGetCollectionWithHttpInfo(filterVendorNumber, filterReportType, filterReportSubType, filterFrequency, filterReportDate, filterVersion);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -82,10 +82,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **filterFrequency** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;frequency&#39; |  |
-| **filterReportSubType** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;reportSubType&#39; |  |
-| **filterReportType** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;reportType&#39; |  |
 | **filterVendorNumber** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;vendorNumber&#39; |  |
+| **filterReportType** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;reportType&#39; |  |
+| **filterReportSubType** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;reportSubType&#39; |  |
+| **filterFrequency** | [**List&lt;string&gt;**](string.md) | filter by attribute &#39;frequency&#39; |  |
 | **filterReportDate** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;reportDate&#39; | [optional]  |
 | **filterVersion** | [**List&lt;string&gt;?**](string.md) | filter by attribute &#39;version&#39; | [optional]  |
 
@@ -107,6 +107,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **200** | List of SalesReports |  -  |
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BundleId** | [**CiProductRelationshipsBundleId**](CiProductRelationshipsBundleId.md) |  | [optional] 
+**BundleId** | [**ProfileRelationshipsBundleId**](ProfileRelationshipsBundleId.md) |  | [optional] 
 **Devices** | [**ProfileRelationshipsDevices**](ProfileRelationshipsDevices.md) |  | [optional] 
 **Certificates** | [**ProfileRelationshipsCertificates**](ProfileRelationshipsCertificates.md) |  | [optional] 
 

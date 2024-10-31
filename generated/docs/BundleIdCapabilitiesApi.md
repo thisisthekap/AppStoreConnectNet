@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**BundleIdCapabilitiesDeleteInstance**](BundleIdCapabilitiesApi.md#bundleidcapabilitiesdeleteinstance) | **DELETE** /v1/bundleIdCapabilities/{id} |  |
 | [**BundleIdCapabilitiesUpdateInstance**](BundleIdCapabilitiesApi.md#bundleidcapabilitiesupdateinstance) | **PATCH** /v1/bundleIdCapabilities/{id} |  |
 
-<a name="bundleidcapabilitiescreateinstance"></a>
+<a id="bundleidcapabilitiescreateinstance"></a>
 # **BundleIdCapabilitiesCreateInstance**
 > BundleIdCapabilityResponse BundleIdCapabilitiesCreateInstance (BundleIdCapabilityCreateRequest bundleIdCapabilityCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single BundleIdCapability |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidcapabilitiesdeleteinstance"></a>
+<a id="bundleidcapabilitiesdeleteinstance"></a>
 # **BundleIdCapabilitiesDeleteInstance**
 > void BundleIdCapabilitiesDeleteInstance (string id)
 
@@ -192,6 +194,7 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **409** | Request entity error(s) |  -  |
@@ -199,7 +202,7 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="bundleidcapabilitiesupdateinstance"></a>
+<a id="bundleidcapabilitiesupdateinstance"></a>
 # **BundleIdCapabilitiesUpdateInstance**
 > BundleIdCapabilityResponse BundleIdCapabilitiesUpdateInstance (string id, BundleIdCapabilityUpdateRequest bundleIdCapabilityUpdateRequest)
 
@@ -292,8 +295,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single BundleIdCapability |  -  |
 | **409** | Request entity error(s) |  -  |
 

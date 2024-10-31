@@ -44,7 +44,7 @@ foreach (var profile in profiles.Data)
 
 2. Ensure the open api generator CLI tool is installed: `& npm install @openapitools/openapi-generator-cli -g` (requires NPM to be already installed).
 
-3. Generate the C# client `& npx @openapitools/openapi-generator-cli generate -i openapi.json -g csharp-netcore -o ./generated -c openapi-config.yaml --skip-validate-spec`
+3. Generate the C# client `& npx @openapitools/openapi-generator-cli generate -i openapi.json -g csharp -o ./generated -c openapi-config.yaml --skip-validate-spec`
 
 4. Touch up any build errors (there's a number of duplicated methods/fields that need to be commented out in various files)
 

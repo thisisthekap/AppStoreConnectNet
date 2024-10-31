@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityCreateRequestDataRelationshipsApp**](AppAvailabilityCreateRequestDataRelationshipsApp.md) |  | 
+**App** | [**AnalyticsReportRequestCreateRequestDataRelationshipsApp**](AnalyticsReportRequestCreateRequestDataRelationshipsApp.md) |  | 
 **AppStoreVersionLocalizations** | [**AppStoreVersionCreateRequestDataRelationshipsAppStoreVersionLocalizations**](AppStoreVersionCreateRequestDataRelationshipsAppStoreVersionLocalizations.md) |  | [optional] 
 **Build** | [**AppStoreVersionCreateRequestDataRelationshipsBuild**](AppStoreVersionCreateRequestDataRelationshipsBuild.md) |  | [optional] 
 

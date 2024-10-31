@@ -8,7 +8,7 @@ All URIs are relative to *https://api.appstoreconnect.apple.com*
 | [**AppClipAdvancedExperienceImagesGetInstance**](AppClipAdvancedExperienceImagesApi.md#appclipadvancedexperienceimagesgetinstance) | **GET** /v1/appClipAdvancedExperienceImages/{id} |  |
 | [**AppClipAdvancedExperienceImagesUpdateInstance**](AppClipAdvancedExperienceImagesApi.md#appclipadvancedexperienceimagesupdateinstance) | **PATCH** /v1/appClipAdvancedExperienceImages/{id} |  |
 
-<a name="appclipadvancedexperienceimagescreateinstance"></a>
+<a id="appclipadvancedexperienceimagescreateinstance"></a>
 # **AppClipAdvancedExperienceImagesCreateInstance**
 > AppClipAdvancedExperienceImageResponse AppClipAdvancedExperienceImagesCreateInstance (AppClipAdvancedExperienceImageCreateRequest appClipAdvancedExperienceImageCreateRequest)
 
@@ -99,13 +99,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **201** | Single AppClipAdvancedExperienceImage |  -  |
 | **409** | Request entity error(s) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipadvancedexperienceimagesgetinstance"></a>
+<a id="appclipadvancedexperienceimagesgetinstance"></a>
 # **AppClipAdvancedExperienceImagesGetInstance**
 > AppClipAdvancedExperienceImageResponse AppClipAdvancedExperienceImagesGetInstance (string id, List<string>? fieldsAppClipAdvancedExperienceImages = null)
 
@@ -198,13 +200,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
 | **200** | Single AppClipAdvancedExperienceImage |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="appclipadvancedexperienceimagesupdateinstance"></a>
+<a id="appclipadvancedexperienceimagesupdateinstance"></a>
 # **AppClipAdvancedExperienceImagesUpdateInstance**
 > AppClipAdvancedExperienceImageResponse AppClipAdvancedExperienceImagesUpdateInstance (string id, AppClipAdvancedExperienceImageUpdateRequest appClipAdvancedExperienceImageUpdateRequest)
 
@@ -297,8 +300,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **400** | Parameter error(s) |  -  |
+| **401** | Unauthorized error(s) |  -  |
 | **403** | Forbidden error |  -  |
 | **404** | Not found error |  -  |
+| **422** | Unprocessable request entity error(s) |  -  |
 | **200** | Single AppClipAdvancedExperienceImage |  -  |
 | **409** | Request entity error(s) |  -  |
 

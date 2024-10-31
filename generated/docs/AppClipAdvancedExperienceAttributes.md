@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Link** | **string** |  | [optional] 
-**_Version** | **int** |  | [optional] 
+**VarVersion** | **int** |  | [optional] 
 **Status** | **string** |  | [optional] 
 **Action** | **AppClipAction** |  | [optional] 
 **IsPoweredBy** | **bool** |  | [optional] 

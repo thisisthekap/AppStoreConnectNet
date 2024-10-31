@@ -10,6 +10,9 @@ Name | Type | Description | Notes
 **TagStartCondition** | [**CiTagStartCondition**](CiTagStartCondition.md) |  | [optional] 
 **PullRequestStartCondition** | [**CiPullRequestStartCondition**](CiPullRequestStartCondition.md) |  | [optional] 
 **ScheduledStartCondition** | [**CiScheduledStartCondition**](CiScheduledStartCondition.md) |  | [optional] 
+**ManualBranchStartCondition** | [**CiManualBranchStartCondition**](CiManualBranchStartCondition.md) |  | [optional] 
+**ManualTagStartCondition** | [**CiManualTagStartCondition**](CiManualTagStartCondition.md) |  | [optional] 
+**ManualPullRequestStartCondition** | [**CiManualPullRequestStartCondition**](CiManualPullRequestStartCondition.md) |  | [optional] 
 **Actions** | [**List&lt;CiAction&gt;**](CiAction.md) |  | 
 **IsEnabled** | **bool** |  | 
 **IsLockedForEditing** | **bool** |  | [optional] 

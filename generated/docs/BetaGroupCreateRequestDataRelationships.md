@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | [**AppAvailabilityCreateRequestDataRelationshipsApp**](AppAvailabilityCreateRequestDataRelationshipsApp.md) |  | 
+**App** | [**AnalyticsReportRequestCreateRequestDataRelationshipsApp**](AnalyticsReportRequestCreateRequestDataRelationshipsApp.md) |  | 
 **Builds** | [**BetaGroupCreateRequestDataRelationshipsBuilds**](BetaGroupCreateRequestDataRelationshipsBuilds.md) |  | [optional] 
 **BetaTesters** | [**BetaGroupCreateRequestDataRelationshipsBetaTesters**](BetaGroupCreateRequestDataRelationshipsBetaTesters.md) |  | [optional] 
 
